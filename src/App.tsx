@@ -4,6 +4,9 @@ import {
   obtenerSectores,
   obtenerTerritorios,
   obtenerPublicadores,
+  crearCampana as crearCampanaEnAPI,
+  eliminarCampana as eliminarCampanaEnAPI,
+  obtenerCampanaActiva,
   crearSector as crearSectorEnAPI,
   actualizarSector as actualizarSectorEnAPI,
   actualizarTerritorio,
@@ -14,9 +17,10 @@ import {
   reordenarSectores as reordenarSectoresEnAPI,
   establecerClave,
 } from './api/client'
-import type { Congregacion, Sector, Territorio, TipoSector } from './api/types'
+import type { Congregacion, Sector, Territorio, TipoSector, Campana } from './api/types'
 import { AdminLayout } from './layouts/AdminLayout'
 import { SectorSidebar } from './features/sectores/SectorSidebar'
+import { CrearCampanaModal } from './features/campanas/CrearCampanaModal'
 import { CrearSectorModal } from './features/sectores/CrearSectorModal'
 import { EditarSectorModal } from './features/sectores/EditarSectorModal'
 import { TerritoryMap, type TerritoryMapHandle } from './features/territorios/TerritoryMap'
@@ -37,6 +41,8 @@ export default function App() {
   const [sectorSeleccionadoId, setSectorSeleccionadoId] = useState<string | null>(null)
   const [territorioSeleccionadoId, setTerritorioSeleccionadoId] = useState<string | null>(null)
   const [mostrandoCrearSector, setMostrandoCrearSector] = useState(false)
+  const [campana, setCampana] = useState<Campana | null>(null)
+  const [mostrandoCrearCampana, setMostrandoCrearCampana] = useState(false)
   const [sectorEditando, setSectorEditando] = useState<Sector | null>(null)
   const [editandoVertices, setEditandoVertices] = useState(false)
 
@@ -71,9 +77,21 @@ export default function App() {
         obtenerSectores(c.id).then(setSectores)
         obtenerTerritorios().then(setTerritorios)
         obtenerPublicadores().then(setPublicadores)
+        obtenerCampanaActiva().then(setCampana).catch(() => {})
       })
       .catch(() => setEstado('clave_invalida'))
   }, [])
+
+  // Si la campaña se crea, se borra o avanza desde la app (o desde otro
+  // ordenador), al volver a esta pestaña se pone al día.
+  useEffect(() => {
+    if (estado !== 'listo') return
+    const alVolver = () => {
+      obtenerCampanaActiva().then(setCampana).catch(() => {})
+    }
+    window.addEventListener('focus', alVolver)
+    return () => window.removeEventListener('focus', alVolver)
+  }, [estado])
 
   const coloresPorSector = useMemo(() => construirColoresPorSector(sectores), [sectores])
 
@@ -239,6 +257,40 @@ export default function App() {
     setUltimoGuardado(null)
   }
 
+  function mensajeDe(error: unknown): string {
+    return (error as { message?: string } | null)?.message ?? String(error)
+  }
+
+  async function crearCampana(datos: { nombre: string; inicio: string; fin: string }) {
+    try {
+      await crearCampanaEnAPI(datos)
+      setCampana(await obtenerCampanaActiva())
+      setMostrandoCrearCampana(false)
+    } catch (error) {
+      console.error('Fallo al crear la campaña:', error)
+      const detalle = mensajeDe(error)
+      alert(
+        detalle.includes('ya hay una campaña')
+          ? 'Ya hay una campaña activa. Elimínala antes de crear otra.'
+          : `No se pudo crear la campaña.\n\n${detalle}`
+      )
+      // Si ya había una (por ejemplo, creada desde la app), la enseñamos.
+      obtenerCampanaActiva().then(setCampana).catch(() => {})
+    }
+  }
+
+  async function eliminarLaCampana() {
+    if (!campana) return
+    try {
+      await eliminarCampanaEnAPI(campana.id)
+      setCampana(null)
+    } catch (error) {
+      console.error('Fallo al eliminar la campaña:', error)
+      alert(`No se pudo eliminar la campaña.\n\n${mensajeDe(error)}`)
+      obtenerCampanaActiva().then(setCampana).catch(() => {})
+    }
+  }
+
   async function reordenarSectores(nuevoOrden: string[]) {
     // Se actualiza en pantalla al momento, sin esperar al servidor —
     // si falla el guardado, lo deshacemos y avisamos.
@@ -326,6 +378,9 @@ export default function App() {
             onEditarSector={setSectorEditando}
             onCrearTerritorio={iniciarCrearTerritorio}
             onReordenar={reordenarSectores}
+            campana={campana}
+            onCrearCampana={() => setMostrandoCrearCampana(true)}
+            onEliminarCampana={eliminarLaCampana}
           />
         }
         mapa={
@@ -367,6 +422,10 @@ export default function App() {
           onCrear={crearSector}
           onCerrar={() => setMostrandoCrearSector(false)}
         />
+      )}
+
+      {mostrandoCrearCampana && (
+        <CrearCampanaModal onCrear={crearCampana} onCerrar={() => setMostrandoCrearCampana(false)} />
       )}
 
       {sectorEditando && (

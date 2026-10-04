@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="robots" content="noindex, nofollow" />
+    <meta name="color-scheme" content="light dark" />
+    <title>Invitación a Wkit</title>
+    <style>
+      :root {
+        --fondo: #faf9f5;
+        --tarjeta: #ffffff;
+        --texto: #1c1c1a;
+        --secundario: #5f5e5a;
+        --borde: #e3e1d8;
+        --acento: #0f6e56;
+      }
+      @media (prefers-color-scheme: dark) {
+        :root {
+          --fondo: #1c1c1a;
+          --tarjeta: #2a2a27;
+          --texto: #f1efe8;
+          --secundario: #b4b2a9;
+          --borde: #3d3d39;
+          --acento: #2fa583;
+        }
+      }
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        background: var(--fondo);
+        color: var(--texto);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+        line-height: 1.45;
+      }
+      main { max-width: 440px; margin: 0 auto; padding: 32px 20px 48px; }
+      h1 { font-size: 26px; margin: 0 0 8px; }
+      h2 { font-size: 16px; margin: 0 0 6px; }
+      .sub { color: var(--secundario); margin: 0 0 24px; }
+      ol { padding-left: 22px; margin: 0 0 20px; }
+      li { margin-bottom: 8px; }
+      .boton {
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 14px 16px;
+        border-radius: 12px;
+        border: none;
+        background: var(--acento);
+        color: #fff;
+        font-size: 17px;
+        font-weight: 600;
+        text-decoration: none;
+        cursor: pointer;
+      }
+      .boton.secundario {
+        background: transparent;
+        color: var(--acento);
+        border: 1.5px solid var(--acento);
+        margin-top: 10px;
+      }
+      .alternativa {
+        margin-top: 28px;
+        padding: 18px;
+        background: var(--tarjeta);
+        border: 1px solid var(--borde);
+        border-radius: 14px;
+      }
+      .alternativa p { margin: 0 0 12px; color: var(--secundario); font-size: 15px; }
+      .codigo {
+        padding: 12px;
+        border: 1px dashed var(--borde);
+        border-radius: 10px;
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+        font-size: 14px;
+        word-break: break-all;
+        /* Un toque selecciona el código entero, para copiarlo a mano si hace falta. */
+        -webkit-user-select: all;
+        user-select: all;
+      }
+      #aviso { min-height: 1.4em; margin: 10px 0 0; text-align: center; color: var(--acento); font-weight: 600; }
+      .nota { margin-top: 20px; font-size: 13px; color: var(--secundario); }
+      [hidden] { display: none !important; }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>Te han invitado a Wkit</h1>
+      <p class="sub">Te han invitado a unirte a tu congregación en la app Wkit.</p>
+
+      <div id="valido" hidden>
+        <ol>
+          <li><strong>Instala la app Wkit</strong> si todavía no la tienes. <span id="instalar"></span></li>
+          <li><strong>Pulsa el botón</strong> de abajo para abrirla con tu invitación.</li>
+        </ol>
+
+        <a id="abrir" class="boton" href="#">Abrir en Wkit</a>
+
+        <section class="alternativa">
+          <h2>¿No se abre la app?</h2>
+          <p>
+            Copia este código, abre Wkit, toca «Tengo un enlace o un código de invitación» y pégalo
+            ahí.
+          </p>
+          <div id="codigo" class="codigo"></div>
+          <button id="copiar" class="boton secundario" type="button">Copiar código</button>
+          <p id="aviso" role="status"></p>
+        </section>
+
+        <p class="nota">
+          Si has abierto este enlace desde WhatsApp u otra aplicación y el botón no hace nada, ábrelo
+          en Safari (en WhatsApp, el icono de la brújula abajo a la derecha).
+        </p>
+      </div>
+
+      <div id="invalido" hidden>
+        <p>
+          Este enlace de invitación está incompleto. Pídele al anciano que te lo mande otra vez.
+        </p>
+      </div>
+    </main>
+
+    <script>
+      (function () {
+        // Cuando la app esté en la App Store o en TestFlight, pon aquí su
+        // enlace y saldrá junto al paso 1.
+        var ENLACE_INSTALAR = "";
+
+        // El código de una invitación son solo letras de la a a la f y
+        // números. Cualquier otra cosa se rechaza: nunca se pinta tal cual.
+        function extraerCodigo(busqueda) {
+          var valor = new URLSearchParams(busqueda).get("codigo") || "";
+          valor = valor.trim().toLowerCase();
+          return /^[0-9a-f]{16,128}$/.test(valor) ? valor : null;
+        }
+
+        function copiar(texto) {
+          if (navigator.clipboard && window.isSecureContext) {
+            return navigator.clipboard.writeText(texto);
+          }
+          // Plan B para navegadores antiguos.
+          return new Promise(function (resolver, rechazar) {
+            var campo = document.createElement("textarea");
+            campo.value = texto;
+            campo.setAttribute("readonly", "");
+            campo.style.position = "fixed";
+            campo.style.opacity = "0";
+            document.body.appendChild(campo);
+            campo.select();
+            var bien = false;
+            try { bien = document.execCommand("copy"); } catch (e) {}
+            document.body.removeChild(campo);
+            bien ? resolver() : rechazar();
+          });
+        }
+
+        var codigo = extraerCodigo(window.location.search);
+
+        if (!codigo) {
+          document.getElementById("invalido").hidden = false;
+          return;
+        }
+
+        document.getElementById("valido").hidden = false;
+        document.getElementById("codigo").textContent = codigo;
+        document.getElementById("abrir").href =
+          "wkit://invitacion?codigo=" + encodeURIComponent(codigo);
+
+        if (ENLACE_INSTALAR) {
+          var enlace = document.createElement("a");
+          enlace.href = ENLACE_INSTALAR;
+          enlace.textContent = "Instalar Wkit";
+          document.getElementById("instalar").appendChild(enlace);
+        }
+
+        var aviso = document.getElementById("aviso");
+        document.getElementById("copiar").addEventListener("click", function () {
+          copiar(codigo).then(
+            function () { aviso.textContent = "Código copiado ✓"; },
+            function () { aviso.textContent = "No se pudo copiar: toca el código para seleccionarlo."; }
+          );
+        });
+      })();
+    </script>
+  </body>
+</html>

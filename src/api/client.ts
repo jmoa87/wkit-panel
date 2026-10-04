@@ -1,5 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
-import type { Congregacion, Sector, Territorio, TipoSector } from './types'
+import type { Campana, Congregacion, Sector, Territorio, TipoSector } from './types'
 
 // Mismo proyecto de Supabase que usa la app de iOS — es la misma base
 // de datos, así que un territorio asignado aquí se ve también en la
@@ -106,6 +106,50 @@ export async function actualizarSector(
   })
   if (error) throw error
   return { id, congregacionId: '', nombre: cambios.nombre!, tipo: cambios.tipo!, color: cambios.color! }
+}
+
+interface FilaCampana {
+  id: string
+  name: string
+  start_date: string
+  end_date: string
+  total: number
+  asignados: number
+  completados: number
+}
+
+/** La campaña activa, o null si no hay ninguna. Es la misma que ve la app. */
+export async function obtenerCampanaActiva(): Promise<Campana | null> {
+  const { data, error } = await supabase.rpc('panel_campana_activa', { p_token: clave })
+  if (error) throw error
+  const fila = data as FilaCampana | null
+  if (!fila) return null
+  return {
+    id: fila.id,
+    nombre: fila.name,
+    inicio: fila.start_date,
+    fin: fila.end_date,
+    total: fila.total,
+    asignados: fila.asignados,
+    completados: fila.completados,
+  }
+}
+
+/** Crea la campaña y copia de golpe todos los territorios actuales. */
+export async function crearCampana(datos: { nombre: string; inicio: string; fin: string }): Promise<void> {
+  const { error } = await supabase.rpc('panel_crear_campana', {
+    p_token: clave,
+    p_name: datos.nombre,
+    p_start: datos.inicio,
+    p_end: datos.fin,
+  })
+  if (error) throw error
+}
+
+/** Elimina la campaña y todas sus asignaciones. Los territorios normales no se tocan. */
+export async function eliminarCampana(id: string): Promise<void> {
+  const { error } = await supabase.rpc('panel_eliminar_campana', { p_token: clave, p_campaign: id })
+  if (error) throw error
 }
 
 export async function reordenarSectores(ids: string[]): Promise<void> {

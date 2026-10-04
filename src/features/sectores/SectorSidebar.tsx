@@ -1,5 +1,6 @@
 import { useState } from 'react'
-import type { Sector, Territorio } from '../../api/types'
+import type { Campana, Sector, Territorio } from '../../api/types'
+import { CampanaCard } from '../campanas/CampanaCard'
 
 interface SectorSidebarProps {
   sectores: Sector[]
@@ -13,6 +14,9 @@ interface SectorSidebarProps {
   onEditarSector: (sector: Sector) => void
   onCrearTerritorio: () => void
   onReordenar: (nuevoOrden: string[]) => void
+  campana: Campana | null
+  onCrearCampana: () => void
+  onEliminarCampana: () => void
 }
 
 export function SectorSidebar({
@@ -27,6 +31,9 @@ export function SectorSidebar({
   onEditarSector,
   onCrearTerritorio,
   onReordenar,
+  campana,
+  onCrearCampana,
+  onEliminarCampana,
 }: SectorSidebarProps) {
   const [arrastrandoId, setArrastrandoId] = useState<string | null>(null)
   const [sobreId, setSobreId] = useState<string | null>(null)
@@ -228,6 +235,8 @@ export function SectorSidebar({
           </div>
         )
       })}
+
+      <CampanaCard campana={campana} onCrear={onCrearCampana} onEliminar={onEliminarCampana} />
     </nav>
   )
 }
