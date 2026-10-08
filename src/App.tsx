@@ -32,8 +32,27 @@ import { coloresPorSector as construirColoresPorSector } from './utils/sectorCol
 // servidor — en cuanto se crea de verdad, pasa a tener su id real.
 const ID_NUEVO = '__nuevo__'
 
+/** El texto que devuelve el servidor, en minúsculas, para reconocer el motivo. */
+function motivoBruto(error: unknown): string {
+  return ((error as { message?: string } | null)?.message ?? String(error)).toLowerCase()
+}
+
+/** Explica el motivo real de un fallo, en vez de culpar siempre a la conexión. */
+function motivoDelError(error: unknown): string {
+  const texto = motivoBruto(error)
+  if (texto.includes('suscripcion_caducada')) {
+    return 'La suscripción de la congregación ha caducado. Un administrador debe renovarla desde la app Wkit.'
+  }
+  if (texto.includes('clave no valida') || texto.includes('ya no tiene permiso')) {
+    return 'Tu acceso al panel ha caducado o ya no tiene permiso. Pídele al anciano un enlace nuevo.'
+  }
+  return 'Comprueba tu conexión e inténtalo de nuevo.'
+}
+
 export default function App() {
-  const [estado, setEstado] = useState<'cargando' | 'sin_clave' | 'clave_invalida' | 'listo'>('cargando')
+  const [estado, setEstado] = useState<
+    'cargando' | 'sin_clave' | 'clave_invalida' | 'suscripcion_caducada' | 'sin_conexion' | 'listo'
+  >('cargando')
   const [congregacion, setCongregacion] = useState<Congregacion | null>(null)
   const [sectores, setSectores] = useState<Sector[]>([])
   const [territorios, setTerritorios] = useState<Territorio[]>([])
@@ -79,7 +98,12 @@ export default function App() {
         obtenerPublicadores().then(setPublicadores)
         obtenerCampanaActiva().then(setCampana).catch(() => {})
       })
-      .catch(() => setEstado('clave_invalida'))
+      .catch((error) => {
+        const texto = motivoBruto(error)
+        if (texto.includes('suscripcion_caducada')) setEstado('suscripcion_caducada')
+        else if (texto.includes('clave no valida') || texto.includes('ya no tiene permiso')) setEstado('clave_invalida')
+        else setEstado('sin_conexion')
+      })
   }, [])
 
   // Si la campaña se crea, se borra o avanza desde la app (o desde otro
@@ -208,7 +232,7 @@ export default function App() {
       setEditandoVertices(false)
     } catch (error) {
       console.error(error)
-      alert('No se pudo guardar. Comprueba tu conexión e inténtalo de nuevo.')
+      alert(`No se pudo guardar.\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -219,7 +243,7 @@ export default function App() {
       obtenerTerritorios().then(setTerritorios)
     } catch (error) {
       console.error(error)
-      alert('No se pudo asignar el territorio. Comprueba tu conexión e inténtalo de nuevo.')
+      alert(`No se pudo asignar el territorio.\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -230,7 +254,7 @@ export default function App() {
       obtenerTerritorios().then(setTerritorios)
     } catch (error) {
       console.error(error)
-      alert('No se pudo devolver el territorio. Comprueba tu conexión e inténtalo de nuevo.')
+      alert(`No se pudo devolver el territorio.\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -242,7 +266,7 @@ export default function App() {
       setTerritorioSeleccionadoId(null)
     } catch (error) {
       console.error(error)
-      alert('No se pudo eliminar el territorio. Comprueba tu conexión e inténtalo de nuevo.')
+      alert(`No se pudo eliminar el territorio.\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -304,7 +328,7 @@ export default function App() {
     } catch (error) {
       console.error(error)
       setSectores(anteriores)
-      alert('No se pudo guardar el nuevo orden. Comprueba tu conexión e inténtalo de nuevo.')
+      alert(`No se pudo guardar el nuevo orden.\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -315,7 +339,7 @@ export default function App() {
       setMostrandoCrearSector(false)
     } catch (error) {
       console.error(error)
-      alert('No se pudo crear el sector. Comprueba tu conexión e inténtalo de nuevo.')
+      alert(`No se pudo crear el sector.\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -326,7 +350,7 @@ export default function App() {
       setSectorEditando(null)
     } catch (error) {
       console.error(error)
-      alert('No se pudo guardar el sector. Comprueba tu conexión e inténtalo de nuevo.')
+      alert(`No se pudo guardar el sector.\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -346,6 +370,30 @@ export default function App() {
           Pídele al anciano que te genere un enlace de acceso al panel desde la app Wkit — este panel no
           se puede abrir directamente sin él.
         </p>
+      </div>
+    )
+  }
+
+  if (estado === 'suscripcion_caducada') {
+    return (
+      <div style={{ padding: 32, maxWidth: 420, margin: '0 auto', textAlign: 'center' }}>
+        <h2>La suscripción de la congregación ha caducado</h2>
+        <p style={{ color: 'var(--color-text-secondary)' }}>
+          Mientras no se renueve, el panel no se puede usar. Pídele a un administrador que la renueve
+          desde la app Wkit (Ajustes → Suscripción de la congregación).
+        </p>
+      </div>
+    )
+  }
+
+  if (estado === 'sin_conexion') {
+    return (
+      <div style={{ padding: 32, maxWidth: 420, margin: '0 auto', textAlign: 'center' }}>
+        <h2>No se pudo conectar</h2>
+        <p style={{ color: 'var(--color-text-secondary)' }}>
+          Comprueba tu conexión a internet y vuelve a intentarlo.
+        </p>
+        <button onClick={() => window.location.reload()}>Reintentar</button>
       </div>
     )
   }
