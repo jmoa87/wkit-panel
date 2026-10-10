@@ -1,3 +1,4 @@
+import { t, useIdioma } from './i18n'
 import { useEffect, useMemo, useRef, useState } from 'react'
 import {
   obtenerCongregacionActual,
@@ -41,15 +42,16 @@ function motivoBruto(error: unknown): string {
 function motivoDelError(error: unknown): string {
   const texto = motivoBruto(error)
   if (texto.includes('suscripcion_caducada')) {
-    return 'La suscripción de la congregación ha caducado. Un administrador debe renovarla desde la app Wkit.'
+    return t("La suscripción de la congregación ha caducado. Un administrador debe renovarla desde la app Wkit.")
   }
   if (texto.includes('clave no valida') || texto.includes('ya no tiene permiso')) {
-    return 'Tu acceso al panel ha caducado o ya no tiene permiso. Pídele al anciano un enlace nuevo.'
+    return t("Tu acceso al panel ha caducado o ya no tiene permiso. Pídele al anciano un enlace nuevo.")
   }
-  return 'Comprueba tu conexión e inténtalo de nuevo.'
+  return t("Comprueba tu conexión e inténtalo de nuevo.")
 }
 
 export default function App() {
+  useIdioma() // al cambiar de idioma, se vuelve a pintar todo
   const [estado, setEstado] = useState<
     'cargando' | 'sin_clave' | 'clave_invalida' | 'suscripcion_caducada' | 'sin_conexion' | 'listo'
   >('cargando')
@@ -101,7 +103,7 @@ export default function App() {
       .catch((error) => {
         const texto = motivoBruto(error)
         if (texto.includes('suscripcion_caducada')) setEstado('suscripcion_caducada')
-        else if (texto.includes('clave no valida') || texto.includes('ya no tiene permiso')) setEstado('clave_invalida')
+        else if (texto.includes('clave no valida') || texto.includes('ya no tiene permiso') || texto.includes('no se encontró la congregación')) setEstado('clave_invalida')
         else setEstado('sin_conexion')
       })
   }, [])
@@ -214,7 +216,7 @@ export default function App() {
       } catch (error) {
         console.error('Fallo al crear el territorio:', error)
         const detalle = error instanceof Error ? error.message : String(error)
-        alert(`No se pudo crear el territorio.\n\n${detalle}`)
+        alert(`${t("No se pudo crear el territorio.")}\n\n${detalle}`)
       }
       return
     }
@@ -232,7 +234,7 @@ export default function App() {
       setEditandoVertices(false)
     } catch (error) {
       console.error(error)
-      alert(`No se pudo guardar.\n\n${motivoDelError(error)}`)
+      alert(`${t("No se pudo guardar.")}\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -243,7 +245,7 @@ export default function App() {
       obtenerTerritorios().then(setTerritorios)
     } catch (error) {
       console.error(error)
-      alert(`No se pudo asignar el territorio.\n\n${motivoDelError(error)}`)
+      alert(`${t("No se pudo asignar el territorio.")}\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -254,7 +256,7 @@ export default function App() {
       obtenerTerritorios().then(setTerritorios)
     } catch (error) {
       console.error(error)
-      alert(`No se pudo devolver el territorio.\n\n${motivoDelError(error)}`)
+      alert(`${t("No se pudo devolver el territorio.")}\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -266,7 +268,7 @@ export default function App() {
       setTerritorioSeleccionadoId(null)
     } catch (error) {
       console.error(error)
-      alert(`No se pudo eliminar el territorio.\n\n${motivoDelError(error)}`)
+      alert(`${t("No se pudo eliminar el territorio.")}\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -295,8 +297,8 @@ export default function App() {
       const detalle = mensajeDe(error)
       alert(
         detalle.includes('ya hay una campaña')
-          ? 'Ya hay una campaña activa. Elimínala antes de crear otra.'
-          : `No se pudo crear la campaña.\n\n${detalle}`
+          ? t('Ya hay una campaña activa. Elimínala antes de crear otra.')
+          : `${t('No se pudo crear la campaña.')}\n\n${detalle}`
       )
       // Si ya había una (por ejemplo, creada desde la app), la enseñamos.
       obtenerCampanaActiva().then(setCampana).catch(() => {})
@@ -310,7 +312,7 @@ export default function App() {
       setCampana(null)
     } catch (error) {
       console.error('Fallo al eliminar la campaña:', error)
-      alert(`No se pudo eliminar la campaña.\n\n${mensajeDe(error)}`)
+      alert(`${t("No se pudo eliminar la campaña.")}\n\n${mensajeDe(error)}`)
       obtenerCampanaActiva().then(setCampana).catch(() => {})
     }
   }
@@ -328,7 +330,7 @@ export default function App() {
     } catch (error) {
       console.error(error)
       setSectores(anteriores)
-      alert(`No se pudo guardar el nuevo orden.\n\n${motivoDelError(error)}`)
+      alert(`${t("No se pudo guardar el nuevo orden.")}\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -339,7 +341,7 @@ export default function App() {
       setMostrandoCrearSector(false)
     } catch (error) {
       console.error(error)
-      alert(`No se pudo crear el sector.\n\n${motivoDelError(error)}`)
+      alert(`${t("No se pudo crear el sector.")}\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -350,7 +352,7 @@ export default function App() {
       setSectorEditando(null)
     } catch (error) {
       console.error(error)
-      alert(`No se pudo guardar el sector.\n\n${motivoDelError(error)}`)
+      alert(`${t("No se pudo guardar el sector.")}\n\n${motivoDelError(error)}`)
     }
   }
 
@@ -359,16 +361,15 @@ export default function App() {
     : null
 
   if (estado === 'cargando') {
-    return <div style={{ padding: 32, color: 'var(--color-text-secondary)' }}>Cargando…</div>
+    return <div style={{ padding: 32, color: 'var(--color-text-secondary)' }}>{t("Cargando…")}</div>
   }
 
   if (estado === 'sin_clave') {
     return (
       <div style={{ padding: 32, maxWidth: 420, margin: '0 auto', textAlign: 'center' }}>
-        <h2>Falta la clave de acceso</h2>
+        <h2>{t("Falta la clave de acceso")}</h2>
         <p style={{ color: 'var(--color-text-secondary)' }}>
-          Pídele al anciano que te genere un enlace de acceso al panel desde la app Wkit — este panel no
-          se puede abrir directamente sin él.
+          {t("Pídele al anciano que te genere un enlace de acceso al panel desde la app Wkit — este panel no se puede abrir directamente sin él.")}
         </p>
       </div>
     )
@@ -377,10 +378,9 @@ export default function App() {
   if (estado === 'suscripcion_caducada') {
     return (
       <div style={{ padding: 32, maxWidth: 420, margin: '0 auto', textAlign: 'center' }}>
-        <h2>La suscripción de la congregación ha caducado</h2>
+        <h2>{t("La suscripción de la congregación ha caducado")}</h2>
         <p style={{ color: 'var(--color-text-secondary)' }}>
-          Mientras no se renueve, el panel no se puede usar. Pídele a un administrador que la renueve
-          desde la app Wkit (Ajustes → Suscripción de la congregación).
+          {t("Mientras no se renueve, el panel no se puede usar. Pídele a un administrador que la renueve desde la app Wkit (Ajustes → Suscripción de la congregación).")}
         </p>
       </div>
     )
@@ -389,11 +389,11 @@ export default function App() {
   if (estado === 'sin_conexion') {
     return (
       <div style={{ padding: 32, maxWidth: 420, margin: '0 auto', textAlign: 'center' }}>
-        <h2>No se pudo conectar</h2>
+        <h2>{t("No se pudo conectar")}</h2>
         <p style={{ color: 'var(--color-text-secondary)' }}>
-          Comprueba tu conexión a internet y vuelve a intentarlo.
+          {t("Comprueba tu conexión a internet y vuelve a intentarlo.")}
         </p>
-        <button onClick={() => window.location.reload()}>Reintentar</button>
+        <button onClick={() => window.location.reload()}>{t("Reintentar")}</button>
       </div>
     )
   }
@@ -401,9 +401,9 @@ export default function App() {
   if (estado === 'clave_invalida') {
     return (
       <div style={{ padding: 32, maxWidth: 420, margin: '0 auto', textAlign: 'center' }}>
-        <h2>Esta clave no es válida o ha caducado</h2>
+        <h2>{t("Esta clave no es válida o ha caducado")}</h2>
         <p style={{ color: 'var(--color-text-secondary)' }}>
-          Pídele al anciano que te genere una nueva desde la app Wkit.
+          {t("Pídele al anciano que te genere una nueva desde la app Wkit.")}
         </p>
       </div>
     )
@@ -412,7 +412,7 @@ export default function App() {
   return (
     <>
       <AdminLayout
-        titulo={congregacion ? `Territorios — ${congregacion.nombre}` : 'Territorios'}
+        titulo={congregacion ? `${t('Territorios')} — ${congregacion.nombre}` : t('Territorios')}
         sidebar={
           <SectorSidebar
             sectores={sectores}

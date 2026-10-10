@@ -1,3 +1,4 @@
+import { t, formatearFecha } from '../../i18n'
 import { useState } from 'react'
 import type { Sector, Territorio } from '../../api/types'
 
@@ -42,7 +43,7 @@ export function TerritoryPanel({
   if (!borrador || !territorioOriginal) {
     return (
       <div style={{ color: 'var(--color-text-secondary)', fontSize: 13 }}>
-        Selecciona un territorio en el mapa o en la lista.
+        {t("Selecciona un territorio en el mapa o en la lista.")}
       </div>
     )
   }
@@ -58,10 +59,10 @@ export function TerritoryPanel({
       }}
     >
       <div style={{ fontWeight: 600, marginBottom: 'var(--spacing-md)' }}>
-        {modoCreacion ? 'Nuevo territorio' : `Territorio ${territorioOriginal.numero}`}
+        {modoCreacion ? t("Nuevo territorio") : t("Territorio {numero}", { numero: territorioOriginal.numero })}
       </div>
 
-      <Campo etiqueta="Número">
+      <Campo etiqueta={t("Número")}>
         <input
           value={borrador.numero}
           onChange={(e) => onCambiarCampo({ numero: e.target.value })}
@@ -70,7 +71,7 @@ export function TerritoryPanel({
         />
       </Campo>
 
-      <Campo etiqueta="Sector">
+      <Campo etiqueta={t("Sector")}>
         <select
           value={borrador.sectorId}
           onChange={(e) => onCambiarCampo({ sectorId: e.target.value })}
@@ -85,7 +86,7 @@ export function TerritoryPanel({
       </Campo>
 
       {!modoCreacion && (
-        <Campo etiqueta="Asignación">
+        <Campo etiqueta={t("Asignación")}>
           {territorioOriginal.publicadorAsignado ? (
             <div
               style={{
@@ -95,17 +96,17 @@ export function TerritoryPanel({
                 fontSize: 12,
               }}
             >
-              <div style={{ color: 'var(--color-text-secondary)', marginBottom: 4 }}>Asignado a</div>
+              <div style={{ color: 'var(--color-text-secondary)', marginBottom: 4 }}>{t("Asignado a")}</div>
               <div style={{ marginBottom: 6 }}>
                 {publicadores.find((p) => p.id === territorioOriginal.publicadorAsignado)?.nombre ??
                   territorioOriginal.publicadorAsignado}
               </div>
               <div style={{ display: 'flex', justifyContent: 'space-between', color: 'var(--color-text-secondary)', marginBottom: 8 }}>
-                <span>Desde {formatoFecha(territorioOriginal.fechaInicio)}</span>
-                <span>Hasta {formatoFecha(territorioOriginal.fechaLimite)}</span>
+                <span>{t("Desde {fecha}", { fecha: formatoFecha(territorioOriginal.fechaInicio) })}</span>
+                <span>{t("Hasta {fecha}", { fecha: formatoFecha(territorioOriginal.fechaLimite) })}</span>
               </div>
               <button type="button" onClick={onDevolver} style={botonSecundario}>
-                Marcar como devuelto
+                {t("Marcar como devuelto")}
               </button>
             </div>
           ) : (
@@ -115,7 +116,7 @@ export function TerritoryPanel({
                 onChange={(e) => setPublicadorElegido(e.target.value)}
                 style={{ ...inputStyle, flex: 1 }}
               >
-                <option value="">Elegir publicador…</option>
+                <option value="">{t("Elegir publicador…")}</option>
                 {publicadores.map((p) => (
                   <option key={p.id} value={p.id}>
                     {p.nombre}
@@ -137,7 +138,7 @@ export function TerritoryPanel({
                   cursor: publicadorElegido ? 'pointer' : 'default',
                 }}
               >
-                Asignar
+                {t("Asignar")}
               </button>
             </div>
           )}
@@ -159,14 +160,14 @@ export function TerritoryPanel({
           fontWeight: 600,
         }}
       >
-        {editandoVertices ? 'Terminar edición del territorio' : 'Editar territorio'}
+        {editandoVertices ? t("Terminar edición del territorio") : t("Editar territorio")}
       </button>
 
       {!modoCreacion && (
         <button
           type="button"
           onClick={() => {
-            if (window.confirm(`¿Eliminar el territorio ${territorioOriginal.numero}? No se puede deshacer.`)) {
+            if (window.confirm(t("¿Eliminar el territorio {numero}? No se puede deshacer.", { numero: territorioOriginal.numero }))) {
               onEliminar()
             }
           }}
@@ -182,13 +183,13 @@ export function TerritoryPanel({
             fontWeight: 600,
           }}
         >
-          Eliminar territorio
+          {t("Eliminar territorio")}
         </button>
       )}
 
       {modoCreacion && (
         <div style={{ fontSize: 12, color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-sm)' }}>
-          Arrastra los puntos sobre el mapa para darle la forma real, y pon su número antes de crearlo.
+          {t("Arrastra los puntos sobre el mapa para darle la forma real, y pon su número antes de crearlo.")}
         </div>
       )}
 
@@ -207,16 +208,14 @@ export function TerritoryPanel({
           cursor: puedeGuardar && !editandoVertices ? 'pointer' : 'default',
         }}
       >
-        {modoCreacion ? 'Crear territorio' : 'Guardar cambios'}
+        {modoCreacion ? t("Crear territorio") : t("Guardar cambios")}
       </button>
     </form>
   )
 }
 
 function formatoFecha(iso?: string): string {
-  if (!iso) return '—'
-  const [anio, mes, dia] = iso.split('-')
-  return `${dia}/${mes}/${anio}`
+  return formatearFecha(iso)
 }
 
 function Campo({ etiqueta, children }: { etiqueta: string; children: React.ReactNode }) {

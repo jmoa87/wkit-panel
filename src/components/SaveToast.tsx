@@ -1,3 +1,4 @@
+import { t } from '../i18n'
 interface SaveToastProps {
   numero: string
   sectorNombre: string
@@ -21,9 +22,9 @@ export function SaveToast({ numero, sectorNombre, onCancelar, onOk }: SaveToastP
         zIndex: 60,
       }}
     >
-      <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>Cambios guardados</div>
+      <div style={{ fontSize: 13, fontWeight: 600, marginBottom: 2 }}>{t("Cambios guardados")}</div>
       <div style={{ fontSize: 12, color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-sm)' }}>
-        Territorio {numero} · {sectorNombre}
+        {t("Territorio {numero}", { numero })} · {sectorNombre}
       </div>
       <div style={{ display: 'flex', gap: 6 }}>
         <button
@@ -38,7 +39,7 @@ export function SaveToast({ numero, sectorNombre, onCancelar, onOk }: SaveToastP
             color: 'var(--color-text-primary)',
           }}
         >
-          Cancelar cambios
+          {t("Cancelar cambios")}
         </button>
         <button
           onClick={onOk}
@@ -53,7 +54,7 @@ export function SaveToast({ numero, sectorNombre, onCancelar, onOk }: SaveToastP
             fontWeight: 600,
           }}
         >
-          Guardar
+          {t("Guardar")}
         </button>
       </div>
     </div>

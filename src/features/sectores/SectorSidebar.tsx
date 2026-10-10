@@ -1,3 +1,4 @@
+import { t } from '../../i18n'
 import { useState } from 'react'
 import type { Campana, Sector, Territorio } from '../../api/types'
 import { CampanaCard } from '../campanas/CampanaCard'
@@ -50,7 +51,7 @@ export function SectorSidebar({
           onClick={() => onSeleccionarSector(null)}
           style={{ ...botonBase, color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-sm)' }}
         >
-          ← Sectores
+          {t("← Sectores")}
         </button>
 
         <div
@@ -77,7 +78,7 @@ export function SectorSidebar({
           </span>
           <button
             onClick={onCrearTerritorio}
-            title="Crear territorio"
+            title={t("Crear territorio")}
             style={{
               marginLeft: 'auto',
               width: 20,
@@ -99,7 +100,7 @@ export function SectorSidebar({
           </button>
           <button
             onClick={() => onEditarSector(sectorActivo)}
-            title="Editar sector"
+            title={t("Editar sector")}
             style={{
               background: 'none',
               border: 'none',
@@ -138,7 +139,7 @@ export function SectorSidebar({
                 flexShrink: 0,
               }}
             />
-            Territorio {territorio.numero}
+            {t("Territorio {numero}", { numero: territorio.numero })}
           </button>
         ))}
       </nav>
@@ -155,10 +156,10 @@ export function SectorSidebar({
           marginBottom: 'var(--spacing-sm)',
         }}
       >
-        <div style={{ fontWeight: 600 }}>Sectores</div>
+        <div style={{ fontWeight: 600 }}>{t("Sectores")}</div>
         <button
           onClick={onCrearSector}
-          title="Crear sector"
+          title={t("Crear sector")}
           style={{
             width: 22,
             height: 22,
@@ -179,7 +180,7 @@ export function SectorSidebar({
       </div>
 
       <div style={{ fontSize: 11, color: 'var(--color-text-secondary)', marginBottom: 6 }}>
-        Mantén pulsado y arrastra ⠿ para cambiar el orden
+        {t("Mantén pulsado y arrastra ⠿ para cambiar el orden")}
       </div>
 
       {sectores.map((sector) => {

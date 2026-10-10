@@ -1,3 +1,4 @@
+import { t } from '../../i18n'
 import { useState } from 'react'
 
 interface CrearCampanaModalProps {
@@ -32,43 +33,42 @@ export function CrearCampanaModal({ onCrear, onCerrar }: CrearCampanaModalProps)
   return (
     <div style={fondoStyle} onClick={onCerrar}>
       <div style={tarjetaStyle} onClick={(e) => e.stopPropagation()}>
-        <div style={{ fontWeight: 600, marginBottom: 'var(--spacing-md)' }}>Nueva campaña</div>
+        <div style={{ fontWeight: 600, marginBottom: 'var(--spacing-md)' }}>{t("Nueva campaña")}</div>
 
-        <Campo etiqueta="Nombre">
+        <Campo etiqueta={t("Nombre")}>
           <input
             autoFocus
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            placeholder="Ej. Cursos bíblicos"
+            placeholder={t("Ej. Cursos bíblicos")}
             style={inputStyle}
           />
         </Campo>
 
-        <Campo etiqueta="Empieza">
+        <Campo etiqueta={t("Empieza")}>
           <input type="date" value={inicio} onChange={(e) => setInicio(e.target.value)} style={inputStyle} />
         </Campo>
 
-        <Campo etiqueta="Termina">
+        <Campo etiqueta={t("Termina")}>
           <input type="date" value={fin} min={inicio} onChange={(e) => setFin(e.target.value)} style={inputStyle} />
         </Campo>
 
         {!fechasValidas && inicio !== '' && fin !== '' && (
           <div style={{ fontSize: 12, color: '#B51700', marginBottom: 'var(--spacing-sm)' }}>
-            La campaña no puede acabar antes de empezar.
+            {t("La campaña no puede acabar antes de empezar.")}
           </div>
         )}
 
         <div style={{ fontSize: 11, color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-md)' }}>
-          Se crea una copia de todos los territorios actuales, lista para repartir aparte. Los territorios
-          normales no se tocan: siguen asignados a quien los tuviera.
+          {t("Se crea una copia de todos los territorios actuales, lista para repartir aparte. Los territorios normales no se tocan: siguen asignados a quien los tuviera.")}
         </div>
 
         <div style={{ display: 'flex', gap: 8 }}>
           <button onClick={onCerrar} style={botonSecundario}>
-            Cancelar
+            {t("Cancelar")}
           </button>
           <button onClick={crear} disabled={!puedeCrear} style={{ ...botonPrimario, opacity: puedeCrear ? 1 : 0.5 }}>
-            Crear campaña
+            {t("Crear campaña")}
           </button>
         </div>
       </div>

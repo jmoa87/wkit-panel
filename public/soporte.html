@@ -4,6 +4,8 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <title>Ayuda y contacto — Wkit</title>
     <style>
       :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
@@ -23,63 +25,60 @@
       table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
       th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
       th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
     </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es"; return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("soporte-" + l + ".html");
+      })();
+    </script>
   </head>
   <body>
     <main>
+      <p class="idiomas"><b>Español</b> <a href="soporte-en.html">English</a> <a href="soporte-fr.html">Français</a> <a href="soporte-de.html">Deutsch</a> <a href="soporte-it.html">Italiano</a> <a href="soporte-pt-BR.html">Português (Brasil)</a> <a href="soporte-pt-PT.html">Português (Portugal)</a></p>
       <h1>Ayuda y contacto</h1>
       <p class="fecha">Wkit — Titan Estudios</p>
-
-      <div class="caja">
-        <strong>¿Necesitas ayuda?</strong> Escríbenos a
-        <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> y cuéntanos qué te
-        pasa. Si puedes, indica qué dispositivo usas (iPhone o iPad) y qué estabas haciendo.
-      </div>
-
+      <div class="caja"><strong>¿Necesitas ayuda?</strong> Escríbenos a <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> y cuéntanos qué te pasa. Si puedes, indica qué dispositivo usas (iPhone o iPad) y qué estabas haciendo.</div>
       <h2>Preguntas frecuentes</h2>
-
       <h2>¿Cómo invito a un hermano?</h2>
-      <p>
-        Un administrador abre la <strong>Lista de hermanos</strong>, abre la ficha del hermano y pulsa
-        <strong>Invitar</strong>. La aplicación genera dos mensajes: uno con el enlace y otro con el
-        código, para que sea fácil copiarlo y pegarlo.
-      </p>
-
+      <p>Un administrador abre la <strong>Lista de hermanos</strong>, abre la ficha del hermano y pulsa <strong>Invitar</strong>. La aplicación genera dos mensajes: uno con el enlace y otro con el código, para que sea fácil copiarlo y pegarlo.</p>
       <h2>He cambiado de móvil o lo he perdido. ¿Cómo recupero mi cuenta?</h2>
       <ul>
         <li>Si <strong>vinculaste tu correo</strong> a tu cuenta (Ajustes → Mi cuenta), abre la aplicación y toca «Crear cuenta o acceder como administrador». Escribe tu correo, te llega un enlace, y entras con todo como lo tenías.</li>
         <li>Si <strong>no</strong> lo vinculaste (los hermanos no necesitan correo), un administrador tiene que mandarte una invitación nueva: abre tu ficha en la Lista de hermanos y pulsa <strong>Invitar</strong>. Es rápido, y recuperas tu sitio con todo lo de la congregación. Lo único que se pierde es tu Informe, si no tenías copia de seguridad (Ajustes → Copia de seguridad).</li>
       </ul>
-
       <h2>¿Cómo vinculo mi correo?</h2>
-      <p>
-        Es opcional y está pensado para los <strong>administradores</strong>, para que no pierdan el acceso
-        si cambian de móvil: <strong>Ajustes → Mi cuenta → Vincular mi correo</strong>. Te llegará un enlace de
-        confirmación; ábrelo desde el mismo dispositivo. El resto de hermanos no necesitan ningún correo.
-      </p>
-
+      <p>Es opcional y está pensado para los <strong>administradores</strong>, para que no pierdan el acceso si cambian de móvil: <strong>Ajustes → Mi cuenta → Vincular mi correo</strong>. Te llegará un enlace de confirmación; ábrelo desde el mismo dispositivo. El resto de hermanos no necesitan ningún correo.</p>
       <h2>¿Cómo elimino mi cuenta y mis datos?</h2>
-      <p>
-        En <strong>Ajustes → Mi cuenta → Eliminar mi cuenta</strong>. Se elimina tu cuenta, tu ficha y los
-        datos guardados en tu dispositivo. Si eres el único administrador de una congregación con más
-        hermanos, antes tienes que nombrar a otro. Más detalles en la
-        <a href="privacidad.html">política de privacidad</a>.
-      </p>
-
+      <p>En <strong>Ajustes → Mi cuenta → Eliminar mi cuenta</strong>. Se elimina tu cuenta, tu ficha y los datos guardados en tu dispositivo. Si eres el único administrador de una congregación con más hermanos, antes tienes que nombrar a otro. Más detalles en la <a href="privacidad.html?idioma=es">política de privacidad</a>.</p>
       <h2>No me llegan las notificaciones</h2>
       <ul>
         <li>Comprueba que están permitidas: Ajustes del dispositivo → Notificaciones → Wkit.</li>
         <li>Abre Wkit con tu cuenta al menos una vez, para que el dispositivo quede registrado.</li>
         <li>Un mismo dispositivo recibe los avisos de una sola persona a la vez: la que tenga la sesión abierta.</li>
       </ul>
-
       <h2>No veo lo que ha cambiado otro hermano</h2>
       <p>Desliza hacia abajo en la pantalla para actualizar, o vuelve a abrir la aplicación.</p>
-
+      <h2>¿Cómo cambio el idioma?</h2>
+      <p>Wkit usa el idioma de tu dispositivo. Para cambiarlo solo en Wkit: Ajustes del dispositivo → Apps → Wkit → Idioma. El panel web detecta el idioma de tu navegador y puedes cambiarlo en el desplegable de arriba a la derecha.</p>
       <h2>Quiero cambiar o corregir mis datos</h2>
       <p>La ficha y el programa los gestionan los administradores de tu congregación. Pídeles que lo corrijan; si hace falta algo más, escríbenos.</p>
-
-      <p style="margin-top:36px"><a href="privacidad.html">Política de privacidad</a></p>
+      <p><a href="privacidad.html?idioma=es">Política de privacidad</a></p>
     </main>
   </body>
 </html>

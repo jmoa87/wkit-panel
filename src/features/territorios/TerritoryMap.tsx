@@ -1,3 +1,4 @@
+import { t } from '../../i18n'
 import { forwardRef, useEffect, useImperativeHandle, useMemo, useRef, useState } from 'react'
 import maplibregl from 'maplibre-gl'
 import 'maplibre-gl/dist/maplibre-gl.css'
@@ -396,7 +397,7 @@ export const TerritoryMap = forwardRef<TerritoryMapHandle, TerritoryMapProps>(fu
             cursor: 'pointer',
           }}
         >
-          Cancelar
+          {t("Cancelar")}
         </button>
       )}
     </div>

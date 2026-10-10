@@ -1,3 +1,4 @@
+import { t, formatearFecha } from '../../i18n'
 import type { Campana } from '../../api/types'
 
 interface CampanaCardProps {
@@ -9,8 +10,7 @@ interface CampanaCardProps {
 /** "aaaa-mm-dd" -> "dd/mm/aaaa", sin pasar por Date (que con las zonas
  * horarias puede cambiar el día). */
 function formatoFecha(texto: string): string {
-  const [anio, mes, dia] = texto.split('-')
-  return `${dia}/${mes}/${anio}`
+  return formatearFecha(texto)
 }
 
 /** La campaña activa de la congregación: crearla si no hay ninguna, o
@@ -19,8 +19,9 @@ export function CampanaCard({ campana, onCrear, onEliminar }: CampanaCardProps) 
   function confirmarEliminar() {
     if (!campana) return
     const aviso =
-      `¿Eliminar la campaña «${campana.nombre}»?\n\n` +
-      'Se borran también todas sus asignaciones. Los territorios normales no se ven afectados.'
+      t('¿Eliminar la campaña «{nombre}»?', { nombre: campana.nombre }) +
+      '\n\n' +
+      t('Se borran también todas sus asignaciones. Los territorios normales no se ven afectados.')
     if (window.confirm(aviso)) onEliminar()
   }
 
@@ -33,11 +34,11 @@ export function CampanaCard({ campana, onCrear, onEliminar }: CampanaCardProps) 
       }}
     >
       <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 6 }}>
-        <div style={{ fontWeight: 600 }}>Campaña</div>
+        <div style={{ fontWeight: 600 }}>{t("Campaña")}</div>
         {!campana && (
           <button
             onClick={onCrear}
-            title="Crear campaña"
+            title={t("Crear campaña")}
             style={{
               width: 22,
               height: 22,
@@ -60,8 +61,7 @@ export function CampanaCard({ campana, onCrear, onEliminar }: CampanaCardProps) 
 
       {!campana ? (
         <div style={{ fontSize: 12, color: 'var(--color-text-secondary)' }}>
-          No hay ninguna campaña activa. Al crearla se copia la lista de territorios actual, lista para
-          repartir aparte.
+          {t("No hay ninguna campaña activa. Al crearla se copia la lista de territorios actual, lista para repartir aparte.")}
         </div>
       ) : (
         <div
@@ -78,7 +78,7 @@ export function CampanaCard({ campana, onCrear, onEliminar }: CampanaCardProps) 
             {formatoFecha(campana.inicio)} – {formatoFecha(campana.fin)}
           </div>
           <div style={{ fontSize: 12, marginBottom: 8 }}>
-            {campana.asignados} de {campana.total} asignados · {campana.completados} completados
+            {t("{asignados} de {total} asignados · {completados} completados", { asignados: campana.asignados, total: campana.total, completados: campana.completados })}
           </div>
           <button
             onClick={confirmarEliminar}
@@ -93,7 +93,7 @@ export function CampanaCard({ campana, onCrear, onEliminar }: CampanaCardProps) 
               fontWeight: 600,
             }}
           >
-            Eliminar campaña
+            {t("Eliminar campaña")}
           </button>
         </div>
       )}

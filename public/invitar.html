@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="robots" content="noindex, nofollow" />
     <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
     <title>Invitación a Wkit</title>
     <style>
       :root {
@@ -81,40 +83,42 @@
       #aviso { min-height: 1.4em; margin: 10px 0 0; text-align: center; color: var(--acento); font-weight: 600; }
       .nota { margin-top: 20px; font-size: 13px; color: var(--secundario); }
       [hidden] { display: none !important; }
+      #idioma { float: right; font-size: 13px; padding: 4px 6px; border-radius: 8px; border: 1px solid var(--borde); background: var(--tarjeta); color: var(--texto); }
     </style>
   </head>
   <body>
     <main>
-      <h1>Te han invitado a Wkit</h1>
-      <p class="sub">Te han invitado a unirte a tu congregación en la app Wkit.</p>
+      <select id="idioma" aria-label="Idioma"></select>
+      <h1 data-i18n="h1">Te han invitado a Wkit</h1>
+      <p class="sub" data-i18n="sub">Te han invitado a unirte a tu congregación en la app Wkit.</p>
 
       <div id="valido" hidden>
         <ol>
-          <li><strong>Instala la app Wkit</strong> si todavía no la tienes. <span id="instalar"></span></li>
-          <li><strong>Pulsa el botón</strong> de abajo para abrirla con tu invitación.</li>
+          <li><span data-i18n-html="paso1"><strong>Instala la app Wkit</strong> si todavía no la tienes.</span> <span id="instalar"></span></li>
+          <li data-i18n-html="paso2"><strong>Pulsa el botón</strong> de abajo para abrirla con tu invitación.</li>
         </ol>
 
-        <a id="abrir" class="boton" href="#">Abrir en Wkit</a>
+        <a id="abrir" class="boton" href="#" data-i18n="abrir">Abrir en Wkit</a>
 
         <section class="alternativa">
-          <h2>¿No se abre la app?</h2>
-          <p>
+          <h2 data-i18n="altH">¿No se abre la app?</h2>
+          <p data-i18n="altP">
             Copia este código, abre Wkit, toca «Tengo un enlace o un código de invitación» y pégalo
             ahí.
           </p>
           <div id="codigo" class="codigo"></div>
-          <button id="copiar" class="boton secundario" type="button">Copiar código</button>
+          <button id="copiar" class="boton secundario" type="button" data-i18n="copiar">Copiar código</button>
           <p id="aviso" role="status"></p>
         </section>
 
-        <p class="nota">
+        <p class="nota" data-i18n="nota">
           Si has abierto este enlace desde WhatsApp u otra aplicación y el botón no hace nada, ábrelo
           en el navegador de tu dispositivo (Safari o Chrome).
         </p>
       </div>
 
       <div id="invalido" hidden>
-        <p>
+        <p data-i18n="invalido">
           Este enlace de invitación está incompleto. Pídele al anciano que te lo mande otra vez.
         </p>
       </div>
@@ -125,6 +129,45 @@
         // Cuando la app esté en la App Store o en TestFlight, pon aquí su
         // enlace y saldrá junto al paso 1.
         var ENLACE_INSTALAR = "";
+
+        // ---- Idioma: el elegido a mano, si no el del navegador, si no español ----
+        var TEXTOS = {"es": {"titulo": "Invitación a Wkit", "h1": "Te han invitado a Wkit", "sub": "Te han invitado a unirte a tu congregación en la app Wkit.", "paso1": "<strong>Instala la app Wkit</strong> si todavía no la tienes.", "paso2": "<strong>Pulsa el botón</strong> de abajo para abrirla con tu invitación.", "abrir": "Abrir en Wkit", "altH": "¿No se abre la app?", "altP": "Copia este código, abre Wkit, toca «Tengo un enlace o un código de invitación» y pégalo ahí.", "copiar": "Copiar código", "nota": "Si has abierto este enlace desde WhatsApp u otra aplicación y el botón no hace nada, ábrelo en el navegador de tu dispositivo (Safari o Chrome).", "invalido": "Este enlace de invitación está incompleto. Pídele al anciano que te lo mande otra vez.", "copiado": "Código copiado ✓", "noCopiado": "No se pudo copiar: toca el código para seleccionarlo.", "instalar": "Instalar Wkit"}, "en": {"titulo": "Invitation to Wkit", "h1": "You've been invited to Wkit", "sub": "You've been invited to join your congregation in the Wkit app.", "paso1": "<strong>Install the Wkit app</strong> if you don't have it yet.", "paso2": "<strong>Tap the button</strong> below to open it with your invitation.", "abrir": "Open in Wkit", "altH": "App doesn't open?", "altP": "Copy this code, open Wkit, tap “I have an invitation link or code” and paste it there.", "copiar": "Copy code", "nota": "If you opened this link from WhatsApp or another app and the button does nothing, open it in your device's browser (Safari or Chrome).", "invalido": "This invitation link is incomplete. Ask the elder to send it to you again.", "copiado": "Code copied ✓", "noCopiado": "Couldn't copy: tap the code to select it.", "instalar": "Install Wkit"}, "fr": {"titulo": "Invitation à Wkit", "h1": "Tu as été invité à Wkit", "sub": "Tu as été invité à rejoindre ton assemblée dans l'app Wkit.", "paso1": "<strong>Installe l'app Wkit</strong> si tu ne l'as pas encore.", "paso2": "<strong>Touche le bouton</strong> ci-dessous pour l'ouvrir avec ton invitation.", "abrir": "Ouvrir dans Wkit", "altH": "L'app ne s'ouvre pas ?", "altP": "Copie ce code, ouvre Wkit, touche « J'ai un lien ou un code d'invitation » et colle-le là.", "copiar": "Copier le code", "nota": "Si tu as ouvert ce lien depuis WhatsApp ou une autre application et que le bouton ne fait rien, ouvre-le dans le navigateur de ton appareil (Safari ou Chrome).", "invalido": "Ce lien d'invitation est incomplet. Demande à l'ancien de te l'envoyer de nouveau.", "copiado": "Code copié ✓", "noCopiado": "Impossible de copier : touche le code pour le sélectionner.", "instalar": "Installer Wkit"}, "de": {"titulo": "Einladung zu Wkit", "h1": "Du wurdest zu Wkit eingeladen", "sub": "Du wurdest eingeladen, in der App Wkit deiner Versammlung beizutreten.", "paso1": "<strong>Installiere die App Wkit</strong>, falls du sie noch nicht hast.", "paso2": "<strong>Tippe auf die Schaltfläche</strong> unten, um sie mit deiner Einladung zu öffnen.", "abrir": "In Wkit öffnen", "altH": "Die App öffnet sich nicht?", "altP": "Kopiere diesen Code, öffne Wkit, tippe auf „Ich habe einen Einladungslink oder -code“ und füge ihn dort ein.", "copiar": "Code kopieren", "nota": "Wenn du diesen Link aus WhatsApp oder einer anderen App geöffnet hast und die Schaltfläche nichts bewirkt, öffne ihn im Browser deines Geräts (Safari oder Chrome).", "invalido": "Dieser Einladungslink ist unvollständig. Bitte den Ältesten, ihn dir noch einmal zu schicken.", "copiado": "Code kopiert ✓", "noCopiado": "Kopieren nicht möglich: Tippe auf den Code, um ihn auszuwählen.", "instalar": "Wkit installieren"}, "it": {"titulo": "Invito a Wkit", "h1": "Sei stato invitato a Wkit", "sub": "Sei stato invitato a unirti alla tua congregazione nell'app Wkit.", "paso1": "<strong>Installa l'app Wkit</strong> se non l'hai ancora.", "paso2": "<strong>Tocca il pulsante</strong> qui sotto per aprirla con il tuo invito.", "abrir": "Apri in Wkit", "altH": "L'app non si apre?", "altP": "Copia questo codice, apri Wkit, tocca “Ho un link o un codice di invito” e incollalo lì.", "copiar": "Copia codice", "nota": "Se hai aperto questo link da WhatsApp o da un'altra app e il pulsante non fa nulla, aprilo nel browser del tuo dispositivo (Safari o Chrome).", "invalido": "Questo link di invito è incompleto. Chiedi all'anziano di mandartelo di nuovo.", "copiado": "Codice copiato ✓", "noCopiado": "Impossibile copiare: tocca il codice per selezionarlo.", "instalar": "Installa Wkit"}, "pt-BR": {"titulo": "Convite para o Wkit", "h1": "Você foi convidado para o Wkit", "sub": "Você foi convidado a entrar na sua congregação no app Wkit.", "paso1": "<strong>Instale o app Wkit</strong> se ainda não tiver.", "paso2": "<strong>Toque no botão</strong> abaixo para abri-lo com o seu convite.", "abrir": "Abrir no Wkit", "altH": "O app não abre?", "altP": "Copie este código, abra o Wkit, toque em “Tenho um link ou um código de convite” e cole lá.", "copiar": "Copiar código", "nota": "Se você abriu este link pelo WhatsApp ou por outro aplicativo e o botão não faz nada, abra-o no navegador do seu dispositivo (Safari ou Chrome).", "invalido": "Este link de convite está incompleto. Peça ao ancião que o envie de novo.", "copiado": "Código copiado ✓", "noCopiado": "Não foi possível copiar: toque no código para selecioná-lo.", "instalar": "Instalar o Wkit"}, "pt-PT": {"titulo": "Convite para o Wkit", "h1": "Foi convidado para o Wkit", "sub": "Foi convidado a juntar-se à sua congregação na app Wkit.", "paso1": "<strong>Instale a app Wkit</strong> se ainda não a tiver.", "paso2": "<strong>Toque no botão</strong> abaixo para a abrir com o seu convite.", "abrir": "Abrir no Wkit", "altH": "A app não abre?", "altP": "Copie este código, abra o Wkit, toque em “Tenho um link ou um código de convite” e cole-o aí.", "copiar": "Copiar código", "nota": "Se abriu esta ligação pelo WhatsApp ou por outra aplicação e o botão não faz nada, abra-a no navegador do seu dispositivo (Safari ou Chrome).", "invalido": "Esta ligação de convite está incompleta. Peça ao ancião que lha envie novamente.", "copiado": "Código copiado ✓", "noCopiado": "Não foi possível copiar: toque no código para o selecionar.", "instalar": "Instalar o Wkit"}};
+        var NOMBRES = {"es":"Español","en":"English","fr":"Français","de":"Deutsch","it":"Italiano","pt-BR":"Português (Brasil)","pt-PT":"Português (Portugal)"};
+        function aIdioma(c) {
+          c = (c || "").toLowerCase();
+          if (c.indexOf("es") === 0) return "es"; if (c.indexOf("en") === 0) return "en";
+          if (c.indexOf("fr") === 0) return "fr"; if (c.indexOf("de") === 0) return "de";
+          if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          return null;
+        }
+        function detectar() {
+          try { var g = aIdioma(localStorage.getItem("wkit_idioma")); if (g) return g; } catch (e) {}
+          var p = aIdioma(new URLSearchParams(window.location.search).get("idioma")); if (p) return p;
+          var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length; i++) { var x = aIdioma(ls[i]); if (x) return x; }
+          return "es";
+        }
+        var idioma = detectar();
+        function t(clave) { return (TEXTOS[idioma] && TEXTOS[idioma][clave]) || TEXTOS.es[clave]; }
+        function aplicar() {
+          document.documentElement.lang = idioma;
+          document.title = t("titulo");
+          document.querySelectorAll("[data-i18n]").forEach(function (e) { e.textContent = t(e.getAttribute("data-i18n")); });
+          document.querySelectorAll("[data-i18n-html]").forEach(function (e) { e.innerHTML = t(e.getAttribute("data-i18n-html")); });
+          var enlace = document.querySelector("#instalar a"); if (enlace) enlace.textContent = t("instalar");
+          document.getElementById("idioma").setAttribute("aria-label", NOMBRES[idioma] ? "🌐" : "");
+        }
+        var selector = document.getElementById("idioma");
+        Object.keys(NOMBRES).forEach(function (c) {
+          var o = document.createElement("option"); o.value = c; o.textContent = NOMBRES[c]; selector.appendChild(o);
+        });
+        selector.value = idioma;
+        selector.addEventListener("change", function () {
+          idioma = selector.value;
+          try { localStorage.setItem("wkit_idioma", idioma); } catch (e) {}
+          aplicar();
+        });
 
         // El código de una invitación son solo letras de la a a la f y
         // números. Cualquier otra cosa se rechaza: nunca se pinta tal cual.
@@ -157,10 +200,12 @@
         var codigo = extraerCodigo(window.location.search);
 
         if (!codigo) {
+          aplicar();
           document.getElementById("invalido").hidden = false;
           return;
         }
 
+        aplicar();
         document.getElementById("valido").hidden = false;
         document.getElementById("codigo").textContent = codigo;
         document.getElementById("abrir").href =
@@ -169,15 +214,15 @@
         if (ENLACE_INSTALAR) {
           var enlace = document.createElement("a");
           enlace.href = ENLACE_INSTALAR;
-          enlace.textContent = "Instalar Wkit";
+          enlace.textContent = t("instalar");
           document.getElementById("instalar").appendChild(enlace);
         }
 
         var aviso = document.getElementById("aviso");
         document.getElementById("copiar").addEventListener("click", function () {
           copiar(codigo).then(
-            function () { aviso.textContent = "Código copiado ✓"; },
-            function () { aviso.textContent = "No se pudo copiar: toca el código para seleccionarlo."; }
+            function () { aviso.textContent = t("copiado"); },
+            function () { aviso.textContent = t("noCopiado"); }
           );
         });
       })();

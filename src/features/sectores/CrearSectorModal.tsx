@@ -1,3 +1,4 @@
+import { t } from '../../i18n'
 import { useState } from 'react'
 import type { TipoSector } from '../../api/types'
 import { PALETA_COLORES } from '../../utils/sectorColors'
@@ -28,29 +29,29 @@ export function CrearSectorModal({ coloresUsados, onCrear, onCerrar }: CrearSect
   return (
     <div style={fondoStyle} onClick={onCerrar}>
       <div style={tarjetaStyle} onClick={(e) => e.stopPropagation()}>
-        <div style={{ fontWeight: 600, marginBottom: 'var(--spacing-md)' }}>Nuevo sector</div>
+        <div style={{ fontWeight: 600, marginBottom: 'var(--spacing-md)' }}>{t("Nuevo sector")}</div>
 
-        <Campo etiqueta="Nombre">
+        <Campo etiqueta={t("Nombre")}>
           <input
             autoFocus
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            placeholder="Ej. Zagrilla"
+            placeholder={t("Ej. Zagrilla")}
             style={inputStyle}
           />
         </Campo>
 
-        <Campo etiqueta="Tipo">
+        <Campo etiqueta={t("Tipo")}>
           <select value={tipo} onChange={(e) => setTipo(e.target.value as TipoSector)} style={inputStyle}>
             {Object.entries(etiquetaTipo).map(([valor, etiqueta]) => (
               <option key={valor} value={valor}>
-                {etiqueta}
+                {t(etiqueta)}
               </option>
             ))}
           </select>
         </Campo>
 
-        <Campo etiqueta="Color">
+        <Campo etiqueta={t("Color")}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, minmax(0, 1fr))', gap: 8, padding: 3 }}>
             {PALETA_COLORES.map((c) => (
               <button
@@ -78,10 +79,10 @@ export function CrearSectorModal({ coloresUsados, onCrear, onCerrar }: CrearSect
 
         <div style={{ display: 'flex', gap: 8, marginTop: 'var(--spacing-md)' }}>
           <button onClick={onCerrar} style={botonSecundario}>
-            Cancelar
+            {t("Cancelar")}
           </button>
           <button onClick={crear} disabled={!nombre.trim()} style={botonPrimario}>
-            Crear sector
+            {t("Crear sector")}
           </button>
         </div>
       </div>

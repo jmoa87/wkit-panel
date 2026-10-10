@@ -1,3 +1,4 @@
+import { t } from '../../i18n'
 import { useState } from 'react'
 import type { Sector, TipoSector } from '../../api/types'
 import { PALETA_COLORES } from '../../utils/sectorColors'
@@ -27,9 +28,9 @@ export function EditarSectorModal({ sector, onGuardar, onCerrar }: EditarSectorM
   return (
     <div style={fondoStyle} onClick={onCerrar}>
       <div style={tarjetaStyle} onClick={(e) => e.stopPropagation()}>
-        <div style={{ fontWeight: 600, marginBottom: 'var(--spacing-md)' }}>Editar sector</div>
+        <div style={{ fontWeight: 600, marginBottom: 'var(--spacing-md)' }}>{t("Editar sector")}</div>
 
-        <Campo etiqueta="Nombre">
+        <Campo etiqueta={t("Nombre")}>
           <input
             autoFocus
             value={nombre}
@@ -38,17 +39,17 @@ export function EditarSectorModal({ sector, onGuardar, onCerrar }: EditarSectorM
           />
         </Campo>
 
-        <Campo etiqueta="Tipo">
+        <Campo etiqueta={t("Tipo")}>
           <select value={tipo} onChange={(e) => setTipo(e.target.value as TipoSector)} style={inputStyle}>
             {Object.entries(etiquetaTipo).map(([valor, etiqueta]) => (
               <option key={valor} value={valor}>
-                {etiqueta}
+                {t(etiqueta)}
               </option>
             ))}
           </select>
         </Campo>
 
-        <Campo etiqueta="Color">
+        <Campo etiqueta={t("Color")}>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(8, minmax(0, 1fr))', gap: 8, padding: 3 }}>
             {PALETA_COLORES.map((c) => (
               <button
@@ -76,10 +77,10 @@ export function EditarSectorModal({ sector, onGuardar, onCerrar }: EditarSectorM
 
         <div style={{ display: 'flex', gap: 8, marginTop: 'var(--spacing-md)' }}>
           <button onClick={onCerrar} style={botonSecundario}>
-            Cancelar
+            {t("Cancelar")}
           </button>
           <button onClick={guardar} disabled={!nombre.trim()} style={botonPrimario}>
-            Guardar
+            {t("Guardar")}
           </button>
         </div>
       </div>
