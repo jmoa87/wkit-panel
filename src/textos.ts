@@ -601,5 +601,69 @@ export const TEXTOS: Record<string, Record<IdiomaTraducido, string>> = {
     "it": "Lingua",
     "pt-BR": "Idioma",
     "pt-PT": "Idioma"
+  },
+  "Contraseña de acceso": {
+    "en": "Access password",
+    "fr": "Mot de passe d'accès",
+    "de": "Zugangspasswort",
+    "it": "Password di accesso",
+    "pt-BR": "Senha de acesso",
+    "pt-PT": "Palavra-passe de acesso"
+  },
+  "Escribe la contraseña de 6 cifras que te dio el anciano.": {
+    "en": "Enter the 6-digit password the elder gave you.",
+    "fr": "Saisis le mot de passe à 6 chiffres que l'ancien t'a donné.",
+    "de": "Gib das 6-stellige Passwort ein, das dir der Älteste gegeben hat.",
+    "it": "Inserisci la password di 6 cifre che ti ha dato l'anziano.",
+    "pt-BR": "Digite a senha de 6 dígitos que o ancião lhe deu.",
+    "pt-PT": "Escreva a palavra-passe de 6 dígitos que o ancião lhe deu."
+  },
+  "Contraseña de 6 cifras": {
+    "en": "6-digit password",
+    "fr": "Mot de passe à 6 chiffres",
+    "de": "6-stelliges Passwort",
+    "it": "Password di 6 cifre",
+    "pt-BR": "Senha de 6 dígitos",
+    "pt-PT": "Palavra-passe de 6 dígitos"
+  },
+  "Entrar": {
+    "en": "Enter",
+    "fr": "Entrer",
+    "de": "Anmelden",
+    "it": "Entra",
+    "pt-BR": "Entrar",
+    "pt-PT": "Entrar"
+  },
+  "Comprobando…": {
+    "en": "Checking…",
+    "fr": "Vérification…",
+    "de": "Wird geprüft …",
+    "it": "Verifica in corso…",
+    "pt-BR": "Verificando…",
+    "pt-PT": "A verificar…"
+  },
+  "Contraseña incorrecta.": {
+    "en": "Wrong password.",
+    "fr": "Mot de passe incorrect.",
+    "de": "Falsches Passwort.",
+    "it": "Password errata.",
+    "pt-BR": "Senha incorreta.",
+    "pt-PT": "Palavra-passe incorreta."
+  },
+  "Intentos restantes:": {
+    "en": "Attempts left:",
+    "fr": "Tentatives restantes :",
+    "de": "Verbleibende Versuche:",
+    "it": "Tentativi rimasti:",
+    "pt-BR": "Tentativas restantes:",
+    "pt-PT": "Tentativas restantes:"
+  },
+  "Demasiados intentos. Vuelve a probar dentro de 15 minutos.": {
+    "en": "Too many attempts. Try again in 15 minutes.",
+    "fr": "Trop de tentatives. Réessaie dans 15 minutes.",
+    "de": "Zu viele Versuche. Versuche es in 15 Minuten erneut.",
+    "it": "Troppi tentativi. Riprova tra 15 minuti.",
+    "pt-BR": "Muitas tentativas. Tente novamente em 15 minutos.",
+    "pt-PT": "Demasiadas tentativas. Tente novamente dentro de 15 minutos."
   }
 }

@@ -18,6 +18,7 @@ import {
   reordenarSectores as reordenarSectoresEnAPI,
   establecerClave,
 } from './api/client'
+import { desbloquearPanel, sesionGuardada, guardarSesion, olvidarSesion } from './api/acceso'
 import type { Congregacion, Sector, Territorio, TipoSector, Campana } from './api/types'
 import { AdminLayout } from './layouts/AdminLayout'
 import { SectorSidebar } from './features/sectores/SectorSidebar'
@@ -53,7 +54,7 @@ function motivoDelError(error: unknown): string {
 export default function App() {
   useIdioma() // al cambiar de idioma, se vuelve a pintar todo
   const [estado, setEstado] = useState<
-    'cargando' | 'sin_clave' | 'clave_invalida' | 'suscripcion_caducada' | 'sin_conexion' | 'listo'
+    'cargando' | 'sin_clave' | 'pide_pin' | 'clave_invalida' | 'suscripcion_caducada' | 'sin_conexion' | 'listo'
   >('cargando')
   const [congregacion, setCongregacion] = useState<Congregacion | null>(null)
   const [sectores, setSectores] = useState<Sector[]>([])
@@ -84,13 +85,15 @@ export default function App() {
     null
   )
 
-  useEffect(() => {
-    const clave = new URLSearchParams(window.location.search).get('clave')
-    if (!clave) {
-      setEstado('sin_clave')
-      return
-    }
-    establecerClave(clave)
+  // El enlace (?clave=...) solo sirve para pedir la contraseña; con ella
+  // el servidor da una sesión propia de este navegador, y esa sesión es
+  // lo que se manda en cada petición.
+  const claveEnlace = useMemo(() => new URLSearchParams(window.location.search).get('clave'), [])
+  const [pin, setPin] = useState('')
+  const [comprobandoPin, setComprobandoPin] = useState(false)
+  const [errorPin, setErrorPin] = useState<string | null>(null)
+
+  const cargarTodo = (alFallarSesion: () => void) => {
     obtenerCongregacionActual()
       .then((c) => {
         setCongregacion(c)
@@ -103,10 +106,56 @@ export default function App() {
       .catch((error) => {
         const texto = motivoBruto(error)
         if (texto.includes('suscripcion_caducada')) setEstado('suscripcion_caducada')
-        else if (texto.includes('clave no valida') || texto.includes('ya no tiene permiso') || texto.includes('no se encontró la congregación')) setEstado('clave_invalida')
+        else if (texto.includes('clave no valida') || texto.includes('no se encontró la congregación')) alFallarSesion()
+        else if (texto.includes('ya no tiene permiso')) setEstado('clave_invalida')
         else setEstado('sin_conexion')
       })
-  }, [])
+  }
+
+  useEffect(() => {
+    if (!claveEnlace) {
+      setEstado('sin_clave')
+      return
+    }
+    const guardada = sesionGuardada(claveEnlace)
+    if (!guardada) {
+      setEstado('pide_pin')
+      return
+    }
+    establecerClave(guardada)
+    // Si la sesión guardada ya no vale (caducó, o el administrador cambió
+    // la contraseña), se vuelve a pedir la contraseña.
+    cargarTodo(() => {
+      olvidarSesion(claveEnlace)
+      setEstado('pide_pin')
+    })
+  }, [claveEnlace])
+
+  const entrarConPin = async () => {
+    if (!claveEnlace || comprobandoPin || !/^[0-9]{6}$/.test(pin)) return
+    setComprobandoPin(true)
+    setErrorPin(null)
+    try {
+      const r = await desbloquearPanel(claveEnlace, pin)
+      if (r.ok) {
+        guardarSesion(claveEnlace, r.sesion)
+        establecerClave(r.sesion)
+        setEstado('cargando')
+        setPin('')
+        cargarTodo(() => setEstado('clave_invalida'))
+      } else if (r.bloqueado) {
+        setErrorPin(t("Demasiados intentos. Vuelve a probar dentro de 15 minutos."))
+      } else {
+        setErrorPin(`${t("Contraseña incorrecta.")} ${t("Intentos restantes:")} ${r.restantes ?? 0}`)
+      }
+    } catch (error) {
+      const texto = motivoBruto(error)
+      if (texto.includes('clave no valida') || texto.includes('ya no tiene permiso')) setEstado('clave_invalida')
+      else setErrorPin(t("Comprueba tu conexión e inténtalo de nuevo."))
+    } finally {
+      setComprobandoPin(false)
+    }
+  }
 
   // Si la campaña se crea, se borra o avanza desde la app (o desde otro
   // ordenador), al volver a esta pestaña se pone al día.
@@ -371,6 +420,39 @@ export default function App() {
         <p style={{ color: 'var(--color-text-secondary)' }}>
           {t("Pídele al anciano que te genere un enlace de acceso al panel desde la app Wkit — este panel no se puede abrir directamente sin él.")}
         </p>
+      </div>
+    )
+  }
+
+  if (estado === 'pide_pin') {
+    return (
+      <div style={{ padding: 32, maxWidth: 420, margin: '0 auto', textAlign: 'center' }}>
+        <h2>{t("Contraseña de acceso")}</h2>
+        <p style={{ color: 'var(--color-text-secondary)' }}>
+          {t("Escribe la contraseña de 6 cifras que te dio el anciano.")}
+        </p>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault()
+            entrarConPin()
+          }}
+        >
+          <input
+            type="password"
+            inputMode="numeric"
+            autoComplete="off"
+            autoFocus
+            maxLength={6}
+            placeholder={t("Contraseña de 6 cifras")}
+            value={pin}
+            onChange={(e) => setPin(e.target.value.replace(/[^0-9]/g, '').slice(0, 6))}
+            style={{ fontSize: 22, textAlign: 'center', letterSpacing: 6, padding: '8px 12px', width: '100%', boxSizing: 'border-box' }}
+          />
+          {errorPin && <p style={{ color: '#B51700' }}>{errorPin}</p>}
+          <button type="submit" disabled={comprobandoPin || pin.length !== 6} style={{ marginTop: 16 }}>
+            {comprobandoPin ? t("Comprobando…") : t("Entrar")}
+          </button>
+        </form>
       </div>
     )
   }
