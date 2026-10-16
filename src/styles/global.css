@@ -1,0 +1,36 @@
+* {
+  box-sizing: border-box;
+}
+
+/* Que los controles nativos (desplegables, calendarios, barras de
+   desplazamiento) también cambien con el modo claro/oscuro. */
+:root {
+  color-scheme: light dark;
+}
+
+html, body, #root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--color-background);
+  color: var(--color-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+}
+
+/* Los botones y los campos de HTML NO heredan el color del texto por
+   su cuenta (salen en negro): sin esto, en modo oscuro los nombres de
+   los sectores se veían negros sobre fondo oscuro. */
+button,
+input,
+select,
+textarea {
+  font-family: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
