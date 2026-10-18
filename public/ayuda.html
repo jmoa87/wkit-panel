@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Guía paso a paso — Wkit</title>
+    <meta name="description" content="Guía paso a paso de Wkit para publicadores y administradores: entrar, recordatorios, informe, hermanos, grupos, limpieza, programas, anuncios, territorios y suscripción." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 18px;color:var(--secundario)"><a href="soporte.html?idioma=es">← Ayuda y contacto</a> · <a href="privacidad.html?idioma=es">Política de privacidad</a></p>
+      <h1>Guía paso a paso de Wkit</h1>
+      <p class="sub">Todo lo que puedes hacer en la aplicación, explicado con calma: para publicadores y para administradores. Funciona igual en iPhone, iPad y Android; cuando hay alguna diferencia, lo verás marcado con <span class="plat a">Android</span> o <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-g"><h3>Para todos los hermanos</h3><ol class="toc"><li><a href="#entrar">Entrar en Wkit por primera vez</a></li><li><a href="#inicio">La pantalla de inicio</a></li><li><a href="#recordatorios">Recordatorios: la campana</a></li><li><a href="#notificaciones">Notificaciones: qué te avisa Wkit</a></li><li><a href="#informe">Tu informe de servicio (privado)</a></li><li><a href="#territorios-pub">Territorios: ver, entregar y solicitar</a></li><li><a href="#cuenta">Tu cuenta: cambiar de móvil, vincular el correo, idioma y borrar</a></li><li><a href="#copia-seguridad">Copia de seguridad</a></li></ol></div><div class="toc-g"><h3>Para los administradores (ancianos)</h3><ol class="toc"><li><a href="#crear-congregacion">Crear la congregación</a></li><li><a href="#hermanos">La lista de hermanos</a></li><li><a href="#grupos">Grupos de servicio (predicación)</a></li><li><a href="#salidas">Salidas al ministerio</a></li><li><a href="#limpieza">Limpieza: qué grupo toca y qué día y hora</a></li><li><a href="#vida-ministerio">Programa de Vida y Ministerio</a></li><li><a href="#reunion-publica">Reunión Pública</a></li><li><a href="#audio-video">Audio y Vídeo / Acomodadores</a></li><li><a href="#otros-programas">Otros programas</a></li><li><a href="#anuncios">Anuncios</a></li><li><a href="#territorios-admin">Territorios: asignar, campañas y panel web</a></li><li><a href="#suscripcion">Suscripción de la congregación</a></li><li><a href="#copias">Anuncios y datos solo en este teléfono</a></li></ol></div></div>
+      <h2 class="grupo" id="g-37">Para todos los hermanos</h2>
+<section id="entrar"><h2>1. Entrar en Wkit por primera vez</h2>
+<p>Para entrar en Wkit <strong>no necesitas correo ni contraseña</strong>: un anciano de tu congregación te invita y tú entras con un enlace o un código.</p>
+<ol class="pasos"><li>Pide al anciano que lleva la lista de hermanos que te invite. Te llegarán <strong>dos mensajes seguidos</strong>: primero un enlace y después, solo, el código (así es fácil copiarlo).</li><li>Instala <strong>Wkit</strong> desde la App Store (iPhone y iPad) o desde Google Play (Android).</li><li>Toca el enlace del primer mensaje: la aplicación se abre y te reconoce.</li><li>Si el enlace no abre la aplicación, ábrela tú, toca <strong>«Tengo un enlace o un código de invitación»</strong> y pega el mensaje entero o solo el código: la aplicación se queda sola con lo que hace falta.</li><li>Verás unas pantallas de bienvenida (<strong>«Primeros pasos»</strong>) que explican qué se comparte y qué no. Cuando termines, ya estás dentro.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Si el código no funciona</strong> («no es válido, o ha caducado»), pide al anciano que te genere uno nuevo: se hace en un momento desde tu ficha.</div>
+<div class="nota"><strong>Qué se comparte y qué no:</strong> la lista de hermanos, el programa, la limpieza, los territorios y los anuncios los ve toda la congregación y los crea un anciano. <strong>Tu Informe es solo tuyo</strong>: nunca sale de tu teléfono y nadie más lo ve, ni siquiera un anciano.</div>
+</section>
+<section id="inicio"><h2>2. La pantalla de inicio</h2>
+<p>Es lo primero que ves al abrir Wkit. Te enseña <strong>lo tuyo</strong> de un vistazo; si no tienes nada asignado, verás «Sin asignaciones próximas».</p>
+<ul><li><strong>Próximas partes</strong>: tus partes en la reunión de Vida y Ministerio y en la Reunión Pública (presidente, lector, discursante…).</li><li><strong>Responsabilidades</strong>: lo que tienes en Audio y Vídeo / Acomodadores.</li><li><strong>Limpieza</strong>: aparece solo si <em>esta semana</em> le toca a tu grupo. Si el superintendente o el auxiliar del grupo han puesto el día y la hora, los verás debajo (por ejemplo, «Domingo 12:30»).</li><li><strong>Otros programas</strong>, <strong>Territorios</strong> (y la campaña, si hay una) y el recordatorio del <strong>Informe</strong>.</li></ul>
+<p>Abajo tienes cinco pestañas: <strong>Inicio</strong>, <strong>Programa</strong>, <strong>Informe</strong>, <strong>Territorios</strong> y <strong>Menú</strong> (ahí están la lista de hermanos, los grupos, la limpieza, los anuncios y los ajustes).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Recordatorios: la campana</h2>
+<p>Al lado de cada asignación, responsabilidad o turno de limpieza hay una <strong>campana</strong>. Sirve para que el teléfono te avise antes, a la hora que tú elijas.</p>
+<ol class="pasos"><li>Toca la campana de la asignación.</li><li>Elige el día y la hora del recordatorio.</li><li>Confirma. La campana se pone en verde y suena (se agita) cuando llegue el momento.</li><li>Para quitarlo, vuelve a tocar la campana y elige quitar el recordatorio.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Si el anciano cambia el día o la hora de la limpieza, la campana vuelve a ofrecerte poner el recordatorio con la fecha nueva.</div>
+<div class="nota"><span class="plat a">Android</span> Si no te llegan los recordatorios, comprueba que Wkit tenga permiso para notificaciones en los ajustes del teléfono y que no tenga restringida la batería.</div>
+</section>
+<section id="notificaciones"><h2>4. Notificaciones: qué te avisa Wkit</h2>
+<p>Wkit te avisa cuando hay un anuncio nuevo, cuando te asignan algo o cuando hay cambios que te afectan.</p>
+<ol class="pasos"><li>La primera vez, <strong>permite las notificaciones</strong> cuando el teléfono te lo pregunte.</li><li>Abre <strong>Menú → Ajustes → Notificaciones</strong>.</li><li>Desactiva las categorías que no quieras (Anuncios, Programa, Audio y Vídeo, Limpieza, Territorios…) y elige los días y la hora en que prefieres recibir los avisos.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Un dispositivo recibe los avisos de una sola persona a la vez</strong>: la que tenga la sesión abierta. Si no te llegan, abre Wkit con tu cuenta al menos una vez para que el dispositivo quede registrado.</div>
+</section>
+<section id="informe"><h2>5. Tu informe de servicio (privado)</h2>
+<p>El Informe es una herramienta <strong>personal</strong>: se guarda solo en tu teléfono. Nadie más lo ve, ni siquiera un anciano.</p>
+<ol class="pasos"><li>Abre la pestaña <strong>Informe</strong>. La primera vez, Wkit te hace unas preguntas: tu tipo de servicio (publicador, precursor…) y <strong>tu meta de horas</strong> al mes.</li><li>Para anotar tu servicio, toca <strong>«Nuevo»</strong> y rellena la fecha, las horas y los minutos y los estudios.</li><li>En <strong>Historial</strong> ves lo que llevas en el mes y en el año de servicio, y puedes editar o borrar un registro.</li><li>El día 1 de cada mes Wkit puede avisarte, a la hora que elijas, para que <strong>envíes el informe</strong>. El botón <strong>«Enviar informe»</strong> prepara el mensaje con tus horas y estudios.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Haz una copia de seguridad</strong> de tu Informe (Menú → Ajustes → Copia de seguridad). Si cambias de móvil o lo pierdes sin copia, el Informe no se puede recuperar, porque no está en ningún servidor. Mira la sección 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Territorios: ver, entregar y solicitar</h2>
+<p>En la pestaña <strong>Territorios</strong> ves los territorios que tienes asignados, con la fecha desde la que los tienes.</p>
+<ol class="pasos"><li>Para <strong>entregar</strong> un territorio cuando lo hayas terminado, ábrelo y toca <strong>«Entregar»</strong> (o <strong>«Notificar que está cumplido»</strong>). Se avisa a quien lleva los territorios.</li><li>Si <strong>no tienes ninguno</strong> y quieres uno, toca <strong>«Solicitar territorio»</strong>. Puedes añadir un mensaje opcional (por ejemplo, «Lo quiero de Carcabuey»).</li><li>Se avisa a todos los siervos de territorios, y el primero que pueda te asignará uno. Te llegará una notificación cuando lo tengas.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Tu cuenta: cambiar de móvil, vincular el correo, idioma y borrar</h2>
+<h3>Cambiar de móvil o perderlo</h3>
+<ul><li>Si <strong>no vinculaste ningún correo</strong> (los hermanos no lo necesitan), un anciano te manda una <strong>invitación nueva</strong> desde tu ficha en la Lista de hermanos. Recuperas tu sitio con todo lo de la congregación. Lo único que se pierde es tu Informe, si no tenías copia de seguridad.</li><li>Si <strong>vinculaste tu correo</strong>, abre Wkit, toca <strong>«Crear cuenta o acceder como administrador»</strong>, escribe el correo y abre el enlace que te llega. Entras con todo como lo tenías.</li></ul>
+<h3>Vincular tu correo (opcional, recomendado para administradores)</h3>
+<ol class="pasos"><li>Abre <strong>Menú → Ajustes → Mi cuenta → Vincular mi correo</strong>.</li><li>Escribe tu correo. Te llegará un enlace de confirmación.</li><li><strong>Ábrelo desde el mismo teléfono</strong>, en la aplicación de correo. La pantalla se cierra sola y tu cuenta queda vinculada.</li></ol>
+<h3>Cambiar el idioma</h3>
+<p>Wkit usa el idioma del teléfono. Para cambiarlo solo en Wkit: ajustes del teléfono → Aplicaciones → Wkit → Idioma.</p>
+<h3>Eliminar tu cuenta</h3>
+<p><strong>Menú → Ajustes → Mi cuenta → Eliminar mi cuenta.</strong> Se eliminan tu cuenta, tu ficha en la lista y los datos guardados en tu teléfono (incluido el Informe); los territorios que tuvieras quedan libres. No se puede deshacer. Si eres el único administrador y hay más hermanos, antes tienes que nombrar a otro (en la Lista de hermanos, abre su ficha y activa «Administrador»). Si eres la única persona de la congregación, se elimina también la congregación entera.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Eliminar la cuenta <strong>no cancela</strong> la suscripción de la congregación, si la paga esa cuenta: se cancela en la App Store <span class="plat i">iPhone</span> o en Google Play → Pagos y suscripciones → Suscripciones <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Copia de seguridad</h2>
+<p>Sirve sobre todo para <strong>no perder tu Informe</strong>, que solo está en tu teléfono. La encuentras en <strong>Menú → Ajustes → Copia de seguridad</strong>.</p>
+<ul><li><strong>Copia automática</strong>: hace una copia una vez al mes, sola.</li><li><strong>«Hacer copia ahora mismo»</strong> y <strong>«Exportar copia de seguridad»</strong>: puedes guardar el archivo donde quieras o mandártelo.</li><li><strong>«Restaurar copia de seguridad»</strong>: elige el archivo exportado desde Wkit. Los datos de la copia se <strong>añaden</strong> a los que ya tienes: no se borra nada.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> La copia automática se guarda en tu iCloud. <span class="plat a">Android</span> Se guarda en el teléfono y, si tienes activada la copia de seguridad de Android en tu cuenta de Google (Ajustes del teléfono → Google → Copia de seguridad), al iniciar sesión con esa cuenta en un teléfono nuevo la recuperarás sola.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-795">Para los administradores (ancianos)</h2>
+<section id="crear-congregacion"><h2>8. Crear la congregación</h2>
+<p>Solo lo hace <strong>una vez</strong> un anciano; después invita a los demás.</p>
+<ol class="pasos"><li>Abre Wkit y toca <strong>«Crear cuenta o acceder como administrador»</strong>.</li><li>Escribe tu correo y toca <strong>«Enviar enlace de acceso»</strong>. No hay contraseñas: te llega un enlace para confirmar que el correo es tuyo.</li><li><strong>Abre el enlace desde el mismo teléfono.</strong> Wkit se abre sola.</li><li>Rellena <strong>tu nombre</strong>, el <strong>nombre de la congregación</strong>, el <strong>número de congregación</strong> y el <strong>país</strong>, y toca <strong>«Crear congregación»</strong>.</li><li>Verás los <strong>«Primeros pasos como anciano»</strong>: 1) añade a los hermanos en la Lista de hermanos y 2) invítalos.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">¿No te llega el correo? Revisa la carpeta de spam y toca <strong>«No me ha llegado, enviar otra vez»</strong>. Un correo solo puede tener una cuenta en Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. La lista de hermanos</h2>
+<p>Es la base de todo: los programas, los grupos y las asignaciones usan los nombres de esta lista. Está en <strong>Menú → Lista de hermanos</strong>.</p>
+<h3>Añadir un hermano</h3>
+<ol class="pasos"><li>Toca el botón <strong>+</strong> (<strong>«Nuevo hermano»</strong>).</li><li>Escribe el <strong>nombre</strong> y elige si es <strong>hermano</strong> o <strong>hermana</strong>.</li><li>Elige su <strong>responsabilidad</strong>: publicador bautizado o no bautizado, precursor/a, siervo ministerial o anciano.</li><li>Si corresponde, elige su <strong>grupo de servicio</strong> y activa <strong>Siervo de Territorios</strong>, <strong>Audio y Vídeo / Acomodadores</strong> o <strong>Administrador</strong>.</li><li>Toca <strong>«Crear»</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Dos hermanos con el mismo nombre:</strong> añade algo que los distinga (por ejemplo, «hijo») para que las asignaciones no se confundan.</div>
+<h3>Invitar a un hermano a Wkit</h3>
+<ol class="pasos"><li>Abre la ficha del hermano y toca <strong>«Invitar»</strong> (o <strong>«Generar enlace»</strong>).</li><li>Toca <strong>«Compartir invitación»</strong> y elige WhatsApp, mensajes, etc. Se mandan <strong>dos mensajes seguidos</strong>: primero el enlace y luego el código solo, para copiarlo fácilmente.</li><li>El hermano abre el enlace (o pega el código) y entra. Si todavía no ha entrado, puedes volver a compartir la invitación; si genera una nueva, la anterior deja de valer.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Editar, eliminar y nombrar administradores</h3>
+<ul><li>Toca un hermano y elige <strong>«Editar»</strong> para cambiar sus datos.</li><li>En Android, para borrar toca el <strong>icono rojo</strong> de su fila; en iPhone, desliza la fila hacia la izquierda. Se borra de la lista en todos los dispositivos y los territorios que tuviera quedan libres.</li><li>Un <strong>administrador</strong> puede gestionar hermanos, territorios, anuncios y el programa. <strong>No puedes eliminar tu propia ficha ni al último administrador</strong>: nombra antes a otro.</li></ul>
+</section>
+<section id="grupos"><h2>10. Grupos de servicio (predicación)</h2>
+<p>Los grupos se usan para las salidas al ministerio y para la limpieza. Están en <strong>Menú → Grupos de servicio → Lista</strong>.</p>
+<ol class="pasos"><li>Si no hay ninguno, toca <strong>«Crear grupos de predicación»</strong> y elige <strong>cuántos grupos</strong> quieres (puedes añadir más después con el botón <strong>+</strong>).</li><li>Para poner a los hermanos en su grupo, ve a la <strong>Lista de hermanos</strong>, abre la ficha de cada uno y elige su <strong>grupo de servicio</strong>.</li><li>Vuelve a <strong>Menú → Grupos de servicio → Lista</strong>. Verás, en cada grupo, el <strong>superintendente</strong>, el <strong>auxiliar</strong> y los hermanos <strong>en orden alfabético</strong>.</li><li>Toca el botón del <strong>lápiz</strong> (Editar). Toca <strong>«Superintendente»</strong> y elige uno entre los hermanos de ese grupo; haz lo mismo con <strong>«Auxiliar»</strong>. No puede ser la misma persona.</li><li>Toca el <strong>check</strong> para terminar.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">El superintendente y el auxiliar se eligen <strong>después</strong> de asignar los hermanos, porque solo se puede elegir entre los hermanos del propio grupo. Si cambias a un hermano de grupo, deja de ser superintendente o auxiliar del anterior.</div>
+<div class="nota">El superintendente y el auxiliar de cada grupo <strong>pueden poner el día y la hora de la limpieza</strong> de su grupo (sección 12), aunque no sean administradores.</div>
+</section>
+<section id="salidas"><h2>11. Salidas al ministerio</h2>
+<p>Las salidas son los horarios y lugares de reunión para el servicio. Hay <strong>generales</strong> (para toda la congregación) y <strong>propias de cada grupo</strong>. Están en <strong>Menú → Grupos de servicio → Salidas al Ministerio</strong>. Primero tienes que haber creado los grupos.</p>
+<ol class="pasos"><li>Toca la sección <strong>«Congregación»</strong> (salidas generales) o la de un <strong>grupo</strong>.</li><li>Toca <strong>«Añadir salida»</strong> en el día que toque, y escribe la <strong>etiqueta</strong> (por ejemplo «Mañana» o «Tarde»), la <strong>hora</strong> y, si quieres, la <strong>ubicación</strong>.</li><li>Para <strong>editar</strong> una salida, cambia directamente sus campos. Para <strong>eliminarla</strong>, toca el icono rojo de su fila.</li><li>Los hermanos pueden tocar la ubicación para abrirla en el mapa de su teléfono.</li></ol>
+<div class="nota">Si un grupo no tiene salidas propias, se usan las de la congregación («Sin salidas propias — usa las de la congregación»).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Limpieza: qué grupo toca y qué día y hora</h2>
+<p>La limpieza <strong>rota automáticamente</strong> entre los grupos de servicio: cada semana le toca a un grupo distinto, empezando por el Grupo 1. Está en <strong>Menú → Limpieza → Grupos</strong>.</p>
+<h3>Cambiar qué grupo limpia esta semana (administradores)</h3>
+<ol class="pasos"><li>Toca el botón del <strong>lápiz</strong> (Editar).</li><li>Toca el <strong>grupo</strong> al que le toca esta semana. La semana siguiente le tocará al siguiente grupo por orden.</li><li>Toca el <strong>check</strong>. El cambio lo ven <strong>todos los dispositivos</strong> de la congregación.</li></ol>
+<h3>Poner el día y la hora exactos (administradores, superintendente y auxiliar del grupo)</h3>
+<ol class="pasos"><li>En <strong>Menú → Limpieza → Grupos</strong>, busca tu grupo (o el que gestionas) y toca el <strong>lápiz</strong> de su fila.</li><li>Elige el <strong>día</strong> y la <strong>hora</strong> (por ejemplo, domingo a las 12:30) y toca <strong>«Guardar»</strong>. Para borrar la fecha, toca <strong>«Quitar fecha»</strong>.</li><li>Los hermanos de ese grupo lo verán en su pantalla de inicio: <strong>«Grupo 1 · Esta semana»</strong> y debajo, <strong>«Domingo 12:30»</strong>, con su <strong>campana</strong> para poner un recordatorio.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">La fecha solo aparece en el inicio si cae en la <strong>semana actual</strong> (de lunes a domingo). Puedes ponerla con antelación: aparecerá cuando llegue esa semana. Las fechas de semanas pasadas desaparecen solas.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Programa de Vida y Ministerio</h2>
+<p>En la pestaña <strong>Programa → Vida y Ministerio</strong> creas el programa de cada semana y asignas las partes. Lo ven todos los hermanos; solo lo editan los administradores.</p>
+<ol class="pasos"><li>Toca <strong>«Nueva semana»</strong> y elige la <strong>fecha de la reunión</strong> (cualquier día de esa semana, de lunes a domingo).</li><li>Wkit crea la semana con la <strong>estructura habitual</strong>: Tesoros de la Biblia, Seamos mejores maestros y Nuestra vida cristiana.</li><li>Toca cualquier <strong>título</strong> para cambiarlo, y la <strong>duración</strong> si hace falta. Con <strong>«Añadir asignación»</strong> puedes añadir más partes.</li><li>En cada parte, toca <strong>«Elegir»</strong> y escoge al hermano o a los hermanos (por ejemplo, estudiante y ayudante). Para <strong>Sala Auxiliar</strong>, usa <strong>«Añadir Sala Auxiliar»</strong>.</li><li>Elige también las <strong>canciones</strong> y las <strong>oraciones</strong>, y toca <strong>«Guardar programa»</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Para ver otra semana, usa el <strong>selector de semanas</strong> (<strong>«Semana anterior»</strong> / <strong>«Semana siguiente»</strong>); desde ahí también puedes <strong>editarla o borrarla</strong>.</li><li>Los hermanos reciben una <strong>notificación</strong> cuando se les asigna una parte, y la ven en su pantalla de inicio.</li><li>El programa de la semana desaparece solo al terminar el domingo.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Reunión Pública</h2>
+<p>En <strong>Programa → Reunión Pública</strong> se prepara cada reunión del fin de semana.</p>
+<ol class="pasos"><li>Toca <strong>«Nueva Reunión Pública»</strong> y elige la <strong>fecha</strong>. Si ya hay una reunión para esa fecha, Wkit te avisa.</li><li>Elige al <strong>presidente</strong>, al <strong>discursante</strong> y escribe el <strong>título del discurso</strong>.</li><li>Elige al <strong>lector de La Atalaya</strong> («Lector wS») y las <strong>canciones</strong> y <strong>oraciones</strong>.</li><li>Guarda. Los hermanos ven sus partes en la pantalla de inicio.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Audio y Vídeo / Acomodadores</h2>
+<p>En <strong>Menú → Audio y Vídeo / Acomodadores</strong> asignas las responsabilidades de cada semana: audio, vídeo, micrófonos, acomodadores, Zoom, tomar tiempos…</p>
+<ol class="pasos"><li>Toca <strong>«Nueva semana»</strong> y elige la <strong>fecha de la reunión</strong>.</li><li>Toca <strong>«Elegir»</strong> en cada responsabilidad y escoge al hermano. Algunas, como los micrófonos, admiten <strong>varios hermanos</strong> (<strong>«Añadir hermano»</strong>).</li><li>Para otra responsabilidad que no esté, toca <strong>«Añadir responsabilidad»</strong> y ponle nombre.</li><li>Guarda. Cada hermano la ve en <strong>Responsabilidades</strong>, en su inicio, con su campana.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Otros programas</h2>
+<p>Para <strong>cualquier otra cosa</strong> que organice la congregación y no sea una reunión: por ejemplo, transporte para hermanos que no pueden venir, o ayuda a publicadores. Cada programa tiene su propia periodicidad. Está en <strong>Menú → Otros programas</strong>.</p>
+<ol class="pasos"><li>Toca <strong>«Nuevo programa»</strong>. Escribe el <strong>nombre</strong> y elige <strong>cada cuánto se organiza</strong>: por día, por semana, por mes o anual.</li><li>Toca <strong>«Crear la primera semana»</strong> (o <strong>«Nuevo periodo»</strong>) y elige la fecha: cualquier día de esa semana, mes o año.</li><li>Toca <strong>«Añadir responsabilidad»</strong>: escribe una <strong>etiqueta</strong> opcional (por ejemplo, «Recoge antes») y <strong>elige al hermano o hermana</strong>.</li><li>Guarda. Cada persona lo ve en su inicio, en <strong>«Otros programas»</strong>, y el periodo desaparece solo cuando termina.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Anuncios</h2>
+<p>Los anuncios los crean los administradores y los ven todos los hermanos. Están en <strong>Menú → Anuncios</strong>.</p>
+<ol class="pasos"><li>Toca <strong>«Nuevo anuncio»</strong> y escribe el <strong>mensaje</strong>.</li><li>Por defecto, se publica <strong>al instante</strong>, en cuanto lo guardas, y se avisa a todos con una notificación.</li><li>Si prefieres que salga más tarde, activa <strong>«Programar para más tarde»</strong> y elige <strong>fecha y hora</strong>: nadie lo verá hasta entonces, y a esa hora se avisará a todos.</li><li>Guarda. Para quitar un anuncio, tócalo y elige <strong>«Eliminar»</strong>: desaparece para todos.</li></ol>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="territorios-admin"><h2>18. Territorios: asignar, campañas y panel web</h2>
+<p>Quien tenga el permiso de <strong>Siervo de Territorios</strong> gestiona los territorios de toda la congregación desde la pestaña <strong>Territorios</strong> (los publicadores solo ven los suyos).</p>
+<h3>Asignar y recibir territorios</h3>
+<ul><li>Toca un territorio y elige <strong>«Asignar»</strong> (o «Asignar a un publicador») y el hermano. Verás quién lo tiene y desde cuándo, y los que están <strong>vencidos</strong> o <strong>nunca asignados</strong>.</li><li>Cuando un publicador <strong>solicita</strong> un territorio, se avisa a todos los siervos de territorios (<strong>«Solicitudes de territorio»</strong>); el primero que pueda se lo asigna.</li><li>Cuando un hermano <strong>entrega</strong> un territorio, queda libre y se anota la fecha.</li></ul>
+<h3>Campañas</h3>
+<ul><li><strong>«Nueva campaña»</strong> vuelve a registrar todos los territorios durante un periodo concreto. Se hace una <strong>copia</strong> de los territorios actuales para repartir aparte; los territorios normales no se tocan.</li><li>Solo puede haber <strong>una campaña activa</strong> a la vez. Para terminarla, elige <strong>«Eliminar campaña»</strong>: se borran sus asignaciones y todo vuelve a la normalidad.</li></ul>
+<h3>Registro S-13 y panel web</h3>
+<ul><li>En <strong>Herramientas</strong> puedes generar el <strong>registro S-13 en PDF</strong> (uno por sector) para compartirlo.</li><li>El <strong>panel web de territorios</strong> se abre desde el navegador del ordenador. Para dar acceso a un siervo de territorios: abre su ficha en la Lista de hermanos y toca <strong>«Acceso al panel»</strong> → <strong>«Generar enlace»</strong>. El enlace es personal; entra con la <strong>contraseña de 6 cifras</strong> que tú elijas, y puedes cambiarla cuando quieras.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">El enlace del panel es como una contraseña: no lo compartas fuera de quien deba tener acceso. Si generas uno nuevo, el anterior deja de funcionar.</div>
+</section>
+<section id="suscripcion"><h2>19. Suscripción de la congregación</h2>
+<p>Para que todos los hermanos tengan acceso completo hace falta <strong>una suscripción anual de la congregación</strong>. <strong>La paga un administrador y cubre a todos los hermanos</strong>, tanto en iPhone como en Android. El resto de hermanos no pagan nada.</p>
+<ol class="pasos"><li>Abre <strong>Menú → Ajustes → Suscripción de la congregación</strong>.</li><li>Toca <strong>«Suscribir la congregación»</strong>. Verás el precio anual antes de confirmar; si hay una <strong>prueba gratuita</strong>, no se cobra hasta que termine.</li><li>Confirma con la App Store (iPhone) o con Google Play (Android). Listo: toda la congregación tiene acceso.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Se <strong>renueva automáticamente</strong> cada año, salvo que la canceles al menos 24 horas antes de que termine el periodo.</li><li>Para <strong>gestionarla o cancelarla</strong>: <span class="plat i">iPhone</span> Ajustes del iPhone → tu nombre → Suscripciones; <span class="plat a">Android</span> Google Play → tu perfil → Pagos y suscripciones → Suscripciones (o el botón «Gestionar o cancelar en Google Play» de Wkit).</li><li>Si <strong>cambias de móvil</strong>, toca <strong>«Restaurar compras»</strong> en la misma pantalla.</li><li>Si la suscripción <strong>caduca</strong>, la congregación pasa a <strong>solo lectura</strong>: todo se sigue viendo y <strong>no se borra nada</strong>. Al renovar, se puede volver a editar.</li></ul>
+<div class="nota">Wkit nunca ve ni guarda tus datos de pago: los gestiona Apple o Google.</div>
+</section>
+<section id="copias"><h2>20. Anuncios y datos solo en este teléfono</h2>
+<p>Si usaste Wkit sin conexión o antes de que existiera tu congregación, puede que la aplicación te pregunte qué hacer con <strong>datos guardados solo en este teléfono</strong> (por ejemplo, hermanos o anuncios). Tienes dos opciones: <strong>«Subirlos»</strong> a la congregación (los verán todos) o <strong>«Descartarlos»</strong>. No se hace nada hasta que tú lo decidas.</p>
+</section>
+      <div class="caja pie"><strong>¿No encuentras lo que buscas?</strong> Escríbenos a <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> y cuéntanos qué te pasa. Si puedes, indica qué dispositivo usas (iPhone, iPad o Android) y qué estabas haciendo.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = "Falta " + (tipo === "video" ? "el vídeo" : "la imagen") + " “" + src + "”: " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    </script>
+  </body>
+</html>
