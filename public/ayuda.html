@@ -6,7 +6,7 @@
     <meta name="color-scheme" content="light dark" />
     <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
     <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <title>Guía paso a paso — Wkit</title>
+    <title>Guía paso a paso de Wkit — Wkit</title>
     <meta name="description" content="Guía paso a paso de Wkit para publicadores y administradores: entrar, recordatorios, informe, hermanos, grupos, limpieza, programas, anuncios, territorios y suscripción." />
     <style>
       :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
@@ -52,15 +52,34 @@
       figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
       .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
       @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
     </style>
+    <script>
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es"; return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("ayuda-" + l + ".html" + location.search.replace(/[?&]idioma=[^&]*/, ""));
+      })();
+    </script>
   </head>
   <body>
     <main>
-      <p style="font-size:13px;margin:0 0 18px;color:var(--secundario)"><a href="soporte.html?idioma=es">← Ayuda y contacto</a> · <a href="privacidad.html?idioma=es">Política de privacidad</a></p>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte.html?idioma=es">← Wkit</a> · <a href="privacidad.html?idioma=es">Política de privacidad</a></p>
+      <p class="idiomas"><b>Español</b> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a></p>
       <h1>Guía paso a paso de Wkit</h1>
       <p class="sub">Todo lo que puedes hacer en la aplicación, explicado con calma: para publicadores y para administradores. Funciona igual en iPhone, iPad y Android; cuando hay alguna diferencia, lo verás marcado con <span class="plat a">Android</span> o <span class="plat i">iPhone</span>.</p>
-      <div class="toc-wrap"><div class="toc-g"><h3>Para todos los hermanos</h3><ol class="toc"><li><a href="#entrar">Entrar en Wkit por primera vez</a></li><li><a href="#inicio">La pantalla de inicio</a></li><li><a href="#recordatorios">Recordatorios: la campana</a></li><li><a href="#notificaciones">Notificaciones: qué te avisa Wkit</a></li><li><a href="#informe">Tu informe de servicio (privado)</a></li><li><a href="#territorios-pub">Territorios: ver, entregar y solicitar</a></li><li><a href="#cuenta">Tu cuenta: cambiar de móvil, vincular el correo, idioma y borrar</a></li><li><a href="#copia-seguridad">Copia de seguridad</a></li></ol></div><div class="toc-g"><h3>Para los administradores (ancianos)</h3><ol class="toc"><li><a href="#crear-congregacion">Crear la congregación</a></li><li><a href="#hermanos">La lista de hermanos</a></li><li><a href="#grupos">Grupos de servicio (predicación)</a></li><li><a href="#salidas">Salidas al ministerio</a></li><li><a href="#limpieza">Limpieza: qué grupo toca y qué día y hora</a></li><li><a href="#vida-ministerio">Programa de Vida y Ministerio</a></li><li><a href="#reunion-publica">Reunión Pública</a></li><li><a href="#audio-video">Audio y Vídeo / Acomodadores</a></li><li><a href="#otros-programas">Otros programas</a></li><li><a href="#anuncios">Anuncios</a></li><li><a href="#territorios-admin">Territorios: asignar, campañas y panel web</a></li><li><a href="#suscripcion">Suscripción de la congregación</a></li><li><a href="#copias">Anuncios y datos solo en este teléfono</a></li></ol></div></div>
-      <h2 class="grupo" id="g-37">Para todos los hermanos</h2>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Para todos los hermanos</h3><ol class="toc"><li><a href="#entrar">Entrar en Wkit por primera vez</a></li><li><a href="#inicio">La pantalla de inicio</a></li><li><a href="#recordatorios">Recordatorios: la campana</a></li><li><a href="#notificaciones">Notificaciones: qué te avisa Wkit</a></li><li><a href="#informe">Tu informe de servicio (privado)</a></li><li><a href="#territorios-pub">Territorios: ver, entregar y solicitar</a></li><li><a href="#cuenta">Tu cuenta: cambiar de móvil, vincular el correo, idioma y borrar</a></li><li><a href="#copia-seguridad">Copia de seguridad</a></li></ol></div><div class="toc-g"><h3>Para los administradores (ancianos)</h3><ol class="toc"><li><a href="#crear-congregacion">Crear la congregación</a></li><li><a href="#hermanos">La lista de hermanos</a></li><li><a href="#grupos">Grupos de servicio (predicación)</a></li><li><a href="#salidas">Salidas al ministerio</a></li><li><a href="#limpieza">Limpieza: qué grupo toca y qué día y hora</a></li><li><a href="#vida-ministerio">Programa de Vida y Ministerio</a></li><li><a href="#reunion-publica">Reunión Pública</a></li><li><a href="#audio-video">Audio y Vídeo / Acomodadores</a></li><li><a href="#otros-programas">Otros programas</a></li><li><a href="#anuncios">Anuncios</a></li><li><a href="#territorios-admin">Territorios: asignar, campañas y panel web</a></li><li><a href="#suscripcion">Suscripción de la congregación</a></li><li><a href="#copias">Datos guardados solo en este teléfono</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Para todos los hermanos</h2>
 <section id="entrar"><h2>1. Entrar en Wkit por primera vez</h2>
 <p>Para entrar en Wkit <strong>no necesitas correo ni contraseña</strong>: un anciano de tu congregación te invita y tú entras con un enlace o un código.</p>
 <ol class="pasos"><li>Pide al anciano que lleva la lista de hermanos que te invite. Te llegarán <strong>dos mensajes seguidos</strong>: primero un enlace y después, solo, el código (así es fácil copiarlo).</li><li>Instala <strong>Wkit</strong> desde la App Store (iPhone y iPad) o desde Google Play (Android).</li><li>Toca el enlace del primer mensaje: la aplicación se abre y te reconoce.</li><li>Si el enlace no abre la aplicación, ábrela tú, toca <strong>«Tengo un enlace o un código de invitación»</strong> y pega el mensaje entero o solo el código: la aplicación se queda sola con lo que hace falta.</li><li>Verás unas pantallas de bienvenida (<strong>«Primeros pasos»</strong>) que explican qué se comparte y qué no. Cuando termines, ya estás dentro.</li></ol>
@@ -117,7 +136,7 @@
 <div class="nota"><span class="plat i">iPhone</span> La copia automática se guarda en tu iCloud. <span class="plat a">Android</span> Se guarda en el teléfono y, si tienes activada la copia de seguridad de Android en tu cuenta de Google (Ajustes del teléfono → Google → Copia de seguridad), al iniciar sesión con esa cuenta en un teléfono nuevo la recuperarás sola.</div>
 <figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
 </section>
-<h2 class="grupo" id="g-795">Para los administradores (ancianos)</h2>
+<h2 class="grupo" id="g-549">Para los administradores (ancianos)</h2>
 <section id="crear-congregacion"><h2>8. Crear la congregación</h2>
 <p>Solo lo hace <strong>una vez</strong> un anciano; después invita a los demás.</p>
 <ol class="pasos"><li>Abre Wkit y toca <strong>«Crear cuenta o acceder como administrador»</strong>.</li><li>Escribe tu correo y toca <strong>«Enviar enlace de acceso»</strong>. No hay contraseñas: te llega un enlace para confirmar que el correo es tuyo.</li><li><strong>Abre el enlace desde el mismo teléfono.</strong> Wkit se abre sola.</li><li>Rellena <strong>tu nombre</strong>, el <strong>nombre de la congregación</strong>, el <strong>número de congregación</strong> y el <strong>país</strong>, y toca <strong>«Crear congregación»</strong>.</li><li>Verás los <strong>«Primeros pasos como anciano»</strong>: 1) añade a los hermanos en la Lista de hermanos y 2) invítalos.</li></ol>
@@ -203,7 +222,7 @@
 <ul><li>Se <strong>renueva automáticamente</strong> cada año, salvo que la canceles al menos 24 horas antes de que termine el periodo.</li><li>Para <strong>gestionarla o cancelarla</strong>: <span class="plat i">iPhone</span> Ajustes del iPhone → tu nombre → Suscripciones; <span class="plat a">Android</span> Google Play → tu perfil → Pagos y suscripciones → Suscripciones (o el botón «Gestionar o cancelar en Google Play» de Wkit).</li><li>Si <strong>cambias de móvil</strong>, toca <strong>«Restaurar compras»</strong> en la misma pantalla.</li><li>Si la suscripción <strong>caduca</strong>, la congregación pasa a <strong>solo lectura</strong>: todo se sigue viendo y <strong>no se borra nada</strong>. Al renovar, se puede volver a editar.</li></ul>
 <div class="nota">Wkit nunca ve ni guarda tus datos de pago: los gestiona Apple o Google.</div>
 </section>
-<section id="copias"><h2>20. Anuncios y datos solo en este teléfono</h2>
+<section id="copias"><h2>20. Datos guardados solo en este teléfono</h2>
 <p>Si usaste Wkit sin conexión o antes de que existiera tu congregación, puede que la aplicación te pregunte qué hacer con <strong>datos guardados solo en este teléfono</strong> (por ejemplo, hermanos o anuncios). Tienes dos opciones: <strong>«Subirlos»</strong> a la congregación (los verán todos) o <strong>«Descartarlos»</strong>. No se hace nada hasta que tú lo decidas.</p>
 </section>
       <div class="caja pie"><strong>¿No encuentras lo que buscas?</strong> Escríbenos a <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> y cuéntanos qué te pasa. Si puedes, indica qué dispositivo usas (iPhone, iPad o Android) y qué estabas haciendo.</div>
@@ -231,11 +250,12 @@
           }).catch(function () {
             if (borrador) {
               f.classList.add("pendiente");
-              f.textContent = "Falta " + (tipo === "video" ? "el vídeo" : "la imagen") + " “" + src + "”: " + f.getAttribute("data-desc");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
             }
           });
         });
       })();
+    
     </script>
   </body>
 </html>

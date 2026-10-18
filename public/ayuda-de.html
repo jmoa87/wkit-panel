@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkit Schritt für Schritt — Wkit</title>
+    <meta name="description" content="Wkit Schritt für Schritt für Verkündiger und Administratoren: Einstieg, Erinnerungen, Bericht, Brüder, Gruppen, Reinigung, Programme, Ankündigungen, Gebiete und Abo." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-de.html">← Wkit</a> · <a href="privacidad-de.html">Datenschutzerklärung</a></p>
+      <p class="idiomas"><a href="ayuda.html">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <b>Deutsch</b> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a></p>
+      <h1>Wkit Schritt für Schritt</h1>
+      <p class="sub">Alles, was du in der App tun kannst, in Ruhe erklärt: für Verkündiger und für Administratoren. Auf iPhone, iPad und Android funktioniert es gleich; wo es einen Unterschied gibt, siehst du ihn mit <span class="plat a">Android</span> oder <span class="plat i">iPhone</span> markiert.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Für alle Brüder</h3><ol class="toc"><li><a href="#entrar">Zum ersten Mal in Wkit einsteigen</a></li><li><a href="#inicio">Der Startbildschirm</a></li><li><a href="#recordatorios">Erinnerungen: die Glocke</a></li><li><a href="#notificaciones">Benachrichtigungen: worüber dich Wkit informiert</a></li><li><a href="#informe">Dein Dienstbericht (privat)</a></li><li><a href="#territorios-pub">Gebiete: ansehen, zurückgeben und anfragen</a></li><li><a href="#cuenta">Dein Konto: Telefon wechseln, E-Mail verknüpfen, Sprache und Löschen</a></li><li><a href="#copia-seguridad">Datensicherung</a></li></ol></div><div class="toc-g"><h3>Für Administratoren (Älteste)</h3><ol class="toc"><li><a href="#crear-congregacion">Die Versammlung erstellen</a></li><li><a href="#hermanos">Die Liste der Brüder</a></li><li><a href="#grupos">Dienstgruppen (Predigtdienst)</a></li><li><a href="#salidas">Zusammenkünfte für den Predigtdienst</a></li><li><a href="#limpieza">Reinigung: welche Gruppe dran ist und an welchem Tag und zu welcher Uhrzeit</a></li><li><a href="#vida-ministerio">Programm der Zusammenkunft Unser Leben und Dienst als Christ</a></li><li><a href="#reunion-publica">Öffentlicher Vortrag</a></li><li><a href="#audio-video">Audio und Video / Ordnerdienst</a></li><li><a href="#otros-programas">Andere Programme</a></li><li><a href="#anuncios">Ankündigungen</a></li><li><a href="#territorios-admin">Gebiete: zuteilen, Aktionen und Web-Panel</a></li><li><a href="#suscripcion">Abo der Versammlung</a></li><li><a href="#copias">Nur auf diesem Telefon gespeicherte Daten</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Für alle Brüder</h2>
+<section id="entrar"><h2>1. Zum ersten Mal in Wkit einsteigen</h2>
+<p>Um in Wkit einzusteigen, <strong>brauchst du weder E-Mail noch Passwort</strong>: Ein Ältester deiner Versammlung lädt dich ein und du kommst mit einem Link oder einem Code hinein.</p>
+<ol class="pasos"><li>Bitte den Ältesten, der die Liste der Brüder führt, dich einzuladen. Du bekommst <strong>zwei Nachrichten hintereinander</strong>: zuerst einen Link und danach, allein, den Code (so lässt er sich leicht kopieren).</li><li>Installiere <strong>Wkit</strong> aus dem App Store (iPhone und iPad) oder aus Google Play (Android).</li><li>Tippe auf den Link in der ersten Nachricht: Die App öffnet sich und erkennt dich.</li><li>Wenn der Link die App nicht öffnet, öffne sie selbst, tippe auf <strong>„Ich habe einen Einladungslink oder -code“</strong> und füge die ganze Nachricht oder nur den Code ein: Die App nimmt sich von selbst, was sie braucht.</li><li>Du siehst einige Willkommensseiten (<strong>„Erste Schritte“</strong>), die erklären, was geteilt wird und was nicht. Wenn du fertig bist, bist du drin.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Wenn der Code nicht funktioniert</strong> („ist ungültig oder abgelaufen“), bitte den Ältesten, dir einen neuen zu erstellen: Das geht in einem Moment über dein Profil.</div>
+<div class="nota"><strong>Was geteilt wird und was nicht:</strong> Die Liste der Brüder, das Programm, die Reinigung, die Gebiete und die Ankündigungen sieht die ganze Versammlung und ein Ältester erstellt sie. <strong>Dein Bericht gehört nur dir</strong>: Er verlässt nie dein Telefon und niemand sonst sieht ihn, auch kein Ältester.</div>
+</section>
+<section id="inicio"><h2>2. Der Startbildschirm</h2>
+<p>Das ist das Erste, was du siehst, wenn du Wkit öffnest. Er zeigt dir <strong>das, was dich betrifft</strong>, auf einen Blick; wenn dir nichts zugeteilt ist, siehst du „Keine anstehenden Aufgaben“.</p>
+<ul><li><strong>Nächste Aufgaben</strong>: deine Aufgaben in der Zusammenkunft Unser Leben und Dienst als Christ und im öffentlichen Vortrag (Vorsitzender, Vorleser, Redner …).</li><li><strong>Verantwortungen</strong>: was du bei Audio und Video / Ordnerdienst hast.</li><li><strong>Reinigung</strong>: erscheint nur, wenn <em>diese Woche</em> deine Gruppe an der Reihe ist. Wenn der Gruppenaufseher oder sein Gehilfe Tag und Uhrzeit eingetragen hat, siehst du sie darunter (zum Beispiel „Sonntag 12:30“).</li><li><strong>Andere Programme</strong>, <strong>Gebiete</strong> (und die Aktion, falls es eine gibt) und die Erinnerung an den <strong>Bericht</strong>.</li></ul>
+<p>Unten findest du fünf Reiter: <strong>Start</strong>, <strong>Programm</strong>, <strong>Bericht</strong>, <strong>Gebiete</strong> und <strong>Menü</strong> (dort sind die Liste der Brüder, die Gruppen, die Reinigung, die Ankündigungen und die Einstellungen).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Erinnerungen: die Glocke</h2>
+<p>Neben jeder Aufgabe, Verantwortung oder Reinigungsrunde gibt es eine <strong>Glocke</strong>. Damit erinnert dich dein Telefon rechtzeitig, zu der Uhrzeit, die du wählst.</p>
+<ol class="pasos"><li>Tippe auf die Glocke der Aufgabe.</li><li>Wähle Tag und Uhrzeit der Erinnerung.</li><li>Bestätige. Die Glocke wird grün und läutet (wackelt), wenn es soweit ist.</li><li>Zum Entfernen tippst du erneut auf die Glocke und wählst, die Erinnerung zu entfernen.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Wenn der Älteste Tag oder Uhrzeit der Reinigung ändert, bietet dir die Glocke erneut an, die Erinnerung mit dem neuen Datum zu setzen.</div>
+<div class="nota"><span class="plat a">Android</span> Wenn die Erinnerungen nicht ankommen, prüfe, ob Wkit in den Telefoneinstellungen die Erlaubnis für Benachrichtigungen hat und ob der Akkuverbrauch nicht eingeschränkt ist.</div>
+</section>
+<section id="notificaciones"><h2>4. Benachrichtigungen: worüber dich Wkit informiert</h2>
+<p>Wkit informiert dich, wenn es eine neue Ankündigung gibt, wenn dir etwas zugeteilt wird oder wenn es Änderungen gibt, die dich betreffen.</p>
+<ol class="pasos"><li>Beim ersten Mal <strong>erlaube die Benachrichtigungen</strong>, wenn das Telefon fragt.</li><li>Öffne <strong>Menü → Einstellungen → Mitteilungen</strong>.</li><li>Schalte die Kategorien aus, die du nicht möchtest (Ankündigungen, Programm, Audio und Video, Reinigung, Gebiete …) und wähle die Tage und die Uhrzeit, zu der du die Hinweise bekommen möchtest.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Ein Gerät empfängt die Hinweise immer nur einer Person</strong>: der, die angemeldet ist. Wenn sie nicht ankommen, öffne Wkit mindestens einmal mit deinem Konto, damit das Gerät registriert wird.</div>
+</section>
+<section id="informe"><h2>5. Dein Dienstbericht (privat)</h2>
+<p>Der Bericht ist ein <strong>persönliches</strong> Werkzeug: Er wird nur auf deinem Telefon gespeichert. Niemand sonst sieht ihn, auch kein Ältester.</p>
+<ol class="pasos"><li>Öffne den Reiter <strong>Bericht</strong>. Beim ersten Mal stellt dir Wkit ein paar Fragen: deine Art des Dienstes (Verkündiger, Pionier …) und <strong>dein Stundenziel</strong> pro Monat.</li><li>Um deinen Dienst einzutragen, tippe auf <strong>„Neu“</strong> und fülle Datum, Stunden und Minuten sowie die Bibelstudien aus.</li><li>Unter <strong>Verlauf</strong> siehst du, wo du im Monat und im Dienstjahr stehst, und kannst einen Eintrag bearbeiten oder löschen.</li><li>Am 1. jedes Monats kann dich Wkit zu der Uhrzeit, die du wählst, daran erinnern, <strong>deinen Bericht abzugeben</strong>. Die Schaltfläche <strong>„Bericht senden“</strong> bereitet die Nachricht mit deinen Stunden und Studien vor.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Erstelle eine Sicherung</strong> deines Berichts (Menú → Ajustes → Copia de seguridad). Wenn du das Telefon wechselst oder es ohne Sicherung verlierst, kann der Bericht nicht wiederhergestellt werden, weil er auf keinem Server liegt. Siehe Abschnitt 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Gebiete: ansehen, zurückgeben und anfragen</h2>
+<p>Im Reiter <strong>Gebiete</strong> siehst du die Gebiete, die dir zugeteilt sind, mit dem Datum, seit dem du sie hast.</p>
+<ol class="pasos"><li>Um ein Gebiet <strong>zurückzugeben</strong>, wenn du es fertig bearbeitet hast, öffne es und tippe auf <strong>„Abgeben“</strong> (oder <strong>„Mitteilen, dass die Frist abgelaufen ist“</strong>). Der Verantwortliche für die Gebiete wird benachrichtigt.</li><li>Wenn du <strong>keins hast</strong> und eins möchtest, tippe auf <strong>„Gebiet anfordern“</strong>. Du kannst eine optionale Nachricht hinzufügen (zum Beispiel „Ich hätte gern eins in der Nähe vom Zentrum“).</li><li>Alle Gebietsdiener werden benachrichtigt, und der Erste, der kann, teilt dir eins zu. Du bekommst eine Benachrichtigung, sobald du es hast.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Dein Konto: Telefon wechseln, E-Mail verknüpfen, Sprache und Löschen</h2>
+<h3>Telefon wechseln oder verlieren</h3>
+<ul><li>Wenn du <strong>keine E-Mail verknüpft hast</strong> (Brüder brauchen sie nicht), schickt dir ein Ältester von deinem Profil in der Liste der Brüder aus eine <strong>neue Einladung</strong>. Du bekommst deinen Platz mit allem aus der Versammlung zurück. Verloren geht nur dein Bericht, wenn du keine Sicherung hattest.</li><li>Wenn du <strong>deine E-Mail verknüpft hast</strong>, öffne Wkit, tippe auf <strong>„Konto erstellen oder als Administrator anmelden“</strong>, gib die E-Mail ein und öffne den Link, den du bekommst. Du kommst mit allem wieder hinein, wie du es hattest.</li></ul>
+<h3>E-Mail verknüpfen (optional, für Administratoren empfohlen)</h3>
+<ol class="pasos"><li>Öffne <strong>Menü → Einstellungen → Mein Konto → Meine E-Mail-Adresse verknüpfen</strong>.</li><li>Gib deine E-Mail ein. Du bekommst einen Bestätigungslink.</li><li><strong>Öffne ihn auf demselben Telefon</strong>, in der E-Mail-App. Der Bildschirm schließt sich von selbst und dein Konto ist verknüpft.</li></ol>
+<h3>Sprache ändern</h3>
+<p>Wkit verwendet die Sprache des Telefons. Um sie nur für Wkit zu ändern: Telefoneinstellungen → Apps → Wkit → Sprache.</p>
+<h3>Dein Konto löschen</h3>
+<p><strong>Menü → Einstellungen → Mein Konto → Mein Konto löschen.</strong> Dein Konto, dein Eintrag in der Liste und die auf deinem Telefon gespeicherten Daten (auch der Bericht) werden gelöscht; Gebiete, die du hattest, werden frei. Das lässt sich nicht rückgängig machen. Wenn du der einzige Administrator bist und es weitere Brüder gibt, musst du vorher einen anderen ernennen (öffne in der Liste der Brüder sein Profil und aktiviere „Administrator“). Wenn du die einzige Person in der Versammlung bist, wird auch die ganze Versammlung gelöscht.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Das Konto zu löschen <strong>kündigt nicht</strong> das Abo der Versammlung, falls dieses Konto es bezahlt: Es wird im App Store gekündigt <span class="plat i">iPhone</span> oder in Google Play → Zahlungen & Abos → Abos <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Datensicherung</h2>
+<p>Sie dient vor allem dazu, <strong>deinen Bericht nicht zu verlieren</strong>, der nur auf deinem Telefon liegt. Du findest sie unter <strong>Menü → Einstellungen → Datensicherung</strong>.</p>
+<ul><li><strong>Automatische Sicherung</strong>: erstellt einmal im Monat von selbst eine Sicherung.</li><li><strong>„Jetzt sichern“</strong> und <strong>„Datensicherung exportieren“</strong>: Du kannst die Datei speichern, wo du möchtest, oder sie dir schicken.</li><li><strong>„Datensicherung wiederherstellen“</strong>: Wähle die aus Wkit exportierte Datei. Die Daten der Sicherung werden zu den vorhandenen <strong>hinzugefügt</strong>: Es wird nichts gelöscht.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Die automatische Sicherung wird in deiner iCloud gespeichert. <span class="plat a">Android</span> Sie wird auf dem Telefon gespeichert und, wenn die Android-Sicherung in deinem Google-Konto aktiviert ist (Telefoneinstellungen → Google → Sicherung), bekommst du sie beim Anmelden mit diesem Konto auf einem neuen Telefon automatisch zurück.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Für Administratoren (Älteste)</h2>
+<section id="crear-congregacion"><h2>8. Die Versammlung erstellen</h2>
+<p>Das macht ein Ältester nur <strong>einmal</strong>; danach lädt er die anderen ein.</p>
+<ol class="pasos"><li>Öffne Wkit und tippe auf <strong>„Konto erstellen oder als Administrator anmelden“</strong>.</li><li>Gib deine E-Mail ein und tippe auf <strong>„Zugangslink senden“</strong>. Es gibt keine Passwörter: Du bekommst einen Link, um zu bestätigen, dass die E-Mail deine ist.</li><li><strong>Öffne den Link auf demselben Telefon.</strong> Wkit öffnet sich von selbst.</li><li>Fülle <strong>deinen Namen</strong>, den <strong>Namen der Versammlung</strong>, die <strong>Versammlungsnummer</strong> und das <strong>Land</strong> aus und tippe auf <strong>„Versammlung anlegen“</strong>.</li><li>Du siehst die <strong>„Erste Schritte als Ältester“</strong>: 1) füge die Brüder in der Liste der Brüder hinzu und 2) lade sie ein.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Die E-Mail kommt nicht an? Sieh im Spam-Ordner nach und tippe auf <strong>„Nicht angekommen – erneut senden“</strong>. Eine E-Mail-Adresse kann in Wkit nur ein Konto haben.</div>
+</section>
+<section id="hermanos"><h2>9. Die Liste der Brüder</h2>
+<p>Sie ist die Grundlage von allem: Programme, Gruppen und Aufgaben verwenden die Namen dieser Liste. Sie ist unter <strong>Menü → Brüderliste</strong>.</p>
+<h3>Einen Bruder hinzufügen</h3>
+<ol class="pasos"><li>Tippe auf die Schaltfläche <strong>+</strong> (<strong>„Neuer Bruder“</strong>).</li><li>Gib den <strong>Namen</strong> ein und wähle, ob es ein <strong>Bruder</strong> oder eine <strong>Schwester</strong> ist.</li><li>Wähle seine <strong>Verantwortung</strong>: getaufter oder ungetaufter Verkündiger, Pionier/in, Dienstamtgehilfe oder Ältester.</li><li>Wähle gegebenenfalls seine <strong>Dienstgruppe</strong> und aktiviere <strong>Gebietsdiener</strong>, <strong>Audio und Video / Ordner</strong> oder <strong>Administrator</strong>.</li><li>Tippe auf <strong>„Erstellen“</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Zwei Brüder mit demselben Namen:</strong> Füge etwas hinzu, das sie unterscheidet (zum Beispiel „Sohn“), damit die Aufgaben nicht verwechselt werden.</div>
+<h3>Einen Bruder zu Wkit einladen</h3>
+<ol class="pasos"><li>Öffne das Profil des Bruders und tippe auf <strong>„Einladen“</strong> (oder <strong>„Link erstellen“</strong>).</li><li>Tippe auf <strong>„Einladung teilen“</strong> und wähle WhatsApp, Nachrichten usw. Es werden <strong>zwei Nachrichten hintereinander</strong> gesendet: zuerst der Link und dann der Code allein, damit er sich leicht kopieren lässt.</li><li>Der Bruder öffnet den Link (oder fügt den Code ein) und kommt hinein. Wenn er noch nicht drin ist, kannst du die Einladung erneut teilen; wenn du eine neue erstellst, wird die vorherige ungültig.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Bearbeiten, löschen und Administratoren ernennen</h3>
+<ul><li>Tippe auf einen Bruder und wähle <strong>„Bearbeiten“</strong>, um seine Daten zu ändern.</li><li>Auf Android tippst du zum Löschen auf das <strong>rote Symbol</strong> in seiner Zeile; auf dem iPhone wischst du die Zeile nach links. Er wird auf allen Geräten aus der Liste entfernt und Gebiete, die er hatte, werden frei.</li><li>Ein <strong>Administrator</strong> kann Brüder, Gebiete, Ankündigungen und das Programm verwalten. <strong>Du kannst weder dein eigenes Profil noch den letzten Administrator löschen</strong>: Ernenne vorher einen anderen.</li></ul>
+</section>
+<section id="grupos"><h2>10. Dienstgruppen (Predigtdienst)</h2>
+<p>Die Gruppen werden für die Zusammenkünfte für den Predigtdienst und für die Reinigung verwendet. Sie sind unter <strong>Menü → Predigtdienstgruppen → Liste</strong>.</p>
+<ol class="pasos"><li>Wenn es keine gibt, tippe auf <strong>„Predigtdienstgruppen anlegen“</strong> und wähle, <strong>wie viele Gruppen</strong> du möchtest (später kannst du mit der Schaltfläche <strong>+</strong> weitere hinzufügen).</li><li>Um die Brüder in ihre Gruppe zu setzen, gehe zur <strong>Brüderliste</strong>, öffne das Profil jedes Einzelnen und wähle seine <strong>Dienstgruppe</strong>.</li><li>Gehe zurück zu <strong>Menü → Predigtdienstgruppen → Liste</strong>. In jeder Gruppe siehst du den <strong>Gruppenaufseher</strong>, den <strong>Gehilfen</strong> und die Brüder <strong>in alphabetischer Reihenfolge</strong>.</li><li>Tippe auf die <strong>Bleistift</strong>-Schaltfläche (Bearbeiten). Tippe auf <strong>„Gruppenaufseher“</strong> und wähle einen der Brüder dieser Gruppe; mache dasselbe mit <strong>„Gehilfe“</strong>. Es darf nicht dieselbe Person sein.</li><li>Tippe auf den <strong>Haken</strong>, um fertig zu werden.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Der Gruppenaufseher und der Gehilfe werden <strong>nach</strong> der Zuteilung der Brüder gewählt, weil man nur unter den Brüdern der Gruppe selbst wählen kann. Wenn du einen Bruder in eine andere Gruppe verschiebst, ist er nicht mehr Aufseher oder Gehilfe der vorherigen.</div>
+<div class="nota">Der Aufseher und der Gehilfe jeder Gruppe <strong>können Tag und Uhrzeit der Reinigung</strong> ihrer Gruppe eintragen (Abschnitt 12), auch wenn sie keine Administratoren sind.</div>
+</section>
+<section id="salidas"><h2>11. Zusammenkünfte für den Predigtdienst</h2>
+<p>Die Zusammenkünfte für den Predigtdienst sind die Zeiten und Treffpunkte für den Dienst. Es gibt <strong>allgemeine</strong> (für die ganze Versammlung) und <strong>eigene jeder Gruppe</strong>. Sie sind unter <strong>Menü → Predigtdienstgruppen → Zusammenkünfte für den Predigtdienst</strong>. Du musst vorher die Gruppen erstellt haben.</p>
+<ol class="pasos"><li>Tippe auf den Bereich <strong>„Versammlung“</strong> (allgemeine Zusammenkünfte) oder den einer <strong>Gruppe</strong>.</li><li>Tippe am passenden Tag auf <strong>„Zusammenkunft hinzufügen“</strong> und gib die <strong>Bezeichnung</strong> (zum Beispiel „Vormittag“ oder „Nachmittag“), die <strong>Uhrzeit</strong> und, wenn du möchtest, den <strong>Ort</strong> ein.</li><li>Um eine Zusammenkunft zu <strong>bearbeiten</strong>, ändere direkt ihre Felder. Um sie zu <strong>löschen</strong>, tippe auf das rote Symbol in ihrer Zeile.</li><li>Die Brüder können auf den Ort tippen, um ihn in der Karte ihres Telefons zu öffnen.</li></ol>
+<div class="nota">Wenn eine Gruppe keine eigenen Zusammenkünfte hat, werden die der Versammlung verwendet („Keine eigenen — verwendet die der Versammlung“).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Reinigung: welche Gruppe dran ist und an welchem Tag und zu welcher Uhrzeit</h2>
+<p>Die Reinigung <strong>wechselt automatisch</strong> zwischen den Dienstgruppen: Jede Woche ist eine andere Gruppe dran, beginnend mit Gruppe 1. Sie ist unter <strong>Menü → Reinigung → Gruppen</strong>.</p>
+<h3>Ändern, welche Gruppe diese Woche reinigt (Administratoren)</h3>
+<ol class="pasos"><li>Tippe auf die <strong>Bleistift</strong>-Schaltfläche (Bearbeiten).</li><li>Tippe auf die <strong>Gruppe</strong>, die diese Woche dran ist. Nächste Woche ist die folgende Gruppe der Reihe nach dran.</li><li>Tippe auf den <strong>Haken</strong>. Die Änderung sehen <strong>alle Geräte</strong> der Versammlung.</li></ol>
+<h3>Genauen Tag und genaue Uhrzeit eintragen (Administratoren sowie Aufseher und Gehilfe der Gruppe)</h3>
+<ol class="pasos"><li>Suche unter <strong>Menü → Reinigung → Gruppen</strong> deine Gruppe (oder die, die du betreust) und tippe auf den <strong>Bleistift</strong> in ihrer Zeile.</li><li>Wähle den <strong>Tag</strong> und die <strong>Uhrzeit</strong> (zum Beispiel Sonntag um 12:30) und tippe auf <strong>„Speichern“</strong>. Um das Datum zu löschen, tippe auf <strong>„Datum entfernen“</strong>.</li><li>Die Brüder dieser Gruppe sehen es auf ihrem Startbildschirm: <strong>„Gruppe 1 · Diese Woche“</strong> und darunter <strong>„Sonntag 12:30“</strong>, mit ihrer <strong>Glocke</strong>, um eine Erinnerung zu setzen.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Das Datum erscheint auf dem Startbildschirm nur, wenn es in die <strong>aktuelle Woche</strong> fällt (Montag bis Sonntag). Du kannst es im Voraus eintragen: Es erscheint, wenn diese Woche da ist. Daten vergangener Wochen verschwinden von selbst.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Programm der Zusammenkunft Unser Leben und Dienst als Christ</h2>
+<p>Im Reiter <strong>Programm → Leben und Dienst</strong> erstellst du das Programm jeder Woche und teilst die Aufgaben zu. Alle Brüder sehen es; nur Administratoren bearbeiten es.</p>
+<ol class="pasos"><li>Tippe auf <strong>„Neue Woche“</strong> und wähle das <strong>Datum der Zusammenkunft</strong> (ein beliebiger Tag dieser Woche, Montag bis Sonntag).</li><li>Wkit erstellt die Woche mit der <strong>üblichen Struktur</strong>: Schätze aus Gottes Wort, Unseren Dienst verbessern und Unser Leben als Christ.</li><li>Tippe auf einen beliebigen <strong>Titel</strong>, um ihn zu ändern, und auf die <strong>Dauer</strong>, falls nötig. Mit <strong>„Aufgabe hinzufügen“</strong> kannst du weitere Aufgaben hinzufügen.</li><li>Tippe bei jeder Aufgabe auf <strong>„Auswählen“</strong> und wähle den Bruder oder die Brüder (zum Beispiel Schüler und Gehilfe). Für den <strong>zweiten Schulungsraum</strong> verwende <strong>„Zusätzliche Klasse hinzufügen“</strong>.</li><li>Wähle auch die <strong>Lieder</strong> und die <strong>Gebete</strong> und tippe auf <strong>„Programm speichern“</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Um eine andere Woche zu sehen, verwende die <strong>Wochenauswahl</strong> (<strong>„Vorherige Woche“</strong> / <strong>„Nächste Woche“</strong>); von dort kannst du sie auch <strong>bearbeiten oder löschen</strong>.</li><li>Die Brüder bekommen eine <strong>Benachrichtigung</strong>, wenn ihnen eine Aufgabe zugeteilt wird, und sehen sie auf ihrem Startbildschirm.</li><li>Das Programm der Woche verschwindet von selbst, wenn der Sonntag vorbei ist.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Öffentlicher Vortrag</h2>
+<p>Unter <strong>Programm → Öffentliche Zusammenkunft</strong> wird jede Zusammenkunft am Wochenende vorbereitet.</p>
+<ol class="pasos"><li>Tippe auf <strong>„Neue öffentliche Zusammenkunft“</strong> und wähle das <strong>Datum</strong>. Wenn es für dieses Datum schon eine Zusammenkunft gibt, warnt dich Wkit.</li><li>Wähle den <strong>Vorsitzenden</strong>, den <strong>Redner</strong> und gib das <strong>Vortragsthema</strong> ein.</li><li>Wähle den <strong>Wachtturm-Leser</strong> („WT-Leser“) sowie die <strong>Lieder</strong> und <strong>Gebete</strong>.</li><li>Speichere. Die Brüder sehen ihre Aufgaben auf dem Startbildschirm.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Audio und Video / Ordnerdienst</h2>
+<p>Unter <strong>Menü → Audio und Video / Ordner</strong> teilst du die Verantwortungen jeder Woche zu: Audio, Video, Mikrofone, Ordner, Zoom, Zeitnahme …</p>
+<ol class="pasos"><li>Tippe auf <strong>„Neue Woche“</strong> und wähle das <strong>Datum der Zusammenkunft</strong>.</li><li>Tippe bei jeder Verantwortung auf <strong>„Auswählen“</strong> und wähle den Bruder. Manche, wie die Mikrofone, lassen <strong>mehrere Brüder</strong> zu (<strong>„Bruder hinzufügen“</strong>).</li><li>Für eine andere Verantwortung, die nicht aufgeführt ist, tippe auf <strong>„Verantwortung hinzufügen“</strong> und gib ihr einen Namen.</li><li>Speichere. Jeder Bruder sieht sie unter <strong>Verantwortungsbereiche</strong>, auf seinem Startbildschirm, mit seiner Glocke.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Andere Programme</h2>
+<p>Für <strong>alles andere</strong>, was die Versammlung organisiert und keine Zusammenkunft ist: zum Beispiel Fahrdienste für Brüder, die nicht kommen können, oder Hilfe für Verkündiger. Jedes Programm hat seinen eigenen Rhythmus. Es ist unter <strong>Menü → Weitere Programme</strong>.</p>
+<ol class="pasos"><li>Tippe auf <strong>„Neues Programm“</strong>. Gib den <strong>Namen</strong> ein und wähle, <strong>wie oft es organisiert wird</strong>: täglich, wöchentlich, monatlich oder jährlich.</li><li>Tippe auf <strong>„Erste Woche anlegen“</strong> (oder <strong>„Neuer Zeitraum“</strong>) und wähle das Datum: ein beliebiger Tag dieser Woche, dieses Monats oder dieses Jahres.</li><li>Tippe auf <strong>„Verantwortung hinzufügen“</strong>: Gib eine optionale <strong>Bezeichnung</strong> ein (zum Beispiel „Holt früher ab“) und <strong>wähle den Bruder oder die Schwester</strong>.</li><li>Speichere. Jeder sieht es auf dem Startbildschirm unter <strong>„Weitere Programme“</strong>, und der Zeitraum verschwindet von selbst, wenn er endet.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Ankündigungen</h2>
+<p>Ankündigungen erstellen die Administratoren und alle Brüder sehen sie. Sie sind unter <strong>Menü → Bekanntmachungen</strong>.</p>
+<ol class="pasos"><li>Tippe auf <strong>„Neue Bekanntmachung“</strong> und gib die <strong>Nachricht</strong> ein.</li><li>Standardmäßig wird sie <strong>sofort</strong> veröffentlicht, sobald du speicherst, und alle werden per Benachrichtigung informiert.</li><li>Wenn sie später erscheinen soll, aktiviere <strong>„Für später planen“</strong> und wähle <strong>Datum und Uhrzeit</strong>: Bis dahin sieht sie niemand, und zu dieser Uhrzeit werden alle informiert.</li><li>Speichere. Um eine Ankündigung zu entfernen, tippe sie an und wähle <strong>„Löschen“</strong>: Sie verschwindet für alle.</li></ol>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="territorios-admin"><h2>18. Gebiete: zuteilen, Aktionen und Web-Panel</h2>
+<p>Wer die Berechtigung <strong>Gebietsdiener</strong> hat, verwaltet die Gebiete der ganzen Versammlung im Reiter <strong>Gebiete</strong> (Verkündiger sehen nur ihre eigenen).</p>
+<h3>Gebiete zuteilen und zurücknehmen</h3>
+<ul><li>Tippe auf ein Gebiet und wähle <strong>„Zuteilen“</strong> (oder „Einem Verkündiger zuteilen“) und den Bruder. Du siehst, wer es hat und seit wann, und welche <strong>überfällig</strong> oder <strong>nie zugeteilt</strong> sind.</li><li>Wenn ein Verkündiger ein Gebiet <strong>anfragt</strong>, werden alle Gebietsdiener benachrichtigt (<strong>„Gebietsanfragen“</strong>); der Erste, der kann, teilt es ihm zu.</li><li>Wenn ein Bruder ein Gebiet <strong>zurückgibt</strong>, wird es frei und das Datum wird vermerkt.</li></ul>
+<h3>Aktionen</h3>
+<ul><li><strong>„Neue Aktion“</strong> erfasst alle Gebiete erneut für einen bestimmten Zeitraum. Es wird eine <strong>Kopie</strong> der aktuellen Gebiete zur getrennten Verteilung angelegt; die normalen Gebiete bleiben unberührt.</li><li>Es kann immer nur <strong>eine aktive Aktion</strong> geben. Um sie zu beenden, wähle <strong>„Aktion löschen“</strong>: Ihre Zuteilungen werden gelöscht und alles ist wieder wie vorher.</li></ul>
+<h3>S-13-Karte und Web-Panel</h3>
+<ul><li>Unter <strong>Werkzeuge</strong> kannst du die <strong>S-13-Karte als PDF</strong> (eine pro Bezirk) erstellen, um sie zu teilen.</li><li>Das <strong>Web-Panel für Gebiete</strong> öffnet sich im Browser eines Computers. Um einem Gebietsdiener Zugang zu geben: Öffne sein Profil in der Liste der Brüder und tippe auf <strong>„Panel-Zugang“</strong> → <strong>„Link erstellen“</strong>. Der Link ist persönlich; er meldet sich mit dem <strong>6-stelligen Passwort</strong> an, das du wählst, und du kannst es jederzeit ändern.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Der Panel-Link ist wie ein Passwort: Gib ihn nicht an Personen weiter, die keinen Zugang haben sollen. Wenn du einen neuen erstellst, funktioniert der vorherige nicht mehr.</div>
+</section>
+<section id="suscripcion"><h2>19. Abo der Versammlung</h2>
+<p>Damit alle Brüder vollen Zugang haben, ist <strong>ein jährliches Abo der Versammlung</strong> nötig. <strong>Ein Administrator bezahlt es und es deckt alle Brüder ab</strong>, sowohl auf dem iPhone als auch auf Android. Die übrigen Brüder zahlen nichts.</p>
+<ol class="pasos"><li>Öffne <strong>Menü → Einstellungen → Abo der Versammlung</strong>.</li><li>Tippe auf <strong>„Versammlung abonnieren“</strong>. Du siehst den Jahrespreis vor der Bestätigung; wenn es eine <strong>kostenlose Testphase</strong> gibt, wird erst danach abgebucht.</li><li>Bestätige mit dem App Store (iPhone) oder mit Google Play (Android). Fertig: Die ganze Versammlung hat Zugang.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Es <strong>verlängert sich automatisch</strong> jedes Jahr, es sei denn, du kündigst mindestens 24 Stunden vor Ende des Zeitraums.</li><li>Zum <strong>Verwalten oder Kündigen</strong>: <span class="plat i">iPhone</span> iPhone-Einstellungen → dein Name → Abonnements; <span class="plat a">Android</span> Google Play → dein Profil → Zahlungen & Abos → Abos (oder die Schaltfläche „In Google Play verwalten oder kündigen“ in Wkit).</li><li>Wenn du <strong>das Telefon wechselst</strong>, tippe auf demselben Bildschirm auf <strong>„Käufe wiederherstellen“</strong>.</li><li>Wenn das Abo <strong>abläuft</strong>, wird die Versammlung <strong>schreibgeschützt</strong>: Alles bleibt sichtbar und <strong>nichts wird gelöscht</strong>. Nach der Verlängerung kann man wieder bearbeiten.</li></ul>
+<div class="nota">Wkit sieht und speichert deine Zahlungsdaten nie: Apple oder Google verwaltet sie.</div>
+</section>
+<section id="copias"><h2>20. Nur auf diesem Telefon gespeicherte Daten</h2>
+<p>Wenn du Wkit offline oder bevor es deine Versammlung gab benutzt hast, fragt dich die App möglicherweise, was mit den <strong>nur auf diesem Telefon gespeicherten Daten</strong> geschehen soll (zum Beispiel Brüder oder Ankündigungen). Du hast zwei Möglichkeiten: <strong>„Hochladen“</strong> in die Versammlung (alle sehen sie) oder <strong>„Verwerfen“</strong>. Es passiert nichts, bis du entscheidest.</p>
+</section>
+      <div class="caja pie"><strong>Du findest nicht, was du suchst?</strong> Schreib uns an <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> und erzähl uns, was los ist. Wenn möglich, gib an, welches Gerät du benutzt (iPhone, iPad oder Android) und was du gerade getan hast.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Video fehlt" : "Bild fehlt") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

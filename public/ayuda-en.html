@@ -1,0 +1,247 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkit step-by-step guide — Wkit</title>
+    <meta name="description" content="Step-by-step Wkit guide for publishers and administrators: signing in, reminders, report, brothers, groups, cleaning, schedules, announcements, territories and subscription." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-en.html">← Wkit</a> · <a href="privacidad-en.html">Privacy policy</a></p>
+      <p class="idiomas"><a href="ayuda.html">Español</a> <b>English</b> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a></p>
+      <h1>Wkit step-by-step guide</h1>
+      <p class="sub">Everything you can do in the app, explained calmly: for publishers and for administrators. It works the same on iPhone, iPad and Android; when there is a difference, you will see it marked with <span class="plat a">Android</span> or <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>For every member</h3><ol class="toc"><li><a href="#entrar">Getting into Wkit for the first time</a></li><li><a href="#inicio">The home screen</a></li><li><a href="#recordatorios">Reminders: the bell</a></li><li><a href="#notificaciones">Notifications: what Wkit tells you</a></li><li><a href="#informe">Your service report (private)</a></li><li><a href="#territorios-pub">Territories: view, return and request</a></li><li><a href="#cuenta">Your account: changing phones, linking your email, language and deleting</a></li><li><a href="#copia-seguridad">Backup</a></li></ol></div><div class="toc-g"><h3>For administrators (elders)</h3><ol class="toc"><li><a href="#crear-congregacion">Creating the congregation</a></li><li><a href="#hermanos">The list of brothers</a></li><li><a href="#grupos">Service groups (field service)</a></li><li><a href="#salidas">Field service meetings</a></li><li><a href="#limpieza">Cleaning: which group's turn it is and what day and time</a></li><li><a href="#vida-ministerio">Life and Ministry meeting schedule</a></li><li><a href="#reunion-publica">Public Meeting</a></li><li><a href="#audio-video">Audio and Video / Attendants</a></li><li><a href="#otros-programas">Other programs</a></li><li><a href="#anuncios">Announcements</a></li><li><a href="#territorios-admin">Territories: assigning, campaigns and the web panel</a></li><li><a href="#suscripcion">The congregation's subscription</a></li><li><a href="#copias">Data saved only on this phone</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">For every member</h2>
+<section id="entrar"><h2>1. Getting into Wkit for the first time</h2>
+<p>To get into Wkit <strong>you don't need an email or a password</strong>: an elder in your congregation invites you and you join with a link or a code.</p>
+<ol class="pasos"><li>Ask the elder who keeps the list of brothers to invite you. You will get <strong>two messages in a row</strong>: first a link and then, on its own, the code (so it is easy to copy).</li><li>Install <strong>Wkit</strong> from the App Store (iPhone and iPad) or from Google Play (Android).</li><li>Tap the link in the first message: the app opens and recognizes you.</li><li>If the link doesn't open the app, open it yourself, tap <strong>“I have an invitation link or code”</strong> and paste the whole message or just the code: the app picks out what it needs.</li><li>You will see a few welcome screens (<strong>“First steps”</strong>) explaining what is shared and what is not. When you finish, you're in.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>If the code doesn't work</strong> (“it is not valid or has expired”), ask the elder to generate a new one: it takes a moment from your profile.</div>
+<div class="nota"><strong>What is shared and what is not:</strong> the list of brothers, the schedule, cleaning, territories and announcements are seen by the whole congregation and created by an elder. <strong>Your Report is yours alone</strong>: it never leaves your phone and nobody else can see it, not even an elder.</div>
+</section>
+<section id="inicio"><h2>2. The home screen</h2>
+<p>It is the first thing you see when you open Wkit. It shows <strong>what is yours</strong> at a glance; if nothing is assigned to you, you will see “No upcoming assignments”.</p>
+<ul><li><strong>Upcoming parts</strong>: your parts in the Life and Ministry meeting and the Public Meeting (chairman, reader, speaker…).</li><li><strong>Responsibilities</strong>: what you have in Audio and Video / Attendants.</li><li><strong>Cleaning</strong>: it only appears if it is your group's turn <em>this week</em>. If the group overseer or assistant has set the day and time, you will see it below (for example, “Sunday 12:30”).</li><li><strong>Other programs</strong>, <strong>Territories</strong> (and the campaign, if there is one) and the <strong>Report</strong> reminder.</li></ul>
+<p>At the bottom you have five tabs: <strong>Home</strong>, <strong>Schedule</strong>, <strong>Report</strong>, <strong>Territories</strong> and <strong>Menu</strong> (that is where the list of brothers, groups, cleaning, announcements and settings are).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Reminders: the bell</h2>
+<p>Next to every assignment, responsibility or cleaning turn there is a <strong>bell</strong>. It makes your phone alert you ahead of time, at the time you choose.</p>
+<ol class="pasos"><li>Tap the bell of the assignment.</li><li>Choose the day and time of the reminder.</li><li>Confirm. The bell turns green and rings (shakes) when the time comes.</li><li>To remove it, tap the bell again and choose to remove the reminder.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">If the elder changes the day or time of the cleaning, the bell offers you again to set the reminder with the new date.</div>
+<div class="nota"><span class="plat a">Android</span> If reminders don't reach you, check that Wkit has notification permission in your phone settings and that its battery use is not restricted.</div>
+</section>
+<section id="notificaciones"><h2>4. Notifications: what Wkit tells you</h2>
+<p>Wkit alerts you when there is a new announcement, when something is assigned to you or when there are changes that affect you.</p>
+<ol class="pasos"><li>The first time, <strong>allow notifications</strong> when the phone asks.</li><li>Open <strong>Menu → Settings → Notifications</strong>.</li><li>Turn off the categories you don't want (Announcements, Schedule, Audio and Video, Cleaning, Territories…) and choose the days and the time at which you prefer to receive alerts.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>A device receives the alerts of only one person at a time</strong>: whoever has the session open. If they don't reach you, open Wkit with your account at least once so that the device gets registered.</div>
+</section>
+<section id="informe"><h2>5. Your service report (private)</h2>
+<p>The Report is a <strong>personal</strong> tool: it is saved only on your phone. Nobody else sees it, not even an elder.</p>
+<ol class="pasos"><li>Open the <strong>Report</strong> tab. The first time, Wkit asks you a few questions: your kind of service (publisher, pioneer…) and <strong>your monthly hour goal</strong>.</li><li>To record your service, tap <strong>“New”</strong> and fill in the date, hours and minutes, and Bible studies.</li><li>In <strong>History</strong> you see what you have for the month and the service year, and you can edit or delete an entry.</li><li>On the 1st of each month Wkit can remind you, at the time you choose, to <strong>send your report</strong>. The <strong>“Send report”</strong> button prepares the message with your hours and studies.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Make a backup</strong> of your Report (Menú → Ajustes → Copia de seguridad). If you change phones or lose it without a backup, the Report can't be recovered, because it isn't on any server. See section 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Territories: view, return and request</h2>
+<p>In the <strong>Territories</strong> tab you see the territories assigned to you, with the date since you have had them.</p>
+<ol class="pasos"><li>To <strong>return</strong> a territory once you have finished it, open it and tap <strong>“Hand in”</strong> (or <strong>“Notify that the time is up”</strong>). The person in charge of territories is notified.</li><li>If you <strong>have none</strong> and want one, tap <strong>“Request a territory”</strong>. You can add an optional message (for example, “I'd like one near the center”).</li><li>All territory servants are notified, and the first one who can will assign you one. You will get a notification when you have it.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Your account: changing phones, linking your email, language and deleting</h2>
+<h3>Changing phones or losing yours</h3>
+<ul><li>If you <strong>didn't link an email</strong> (brothers don't need one), an elder sends you a <strong>new invitation</strong> from your profile in the list of brothers. You get your place back with everything from the congregation. The only thing lost is your Report, if you had no backup.</li><li>If you <strong>linked your email</strong>, open Wkit, tap <strong>“Create account or sign in as administrator”</strong>, enter your email and open the link you receive. You get back in with everything as you had it.</li></ul>
+<h3>Linking your email (optional, recommended for administrators)</h3>
+<ol class="pasos"><li>Open <strong>Menu → Settings → My account → Link my email</strong>.</li><li>Enter your email. You will receive a confirmation link.</li><li><strong>Open it from the same phone</strong>, in the email app. The screen closes by itself and your account is linked.</li></ol>
+<h3>Changing the language</h3>
+<p>Wkit uses the phone's language. To change it only for Wkit: phone settings → Apps → Wkit → Language.</p>
+<h3>Deleting your account</h3>
+<p><strong>Menu → Settings → My account → Delete my account.</strong> Your account, your entry in the list and the data stored on your phone (including the Report) are deleted; any territories you had become free. This can't be undone. If you are the only administrator and there are other brothers, you must first appoint another one (in the list of brothers, open their profile and turn on “Administrator”). If you are the only person in the congregation, the whole congregation is deleted too.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Deleting the account <strong>does not cancel</strong> the congregation's subscription, if that account pays for it: it is cancelled in the App Store <span class="plat i">iPhone</span> or in Google Play → Payments & subscriptions → Subscriptions <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Backup</h2>
+<p>It is mainly for <strong>not losing your Report</strong>, which is only on your phone. You find it in <strong>Menu → Settings → Backup</strong>.</p>
+<ul><li><strong>Automatic backup</strong>: makes a backup once a month, by itself.</li><li><strong>“Back up now”</strong> and <strong>“Export backup”</strong>: you can save the file wherever you like or send it to yourself.</li><li><strong>“Restore backup”</strong>: choose the file exported from Wkit. The backup data is <strong>added</strong> to what you already have: nothing is deleted.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> The automatic backup is saved in your iCloud. <span class="plat a">Android</span> It is saved on the phone and, if Android backup is turned on in your Google account (phone settings → Google → Backup), when you sign in with that account on a new phone you will get it back automatically.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">For administrators (elders)</h2>
+<section id="crear-congregacion"><h2>8. Creating the congregation</h2>
+<p>An elder does this <strong>only once</strong>; then he invites the others.</p>
+<ol class="pasos"><li>Open Wkit and tap <strong>“Create account or sign in as administrator”</strong>.</li><li>Enter your email and tap <strong>“Send access link”</strong>. There are no passwords: you get a link to confirm that the email is yours.</li><li><strong>Open the link from the same phone.</strong> Wkit opens by itself.</li><li>Fill in <strong>your name</strong>, the <strong>congregation name</strong>, the <strong>congregation number</strong> and the <strong>country</strong>, and tap <strong>“Create congregation”</strong>.</li><li>You will see the <strong>“First steps as an elder”</strong>: 1) add the brothers in the list of brothers and 2) invite them.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Didn't the email arrive? Check your spam folder and tap <strong>“I didn't get it, send again”</strong>. An email can only have one account in Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. The list of brothers</h2>
+<p>It is the basis of everything: schedules, groups and assignments use the names on this list. It is in <strong>Menu → List of brothers</strong>.</p>
+<h3>Adding a brother</h3>
+<ol class="pasos"><li>Tap the <strong>+</strong> button (<strong>“New brother”</strong>).</li><li>Enter the <strong>name</strong> and choose whether he is a <strong>brother</strong> or a <strong>sister</strong>.</li><li>Choose his <strong>responsibility</strong>: baptized or unbaptized publisher, pioneer, ministerial servant or elder.</li><li>If it applies, choose his <strong>service group</strong> and turn on <strong>Territory servant</strong>, <strong>Audio and Video / Attendants</strong> or <strong>Administrator</strong>.</li><li>Tap <strong>“Create”</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Two brothers with the same name:</strong> add something that tells them apart (for example, “Jr.”) so that assignments don't get mixed up.</div>
+<h3>Inviting a brother to Wkit</h3>
+<ol class="pasos"><li>Open the brother's profile and tap <strong>“Invite”</strong> (or <strong>“Generate link”</strong>).</li><li>Tap <strong>“Share invitation”</strong> and choose WhatsApp, messages, etc. <strong>Two messages in a row</strong> are sent: first the link and then the code on its own, so it is easy to copy.</li><li>The brother opens the link (or pastes the code) and gets in. If he hasn't joined yet, you can share the invitation again; if you generate a new one, the previous one stops working.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Editing, deleting and appointing administrators</h3>
+<ul><li>Tap a brother and choose <strong>“Edit”</strong> to change his details.</li><li>On Android, to delete tap the <strong>red icon</strong> on his row; on iPhone, swipe the row to the left. He is removed from the list on all devices and any territories he had become free.</li><li>An <strong>administrator</strong> can manage brothers, territories, announcements and the schedule. <strong>You can't delete your own profile or the last administrator</strong>: appoint another one first.</li></ul>
+</section>
+<section id="grupos"><h2>10. Service groups (field service)</h2>
+<p>Groups are used for field service meetings and for cleaning. They are in <strong>Menu → Service groups → List</strong>.</p>
+<ol class="pasos"><li>If there are none, tap <strong>“Create service groups”</strong> and choose <strong>how many groups</strong> you want (you can add more later with the <strong>+</strong> button).</li><li>To put the brothers in their group, go to the <strong>List of brothers</strong>, open each one's profile and choose his <strong>service group</strong>.</li><li>Go back to <strong>Menu → Service groups → List</strong>. In each group you will see the <strong>group overseer</strong>, the <strong>assistant</strong> and the brothers <strong>in alphabetical order</strong>.</li><li>Tap the <strong>pencil</strong> button (Edit). Tap <strong>“Group overseer”</strong> and choose one from the brothers of that group; do the same with <strong>“Assistant”</strong>. It can't be the same person.</li><li>Tap the <strong>check mark</strong> to finish.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">The group overseer and the assistant are chosen <strong>after</strong> assigning the brothers, because you can only choose among the brothers of the group itself. If you move a brother to another group, he stops being overseer or assistant of the previous one.</div>
+<div class="nota">The overseer and the assistant of each group <strong>can set the day and time of cleaning</strong> for their group (section 12), even if they aren't administrators.</div>
+</section>
+<section id="salidas"><h2>11. Field service meetings</h2>
+<p>Field service meetings are the times and meeting places for the ministry. There are <strong>general</strong> ones (for the whole congregation) and <strong>each group's own</strong>. They are in <strong>Menu → Service groups → Field Service Meetings</strong>. You must have created the groups first.</p>
+<ol class="pasos"><li>Tap the <strong>“Congregation”</strong> section (general meetings) or that of a <strong>group</strong>.</li><li>Tap <strong>“Add meeting”</strong> on the right day, and type the <strong>label</strong> (for example “Morning” or “Afternoon”), the <strong>time</strong> and, if you wish, the <strong>location</strong>.</li><li>To <strong>edit</strong> a meeting, change its fields directly. To <strong>delete</strong> it, tap the red icon on its row.</li><li>Brothers can tap the location to open it in their phone's map.</li></ol>
+<div class="nota">If a group has no meetings of its own, the congregation's are used (“No meetings of its own — uses the congregation's”).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Cleaning: which group's turn it is and what day and time</h2>
+<p>Cleaning <strong>rotates automatically</strong> among the service groups: each week it is a different group's turn, starting with Group 1. It is in <strong>Menu → Cleaning → Groups</strong>.</p>
+<h3>Changing which group cleans this week (administrators)</h3>
+<ol class="pasos"><li>Tap the <strong>pencil</strong> button (Edit).</li><li>Tap the <strong>group</strong> whose turn it is this week. Next week it will be the next group in order.</li><li>Tap the <strong>check mark</strong>. <strong>All devices</strong> in the congregation see the change.</li></ol>
+<h3>Setting the exact day and time (administrators, and the group's overseer and assistant)</h3>
+<ol class="pasos"><li>In <strong>Menu → Cleaning → Groups</strong>, find your group (or the one you manage) and tap the <strong>pencil</strong> on its row.</li><li>Choose the <strong>day</strong> and the <strong>time</strong> (for example, Sunday at 12:30) and tap <strong>“Save”</strong>. To delete the date, tap <strong>“Remove date”</strong>.</li><li>The brothers of that group will see it on their home screen: <strong>“Group 1 · This week”</strong> and below it, <strong>“Sunday 12:30”</strong>, with their <strong>bell</strong> to set a reminder.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">The date only appears on the home screen if it falls in the <strong>current week</strong> (Monday to Sunday). You can set it in advance: it will show up when that week arrives. Dates from past weeks disappear by themselves.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Life and Ministry meeting schedule</h2>
+<p>In the <strong>Schedule → Life and Ministry</strong> tab you create each week's schedule and assign the parts. All brothers see it; only administrators edit it.</p>
+<ol class="pasos"><li>Tap <strong>“New week”</strong> and choose the <strong>meeting date</strong> (any day of that week, Monday to Sunday).</li><li>Wkit creates the week with the <strong>usual structure</strong>: Treasures From God's Word, Apply Yourself to the Field Ministry and Living as Christians.</li><li>Tap any <strong>title</strong> to change it, and the <strong>duration</strong> if needed. With <strong>“Add assignment”</strong> you can add more parts.</li><li>In each part, tap <strong>“Choose”</strong> and pick the brother or brothers (for example, student and assistant). For the <strong>Auxiliary Classroom</strong>, use <strong>“Add Auxiliary Classroom”</strong>.</li><li>Also choose the <strong>songs</strong> and the <strong>prayers</strong>, and tap <strong>“Save schedule”</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>To see another week, use the <strong>week selector</strong> (<strong>“Previous week”</strong> / <strong>“Next week”</strong>); from there you can also <strong>edit or delete it</strong>.</li><li>Brothers get a <strong>notification</strong> when a part is assigned to them, and they see it on their home screen.</li><li>The week's schedule disappears by itself when Sunday ends.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Public Meeting</h2>
+<p>In <strong>Schedule → Public Meeting</strong> each weekend meeting is prepared.</p>
+<ol class="pasos"><li>Tap <strong>“New Public Meeting”</strong> and choose the <strong>date</strong>. If there is already a meeting for that date, Wkit warns you.</li><li>Choose the <strong>chairman</strong>, the <strong>speaker</strong> and type the <strong>talk title</strong>.</li><li>Choose the <strong>Watchtower reader</strong> (“WT Reader”) and the <strong>songs</strong> and <strong>prayers</strong>.</li><li>Save. The brothers see their parts on the home screen.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Audio and Video / Attendants</h2>
+<p>In <strong>Menu → Audio and Video / Attendants</strong> you assign each week's responsibilities: audio, video, microphones, attendants, Zoom, timekeeping…</p>
+<ol class="pasos"><li>Tap <strong>“New week”</strong> and choose the <strong>meeting date</strong>.</li><li>Tap <strong>“Choose”</strong> on each responsibility and pick the brother. Some, like microphones, allow <strong>several brothers</strong> (<strong>“Add brother”</strong>).</li><li>For another responsibility that isn't listed, tap <strong>“Add responsibility”</strong> and give it a name.</li><li>Save. Each brother sees it under <strong>Responsibilities</strong>, on his home screen, with his bell.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Other programs</h2>
+<p>For <strong>anything else</strong> the congregation organizes that isn't a meeting: for example, transportation for brothers who can't come, or help for publishers. Each program has its own frequency. It is in <strong>Menu → Other schedules</strong>.</p>
+<ol class="pasos"><li>Tap <strong>“New schedule”</strong>. Enter the <strong>name</strong> and choose <strong>how often it is organized</strong>: daily, weekly, monthly or yearly.</li><li>Tap <strong>“Create the first week”</strong> (or <strong>“New period”</strong>) and choose the date: any day of that week, month or year.</li><li>Tap <strong>“Add responsibility”</strong>: type an optional <strong>label</strong> (for example, “Picks up early”) and <strong>choose the brother or sister</strong>.</li><li>Save. Each person sees it on their home screen, under <strong>“Other schedules”</strong>, and the period disappears by itself when it ends.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Announcements</h2>
+<p>Announcements are created by administrators and seen by all brothers. They are in <strong>Menu → Announcements</strong>.</p>
+<ol class="pasos"><li>Tap <strong>“New announcement”</strong> and type the <strong>message</strong>.</li><li>By default it is published <strong>instantly</strong>, as soon as you save it, and everyone is alerted with a notification.</li><li>If you prefer it to go out later, turn on <strong>“Schedule for later”</strong> and choose <strong>date and time</strong>: nobody will see it until then, and at that time everyone will be alerted.</li><li>Save. To remove an announcement, tap it and choose <strong>“Delete”</strong>: it disappears for everyone.</li></ol>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="territorios-admin"><h2>18. Territories: assigning, campaigns and the web panel</h2>
+<p>Whoever has the <strong>Territory servant</strong> permission manages the territories of the whole congregation from the <strong>Territories</strong> tab (publishers only see their own).</p>
+<h3>Assigning and receiving territories</h3>
+<ul><li>Tap a territory and choose <strong>“Assign”</strong> (or “Assign to a publisher”) and the brother. You will see who has it and since when, and which are <strong>overdue</strong> or <strong>never assigned</strong>.</li><li>When a publisher <strong>requests</strong> a territory, all territory servants are notified (<strong>“Territory requests”</strong>); the first one who can assigns it to him.</li><li>When a brother <strong>returns</strong> a territory, it becomes free and the date is recorded.</li></ul>
+<h3>Campaigns</h3>
+<ul><li><strong>“New campaign”</strong> registers all the territories again for a specific period. A <strong>copy</strong> of the current territories is made to distribute separately; the regular territories are not touched.</li><li>There can only be <strong>one active campaign</strong> at a time. To end it, choose <strong>“Delete campaign”</strong>: its assignments are deleted and everything goes back to normal.</li></ul>
+<h3>S-13 record and web panel</h3>
+<ul><li>In <strong>Tools</strong> you can generate the <strong>S-13 record as a PDF</strong> (one per section) to share it.</li><li>The <strong>territories web panel</strong> opens in the browser of a computer. To give access to a territory servant: open his profile in the list of brothers and tap <strong>“Panel access”</strong> → <strong>“Generate link”</strong>. The link is personal; he signs in with the <strong>6-digit password</strong> you choose, and you can change it whenever you like.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">The panel link is like a password: don't share it beyond those who should have access. If you generate a new one, the previous one stops working.</div>
+</section>
+<section id="suscripcion"><h2>19. The congregation's subscription</h2>
+<p>For all the brothers to have full access, <strong>a yearly congregation subscription</strong> is needed. <strong>An administrator pays it and it covers all the brothers</strong>, on both iPhone and Android. The other brothers pay nothing.</p>
+<ol class="pasos"><li>Open <strong>Menu → Settings → Congregation subscription</strong>.</li><li>Tap <strong>“Subscribe the congregation”</strong>. You will see the yearly price before confirming; if there is a <strong>free trial</strong>, you aren't charged until it ends.</li><li>Confirm with the App Store (iPhone) or with Google Play (Android). Done: the whole congregation has access.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>It <strong>renews automatically</strong> every year, unless you cancel at least 24 hours before the period ends.</li><li>To <strong>manage or cancel it</strong>: <span class="plat i">iPhone</span> iPhone Settings → your name → Subscriptions; <span class="plat a">Android</span> Google Play → your profile → Payments & subscriptions → Subscriptions (or Wkit's “Manage or cancel in Google Play” button).</li><li>If you <strong>change phones</strong>, tap <strong>“Restore purchases”</strong> on the same screen.</li><li>If the subscription <strong>expires</strong>, the congregation becomes <strong>read-only</strong>: everything can still be seen and <strong>nothing is deleted</strong>. When you renew, it can be edited again.</li></ul>
+<div class="nota">Wkit never sees or stores your payment details: Apple or Google handles them.</div>
+</section>
+<section id="copias"><h2>20. Data saved only on this phone</h2>
+<p>If you used Wkit offline or before your congregation existed, the app may ask what to do with <strong>data saved only on this phone</strong> (for example, brothers or announcements). You have two options: <strong>“Upload them”</strong> to the congregation (everyone will see them) or <strong>“Discard them”</strong>. Nothing is done until you decide.</p>
+</section>
+      <div class="caja pie"><strong>Can't find what you are looking for?</strong> Write to us at <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> and tell us what is happening. If you can, say which device you use (iPhone, iPad or Android) and what you were doing.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

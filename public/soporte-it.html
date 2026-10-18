@@ -1,67 +1,187 @@
 <!doctype html>
 <html lang="it">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="color-scheme" content="light dark" />
-    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
-    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
-    <title>Aiuto e contatti — Wkit</title>
-    <style>
-      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
-      @media (prefers-color-scheme: dark) {
-        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
-      }
-      * { box-sizing: border-box; }
-      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
-      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
-      h1 { font-size:28px; margin:0 0 6px; }
-      h2 { font-size:19px; margin:32px 0 8px; }
-      p, li { font-size:16px; }
-      .fecha { color:var(--secundario); margin:0 0 24px; }
-      ul { padding-left:22px; } li { margin-bottom:6px; }
-      a { color:var(--acento); }
-      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
-      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
-      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
-      th { color:var(--secundario); font-weight:600; width:34%; }
-    
-      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
-      .idiomas a { margin-right:10px; white-space:nowrap; }
-      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
-    </style>
-  </head>
-  <body>
-    <main>
-      <p class="idiomas"><a href="soporte.html?idioma=es">Español</a> <a href="soporte-en.html">English</a> <a href="soporte-fr.html">Français</a> <a href="soporte-de.html">Deutsch</a> <b>Italiano</b> <a href="soporte-pt-BR.html">Português (Brasil)</a> <a href="soporte-pt-PT.html">Português (Portugal)</a></p>
-      <h1>Aiuto e contatti</h1>
-      <p class="fecha">Wkit — Titan Estudios</p>
-      <div class="caja"><strong>Ti serve aiuto?</strong> Scrivici a <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> e raccontaci cosa succede. Se puoi, indica che dispositivo usi (iPhone, iPad o Android) e cosa stavi facendo.</div>
-      <h2>Domande frequenti</h2>
-      <h2>Come invito un fratello?</h2>
-      <p>Un amministratore apre l'<strong>Elenco dei fratelli</strong>, apre la scheda del fratello e tocca <strong>Invita</strong>. L'app genera due messaggi: uno con il link e uno con il codice, così è facile copiarli e incollarli.</p>
-      <h2>Ho cambiato telefono o l'ho perso. Come recupero il mio account?</h2>
-      <ul>
-        <li>Se hai <strong>collegato la tua e-mail</strong> al tuo account (Impostazioni → Il mio account), apri l'app e tocca “Crea un account o accedi come amministratore”. Scrivi la tua e-mail, ti arriva un link e rientri con tutto come l'avevi.</li>
-        <li>Se <strong>non</strong> l'hai collegata (i fratelli non hanno bisogno di e-mail), un amministratore deve mandarti un nuovo invito: apre la tua scheda nell'Elenco dei fratelli e tocca <strong>Invita</strong>. È rapido, e recuperi il tuo posto con tutto quello che riguarda la congregazione. L'unica cosa che si perde è il tuo Rapporto, se non avevi un backup (Impostazioni → Backup).</li>
-      </ul>
-      <h2>Come collego la mia e-mail?</h2>
-      <p>È facoltativo ed è pensato per gli <strong>amministratori</strong>, perché non perdano l'accesso se cambiano telefono: <strong>Impostazioni → Il mio account → Collega la mia e-mail</strong>. Ti arriverà un link di conferma; aprilo dallo stesso dispositivo. Gli altri fratelli non hanno bisogno di nessuna e-mail.</p>
-      <h2>Come elimino il mio account e i miei dati?</h2>
-      <p>In <strong>Impostazioni → Il mio account → Elimina il mio account</strong>. Vengono eliminati il tuo account, la tua scheda e i dati salvati sul tuo dispositivo. Se sei l'unico amministratore di una congregazione con altri fratelli, prima devi indicarne un altro. Maggiori dettagli nell'<a href="privacidad-it.html">informativa sulla privacy</a>.</p>
-      <h2>Non mi arrivano le notifiche</h2>
-      <ul>
-        <li>Controlla che siano consentite: Impostazioni del dispositivo → Notifiche → Wkit.</li>
-        <li>Apri Wkit con il tuo account almeno una volta, perché il dispositivo venga registrato.</li>
-        <li>Uno stesso dispositivo riceve gli avvisi di una sola persona alla volta: quella con la sessione aperta.</li>
-      </ul>
-      <h2>Non vedo ciò che ha cambiato un altro fratello</h2>
-      <p>Scorri verso il basso sullo schermo per aggiornare, oppure riapri l'app.</p>
-      <h2>Come cambio la lingua?</h2>
-      <p>Wkit usa la lingua del tuo dispositivo. Per cambiarla solo in Wkit: Impostazioni del dispositivo → App → Wkit → Lingua. Il pannello web rileva la lingua del tuo browser e puoi cambiarla dal menu a tendina in alto a destra.</p>
-      <h2>Voglio cambiare o correggere i miei dati</h2>
-      <p>La scheda e il programma li gestiscono gli amministratori della tua congregazione. Chiedi loro di correggerli; se ti serve altro, scrivici.</p>
-      <p><a href="privacidad-it.html">Informativa sulla privacy</a></p>
-    </main>
-  </body>
-</html>
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="color-scheme" content="light dark" />
+<title>Wkit — L&#x27;app per organizzare la tua congregazione</title>
+<meta name="description" content="Wkit organizza programmi, gruppi, pulizie, territori e il tuo rapporto di servizio in un&#x27;unica app per iPhone, iPad e Android." />
+<meta property="og:title" content="Wkit — L&#x27;app per organizzare la tua congregazione" /><meta property="og:description" content="Wkit organizza programmi, gruppi, pulizie, territori e il tuo rapporto di servizio in un&#x27;unica app per iPhone, iPad e Android." /><meta property="og:image" content="img/wkit-icono.png" />
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+<link rel="apple-touch-icon" href="apple-touch-icon.png" />
+<style>
+:root{--fondo:#faf9f5;--tarjeta:#fff;--texto:#1c1c1a;--sec:#5f5e5a;--borde:#e3e1d8;--acento:#0f6e56;--acento2:#2fa583;--suave:#e1f5ee;--banda:#0f6e56;--sombra:0 24px 60px -28px rgba(15,60,48,.35)}
+@media (prefers-color-scheme:dark){:root{--fondo:#161614;--tarjeta:#24241f;--texto:#f1efe8;--sec:#b4b2a9;--borde:#3a3a35;--acento:#2fa583;--acento2:#52c9a6;--suave:#1d3a31;--banda:#0c4a3b;--sombra:0 24px 60px -28px rgba(0,0,0,.7)}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--fondo);color:var(--texto);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;line-height:1.55;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+a{color:var(--acento)}img{max-width:100%}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+header.top{position:sticky;top:0;z-index:50;backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);background:color-mix(in srgb,var(--fondo) 82%,transparent);border-bottom:1px solid color-mix(in srgb,var(--borde) 70%,transparent)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:60px}
+.marca{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--texto);font-weight:700;font-size:19px;letter-spacing:-.01em}
+.marca img{width:32px;height:32px;border-radius:8px;display:block}
+.top nav{margin-left:auto;display:flex;align-items:center;gap:6px}
+.top nav a.nl{color:var(--sec);text-decoration:none;font-size:15px;padding:8px 10px;border-radius:10px}.top nav a.nl:hover{color:var(--texto);background:var(--suave)}
+.top select{font:inherit;font-size:14px;color:var(--texto);background:var(--tarjeta);border:1px solid var(--borde);border-radius:10px;padding:7px 8px;max-width:150px}
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--acento);color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding:10px 18px;border-radius:999px;transition:transform .2s,box-shadow .2s}.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px -10px var(--acento)}
+@media(max-width:700px){.top nav a.nl{display:none}.top select{max-width:120px}}
+/* hero */
+.hero{position:relative;padding:56px 0 40px;overflow:hidden}
+.blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.5;z-index:0;animation:drift 16s ease-in-out infinite alternate}
+.blob.b1{width:420px;height:420px;background:#7fd6bb;top:-120px;right:-80px}.blob.b2{width:340px;height:340px;background:#f6d98a;bottom:-120px;left:-100px;animation-delay:-6s;opacity:.35}
+@media(prefers-color-scheme:dark){.blob{opacity:.18}.blob.b2{opacity:.1}}
+@keyframes drift{from{transform:translate(0,0) scale(1)}to{transform:translate(-40px,30px) scale(1.12)}}
+.hero .wrap{position:relative;z-index:1;display:grid;grid-template-columns:1.05fr .95fr;gap:30px;align-items:center}
+.kick{display:inline-block;font-size:13px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--acento);background:var(--suave);padding:6px 12px;border-radius:999px}
+h1{font-size:clamp(34px,5.4vw,58px);line-height:1.05;letter-spacing:-.025em;margin:16px 0 16px}
+h1 em{font-style:normal;background:linear-gradient(100deg,var(--acento),var(--acento2));-webkit-background-clip:text;background-clip:text;color:transparent}
+.lead{font-size:clamp(17px,2vw,20px);color:var(--sec);max-width:520px;margin:0 0 24px}
+.tiendas{display:flex;flex-wrap:wrap;gap:12px;margin:0 0 14px}
+.tienda{display:inline-flex;align-items:center;gap:11px;background:#111;color:#fff;text-decoration:none;border-radius:14px;padding:9px 18px 9px 13px;border:1px solid #444;transition:transform .2s,box-shadow .2s;min-width:176px}
+.tienda:hover{transform:translateY(-3px);box-shadow:0 14px 28px -14px rgba(0,0,0,.6)}
+.tienda .tx{display:flex;flex-direction:column;line-height:1.1}.tienda small{font-size:11px;opacity:.8;letter-spacing:.02em}.tienda b{font-size:20px;font-weight:600;letter-spacing:-.01em}
+.notaprecio{font-size:14px;color:var(--sec);display:flex;align-items:center;gap:8px}.notaprecio::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--acento2);box-shadow:0 0 0 0 var(--acento2);animation:pulso 2.2s infinite}
+@keyframes pulso{0%{box-shadow:0 0 0 0 color-mix(in srgb,var(--acento2) 60%,transparent)}100%{box-shadow:0 0 0 12px transparent}}
+.escena{position:relative;display:flex;justify-content:center;padding:10px 0 30px}
+.phone{--w:270px;position:relative;width:var(--w);padding:calc(var(--w)*.034);border-radius:calc(var(--w)*.17);background:linear-gradient(145deg,#3a3a3a,#0b0b0b 55%,#262626);box-shadow:var(--sombra),inset 0 0 0 2px #5a5a5a,inset 0 0 0 5px #111;flex:none}
+.phone::before,.phone::after{content:"";position:absolute;width:3px;background:#2a2a2a;border-radius:2px}.phone::before{left:-3px;top:18%;height:7%;box-shadow:0 52px 0 #2a2a2a}.phone::after{right:-3px;top:26%;height:11%}
+.screen{position:relative;border-radius:calc(var(--w)*.14);overflow:hidden;aspect-ratio:620/1342;background:#faf9f5}
+.screen img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.island{position:absolute;top:2.3%;left:50%;width:29%;height:3.4%;border-radius:20px;background:#000;transform:translateX(-50%)}
+.hero .phone{--w:290px;animation:flota 6s ease-in-out infinite}
+@keyframes flota{0%,100%{transform:translateY(0) rotate(-1.2deg)}50%{transform:translateY(-12px) rotate(1deg)}}
+.slides img{opacity:0;transition:opacity .9s ease}.slides img.on{opacity:1}
+.dots{position:absolute;bottom:0;left:50%;transform:translateX(-50%);display:flex;gap:7px}.dots i{width:8px;height:8px;border-radius:99px;background:var(--borde);transition:all .3s}.dots i.on{width:24px;background:var(--acento)}
+.chip{position:absolute;display:flex;align-items:center;gap:10px;background:var(--tarjeta);border:1px solid var(--borde);box-shadow:0 14px 30px -14px rgba(0,0,0,.35);padding:10px 14px;border-radius:16px;font-size:14px;font-weight:600;white-space:nowrap;animation:sube 5s ease-in-out infinite;z-index:3}
+.chip .ci{width:30px;height:30px;border-radius:50%;background:var(--suave);color:var(--acento);display:grid;place-items:center}.chip .ci svg{width:17px;height:17px}
+.chip.c1{top:14%;left:-6%}.chip.c2{top:46%;right:-8%;animation-delay:-1.6s}.chip.c3{bottom:12%;left:-10%;animation-delay:-3.2s}
+.chip.c1 svg{transform-origin:50% 0;animation:campana 3.2s ease-in-out infinite}
+@keyframes sube{0%,100%{transform:translateY(0)}50%{transform:translateY(-9px)}}
+@keyframes campana{0%,55%,100%{transform:rotate(0)}60%{transform:rotate(16deg)}67%{transform:rotate(-14deg)}74%{transform:rotate(10deg)}81%{transform:rotate(-7deg)}88%{transform:rotate(3deg)}}
+@media(max-width:860px){.hero .wrap{grid-template-columns:1fr;text-align:center}.lead{margin-left:auto;margin-right:auto}.tiendas,.notaprecio{justify-content:center}.chip.c1{left:2%}.chip.c2{right:0}.chip.c3{left:0}}
+/* secciones */
+section{padding:72px 0}
+.cab{text-align:center;max-width:680px;margin:0 auto 40px}.cab h2{font-size:clamp(26px,3.6vw,38px);line-height:1.15;letter-spacing:-.02em;margin:0 0 10px}.cab p{margin:0;color:var(--sec);font-size:18px}
+.rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+@media(max-width:860px){.rejilla{grid-template-columns:repeat(2,1fr)}}@media(max-width:560px){.rejilla{grid-template-columns:1fr}}
+.card{background:var(--tarjeta);border:1px solid var(--borde);border-radius:20px;padding:22px;transition:transform .25s,box-shadow .25s}.card:hover{transform:translateY(-5px);box-shadow:var(--sombra)}
+.card .ib{width:46px;height:46px;border-radius:14px;background:var(--suave);color:var(--acento);display:grid;place-items:center;margin-bottom:14px}.card .ib svg{width:24px;height:24px}
+.card h3{margin:0 0 6px;font-size:18px}.card p{margin:0;color:var(--sec);font-size:15.5px}
+.fila{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;padding:34px 0}.fila.inv .tx{order:2}
+.fila .tx h3{font-size:clamp(24px,3.2vw,34px);line-height:1.15;letter-spacing:-.02em;margin:0 0 12px}.fila .tx p{font-size:18px;color:var(--sec);margin:0}
+.fila .vis{display:flex;justify-content:center;position:relative}.fila .vis::before{content:"";position:absolute;width:78%;aspect-ratio:1;border-radius:50%;background:radial-gradient(circle,var(--suave),transparent 68%);top:8%;z-index:0}
+.fila .phone{z-index:1;transition:transform .5s cubic-bezier(.2,.8,.2,1)}.fila:hover .phone{transform:translateY(-8px) rotate(-1.5deg)}
+@media(max-width:820px){.fila{grid-template-columns:1fr;gap:26px;text-align:center}.fila.inv .tx{order:0}}
+.panelweb{margin:20px auto 0;max-width:960px;border-radius:14px;overflow:hidden;border:1px solid var(--borde);box-shadow:var(--sombra)}.panelweb img{display:block;width:100%;height:auto}
+.pasos{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;position:relative}.pasos::before{content:"";position:absolute;top:34px;left:16%;right:16%;height:3px;background:linear-gradient(90deg,var(--acento),var(--acento2));border-radius:3px;transform:scaleX(0);transform-origin:left;transition:transform 1.4s .3s ease}.pasos.in::before{transform:scaleX(1)}
+@media(max-width:760px){.pasos{grid-template-columns:1fr}.pasos::before{display:none}}
+.paso{position:relative;text-align:center;padding:0 10px}.paso .n{width:68px;height:68px;border-radius:50%;margin:0 auto 14px;background:var(--acento);color:#fff;font-weight:700;font-size:26px;display:grid;place-items:center;border:6px solid var(--fondo);position:relative;z-index:1}
+.paso h3{margin:0 0 6px;font-size:19px}.paso p{margin:0;color:var(--sec)}
+.banda{background:var(--banda);color:#fff;border-radius:28px;padding:44px 28px;text-align:center;position:relative;overflow:hidden}.banda::after{content:"";position:absolute;width:380px;height:380px;border-radius:50%;background:rgba(255,255,255,.07);right:-120px;top:-160px}
+.banda h2{margin:0 0 22px;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em;position:relative;z-index:1}
+.checks{display:flex;flex-wrap:wrap;justify-content:center;gap:12px;position:relative;z-index:1}.checks span{display:inline-flex;align-items:center;gap:8px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.2);padding:10px 16px;border-radius:999px;font-weight:600;font-size:15.5px}.checks svg{width:18px;height:18px}
+.precio{max-width:520px;margin:0 auto;background:var(--tarjeta);border:2px solid var(--acento);border-radius:28px;padding:34px 30px;text-align:center;box-shadow:var(--sombra);position:relative}
+.precio .imp{font-size:clamp(46px,8vw,66px);font-weight:800;letter-spacing:-.03em;line-height:1;color:var(--acento)}.precio .per{font-size:18px;color:var(--sec);margin-left:6px;font-weight:500}
+.precio ul{list-style:none;padding:0;margin:22px 0 0;text-align:left;display:grid;gap:10px}.precio li{display:flex;gap:10px;align-items:flex-start}.precio li svg{flex:none;width:22px;height:22px;color:#fff;background:var(--acento);border-radius:50%;padding:4px;margin-top:2px}
+.precio .pn{font-size:13.5px;color:var(--sec);margin:20px 0 0}
+.idiomas{display:flex;flex-wrap:wrap;gap:10px;justify-content:center}.idiomas a{text-decoration:none;color:var(--texto);background:var(--tarjeta);border:1px solid var(--borde);padding:10px 16px;border-radius:999px;font-weight:600;transition:all .2s}.idiomas a:hover{border-color:var(--acento);color:var(--acento);transform:translateY(-2px)}.idiomas a.on{background:var(--acento);color:#fff;border-color:var(--acento)}
+.cta{background:linear-gradient(135deg,var(--suave),color-mix(in srgb,var(--suave) 40%,var(--fondo)));border:1px solid var(--borde);border-radius:28px;padding:40px 28px;text-align:center}.cta h2{margin:0 0 8px;font-size:clamp(24px,3.4vw,34px);letter-spacing:-.02em}.cta p{margin:0 auto 20px;max-width:560px;color:var(--sec);font-size:17px}
+.dl{text-align:center}.dl .tiendas{justify-content:center}.dl .iconoapp{width:84px;height:84px;border-radius:20px;box-shadow:var(--sombra);margin:0 auto 16px;display:block}.dl h2{margin:0 0 20px;font-size:clamp(26px,3.6vw,38px);letter-spacing:-.02em}
+.soporte{max-width:640px;margin:0 auto;background:var(--tarjeta);border:1px solid var(--borde);border-radius:20px;padding:24px;text-align:center}.soporte h2{margin:0 0 8px;font-size:22px}.soporte p{margin:0 0 10px;color:var(--sec)}
+footer{padding:30px 0 50px;color:var(--sec);font-size:14px;text-align:center}footer a{color:var(--sec);margin:0 8px}
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s ease,transform .8s cubic-bezier(.2,.8,.2,1);transition-delay:var(--d,0s)}.rv.in{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.rv{opacity:1;transform:none}.slides img.on{opacity:1}}
+</style>
+<noscript><style>.rv{opacity:1;transform:none}.slides img:first-child{opacity:1}</style></noscript>
+
+<script src="enlaces.js"></script>
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="#"><img src="img/wkit-icono-180.png" alt="" width="32" height="32" />Wkit</a>
+  <nav><a class="nl" href="ayuda-it.html">Guida</a><a class="nl" href="privacidad-it.html">Privacy</a>
+    <select id="idioma" aria-label="Idioma / Language"><option value="soporte.html?idioma=es">Español</option><option value="soporte-en.html">English</option><option value="soporte-fr.html">Français</option><option value="soporte-de.html">Deutsch</option><option value="soporte-it.html" selected>Italiano</option><option value="soporte-pt-BR.html">Português (Brasil)</option><option value="soporte-pt-PT.html">Português (Portugal)</option></select>
+    <a class="btn" href="#descargar">Scarica</a></nav>
+</div></header>
+
+<div class="hero"><i class="blob b1"></i><i class="blob b2"></i>
+<div class="wrap">
+  <div>
+    <span class="kick rv">Per le congregazioni</span>
+    <h1 class="rv" style="--d:.08s">La tua congregazione, organizzata in tasca</h1>
+    <p class="lead rv" style="--d:.16s">Programmi, gruppi, pulizie, territori e il tuo rapporto di servizio in un&#x27;unica app semplice. Ogni fratello vede ciò che lo riguarda e riceve l&#x27;avviso in tempo.</p>
+    <div class="tiendas rv" style="--d:.24s"><a class="tienda" data-tienda="ios" href="#descargar" data-ok="Disponibile su" data-soon="Presto su"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><defs><linearGradient id="gi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#19c5fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect x="1" y="1" width="22" height="22" rx="5.5" fill="url(#gi)"/><path d="M8.2 17.2l5.4-10.2M15.8 17.2L10.4 7M7.6 14.4h8.8" stroke="#fff" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg><span class="tx"><small>Presto su</small><b>App Store</b></span></a><a class="tienda" data-tienda="android" href="#descargar" data-ok="Disponibile su" data-soon="Presto su"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><defs><linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00d4ff"/><stop offset=".35" stop-color="#00f076"/><stop offset=".7" stop-color="#ffd400"/><stop offset="1" stop-color="#ff3b4a"/></linearGradient></defs><path d="M4 2.8v18.4c0 .6.7.9 1.2.6l15.6-9.2c.5-.3.5-.9 0-1.2L5.2 2.2C4.7 1.9 4 2.2 4 2.8z" fill="url(#ga)"/></svg><span class="tx"><small>Presto su</small><b>Google Play</b></span></a></div>
+    <div class="notaprecio rv" style="--d:.32s">30 giorni gratis · 29,99 € all&#x27;anno per congregazione</div>
+  </div>
+  <div class="escena rv" style="--d:.2s">
+    <div class="phone"><div class="screen"><div class="slides"><img src="img/inicio.webp" alt="Ciò che ti riguarda, a colpo d&#x27;occhio" width="620" height="1342"/><img src="img/programa.webp" alt="Il programma di ogni settimana" width="620" height="1342" loading="lazy"/><img src="img/informe.webp" alt="Il tuo rapporto, solo tuo" width="620" height="1342" loading="lazy"/><img src="img/territorio.webp" alt="Territori, con mappa e pannello web" width="620" height="1342" loading="lazy"/><img src="img/menu.webp" alt="Tutto a portata di tocco" width="620" height="1342" loading="lazy"/></div><i class="island"></i></div></div>
+    <div class="chip c1"><span class="ci"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6V11a6 6 0 0 0-5-5.9V4a1 1 0 0 0-2 0v1.1A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/></svg></span>Pulizie · Domenica 12:30</div>
+    <div class="chip c2"><span class="ci"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zm13.5 1A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></span>Nuovo annuncio</div>
+    <div class="chip c3"><span class="ci"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm12 8H5v10h14V10z"/></svg></span>La tua parte: Lettura della Bibbia</div>
+    <div class="dots"><i></i><i></i><i></i><i></i><i></i></div>
+  </div>
+</div></div>
+
+<section><div class="wrap">
+  <div class="cab rv"><h2>Tutto ciò che serve alla tua congregazione, in un solo posto</h2><p>Wkit sostituisce fogli, gruppi di messaggi e foglietti sparsi.</p></div>
+  <div class="rejilla"><div class="card rv" style="--d:0.00s"><div class="ib"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M7 2v2H5a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2h-2V2h-2v2H9V2H7zm12 8H5v10h14V10z"/></svg></div><h3>Programmi delle adunanze</h3><p>Vita e Ministero, Discorso pubblico, Audio e Video e ogni altro programma organizzato dalla congregazione.</p></div><div class="card rv" style="--d:0.07s"><div class="ib"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M12 22a2 2 0 0 0 2-2h-4a2 2 0 0 0 2 2zm6-6V11a6 6 0 0 0-5-5.9V4a1 1 0 0 0-2 0v1.1A6 6 0 0 0 6 11v5l-2 2v1h16v-1l-2-2z"/></svg></div><h3>Promemoria con campanella</h3><p>Ogni fratello vede le sue parti e riceve un avviso all&#x27;ora che sceglie.</p></div><div class="card rv" style="--d:0.14s"><div class="ib"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16 11a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm-8 0a3 3 0 1 0-3-3 3 3 0 0 0 3 3zm0 2c-2.3 0-7 1.2-7 3.5V19h14v-2.5C15 14.2 10.3 13 8 13zm8 0c-.3 0-.6 0-1 .1 1.2.8 2 1.9 2 3.4V19h6v-2.5c0-2.3-4.7-3.5-7-3.5z"/></svg></div><h3>Gruppi e pulizie</h3><p>Gruppi di servizio con sorvegliante e assistente. Le pulizie ruotano da sole ogni settimana.</p></div><div class="card rv" style="--d:0.21s"><div class="ib"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M20.5 3l-.2.1L15 5.1 9 3 3.4 4.9a.5.5 0 0 0-.4.5V20.5a.5.5 0 0 0 .5.5l.2-.1L9 18.9l6 2.1 5.6-1.9a.5.5 0 0 0 .4-.5V3.5a.5.5 0 0 0-.5-.5zM15 19l-6-2.1V5l6 2.1V19z"/></svg></div><h3>Territori con mappa</h3><p>Assegna, restituisci e richiedi territori dal telefono o dal pannello web.</p></div><div class="card rv" style="--d:0.28s"><div class="ib"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M18 8h-1V6a5 5 0 0 0-10 0v2H6a2 2 0 0 0-2 2v10a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V10a2 2 0 0 0-2-2zM9 6a3 3 0 0 1 6 0v2H9V6z"/></svg></div><h3>Rapporto privato</h3><p>Il tuo rapporto di servizio resta solo sul tuo telefono. Nessun altro lo vede.</p></div><div class="card rv" style="--d:0.35s"><div class="ib"><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M3 11v2a1 1 0 0 0 1 1h2l5 4V6L6 10H4a1 1 0 0 0-1 1zm13.5 1A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4zM14 3.2v2.1a7 7 0 0 1 0 13.4v2.1a9 9 0 0 0 0-17.6z"/></svg></div><h3>Annunci immediati</h3><p>Avvisi immediati o programmati, con notifica per tutta la congregazione.</p></div></div>
+</div></section>
+
+<section style="padding-top:20px"><div class="wrap"><div class="fila"><div class="tx rv"><h3>Ciò che ti riguarda, a colpo d&#x27;occhio</h3><p>Aprendo Wkit vedi le tue prossime parti, le tue responsabilità, le pulizie di questa settimana e il promemoria del rapporto.</p></div><div class="vis rv" style="--d:.1s"><div class="phone "><div class="screen"><img src="img/inicio.webp" alt="Ciò che ti riguarda, a colpo d&#x27;occhio" loading="lazy" width="620" height="1342"/><i class="island"></i></div></div></div></div><div class="fila inv"><div class="tx rv"><h3>Il programma di ogni settimana</h3><p>Crea l&#x27;adunanza Vita e Ministero e il Discorso pubblico, scegli i fratelli e basta: ognuno riceve il suo avviso.</p></div><div class="vis rv" style="--d:.1s"><div class="phone "><div class="screen"><img src="img/programa.webp" alt="Il programma di ogni settimana" loading="lazy" width="620" height="1342"/><i class="island"></i></div></div></div></div><div class="fila"><div class="tx rv"><h3>Il tuo rapporto, solo tuo</h3><p>Annota ore e studi, controlla il tuo obiettivo del mese e dell&#x27;anno di servizio e invia il rapporto con un tocco. Resta solo sul tuo telefono.</p></div><div class="vis rv" style="--d:.1s"><div class="phone "><div class="screen"><img src="img/informe.webp" alt="Il tuo rapporto, solo tuo" loading="lazy" width="620" height="1342"/><i class="island"></i></div></div></div></div><div class="fila inv"><div class="tx rv"><h3>Territori, con mappa e pannello web</h3><p>Assegna territori, gestisci le richieste e le campagne. Anche dal computer con il pannello web.</p></div><div class="vis rv" style="--d:.1s"><div class="phone "><div class="screen"><img src="img/territorio.webp" alt="Territori, con mappa e pannello web" loading="lazy" width="620" height="1342"/><i class="island"></i></div></div></div></div><div class="panelweb rv"><img src="img/panel.webp" alt="Territori, con mappa e pannello web" loading="lazy" width="1400" height="804"/></div><div class="fila"><div class="tx rv"><h3>Tutto a portata di tocco</h3><p>Annunci, elenco dei fratelli, audio e video, gruppi di servizio, adunanze per il servizio di campo, pulizie e altri programmi.</p></div><div class="vis rv" style="--d:.1s"><div class="phone "><div class="screen"><img src="img/menu.webp" alt="Tutto a portata di tocco" loading="lazy" width="620" height="1342"/><i class="island"></i></div></div></div></div></div></section>
+
+<section><div class="wrap">
+  <div class="cab rv"><h2>Iniziare è semplicissimo</h2></div>
+  <div class="pasos"><div class="paso rv" style="--d:0.0s"><div class="n">1</div><h3>Un amministratore crea la congregazione</h3><p>In un minuto: nome, numero e paese. Senza password.</p></div><div class="paso rv" style="--d:0.2s"><div class="n">2</div><h3>Invita i fratelli</h3><p>Con un link e un codice inviati con WhatsApp o messaggio.</p></div><div class="paso rv" style="--d:0.4s"><div class="n">3</div><h3>Ognuno vede ciò che lo riguarda</h3><p>Programmi, pulizie e territori sempre aggiornati, con avvisi puntuali.</p></div></div>
+</div></section>
+
+<section style="padding-top:10px"><div class="wrap"><div class="banda rv"><h2>Pensata per rispettare la tua privacy</h2><div class="checks"><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Niente pubblicità né analisi</span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Niente password: entri con un link</span><span><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg>Il tuo rapporto non lascia mai il tuo telefono</span></div></div></div></section>
+
+<section><div class="wrap">
+  <div class="cab rv"><h2>Un abbonamento per tutta la congregazione</h2></div>
+  <div class="precio rv" data-cuenta><div><span class="imp"><span class="num">29,99 €</span></span><span class="per">all&#x27;anno</span></div><ul><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>30 giorni di prova gratuita</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Lo paga un amministratore e copre tutti i fratelli</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Funziona su iPhone, iPad e Android</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Gli altri fratelli non pagano nulla</span></li><li><svg class="ic" viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span>Annulla quando vuoi dall&#x27;App Store o da Google Play</span></li></ul><p class="pn">Prezzo in Spagna, IVA inclusa. Il prezzo esatto può variare in base al paese e viene mostrato nello store prima di confermare.</p></div>
+</div></section>
+
+<section style="padding-top:10px"><div class="wrap">
+  <div class="cab rv"><h2>Disponibile in 7 lingue</h2></div>
+  <div class="idiomas rv"><a class="" href="soporte.html?idioma=es">Español</a><a class="" href="soporte-en.html">English</a><a class="" href="soporte-fr.html">Français</a><a class="" href="soporte-de.html">Deutsch</a><a class="on" href="soporte-it.html">Italiano</a><a class="" href="soporte-pt-BR.html">Português (Brasil)</a><a class="" href="soporte-pt-PT.html">Português (Portugal)</a></div>
+</div></section>
+
+<section style="padding-top:10px"><div class="wrap"><div class="cta rv"><h2>Impara a usarla passo passo</h2><p>La guida spiega ogni schermata con video e immagini: dal primo accesso fino all&#x27;organizzazione del programma.</p><a class="btn" href="ayuda-it.html">Apri la guida →</a></div></div></section>
+
+<section id="descargar" class="dl"><div class="wrap rv">
+  <img class="iconoapp" src="img/wkit-icono.png" alt="Wkit" width="84" height="84" />
+  <h2>Scarica Wkit</h2>
+  <div class="tiendas"><a class="tienda" data-tienda="ios" href="#descargar" data-ok="Disponibile su" data-soon="Presto su"><svg viewBox="0 0 24 24" width="30" height="30" aria-hidden="true"><defs><linearGradient id="gi" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#19c5fb"/><stop offset="1" stop-color="#1a6cf0"/></linearGradient></defs><rect x="1" y="1" width="22" height="22" rx="5.5" fill="url(#gi)"/><path d="M8.2 17.2l5.4-10.2M15.8 17.2L10.4 7M7.6 14.4h8.8" stroke="#fff" stroke-width="1.7" stroke-linecap="round" fill="none"/></svg><span class="tx"><small>Presto su</small><b>App Store</b></span></a><a class="tienda" data-tienda="android" href="#descargar" data-ok="Disponibile su" data-soon="Presto su"><svg viewBox="0 0 24 24" width="28" height="28" aria-hidden="true"><defs><linearGradient id="ga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#00d4ff"/><stop offset=".35" stop-color="#00f076"/><stop offset=".7" stop-color="#ffd400"/><stop offset="1" stop-color="#ff3b4a"/></linearGradient></defs><path d="M4 2.8v18.4c0 .6.7.9 1.2.6l15.6-9.2c.5-.3.5-.9 0-1.2L5.2 2.2C4.7 1.9 4 2.2 4 2.8z" fill="url(#ga)"/></svg><span class="tx"><small>Presto su</small><b>Google Play</b></span></a></div>
+</div></section>
+
+<section style="padding-top:0"><div class="wrap"><div class="soporte rv"><h2>Aiuto e contatto</h2><p>Hai un dubbio o qualcosa non funziona? Scrivici e ti aiutiamo. Se puoi, indica che dispositivo usi (iPhone, iPad o Android) e cosa stavi facendo.</p><p><b><a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a></b></p></div></div></section>
+
+<footer><div class="wrap"><a href="privacidad-it.html">Informativa sulla privacy</a>·<a href="ayuda-it.html">Guida passo passo</a><br /><br />Wkit · Titan Estudios</div></footer>
+<script>
+(function(){
+  var LINKS = window.WKIT_LINKS || {};
+  document.querySelectorAll("a.tienda").forEach(function(a){
+    var u = LINKS[a.getAttribute("data-tienda")];
+    var s = a.querySelector("small");
+    if (u) { a.href = u; a.target = "_blank"; a.rel = "noopener"; s.textContent = a.getAttribute("data-ok"); }
+    else { s.textContent = a.getAttribute("data-soon"); a.addEventListener("click", function(e){ e.preventDefault(); }); a.style.cursor = "default"; }
+  });
+  var sel = document.getElementById("idioma");
+  if (sel) sel.addEventListener("change", function(){ location.href = sel.value; });
+  var io = "IntersectionObserver" in window ? new IntersectionObserver(function(es){ es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add("in"); io.unobserve(e.target); if(e.target.hasAttribute("data-cuenta")) cuenta(e.target); } }); }, {threshold:.15}) : null;
+  document.querySelectorAll(".rv,.pasos").forEach(function(el){ if(io) io.observe(el); else el.classList.add("in"); });
+  function cuenta(el){
+    var span = el.querySelector(".num"); if(!span) return;
+    var fin = span.textContent, m = fin.match(/\d+[.,]\d+|\d+/); if(!m) return;
+    var sep = m[0].indexOf(",")>-1 ? "," : ".", to = parseFloat(m[0].replace(",", ".")), t0 = null;
+    function paso(t){ if(!t0) t0 = t; var p = Math.min((t-t0)/1100,1), v = (to*(1-Math.pow(1-p,3))).toFixed(2).replace(".", sep);
+      span.textContent = fin.replace(m[0], v); if(p<1) requestAnimationFrame(paso); else span.textContent = fin; }
+    requestAnimationFrame(paso);
+  }
+  var im = document.querySelectorAll(".slides img"), pts = document.querySelectorAll(".dots i"), k = 0;
+  function ver(n){ im.forEach(function(x,i){ x.classList.toggle("on", i===n); }); pts.forEach(function(x,i){ x.classList.toggle("on", i===n); }); }
+  if (im.length){ ver(0); setInterval(function(){ k = (k+1) % im.length; ver(k); }, 3200); }
+  pts.forEach(function(p,i){ p.addEventListener("click", function(){ k=i; ver(i); }); });
+})();
+</script>
+</body></html>
