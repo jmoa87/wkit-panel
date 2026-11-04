@@ -2,7 +2,7 @@
 // Cuando la app esté publicada, pega aquí las direcciones (entre las comillas) y vuelve a subir este archivo.
 window.WKIT_LINKS = {
   // App Store, por ejemplo: "https://apps.apple.com/app/id1234567890"
-  ios: "",
+  ios: "https://apps.apple.com/es/app/wkit/id6819603701",
   // Google Play: "https://play.google.com/store/apps/details?id=com.titanestudios.wkit"
-  android: ""
+  android: "https://play.google.com/store/apps/details?id=com.titanestudios.wkit"
 };
