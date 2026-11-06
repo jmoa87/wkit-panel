@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="zh-Hans">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkit 分步指南 — Wkit</title>
+    <meta name="description" content="面向传道员和管理员的 Wkit 分步指南：登录、提醒、报告、弟兄姊妹、小组、清洁、节目安排、通告、区域和订阅。" />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-zh.html">← Wkit</a> · <a href="privacidad-zh.html">隐私政策</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <b>简体中文</b> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a></p>
+      <h1>Wkit 分步指南</h1>
+      <p class="sub">你在应用中能做的一切，都在这里慢慢讲清楚：面向传道员和管理员。在 iPhone、iPad 和 Android 上用法相同；如有差别，会标注为 <span class="plat a">Android</span> 或 <span class="plat i">iPhone</span>。</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>适用于每位成员</h3><ol class="toc"><li><a href="#entrar">首次进入 Wkit</a></li><li><a href="#inicio">首页</a></li><li><a href="#recordatorios">提醒：铃铛</a></li><li><a href="#notificaciones">通知：Wkit 会告诉你什么</a></li><li><a href="#informe">你的传道报告（私人）</a></li><li><a href="#territorios-pub">区域：查看、交还和申请</a></li><li><a href="#cuenta">你的账号：换手机、绑定邮箱、语言和删除</a></li><li><a href="#copia-seguridad">备份</a></li></ol></div><div class="toc-g"><h3>适用于管理员（长老）</h3><ol class="toc"><li><a href="#crear-congregacion">创建会众</a></li><li><a href="#hermanos">弟兄姊妹名单</a></li><li><a href="#grupos">传道小组</a></li><li><a href="#salidas">传道聚会</a></li><li><a href="#limpieza">清洁：轮到谁，以及哪一天、几点</a></li><li><a href="#vida-ministerio">基督徒生活与传道聚会的节目安排</a></li><li><a href="#reunion-publica">公开聚会</a></li><li><a href="#audio-video">音频和视频/招待员</a></li><li><a href="#otros-programas">其他节目</a></li><li><a href="#anuncios">通告</a></li><li><a href="#calendario">会众日历</a></li><li><a href="#territorios-admin">区域：分配、活动和网页面板</a></li><li><a href="#suscripcion">会众订阅</a></li><li><a href="#copias">仅保存在这部手机上的数据</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">适用于每位成员</h2>
+<section id="entrar"><h2>1. 首次进入 Wkit</h2>
+<p>进入 Wkit <strong>不需要邮箱或密码</strong>：由你会众的一位长老邀请你，你通过链接或邀请码加入。</p>
+<ol class="pasos"><li>请负责弟兄姊妹名单的长老邀请你。你会<strong>连续收到两条消息</strong>：先是链接，然后单独一条是邀请码（方便复制）。</li><li>从 App Store（iPhone 和 iPad）或 Google Play（Android）安装 <strong>Wkit</strong>。</li><li>点按第一条消息中的链接：应用会打开并识别你。</li><li>如果链接没有打开应用，请自己打开应用，点按<strong>“我有邀请链接或邀请码”</strong>，然后粘贴整条消息或只粘贴邀请码：应用会自动挑出所需内容。</li><li>你会看到几个欢迎界面（<strong>“入门指引”</strong>），说明哪些内容是共享的、哪些不是。看完后你就进入应用了。</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>如果邀请码无效</strong>（“无效或已过期”），请长老重新生成一个：在你的名片上只需一分钟。</div>
+<div class="nota"><strong>哪些共享，哪些不共享：</strong>弟兄姊妹名单、节目安排、清洁、区域和通告由全体会众看到，由长老创建。<strong>你的报告只属于你</strong>：别人都看不到，连长老也看不到，并且会在你的设备之间同步。</div>
+</section>
+<section id="inicio"><h2>2. 首页</h2>
+<p>打开 Wkit 后你首先看到的就是它。它让你一目了然地看到<strong>属于你的内容</strong>；如果没有分配给你的安排，你会看到“近期没有安排”。</p>
+<ul><li><strong>接下来的部分</strong>：你在基督徒生活与传道聚会和公开聚会中的部分（主席、朗读员、讲者……）。</li><li><strong>职责</strong>：你在音频和视频/招待员中的职责。</li><li><strong>清洁</strong>：只有当<em>本周</em>轮到你的小组时才会出现。如果小组监督或助手设定了日期和时间，你会在下方看到（例如“星期日 12:30”）。</li><li><strong>其他节目</strong>、<strong>区域</strong>（以及活动，如果有）和<strong>报告</strong>提醒。</li><li><strong>日历</strong>：会众的事件（大会、巡回监督的访问……），带有用于设置提醒的铃铛。</li></ul>
+<p>底部有五个标签页：<strong>首页</strong>、<strong>节目安排</strong>、<strong>报告</strong>、<strong>区域</strong>和<strong>菜单</strong>（弟兄姊妹名单、小组、清洁、通告和设置都在这里）。</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. 提醒：铃铛</h2>
+<p>每个任务、职责或清洁轮值旁边都有一个<strong>铃铛</strong>。通过它，手机会在你选定的时间提前提醒你。</p>
+<ol class="pasos"><li>点按任务旁边的铃铛。</li><li>选择提醒的日期和时间。</li><li>确认。铃铛会变成绿色，到时间就会响铃（震动）。</li><li>要取消，再次点按铃铛并选择移除提醒。</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">如果长老更改了清洁的日期或时间，铃铛会再次建议你按新日期设置提醒。</div>
+<div class="nota"><span class="plat a">Android</span> 如果收不到提醒，请在手机设置中检查 Wkit 是否有通知权限，以及它的电池使用是否受到限制。</div>
+</section>
+<section id="notificaciones"><h2>4. 通知：Wkit 会告诉你什么</h2>
+<p>有新通告、有安排分配给你，或有与你相关的变动时，Wkit 会通知你。</p>
+<ol class="pasos"><li>第一次手机询问时，请<strong>允许通知</strong>。</li><li>打开<strong>菜单 → 设置 → 通知</strong>。</li><li>关闭你不想要的类别（通告、节目安排、音频和视频、清洁、区域……），并选择你希望接收通知的日期和时间。</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>一台设备一次只接收一个人的通知</strong>：即已登录的那个人。如果收不到，请至少在你的账号上打开一次 Wkit，让设备完成注册。</div>
+</section>
+<section id="informe"><h2>5. 你的传道报告（私人）</h2>
+<p>报告是<strong>个人</strong>工具：只有你能看到，连长老也看不到。它保存在你的手机上，并会在你的设备之间同步。</p>
+<ol class="pasos"><li>打开<strong>报告</strong>标签页。第一次使用时，Wkit 会问你几个问题：你参与哪种服务（传道员、先驱……），以及你每月的<strong>时数目标</strong>是多少。</li><li>要记录传道活动，点按<strong>“新建”</strong>，填写日期、小时和分钟以及圣经研究。</li><li>在<strong>历史记录</strong>中，你可以看到本月和本服务年度的累计，并可编辑或删除记录。</li><li>每月第一天，Wkit 可以在你选定的时间提醒你<strong>提交报告</strong>。<strong>“发送报告”</strong>按钮会准备好包含你的时数和研究的消息。</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>你的报告会同步</strong>到你的账号，所以换手机后重新登录就能找回。不过还是建议做一次备份（菜单 → 设置 → 备份）：这是额外的保障。参见第 21 节。</div>
+</section>
+<section id="territorios-pub"><h2>6. 区域：查看、交还和申请</h2>
+<p>在<strong>区域</strong>标签页中，你可以看到分配给你的区域，以及你从哪天开始负责。</p>
+<ol class="pasos"><li>区域做完后要<strong>交还</strong>，请打开它并点按<strong>“交还”</strong>（或<strong>“时间到时提醒”</strong>）。负责区域的人会收到通知。</li><li>如果你<strong>没有任何区域</strong>而想要一个，点按<strong>“申请一个区域”</strong>。你可以附上一条可选的留言（例如“我想要靠近市中心的区域”）。</li><li>所有区域负责人都会收到通知，第一个有空的人会分配一个给你。分配给你时，你会收到通知。</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. 你的账号：换手机、绑定邮箱、语言和删除</h2>
+<h3>如果你换了手机或手机丢了</h3>
+<ul><li>如果你<strong>没有绑定邮箱</strong>（弟兄们不需要），长老会从你在弟兄姊妹名单中的名片给你发送<strong>新的邀请</strong>。你会找回自己的位置，包括与会众有关的一切以及你的报告。</li><li>如果你<strong>绑定了邮箱</strong>，打开 Wkit，点按<strong>“创建账号或以管理员身份登录”</strong>，输入邮箱并打开你收到的链接。你会带着原有的一切进入。</li></ul>
+<h3>在多台设备上使用 Wkit</h3>
+<ul><li>你可以在 iPhone、iPad 和 Android 上<strong>同时使用同一个账号</strong>（例如手机和平板）。</li><li>要添加另一台设备，长老会从你的名片发送邀请，你在那台设备上打开它。<strong>第一台设备上的登录不会被关闭。</strong></li><li>你的报告会在你的所有设备之间同步。</li></ul>
+<h3>绑定邮箱（可选，建议管理员绑定）</h3>
+<ol class="pasos"><li>打开<strong>菜单 → 设置 → 我的账号 → 绑定我的邮箱</strong>。</li><li>输入你的邮箱。你会收到一个确认链接。</li><li>在<strong>同一部手机上</strong>，用邮件应用打开它。界面会自动关闭，你的账号即绑定完成。</li></ol>
+<h3>更改语言</h3>
+<p>Wkit 使用手机的语言。若只想更改 Wkit 的语言：手机设置 → 应用 → Wkit → 语言。</p>
+<h3>删除账号</h3>
+<p><strong>菜单 → 设置 → 我的账号 → 删除我的账号。</strong>你的账号、你在名单中的名片以及保存在手机上的数据（包括报告）将被删除；你负责的区域将被释放。此操作无法撤销。如果你是唯一的管理员且还有其他弟兄姊妹，必须先指定另一位（在弟兄姊妹名单中打开他的名片并开启“管理员”）。如果你是会众中唯一的人，整个会众也会被删除。</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">删除账号<strong>不会取消</strong>会众的订阅（如果由该账号付费）：请在 App Store 取消 <span class="plat i">iPhone</span>，或在 Google Play → 付款和订阅 → 订阅 中取消 <span class="plat a">Android</span>。</div>
+</section>
+<section id="copia-seguridad"><h2>21. 备份</h2>
+<p>主要用于为你的报告<strong>多留一份副本</strong>：虽然报告会在你的设备之间同步，但备份能在你误删时保护你。你可以在<strong>菜单 → 设置 → 备份</strong>中找到它。</p>
+<ul><li><strong>自动备份副本</strong>：每月自动备份一次。</li><li><strong>“立即备份”</strong>和<strong>“导出备份”</strong>：你可以把文件保存到任何地方，或发给自己。</li><li><strong>“恢复备份”</strong>：选择从 Wkit 导出的文件。备份中的数据会<strong>添加</strong>到你已有的数据中：不会删除任何内容。</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> 自动备份保存在你的 iCloud 中。<span class="plat a">Android</span> 保存在手机上；如果你在 Google 账号中开启了 Android 备份（手机设置 → Google → 备份），在新手机上登录该账号时会自动找回。</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">适用于管理员（长老）</h2>
+<section id="crear-congregacion"><h2>8. 创建会众</h2>
+<p>长老<strong>只需做一次</strong>；然后邀请其他人。</p>
+<ol class="pasos"><li>打开 Wkit，点按<strong>“创建账号或以管理员身份登录”</strong>。</li><li>输入你的邮箱，点按<strong>“发送访问链接”</strong>。没有密码：你会收到一个链接，用来确认这个邮箱属于你。</li><li><strong>在同一部手机上打开链接。</strong>Wkit 会自动打开。</li><li>填写<strong>你的姓名</strong>、<strong>会众名称</strong>、<strong>会众编号</strong>和<strong>国家</strong>，然后点按<strong>“创建会众”</strong>。</li><li>你会看到<strong>“长老入门指引”</strong>：1）把弟兄姊妹添加到名单中；2）邀请他们。</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">邮件没收到？检查垃圾邮件文件夹，并点按<strong>“我没有收到，请重新发送”</strong>。一个邮箱在 Wkit 中只能有一个账号。</div>
+</section>
+<section id="hermanos"><h2>9. 弟兄姊妹名单</h2>
+<p>这是一切的基础：节目安排、小组和任务都使用这份名单中的姓名。你可以在<strong>菜单 → 弟兄姊妹名单</strong>中找到它。</p>
+<h3>添加弟兄</h3>
+<ol class="pasos"><li>点按 <strong>+</strong> 按钮（<strong>“新弟兄”</strong>）。</li><li>输入<strong>姓名</strong>，并选择是<strong>弟兄</strong>还是<strong>姊妹</strong>。</li><li>选择他的<strong>角色</strong>：已受浸或未受浸的传道员、先驱、助理服务员或长老。</li><li>如有需要，选择他的<strong>传道小组</strong>，并开启<strong>区域负责人</strong>、<strong>音频和视频/招待员</strong>或<strong>管理员</strong>。</li><li>点按<strong>“创建”</strong>。</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>两位同名的弟兄：</strong>添加一个能区分他们的标记（例如“小”），以免任务混淆。</div>
+<h3>邀请弟兄加入 Wkit</h3>
+<ol class="pasos"><li>打开该弟兄的名片，点按<strong>“邀请”</strong>（或<strong>“生成链接”</strong>）。</li><li>点按<strong>“分享邀请”</strong>，选择 WhatsApp、短信等。系统会<strong>连续发送两条消息</strong>：先是链接，然后单独一条是邀请码，方便复制。</li><li>该弟兄打开链接（或粘贴邀请码）即可进入。如果他还没加入，你可以再次分享邀请；如果生成了新的邀请，旧的就会失效。</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>编辑、删除和指定管理员</h3>
+<ul><li>点按某位弟兄，选择<strong>“编辑”</strong>来修改他的信息。</li><li>在 Android 上，要删除请点按他那一行的<strong>红色图标</strong>；在 iPhone 上，把该行向左滑动。他会在所有设备上从名单中移除，他负责的区域会被释放。</li><li><strong>管理员</strong>可以管理弟兄姊妹、区域、通告和节目安排。<strong>你不能删除自己的名片，也不能删除最后一位管理员</strong>：请先指定另一位。</li></ul>
+</section>
+<section id="grupos"><h2>10. 传道小组</h2>
+<p>小组用于传道聚会和清洁。你可以在<strong>菜单 → 传道小组 → 列表</strong>中找到它们。</p>
+<ol class="pasos"><li>如果还没有，点按<strong>“创建传道小组”</strong>，选择你想要<strong>多少个小组</strong>（以后可以用 <strong>+</strong> 按钮再添加）。</li><li>要把弟兄姊妹分到小组，请进入<strong>弟兄姊妹名单</strong>，打开每个人的名片，选择他的<strong>传道小组</strong>。</li><li>回到<strong>菜单 → 传道小组 → 列表</strong>。在每个小组中，你会看到<strong>小组监督</strong>、<strong>助手</strong>，以及<strong>按字母顺序</strong>排列的成员。</li><li>点按<strong>铅笔</strong>按钮（编辑）。点按<strong>“小组监督”</strong>并从该小组的弟兄中选一位；<strong>“助手”</strong>也同样操作。不能是同一个人。</li><li>点按<strong>确认标记</strong>完成。</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">小组监督和助手要在分好弟兄姊妹<strong>之后</strong>再选，因为只能在该小组的弟兄中选择。如果你把一位弟兄调到另一个小组，他就不再是原小组的监督或助手。</div>
+<div class="nota">每个小组的监督和助手，即使不是管理员，也<strong>可以为自己的小组设定清洁的日期和时间</strong>（第 12 节）。</div>
+</section>
+<section id="salidas"><h2>11. 传道聚会</h2>
+<p>传道聚会是出去传道的集合时间和地点。有<strong>通用的</strong>（面向全体会众）和<strong>每个小组自己的</strong>。你可以在<strong>菜单 → 传道小组 → 传道聚会</strong>中找到它们。需要先创建小组。</p>
+<ol class="pasos"><li>点按<strong>“会众”</strong>部分（通用聚会）或某个<strong>小组</strong>的部分。</li><li>在相应的日子点按<strong>“添加聚会”</strong>，输入<strong>标签</strong>（例如“上午”或“下午”）、<strong>时间</strong>，以及（如果需要）<strong>地点</strong>。</li><li>要<strong>编辑</strong>聚会，直接修改其字段即可。要<strong>删除</strong>，点按该行的红色图标。</li><li>弟兄们可以点按地点，在手机地图中打开。</li></ol>
+<div class="nota">如果某个小组没有自己的聚会，就使用会众的聚会（“没有自己的聚会——使用会众的聚会”）。</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. 清洁：轮到谁，以及哪一天、几点</h2>
+<p>清洁会在传道小组之间<strong>自动轮换</strong>：每周轮到不同的小组，从第 1 组开始。你可以在<strong>菜单 → 清洁 → 小组</strong>中找到。</p>
+<h3>更改本周负责清洁的小组（管理员）</h3>
+<ol class="pasos"><li>点按<strong>铅笔</strong>按钮（编辑）。</li><li>点按本周轮到的<strong>小组</strong>。下周会是顺序中的下一个小组。</li><li>点按<strong>确认标记</strong>。会众的<strong>所有设备</strong>都会看到这项更改。</li></ol>
+<h3>设定具体的日期和时间（管理员，以及小组监督和助手）</h3>
+<ol class="pasos"><li>在<strong>菜单 → 清洁 → 小组</strong>中，找到你的小组（或你负责的小组），点按其所在行的<strong>铅笔</strong>。</li><li>选择<strong>日期</strong>和<strong>时间</strong>（例如星期日 12:30），然后点按<strong>“保存”</strong>。要取消日期，点按<strong>“移除日期”</strong>。</li><li>该小组的弟兄们会在首页看到：<strong>“第 1 组 · 本周”</strong>，下方是<strong>“星期日 12:30”</strong>，并有他们自己的<strong>铃铛</strong>用来设置提醒。</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">日期只有在<strong>当前这一周</strong>（星期一至星期日）时才会显示在首页。你可以提前设定：到了那一周就会显示。过去几周的日期会自动消失。</div>
+</section>
+<section id="vida-ministerio"><h2>13. 基督徒生活与传道聚会的节目安排</h2>
+<p>在<strong>节目安排 → 基督徒生活与传道</strong>标签页中，你可以创建每周的节目安排并分配各部分。所有弟兄都能看到；只有管理员可以编辑。</p>
+<ol class="pasos"><li>点按<strong>“新的一周”</strong>，选择<strong>聚会日期</strong>（该周的任意一天，星期一至星期日）。</li><li>Wkit 会按<strong>通常的结构</strong>创建这一周：神话语的宝藏、用心准备传道工作、基督徒生活。</li><li>点按任意<strong>标题</strong>可以修改，需要时也可修改<strong>时长</strong>。用<strong>“添加职责”</strong>按钮可以添加其他部分。</li><li>在每个部分点按<strong>“选择”</strong>，指定一位或几位弟兄（例如学生和助手）。若有<strong>副班</strong>，使用<strong>“添加副班会场”</strong>。</li><li>同时选择<strong>诗歌</strong>和<strong>祷告</strong>，然后点按<strong>“保存节目安排”</strong>。</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>要查看其他周，使用<strong>周切换器</strong>（<strong>“上一周”</strong> / <strong>“下一周”</strong>）；也可以在那里<strong>编辑或删除</strong>它。</li><li>弟兄们被分配到某个部分时会收到<strong>通知</strong>，并在首页看到。</li><li>每周的节目安排会在星期日结束时自动消失。</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. 公开聚会</h2>
+<p>在<strong>节目安排 → 公开聚会</strong>中准备每次周末聚会。</p>
+<ol class="pasos"><li>点按<strong>“新的公开演讲”</strong>并选择<strong>日期</strong>。如果该日期已有聚会，Wkit 会提醒你。</li><li>选择<strong>主席</strong>、<strong>讲者</strong>，并输入<strong>演讲标题</strong>。</li><li>选择<strong>守望台研读班朗读员</strong>，以及<strong>诗歌</strong>和<strong>祷告</strong>。</li><li>保存。弟兄们会在首页看到自己的部分。</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. 音频和视频/招待员</h2>
+<p>在<strong>菜单 → 音频和视频/招待员</strong>中，你可以分配每周的职责：音频、视频、麦克风、招待员、Zoom、计时……</p>
+<ol class="pasos"><li>点按<strong>“新的一周”</strong>并选择<strong>聚会日期</strong>。</li><li>在每项职责点按<strong>“选择”</strong>并指定一位弟兄。有些职责（如麦克风）允许<strong>多位弟兄</strong>（<strong>“添加弟兄”</strong>）。</li><li>如果列表中没有某项职责，点按<strong>“添加职责”</strong>并为它命名。</li><li>保存。每位弟兄都会在他首页的<strong>职责</strong>部分看到，并带有他自己的铃铛。</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. 其他节目</h2>
+<p>用于会众安排的<strong>其他一切</strong>、不属于聚会的事项：例如接送无法前来的弟兄，或帮助传道员。每个节目有自己的频率。你可以在<strong>菜单 → 其他节目</strong>中找到。</p>
+<ol class="pasos"><li>点按<strong>“新节目安排”</strong>。输入<strong>名称</strong>并选择<strong>多久进行一次</strong>：每天、每周、每月或每年。</li><li>点按<strong>“创建第一周”</strong>（或<strong>“新时段”</strong>）并选择日期：该周、该月或该年的任意一天。</li><li>点按<strong>“添加职责”</strong>：输入可选的<strong>标签</strong>（例如“提早接送”）并<strong>选择一位弟兄或姊妹</strong>。</li><li>保存。每个人都会在首页的<strong>“其他节目”</strong>部分看到，时段结束后会自动消失。</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. 通告</h2>
+<p>通告由管理员创建；只面向自己小组的通告，则由每个传道小组的监督和助手创建。通告对象范围内的弟兄们能看到。你可以在<strong>菜单 → 通告</strong>中找到。</p>
+<ol class="pasos"><li>点按<strong>“新通告”</strong>并输入<strong>留言</strong>。</li><li>默认在你保存后会<strong>立即</strong>发布，所有人都会收到通知。</li><li>如果你希望晚些发出，开启<strong>“预定稍后发送”</strong>并选择<strong>日期和时间</strong>：在此之前没人能看到，到点时所有人都会收到通知。</li><li>保存。要删除通告，点按它并选择<strong>“删除”</strong>：对所有人都会消失。</li></ol>
+<h3>只发给一个小组的通告</h3>
+<ul><li>每个传道小组的<strong>监督</strong>和<strong>助手</strong>，即使不是管理员，也会看到 <strong>+</strong> 按钮，他们的通告<strong>只会发给本小组的成员</strong>。</li><li>同时也有小组的管理员，在创建通告时可以开启<strong>“只把这条通告发给我所在小组的成员”</strong>。</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. 会众日历</h2>
+<p>让所有人都能看到会众的事件，例如<strong>巡回大会</strong>或<strong>巡回监督的访问</strong>。只有管理员可以创建。</p>
+<ol class="pasos"><li>打开<strong>菜单 → 日历</strong>，点按<strong>“添加事件”</strong>。</li><li>输入<strong>标题</strong>并点按事件的<strong>日期</strong>：如果持续几天，就逐一点按。</li><li>保存。所有人都会在<strong>首页</strong>的“日历”部分看到，并有一个用于设置提醒的<strong>铃铛</strong>。</li><li>要修改或删除，打开该事件并选择<strong>“编辑事件”</strong>或<strong>“删除事件”</strong>。</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. 区域：分配、活动和网页面板</h2>
+<p>拥有<strong>区域负责人</strong>权限的人，在<strong>区域</strong>标签页中管理全体会众的区域（传道员只能看到自己的）。</p>
+<h3>分配和接收区域</h3>
+<ul><li>点按一个区域，选择<strong>“分配”</strong>（或“分配给一位传道员”）和一位弟兄。你会看到谁负责以及从什么时候开始，还有哪些<strong>已过期</strong>或<strong>从未分配</strong>。</li><li>当传道员<strong>申请</strong>区域时，所有区域负责人都会收到通知（<strong>“区域申请”</strong>）；第一个有空的人分配给他。</li><li>当弟兄<strong>交还</strong>区域时，该区域变为空闲，并记录日期。</li></ul>
+<h3>活动</h3>
+<ul><li><strong>“新活动”</strong>会在一段时间内把所有区域重新从零开始记录。系统会创建当前区域的一份<strong>副本</strong>用于单独分发；日常区域不受影响。</li><li>同一时间只能有<strong>一个进行中的活动</strong>。要结束它，选择<strong>“删除活动”</strong>：它的分配会被删除，一切恢复正常。</li></ul>
+<h3>S-13 卡片和网页面板</h3>
+<ul><li>在<strong>工具</strong>中，你可以生成 <strong>PDF 格式的 S-13 卡片</strong>（每个分区一张）用于分享。</li><li><strong>区域网页面板</strong>在电脑浏览器中打开。要给区域负责人访问权限：在弟兄姊妹名单中打开他的名片，点按<strong>“面板访问权限”</strong> → <strong>“生成链接”</strong>。链接是个人专属的；他用你选定的、你可随时更改的<strong>6位数字密码</strong>登录。</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">面板链接就像密码：不要分享给不该有访问权限的人。如果你生成了新的链接，旧的就会失效。</div>
+</section>
+<section id="suscripcion"><h2>19. 会众订阅</h2>
+<p>要让所有弟兄姊妹都能完整使用，需要<strong>会众年度订阅</strong>。<strong>由一位管理员付费，涵盖所有弟兄姊妹</strong>，iPhone 和 Android 均适用。其他弟兄姊妹无需付费。</p>
+<ol class="pasos"><li>打开<strong>菜单 → 设置 → 会众订阅</strong>。</li><li>点按<strong>“为会众订阅”</strong>。确认前你会看到年费；如果有<strong>免费试用期</strong>，试用结束前不会扣费。</li><li>在 App Store（iPhone）或 Google Play（Android）中确认。完成：全体会众都可使用。</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>每年<strong>自动续订</strong>，除非你在期限结束前至少 24 小时取消。</li><li>要<strong>管理或取消</strong>：<span class="plat i">iPhone</span> iPhone 设置 → 你的姓名 → 订阅；<span class="plat a">Android</span> Google Play → 你的头像 → 付款和订阅 → 订阅（或 Wkit 的“在 Google Play 中管理或取消”按钮）。</li><li>如果你<strong>换了手机</strong>，请在同一界面点按<strong>“恢复购买”</strong>。</li><li>如果订阅<strong>到期</strong>，会众会进入<strong>只读</strong>模式：所有内容仍可查看，<strong>不会删除任何内容</strong>。续订后即可再次编辑。</li></ul>
+<div class="nota">Wkit 从不查看或存储你的付款数据：由 Apple 或 Google 处理。</div>
+</section>
+<section id="copias"><h2>20. 仅保存在这部手机上的数据</h2>
+<p>如果你离线使用过 Wkit，或在你的会众创建之前使用过，应用可能会询问如何处理<strong>仅保存在这部手机上的数据</strong>（例如弟兄姊妹或通告）。你有两个选择：<strong>“上传”</strong>到会众（所有人都会看到），或<strong>“放弃”</strong>。在你决定之前不会发生任何事。</p>
+</section>
+      <div class="caja pie"><strong>找不到你要的内容？</strong>请给 <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> 写信，告诉我们发生了什么。如果可以，请告诉我们你使用的设备（iPhone、iPad 或 Android）以及你当时在做什么。</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

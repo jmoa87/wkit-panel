@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkit ステップバイステップガイド — Wkit</title>
+    <meta name="description" content="伝道者と管理者のための Wkit ステップバイステップガイド：ログイン、リマインダー、報告、兄弟姉妹、グループ、清掃、プログラム、お知らせ、区域、サブスクリプション。" />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-ja.html">← Wkit</a> · <a href="privacidad-ja.html">プライバシーポリシー</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <b>日本語</b> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a></p>
+      <h1>Wkit ステップバイステップガイド</h1>
+      <p class="sub">アプリでできることを、ゆっくり丁寧に説明します。伝道者向けと管理者向けがあります。iPhone、iPad、Android のどれでも同じように使えます。違いがある場合は <span class="plat a">Android</span> または <span class="plat i">iPhone</span> と表示します。</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>すべてのメンバー向け</h3><ol class="toc"><li><a href="#entrar">Wkit に初めて入る</a></li><li><a href="#inicio">ホーム画面</a></li><li><a href="#recordatorios">リマインダー：ベル</a></li><li><a href="#notificaciones">通知：Wkit がお知らせする内容</a></li><li><a href="#informe">あなたの奉仕報告（非公開）</a></li><li><a href="#territorios-pub">区域：確認、返却、依頼</a></li><li><a href="#cuenta">あなたのアカウント：機種変更、メールの紐づけ、言語、削除</a></li><li><a href="#copia-seguridad">バックアップ</a></li></ol></div><div class="toc-g"><h3>管理者（長老）向け</h3><ol class="toc"><li><a href="#crear-congregacion">会衆を作成する</a></li><li><a href="#hermanos">兄弟姉妹リスト</a></li><li><a href="#grupos">野外奉仕のグループ</a></li><li><a href="#salidas">野外奉仕の集まり</a></li><li><a href="#limpieza">清掃：誰の番か、何曜日の何時か</a></li><li><a href="#vida-ministerio">「クリスチャンとしての生活と奉仕」の集まりのプログラム</a></li><li><a href="#reunion-publica">公開講演の集まり</a></li><li><a href="#audio-video">音声・映像/案内係</a></li><li><a href="#otros-programas">その他のプログラム</a></li><li><a href="#anuncios">お知らせ</a></li><li><a href="#calendario">会衆のカレンダー</a></li><li><a href="#territorios-admin">区域：割り当て、キャンペーン、ウェブパネル</a></li><li><a href="#suscripcion">会衆のサブスクリプション</a></li><li><a href="#copias">このスマートフォンにだけ保存されたデータ</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">すべてのメンバー向け</h2>
+<section id="entrar"><h2>1. Wkit に初めて入る</h2>
+<p>Wkit に入るのに<strong>メールアドレスもパスワードも必要ありません</strong>。会衆の長老があなたを招待し、あなたはリンクまたはコードで参加します。</p>
+<ol class="pasos"><li>兄弟姉妹リストを管理している長老に、招待してもらってください。<strong>続けて2通のメッセージ</strong>が届きます。最初にリンク、次に別メッセージでコード（コピーしやすいように）です。</li><li>App Store（iPhone と iPad）または Google Play（Android）から <strong>Wkit</strong> をインストールします。</li><li>最初のメッセージのリンクをタップします。アプリが開き、あなたを認識します。</li><li>リンクでアプリが開かない場合は、ご自身でアプリを開き、<strong>「招待リンクまたはコードがあります」</strong>をタップして、メッセージ全体またはコードだけを貼り付けてください。アプリが必要な部分を選びます。</li><li>何が共有され、何が共有されないかを説明する歓迎画面（<strong>「最初のステップ」</strong>）がいくつか表示されます。終わると、中に入れます。</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>コードが使えない場合</strong>（「無効、または期限切れ」）は、長老に新しいコードを作ってもらってください。あなたのカードから1分でできます。</div>
+<div class="nota"><strong>共有されるものとされないもの：</strong>兄弟姉妹リスト、プログラム、清掃、区域、お知らせは会衆全体が見られ、長老が作成します。<strong>報告はあなただけのもの</strong>です。ほかの誰にも、長老にも見えず、あなたのデバイス間で同期されます。</div>
+</section>
+<section id="inicio"><h2>2. ホーム画面</h2>
+<p>Wkit を開いて最初に目にする画面です。<strong>自分に関すること</strong>がひと目で分かります。割り当てがない場合は「近い割り当てはありません」と表示されます。</p>
+<ul><li><strong>次の部分</strong>：「クリスチャンとしての生活と奉仕」の集まりや公開講演でのあなたの部分（司会者、朗読者、講演者など）。</li><li><strong>責任</strong>：音声・映像/案内係でのあなたの担当。</li><li><strong>清掃</strong>：<em>今週</em>があなたのグループの番のときだけ表示されます。グループの監督や助け手が日付と時刻を決めている場合は、その下に表示されます（例：「日曜日 12:30」）。</li><li><strong>その他のプログラム</strong>、<strong>区域</strong>（キャンペーンがあればそれも）、そして<strong>報告</strong>のリマインダー。</li><li><strong>カレンダー</strong>：会衆の予定（大会、巡回監督の訪問など）。リマインダー用のベル付きです。</li></ul>
+<p>下には5つのタブがあります：<strong>ホーム</strong>、<strong>プログラム</strong>、<strong>報告</strong>、<strong>区域</strong>、<strong>メニュー</strong>（兄弟姉妹リスト、グループ、清掃、お知らせ、設定はここにあります）。</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. リマインダー：ベル</h2>
+<p>各タスク、責任、清掃の当番の横に<strong>ベル</strong>があります。これを使うと、あなたが選んだ時刻に、前もってスマートフォンが知らせてくれます。</p>
+<ol class="pasos"><li>タスクの横のベルをタップします。</li><li>リマインダーの日付と時刻を選びます。</li><li>確定します。ベルが緑色になり、時間になると鳴ります（振動します）。</li><li>削除するには、もう一度ベルをタップして、リマインダーの削除を選びます。</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">長老が清掃の日付や時刻を変更した場合、ベルが新しい日付でリマインダーを設定し直すよう提案します。</div>
+<div class="nota"><span class="plat a">Android</span> リマインダーが届かない場合は、スマートフォンの設定で Wkit に通知の許可があるか、バッテリー使用が制限されていないかを確認してください。</div>
+</section>
+<section id="notificaciones"><h2>4. 通知：Wkit がお知らせする内容</h2>
+<p>新しいお知らせがあったとき、何かが割り当てられたとき、あなたに関わる変更があったときに、Wkit が通知します。</p>
+<ol class="pasos"><li>初回にスマートフォンから聞かれたら、<strong>通知を許可</strong>してください。</li><li><strong>メニュー → 設定 → 通知</strong>を開きます。</li><li>不要なカテゴリ（お知らせ、プログラム、音声・映像、清掃、区域など）をオフにし、通知を受け取りたい曜日と時刻を選びます。</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>デバイスが通知を受け取れるのは、一度にひとり分だけ</strong>です。セッションを開いている人の通知です。届かない場合は、デバイスが登録されるよう、少なくとも一度は自分のアカウントで Wkit を開いてください。</div>
+</section>
+<section id="informe"><h2>5. あなたの奉仕報告（非公開）</h2>
+<p>報告は<strong>個人用</strong>のツールです。見られるのはあなただけで、長老にも見えません。スマートフォンに保存され、あなたのデバイス間で同期されます。</p>
+<ol class="pasos"><li><strong>報告</strong>タブを開きます。初回は、Wkit がいくつか質問します：どのような奉仕をしているか（伝道者、開拓者など）と、月ごとの<strong>時間の目標</strong>です。</li><li>奉仕を記録するには、<strong>「新規」</strong>をタップして、日付、時間と分、聖書研究を入力します。</li><li><strong>履歴</strong>では、月ごとと奉仕年度の合計を確認でき、記録の編集や削除もできます。</li><li>毎月1日に、Wkit は選んだ時刻に<strong>報告を送る</strong>ようリマインドできます。<strong>「報告を送る」</strong>ボタンで、時間と研究を入れたメッセージが用意されます。</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>報告は同期されます</strong>。アカウントに紐づいているので、機種変更してもログインし直せば元に戻ります。それでもバックアップ（メニュー → 設定 → バックアップ）を作っておくと安心です。21 の項目をご覧ください。</div>
+</section>
+<section id="territorios-pub"><h2>6. 区域：確認、返却、依頼</h2>
+<p><strong>区域</strong>タブでは、割り当てられた区域と、いつから担当しているかが分かります。</p>
+<ol class="pasos"><li>区域を回り終えて<strong>返却</strong>するには、区域を開いて<strong>「返却」</strong>（または<strong>「時間切れを通知する」</strong>）をタップします。区域の担当者に通知が届きます。</li><li><strong>区域がなく</strong>、区域がほしい場合は、<strong>「区域を依頼」</strong>をタップします。任意でメッセージを添えられます（例：「中心部の近くの区域をお願いしたいです」）。</li><li>区域の責任者全員に通知が届き、最初に対応できる人が区域を割り当てます。割り当てられると、通知が届きます。</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. あなたのアカウント：機種変更、メールの紐づけ、言語、削除</h2>
+<h3>スマートフォンを替えた場合や紛失した場合</h3>
+<ul><li><strong>メールアドレスを紐づけていない</strong>場合（兄弟たちは不要です）、長老が兄弟姉妹リストのあなたのカードから<strong>新しい招待</strong>を送ります。会衆に関するすべてと報告が、元の場所に戻ります。</li><li><strong>メールアドレスを紐づけている</strong>場合は、Wkit を開き、<strong>「アカウントを作成、または管理者としてログイン」</strong>をタップして、メールアドレスを入力し、届いたリンクを開きます。以前のままの状態で入れます。</li></ul>
+<h3>複数のデバイスで Wkit を使う</h3>
+<ul><li>iPhone、iPad、Android で<strong>同じアカウントを同時に</strong>使えます（たとえばスマートフォンとタブレット）。</li><li>別のデバイスを追加するには、長老があなたのカードから招待を送り、あなたはそのデバイスでそれを開きます。<strong>最初のデバイスのログインは終了しません。</strong></li><li>報告はすべてのデバイス間で同期されます。</li></ul>
+<h3>メールの紐づけ（任意。管理者にお勧め）</h3>
+<ol class="pasos"><li><strong>メニュー → 設定 → マイアカウント → メールアドレスを紐づける</strong>を開きます。</li><li>メールアドレスを入力します。確認用のリンクが届きます。</li><li><strong>同じスマートフォンで</strong>、メールアプリからそれを開きます。画面は自動的に閉じ、アカウントが紐づけられます。</li></ol>
+<h3>言語の変更</h3>
+<p>Wkit はスマートフォンの言語を使います。Wkit だけ変えるには：スマートフォンの設定 → アプリ → Wkit → 言語。</p>
+<h3>アカウントの削除</h3>
+<p><strong>メニュー → 設定 → マイアカウント → アカウントを削除。</strong>あなたのアカウント、リストのカード、スマートフォンに保存されたデータ（報告を含む）が削除され、担当していた区域は解放されます。元に戻せません。あなたが唯一の管理者で、ほかに兄弟姉妹がいる場合は、先に別の人を指名する必要があります（兄弟姉妹リストでその人のカードを開き、「管理者」をオンにします）。会衆にいるのがあなただけの場合は、会衆全体も削除されます。</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">アカウントを削除しても、このアカウントが支払っている場合の会衆のサブスクリプションは<strong>解約されません</strong>。解約は App Store <span class="plat i">iPhone</span> または Google Play → お支払いと定期購入 → 定期購入 <span class="plat a">Android</span> で行います。</div>
+</section>
+<section id="copia-seguridad"><h2>21. バックアップ</h2>
+<p>主に、<strong>報告の予備のコピー</strong>を持つためのものです。報告はデバイス間で同期されますが、誤って削除した場合にバックアップが守ってくれます。<strong>メニュー → 設定 → バックアップ</strong>にあります。</p>
+<ul><li><strong>自動コピー</strong>：月に一度、自動でコピーを作成します。</li><li><strong>「今すぐコピーを作成」</strong>と<strong>「バックアップを書き出す」</strong>：ファイルを好きな場所に保存したり、自分に送ったりできます。</li><li><strong>「バックアップを復元」</strong>：Wkit から書き出したファイルを選びます。バックアップのデータは、すでにあるデータに<strong>追加</strong>されます。何も削除されません。</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> 自動コピーはあなたの iCloud に保存されます。<span class="plat a">Android</span> スマートフォンに保存され、Google アカウントで Android のバックアップを有効にしている場合（スマートフォンの設定 → Google → バックアップ）は、新しいスマートフォンでそのアカウントにログインすると自動で復元されます。</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">管理者（長老）向け</h2>
+<section id="crear-congregacion"><h2>8. 会衆を作成する</h2>
+<p>長老が<strong>一度だけ</strong>行います。その後、ほかの人を招待します。</p>
+<ol class="pasos"><li>Wkit を開き、<strong>「アカウントを作成、または管理者としてログイン」</strong>をタップします。</li><li>メールアドレスを入力して、<strong>「アクセスリンクを送信」</strong>をタップします。パスワードはありません。メールアドレスがあなたのものであることを確認するリンクが届きます。</li><li><strong>同じスマートフォンでリンクを開きます。</strong>Wkit が自動で開きます。</li><li><strong>お名前</strong>、<strong>会衆名</strong>、<strong>会衆番号</strong>、<strong>国</strong>を入力して、<strong>「会衆を作成」</strong>をタップします。</li><li><strong>「長老としての最初のステップ」</strong>が表示されます：1）兄弟姉妹リストにメンバーを追加する、2）招待する。</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">メールが届きませんか？迷惑メールフォルダを確認し、<strong>「届いていません。もう一度送信」</strong>をタップしてください。ひとつのメールアドレスで作れる Wkit のアカウントは1つだけです。</div>
+</section>
+<section id="hermanos"><h2>9. 兄弟姉妹リスト</h2>
+<p>すべての土台です。プログラム、グループ、タスクは、このリストの名前を使います。<strong>メニュー → 兄弟姉妹リスト</strong>にあります。</p>
+<h3>兄弟姉妹を追加する</h3>
+<ol class="pasos"><li><strong>+</strong> ボタン（<strong>「新しい兄弟姉妹」</strong>）をタップします。</li><li><strong>名前</strong>を入力し、<strong>兄弟</strong>か<strong>姉妹</strong>かを選びます。</li><li><strong>役割</strong>を選びます：バプテスマを受けた/受けていない伝道者、開拓者、奉仕の僕、長老。</li><li>必要に応じて、<strong>野外奉仕のグループ</strong>を選び、<strong>区域の責任者</strong>、<strong>音声・映像/案内係</strong>、<strong>管理者</strong>をオンにします。</li><li><strong>「作成」</strong>をタップします。</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>同じ名前の兄弟が2人いる場合：</strong>区別できるもの（たとえば「Jr.」）を付け足して、タスクが混ざらないようにしてください。</div>
+<h3>兄弟姉妹を Wkit に招待する</h3>
+<ol class="pasos"><li>その人のカードを開き、<strong>「招待」</strong>（または<strong>「リンクを作成」</strong>）をタップします。</li><li><strong>「招待を共有」</strong>をタップして、WhatsApp やメッセージなどを選びます。<strong>続けて2通のメッセージ</strong>が送られます。最初にリンク、次に別メッセージでコードです。コピーしやすくするためです。</li><li>その人がリンクを開く（またはコードを貼り付ける）と入れます。まだ参加していなければ、招待をもう一度共有できます。新しく作成すると、前の招待は使えなくなります。</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>編集、削除、管理者の指名</h3>
+<ul><li>兄弟姉妹をタップして、<strong>「編集」</strong>を選ぶと、情報を変更できます。</li><li>Android で削除するには、その行の<strong>赤いアイコン</strong>をタップします。iPhone では行を左にスワイプします。すべてのデバイスでリストから削除され、担当していた区域は解放されます。</li><li><strong>管理者</strong>は、兄弟姉妹、区域、お知らせ、プログラムを管理できます。<strong>自分のカードと最後の管理者は削除できません</strong>。先に別の人を指名してください。</li></ul>
+</section>
+<section id="grupos"><h2>10. 野外奉仕のグループ</h2>
+<p>グループは、野外奉仕の集まりと清掃に使います。<strong>メニュー → 野外奉仕のグループ → リスト</strong>にあります。</p>
+<ol class="pasos"><li>まだない場合は、<strong>「野外奉仕のグループを作成」</strong>をタップして、<strong>いくつのグループ</strong>にするかを選びます（あとから <strong>+</strong> ボタンで追加できます）。</li><li>兄弟姉妹をグループに割り当てるには、<strong>兄弟姉妹リスト</strong>で各人のカードを開き、その人の<strong>野外奉仕のグループ</strong>を選びます。</li><li><strong>メニュー → 野外奉仕のグループ → リスト</strong>に戻ります。各グループに、<strong>グループの監督</strong>、<strong>助け手</strong>、そして<strong>アルファベット順</strong>のメンバーが表示されます。</li><li><strong>鉛筆</strong>ボタン（編集）をタップします。<strong>「グループの監督」</strong>をタップして、そのグループの兄弟から選びます。<strong>「助け手」</strong>も同様にします。同じ人にはできません。</li><li><strong>確認マーク</strong>をタップして終了します。</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">グループの監督と助け手は、兄弟姉妹を割り当てた<strong>後</strong>に選びます。そのグループの兄弟からしか選べないからです。兄弟を別のグループに移すと、前のグループの監督や助け手ではなくなります。</div>
+<div class="nota">各グループの監督と助け手は、管理者でなくても、自分のグループの<strong>清掃の日付と時刻を決める</strong>ことができます（12 の項目）。</div>
+</section>
+<section id="salidas"><h2>11. 野外奉仕の集まり</h2>
+<p>野外奉仕の集まりは、奉仕に出かけるための集合時刻と場所です。<strong>全体用</strong>（会衆全体）と<strong>各グループ独自</strong>のものがあります。<strong>メニュー → 野外奉仕のグループ → 野外奉仕の集まり</strong>にあります。先にグループを作成しておく必要があります。</p>
+<ol class="pasos"><li><strong>「会衆」</strong>の項目（全体の集まり）、または<strong>グループ</strong>の項目をタップします。</li><li>該当する曜日で<strong>「集まりを追加」</strong>をタップし、<strong>ラベル</strong>（例：「朝」「午後」）、<strong>時刻</strong>、必要なら<strong>場所</strong>を入力します。</li><li>集まりを<strong>編集</strong>するには、項目を直接変更します。<strong>削除</strong>するには、その行の赤いアイコンをタップします。</li><li>兄弟たちは場所をタップして、スマートフォンの地図で開けます。</li></ol>
+<div class="nota">グループに独自の集まりがない場合は、会衆の集まりが使われます（「独自の集まりはありません。会衆の集まりを使用します」）。</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. 清掃：誰の番か、何曜日の何時か</h2>
+<p>清掃は、野外奉仕のグループの間で<strong>自動的に回ります</strong>。毎週ちがうグループの番になり、グループ1から始まります。<strong>メニュー → 清掃 → グループ</strong>にあります。</p>
+<h3>今週清掃するグループを変更する（管理者）</h3>
+<ol class="pasos"><li><strong>鉛筆</strong>ボタン（編集）をタップします。</li><li>今週の番の<strong>グループ</strong>をタップします。来週は順番で次のグループになります。</li><li><strong>確認マーク</strong>をタップします。会衆の<strong>すべてのデバイス</strong>に変更が表示されます。</li></ol>
+<h3>正確な日付と時刻を決める（管理者、およびグループの監督と助け手）</h3>
+<ol class="pasos"><li><strong>メニュー → 清掃 → グループ</strong>で、自分のグループ（または担当するグループ）を見つけて、その行の<strong>鉛筆</strong>をタップします。</li><li><strong>日付</strong>と<strong>時刻</strong>（例：日曜日の12:30）を選び、<strong>「保存」</strong>をタップします。日付を消すには、<strong>「日付を削除」</strong>をタップします。</li><li>そのグループの兄弟たちには、ホーム画面に<strong>「グループ1 · 今週」</strong>、その下に<strong>「日曜日 12:30」</strong>と表示され、リマインダーを設定するための<strong>ベル</strong>もあります。</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">日付がホーム画面に表示されるのは、<strong>今週</strong>（月曜日から日曜日）の場合だけです。前もって設定しておくこともでき、その週が来たら表示されます。過ぎた週の日付は自動で消えます。</div>
+</section>
+<section id="vida-ministerio"><h2>13. 「クリスチャンとしての生活と奉仕」の集まりのプログラム</h2>
+<p><strong>プログラム → クリスチャンとしての生活と奉仕</strong>タブで、毎週のプログラムを作成し、部分を割り当てます。兄弟全員が見られ、編集できるのは管理者だけです。</p>
+<ol class="pasos"><li><strong>「新しい週」</strong>をタップして、<strong>集まりの日付</strong>（その週のどの日でも、月曜日から日曜日）を選びます。</li><li>Wkit は、<strong>通常の構成</strong>で週を作成します：神の言葉の宝、野外奉仕に励む、クリスチャンとしての生活。</li><li><strong>タイトル</strong>をタップして変更でき、必要なら<strong>所要時間</strong>も変更できます。<strong>「責任を追加」</strong>ボタンでほかの部分を追加できます。</li><li>各部分で<strong>「選択」</strong>をタップして、兄弟（たとえば生徒と助け手）を指定します。<strong>補助会場</strong>には<strong>「補助会場を追加」</strong>を使います。</li><li><strong>歌</strong>と<strong>祈り</strong>も選んで、<strong>「プログラムを保存」</strong>をタップします。</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>別の週を見るには、<strong>週の切り替え</strong>（<strong>「前の週」</strong> / <strong>「次の週」</strong>）を使います。そこから<strong>編集や削除</strong>もできます。</li><li>部分が割り当てられると、兄弟たちに<strong>通知</strong>が届き、ホーム画面にも表示されます。</li><li>その週のプログラムは、日曜日が終わると自動で消えます。</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. 公開講演の集まり</h2>
+<p><strong>プログラム → 公開講演</strong>で、週末の各集まりを準備します。</p>
+<ol class="pasos"><li><strong>「新しい公開講演」</strong>をタップして、<strong>日付</strong>を選びます。その日付にすでに集まりがある場合は、Wkit が警告します。</li><li><strong>司会者</strong>と<strong>講演者</strong>を選び、<strong>講演のタイトル</strong>を入力します。</li><li><strong>ものみの塔研究の朗読者</strong>、そして<strong>歌</strong>と<strong>祈り</strong>を選びます。</li><li>保存します。兄弟たちは、ホーム画面で自分の部分を確認できます。</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. 音声・映像/案内係</h2>
+<p><strong>メニュー → 音声・映像/案内係</strong>で、毎週の責任（音声、映像、マイク、案内係、Zoom、時間管理など）を割り当てます。</p>
+<ol class="pasos"><li><strong>「新しい週」</strong>をタップして、<strong>集まりの日付</strong>を選びます。</li><li>各責任で<strong>「選択」</strong>をタップして、兄弟を指定します。マイクのように<strong>複数の兄弟</strong>を指定できるものもあります（<strong>「兄弟姉妹を追加」</strong>）。</li><li>リストにない別の責任には、<strong>「責任を追加」</strong>をタップして名前を付けます。</li><li>保存します。各兄弟のホーム画面の<strong>責任</strong>の項目に、本人のベルとともに表示されます。</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. その他のプログラム</h2>
+<p>会衆が組織する、集まり以外の<strong>そのほかすべて</strong>のために使います。たとえば、来られない兄弟姉妹の送迎や、伝道者への支援など。それぞれのプログラムには独自の頻度があります。<strong>メニュー → その他のプログラム</strong>にあります。</p>
+<ol class="pasos"><li><strong>「新しいプログラム」</strong>をタップします。<strong>名前</strong>を入力し、<strong>実施の頻度</strong>（毎日、毎週、毎月、毎年）を選びます。</li><li><strong>「最初の週を作成」</strong>（または<strong>「新しい期間」</strong>）をタップして、日付（その週、月、年のどの日でも）を選びます。</li><li><strong>「責任を追加」</strong>をタップします：任意の<strong>ラベル</strong>（例：「早めに送迎」）を入力し、<strong>兄弟または姉妹を選びます</strong>。</li><li>保存します。各人のホーム画面の<strong>「その他のプログラム」</strong>の項目に表示され、期間が終わると自動で消えます。</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. お知らせ</h2>
+<p>お知らせは管理者が作成します。また、自分のグループ向けに限り、各野外奉仕のグループの監督と助け手も作成できます。宛先の兄弟姉妹が見られます。<strong>メニュー → お知らせ</strong>にあります。</p>
+<ol class="pasos"><li><strong>「新しいお知らせ」</strong>をタップして、<strong>メッセージ</strong>を入力します。</li><li>デフォルトでは、保存するとすぐに<strong>即時</strong>公開され、全員に通知が届きます。</li><li>あとで公開したい場合は、<strong>「後で送るよう予約」</strong>をオンにして、<strong>日付と時刻</strong>を選びます。その時までは誰にも見えず、その時刻に全員へ通知が届きます。</li><li>保存します。お知らせを削除するには、それをタップして<strong>「削除」</strong>を選びます。全員から消えます。</li></ol>
+<h3>ひとつのグループだけへのお知らせ</h3>
+<ul><li>各野外奉仕のグループの<strong>監督</strong>と<strong>助け手</strong>には、管理者でなくても <strong>+</strong> ボタンが表示され、そのお知らせは<strong>自分のグループのメンバーだけ</strong>に届きます。</li><li>自分のグループも持っている管理者は、お知らせを作成するときに<strong>「このお知らせを自分のグループのメンバーだけに送る」</strong>をオンにできます。</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. 会衆のカレンダー</h2>
+<p><strong>巡回大会</strong>や<strong>巡回監督の訪問</strong>など、会衆の予定を全員が見られるようにします。作成できるのは管理者だけです。</p>
+<ol class="pasos"><li><strong>メニュー → カレンダー</strong>を開いて、<strong>「予定を追加」</strong>をタップします。</li><li><strong>タイトル</strong>を入力して、予定の<strong>日</strong>をタップします。複数日にわたる場合は、それぞれの日をタップします。</li><li>保存します。全員が<strong>ホーム</strong>画面の「カレンダー」の項目で確認でき、リマインダーを設定するための<strong>ベル</strong>もあります。</li><li>変更や削除をするには、予定を開いて<strong>「予定を編集」</strong>または<strong>「予定を削除」</strong>を選びます。</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. 区域：割り当て、キャンペーン、ウェブパネル</h2>
+<p><strong>区域の責任者</strong>の権限を持つ人は、<strong>区域</strong>タブで会衆全体の区域を管理します（伝道者は自分の区域だけが見られます）。</p>
+<h3>区域の割り当てと受け取り</h3>
+<ul><li>区域をタップして、<strong>「割り当てる」</strong>（または「伝道者に割り当てる」）と兄弟を選びます。誰がいつから担当しているか、また<strong>期限切れ</strong>や<strong>割り当て歴なし</strong>の区域も確認できます。</li><li>伝道者が区域を<strong>依頼</strong>すると、区域の責任者全員に通知が届きます（<strong>「区域の依頼」</strong>）。最初に対応できる人が割り当てます。</li><li>兄弟が区域を<strong>返却</strong>すると、その区域は空きになり、日付が記録されます。</li></ul>
+<h3>キャンペーン</h3>
+<ul><li><strong>「新しいキャンペーン」</strong>は、一定の期間、すべての区域を最初から記録し直します。現在の区域の<strong>コピー</strong>が作られ、別に配布できます。通常の区域には影響しません。</li><li><strong>進行中のキャンペーン</strong>は同時にひとつだけです。終了するには<strong>「キャンペーンを削除」</strong>を選びます。割り当ては削除され、すべてが通常に戻ります。</li></ul>
+<h3>S-13 カードとウェブパネル</h3>
+<ul><li><strong>ツール</strong>では、共有用に<strong>PDF の S-13 カード</strong>（区域の区分ごとに1枚）を作成できます。</li><li><strong>区域のウェブパネル</strong>は、パソコンのブラウザで開きます。区域の責任者にアクセスを与えるには：兄弟姉妹リストでその人のカードを開き、<strong>「パネルへのアクセス」</strong> → <strong>「リンクを作成」</strong>をタップします。リンクは個人用です。本人は、あなたが決めて、いつでも変更できる<strong>6桁のパスワード</strong>でログインします。</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">パネルのリンクはパスワードのようなものです。アクセスすべきでない人には共有しないでください。新しく作成すると、前のリンクは使えなくなります。</div>
+</section>
+<section id="suscripcion"><h2>19. 会衆のサブスクリプション</h2>
+<p>兄弟姉妹全員がすべての機能を使えるようにするには、<strong>会衆の年間サブスクリプション</strong>が必要です。<strong>管理者がお支払いすれば、すべての兄弟姉妹が対象になります</strong>。iPhone でも Android でも同じです。ほかの兄弟姉妹の負担はありません。</p>
+<ol class="pasos"><li><strong>メニュー → 設定 → 会衆のサブスクリプション</strong>を開きます。</li><li><strong>「会衆を登録」</strong>をタップします。確定する前に年額が表示されます。<strong>無料体験期間</strong>がある場合は、それが終わるまで請求されません。</li><li>App Store（iPhone）または Google Play（Android）で確定します。完了です。会衆全体が使えるようになります。</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>期間終了の24時間前までに解約しない限り、毎年<strong>自動で更新</strong>されます。</li><li><strong>管理または解約</strong>するには：<span class="plat i">iPhone</span> iPhone の設定 → お名前 → サブスクリプション。<span class="plat a">Android</span> Google Play → プロフィール → お支払いと定期購入 → 定期購入（または Wkit の「Google Play で管理または解約」ボタン）。</li><li><strong>スマートフォンを替えた</strong>場合は、同じ画面で<strong>「購入を復元」</strong>をタップします。</li><li>サブスクリプションが<strong>期限切れ</strong>になると、会衆は<strong>閲覧のみ</strong>のモードになります。すべて引き続き見られ、<strong>何も削除されません</strong>。更新すると、また編集できます。</li></ul>
+<div class="nota">Wkit があなたの支払いデータを見たり保管したりすることはありません。Apple または Google が処理します。</div>
+</section>
+<section id="copias"><h2>20. このスマートフォンにだけ保存されたデータ</h2>
+<p>Wkit をオフラインで使っていた場合や、会衆が作成される前に使っていた場合、アプリが<strong>このスマートフォンにだけ保存されたデータ</strong>（たとえば兄弟姉妹やお知らせ）をどうするか尋ねることがあります。選択肢は2つ：会衆に<strong>「アップロード」</strong>する（全員に見えます）か、<strong>「破棄」</strong>するかです。決めるまでは何も起こりません。</p>
+</section>
+      <div class="caja pie"><strong>お探しのものが見つかりませんか？</strong><a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> に、状況をお知らせください。可能であれば、お使いのデバイス（iPhone、iPad、Android）と、そのとき何をしていたかもお書きください。</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

@@ -40,7 +40,15 @@
           if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
           if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
           if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
-          if (c.indexOf("es") === 0) return "es"; return null; }
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
         var l = pedido ? a(pedido) : null;
         if (!pedido) { var ls = navigator.languages || [navigator.language];
           for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
@@ -50,9 +58,9 @@
   </head>
   <body>
     <main>
-      <p class="idiomas"><b>Español</b> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a></p>
+      <p class="idiomas"><b>Español</b> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a></p>
       <h1>Política de privacidad de Wkit</h1>
-      <p class="fecha">Última actualización: 18 de octubre de 2026</p>
+      <p class="fecha">Última actualización: 6 de noviembre de 2026</p>
       <h2>1. Quiénes somos y qué es Wkit</h2>
       <p>Wkit es una aplicación de <strong>Titan Estudios</strong> para ayudar a organizar la vida de una congregación: el programa de las reuniones, los territorios, los anuncios, la lista de hermanos y el informe personal de servicio. Funciona en iPhone, iPad y Android, y tiene un panel web para gestionar los territorios.</p>
       <div class="caja"><strong>Quién es responsable de qué.</strong> De los datos de la <em>cuenta</em> (el correo, por ejemplo) somos responsables nosotros. De los datos de los <em>hermanos de una congregación</em> (la lista, el programa, los territorios...) es responsable la propia congregación, a través de sus administradores, que son quienes los introducen y deciden para qué se usan; nosotros solo ofrecemos la herramienta y los guardamos por su encargo.</div>
@@ -60,10 +68,11 @@
       <table>
         <tr><th>Tu cuenta</th><td>El correo electrónico, solo de quien crea la congregación y de los administradores que lo vinculan; el resto de hermanos no necesitan ningún correo, entran con una invitación. Y un identificador interno de la cuenta.</td></tr>
         <tr><th>Tu ficha en la lista de hermanos</th><td>Nombre, género, cargo (publicador, precursor, siervo ministerial, anciano), grupo de servicio, si colabora en Audio y Vídeo o en Territorios, y los permisos que tiene en la aplicación. La introducen y modifican los administradores de la congregación.</td></tr>
-        <tr><th>Datos de la congregación</th><td>El programa de las reuniones y quién tiene cada parte (por nombre), las reuniones públicas, Audio y Vídeo, los grupos de servicio (con su superintendente y su auxiliar), la limpieza (qué grupo, y qué día y hora), las salidas, los anuncios, los otros programas, los territorios (su forma en el mapa, quién los tiene y las fechas), las campañas y las solicitudes de territorio.</td></tr>
+        <tr><th>Datos de la congregación</th><td>El programa de las reuniones y quién tiene cada parte (por nombre), las reuniones públicas, Audio y Vídeo, los grupos de servicio (con su superintendente y su auxiliar), la limpieza (qué grupo, y qué día y hora), las salidas, los anuncios, los otros programas, los territorios (su forma en el mapa, quién los tiene y las fechas), las campañas y las solicitudes de territorio. También los eventos del calendario (título y días).</td></tr>
         <tr><th>Suscripción</th><td>Cuando un administrador suscribe la congregación, el pago lo gestiona Apple (y Google, en Android): nosotros no vemos ni guardamos ningún dato de pago. Solo guardamos el estado de la suscripción, asociado a la congregación: las fechas y un identificador de la compra.</td></tr>
         <tr><th>Datos técnicos</th><td>Un identificador de tu dispositivo para poder enviarte notificaciones (lo da Apple en iPhone y iPad, y Google en Android) y datos técnicos de conexión que los servidores registran, como la dirección IP.</td></tr>
-        <tr><th>Solo en tu dispositivo</th><td>Tu Informe de servicio, la meta de horas, los recordatorios y los ajustes. <strong>No se envían a nuestros servidores.</strong> Si activas la copia de seguridad, se guarda en tu propio iCloud, que gestionas tú. En Android, la copia se guarda en el propio teléfono y, si tienes activada la copia de seguridad de Android, también en tu cuenta de Google, que gestionas tú.</td></tr>
+        <tr><th>Tu Informe de servicio</th><td>Las horas y los estudios que apuntas en tu Informe se guardan en tu dispositivo y, para que puedas usarlo en todos tus dispositivos, también en nuestros servidores (Supabase), asociados a tu ficha. <strong>Solo tú puedes verlo</strong>: ni los ancianos ni los administradores de tu congregación tienen acceso, y no se comparte con nadie más.</td></tr>
+<tr><th>Solo en tu dispositivo</th><td>Tu meta de horas, los recordatorios y los ajustes. <strong>No se envían a nuestros servidores.</strong> Si activas la copia de seguridad, se guarda en tu propio iCloud, que gestionas tú. En Android, la copia se guarda en el propio teléfono y, si tienes activada la copia de seguridad de Android, también en tu cuenta de Google, que gestionas tú.</td></tr>
       </table>
       <h2>3. Lo que NO hacemos</h2>
       <ul>
@@ -80,7 +89,7 @@
       </ul>
       <h2>5. Quién puede ver tus datos</h2>
       <ul>
-        <li><strong>Dentro de tu congregación:</strong> todos los miembros ven la lista de hermanos, el programa y los anuncios publicados. Solo los administradores pueden crearlos o modificarlos. Un publicador ve únicamente los territorios que tiene asignados. Quien gestiona los territorios ve los de toda la congregación.</li>
+        <li><strong>Dentro de tu congregación:</strong> todos los miembros ven la lista de hermanos, el programa y los anuncios publicados. Solo los administradores pueden crearlos o modificarlos. Un publicador ve únicamente los territorios que tiene asignados. Quien gestiona los territorios ve los de toda la congregación. Tu Informe de servicio solo lo ves tú. Los anuncios dirigidos a un grupo los ven solo los miembros de ese grupo, y el superintendente y el auxiliar de cada grupo pueden crearlos para su propio grupo.</li>
         <li><strong>Otras congregaciones: nadie.</strong> Cada congregación solo accede a sus propios datos; lo garantiza el control de acceso de la propia base de datos.</li>
         <li><strong>Proveedores que nos ayudan a prestar el servicio</strong> (tratan los datos solo para eso):
           <ul>
@@ -99,7 +108,7 @@
       <p><a href="eliminar-cuenta.html">Página con los pasos para eliminar tu cuenta y tus datos</a>.</p>
       <ul>
         <li>Se elimina tu cuenta de acceso y tu ficha en la lista de hermanos. Los territorios que tuvieras quedan libres.</li>
-        <li>Se borran los datos que la aplicación tenía guardados en tu dispositivo, incluido el Informe.</li>
+        <li>Se borran los datos que la aplicación tenía guardados en tu dispositivo y tu Informe guardado en nuestros servidores.</li>
         <li>Si eres la única persona de tu congregación, se elimina también la congregación con todos sus datos (te lo pedimos de forma expresa antes de hacerlo).</li>
         <li>Si eres el único administrador y hay más hermanos, antes tienes que nombrar a otro administrador, para que la congregación no se quede sin gestión.</li>
         <li>Los datos que ya no existan pueden permanecer un tiempo limitado en las copias de seguridad de nuestro proveedor antes de borrarse del todo.</li>

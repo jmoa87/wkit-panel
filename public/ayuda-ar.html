@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>الدليل خطوة بخطوة لتطبيق Wkit — Wkit</title>
+    <meta name="description" content="الدليل خطوة بخطوة لتطبيق Wkit للناشرين والمسؤولين: تسجيل الدخول والتذكيرات والتقرير والإخوة والمجموعات والتنظيف والبرامج والإعلانات والمناطق والاشتراك." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-ar.html">→ Wkit</a> · <a href="privacidad-ar.html">سياسة الخصوصية</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <b>العربية</b> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a></p>
+      <h1>الدليل خطوة بخطوة لتطبيق Wkit</h1>
+      <p class="sub">كل ما يمكنك فعله في التطبيق، مشروحًا بهدوء: للناشرين وللمسؤولين. يعمل بالطريقة نفسها على iPhone وiPad وAndroid؛ وإذا كان هناك فرق فسترى ذلك موسومًا بـ <span class="plat a">Android</span> أو <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>لكل عضو</h3><ol class="toc"><li><a href="#entrar">الدخول إلى Wkit للمرة الأولى</a></li><li><a href="#inicio">شاشة الرئيسية</a></li><li><a href="#recordatorios">التذكيرات: الجرس</a></li><li><a href="#notificaciones">الإشعارات: بماذا ينبّهك Wkit</a></li><li><a href="#informe">تقرير خدمتك (خاص)</a></li><li><a href="#territorios-pub">المناطق: الاطلاع والإرجاع والطلبات</a></li><li><a href="#cuenta">حسابك: تغيير الهاتف وربط البريد واللغة والحذف</a></li><li><a href="#copia-seguridad">النسخة الاحتياطية</a></li></ol></div><div class="toc-g"><h3>للمسؤولين (الشيوخ)</h3><ol class="toc"><li><a href="#crear-congregacion">إنشاء الجماعة</a></li><li><a href="#hermanos">قائمة الإخوة</a></li><li><a href="#grupos">مجموعات الخدمة</a></li><li><a href="#salidas">اجتماعات الخدمة</a></li><li><a href="#limpieza">التنظيف: دور من، وفي أي يوم وساعة</a></li><li><a href="#vida-ministerio">برنامج اجتماع الحياة والخدمة المسيحية</a></li><li><a href="#reunion-publica">الاجتماع العام</a></li><li><a href="#audio-video">الصوت والفيديو / المرحِّبون</a></li><li><a href="#otros-programas">برامج أخرى</a></li><li><a href="#anuncios">الإعلانات</a></li><li><a href="#calendario">تقويم الجماعة</a></li><li><a href="#territorios-admin">المناطق: التعيين والحملات ولوحة الويب</a></li><li><a href="#suscripcion">اشتراك الجماعة</a></li><li><a href="#copias">بيانات محفوظة على هذا الهاتف فقط</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">لكل عضو</h2>
+<section id="entrar"><h2>١. الدخول إلى Wkit للمرة الأولى</h2>
+<p>للدخول إلى Wkit <strong>لا تحتاج إلى بريد إلكتروني ولا إلى كلمة مرور</strong>: يدعوك شيخ من جماعتك وتنضمّ برابط أو برمز.</p>
+<ol class="pasos"><li>اطلب من الشيخ الذي يدير قائمة الإخوة أن يدعوك. ستصلك <strong>رسالتان متتاليتان</strong>: أولًا الرابط، ثم الرمز منفصلًا (ليسهل نسخه).</li><li>ثبّت <strong>Wkit</strong> من App Store (iPhone وiPad) أو من Google Play (Android).</li><li>المس الرابط في الرسالة الأولى: يُفتح التطبيق ويتعرّف عليك.</li><li>إذا لم يفتح الرابط التطبيق، افتحه بنفسك، والمس <strong>«لديّ رابط أو رمز دعوة»</strong> والصق الرسالة كاملةً أو الرمز فقط: يختار التطبيق ما يحتاج إليه.</li><li>سترى بضع شاشات ترحيب (<strong>«الخطوات الأولى»</strong>) توضح ما هو مشترك وما ليس كذلك. وعندما تنتهي تكون قد دخلت.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>إذا لم يعمل الرمز</strong> («غير صالح أو منتهي الصلاحية») فاطلب من الشيخ إنشاء رمز جديد: يستغرق ذلك دقيقة من بطاقتك.</div>
+<div class="nota"><strong>ما هو مشترك وما ليس كذلك:</strong> قائمة الإخوة والبرنامج والتنظيف والمناطق والإعلانات تراها الجماعة كلها ويُنشئها شيخ. <strong>أما تقريرك فهو لك وحدك</strong>: لا يراه أحد غيرك، ولا حتى شيخ، ويتزامن بين أجهزتك.</div>
+</section>
+<section id="inicio"><h2>٢. شاشة الرئيسية</h2>
+<p>هي أول ما تراه عند فتح Wkit. تُظهر لك <strong>ما يخصّك</strong> في لمحة؛ وإن لم يكن لديك شيء معيَّن فسترى «لا يوجد تعيين قريب».</p>
+<ul><li><strong>الأجزاء التالية</strong>: أجزاؤك في اجتماع الحياة والخدمة المسيحية وفي الاجتماع العام (الرئيس، القارئ، المتكلم…).</li><li><strong>المسؤوليات</strong>: ما لديك في الصوت والفيديو / المرحِّبون.</li><li><strong>التنظيف</strong>: يظهر فقط إذا كان دور مجموعتك <em>هذا الأسبوع</em>. وإذا حدّد ناظر المجموعة أو المساعد يومًا وساعة فسترى ذلك تحته (مثلًا «الأحد 12:30»).</li><li><strong>البرامج الأخرى</strong> و<strong>المناطق</strong> (والحملة إن وُجدت) وتذكير <strong>التقرير</strong>.</li><li><strong>التقويم</strong>: أحداث الجماعة (محفل، زيارة ناظر الدائرة…)، مع جرس للتذكير.</li></ul>
+<p>في الأسفل خمس علامات تبويب: <strong>الرئيسية</strong> و<strong>البرنامج</strong> و<strong>التقرير</strong> و<strong>المناطق</strong> و<strong>القائمة</strong> (فيها قائمة الإخوة والمجموعات والتنظيف والإعلانات والإعدادات).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>٣. التذكيرات: الجرس</h2>
+<p>بجانب كل مهمة أو مسؤولية أو دور تنظيف يوجد <strong>جرس</strong>. وبه يذكّرك هاتفك مسبقًا في الوقت الذي تختاره.</p>
+<ol class="pasos"><li>المس الجرس بجانب المهمة.</li><li>اختر يوم التذكير وساعته.</li><li>أكّد. يصبح الجرس أخضر ويرنّ (يهتزّ) عندما يحين الوقت.</li><li>لإزالته، المس الجرس مرة أخرى واختر إزالة التذكير.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">إذا غيّر شيخ يوم التنظيف أو ساعته، يقترح عليك الجرس ضبط التذكير من جديد بالموعد الجديد.</div>
+<div class="nota"><span class="plat a">Android</span> إذا لم تصلك التذكيرات، تحقق في إعدادات الهاتف من أن Wkit مسموح له بالإشعارات وأن استهلاكه للبطارية غير مقيَّد.</div>
+</section>
+<section id="notificaciones"><h2>٤. الإشعارات: بماذا ينبّهك Wkit</h2>
+<p>ينبّهك Wkit عند ظهور إعلان جديد أو عند تعيين شيء لك أو عند حدوث تغييرات تخصّك.</p>
+<ol class="pasos"><li>في المرة الأولى، <strong>اسمح بالإشعارات</strong> عندما يسألك الهاتف.</li><li>افتح <strong>القائمة ← الإعدادات ← الإشعارات</strong>.</li><li>عطّل الفئات التي لا تريدها (الإعلانات، البرنامج، الصوت والفيديو، التنظيف، المناطق…) واختر الأيام والساعة التي تفضّل تلقّي الإشعارات فيها.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>يتلقّى الجهاز إشعارات شخص واحد فقط في كل مرة</strong>: الشخص الذي جلسته مفتوحة. وإن لم تصلك، فافتح Wkit بحسابك مرة واحدة على الأقل ليُسجَّل الجهاز.</div>
+</section>
+<section id="informe"><h2>٥. تقرير خدمتك (خاص)</h2>
+<p>التقرير أداة <strong>شخصية</strong>: لا يراه إلا أنت، ولا يراه حتى الشيخ. يُحفظ على هاتفك ويتزامن بين أجهزتك.</p>
+<ol class="pasos"><li>افتح تبويب <strong>التقرير</strong>. في المرة الأولى يطرح عليك Wkit بعض الأسئلة: أي نوع من الخدمة تقوم به (ناشر، فاتح…) و<strong>ما هو هدف ساعاتك</strong> الشهري.</li><li>لتسجيل الخدمة، المس <strong>«جديد»</strong> واملأ التاريخ والساعات والدقائق والدروس في الكتاب المقدس.</li><li>في <strong>السجل</strong> ترى مجموعك في الشهر وفي سنة الخدمة، ويمكنك تعديل تسجيل أو حذفه.</li><li>في اليوم الأول من كل شهر يمكن لـ Wkit أن يذكّرك، في الوقت الذي تختاره، <strong>بإرسال التقرير</strong>. ويجهّز الزر <strong>«إرسال التقرير»</strong> الرسالة بساعاتك ودروسك.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>يتزامن تقريرك</strong> مع حسابك، فإذا غيّرتَ هاتفك تستعيده عند تسجيل الدخول من جديد. ومع ذلك أنشئ نسخة احتياطية (القائمة ← الإعدادات ← نسخة احتياطية): فهي حماية إضافية. انظر القسم ٢١.</div>
+</section>
+<section id="territorios-pub"><h2>٦. المناطق: الاطلاع والإرجاع والطلبات</h2>
+<p>في تبويب <strong>المناطق</strong> ترى المناطق المعيَّنة لك مع التاريخ الذي بدأت فيه تتولّاها.</p>
+<ol class="pasos"><li>لـ<strong>إرجاع</strong> منطقة بعد العمل فيها، افتحها والمس <strong>«إرجاع»</strong> (أو <strong>«الإشعار بانتهاء الوقت»</strong>). فيصل إشعار إلى المسؤول عن المناطق.</li><li>إذا لم يكن لديك <strong>أي منطقة</strong> وتريد واحدة، المس <strong>«طلب منطقة»</strong>. ويمكنك إضافة رسالة اختيارية (مثلًا «أرغب في منطقة قريبة من الوسط»).</li><li>يصل الإشعار إلى جميع المسؤولين عن المناطق، وأول من يستطيع يعيّن لك واحدة. وعندما تُعيَّن لك يصلك إشعار.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>٧. حسابك: تغيير الهاتف وربط البريد واللغة والحذف</h2>
+<h3>إذا غيّرتَ هاتفك أو فقدته</h3>
+<ul><li>إذا <strong>لم تربط أي بريد إلكتروني</strong> (الإخوة لا يحتاجون إليه)، يرسل لك شيخ <strong>دعوة جديدة</strong> من بطاقتك في قائمة الإخوة. فتستعيد مكانك بكل ما يخصّ الجماعة، وتستعيد تقريرك.</li><li>إذا <strong>ربطتَ بريدًا إلكترونيًا</strong>، افتح Wkit والمس <strong>«إنشاء حساب أو تسجيل الدخول كمسؤول»</strong> واكتب بريدك وافتح الرابط الذي يصلك. تدخل بكل ما كان لديك.</li></ul>
+<h3>استخدام Wkit على عدة أجهزة</h3>
+<ul><li>يمكنك استخدام <strong>الحساب نفسه في الوقت نفسه</strong> على iPhone وiPad وAndroid (مثلًا على الهاتف واللوحي).</li><li>لإضافة جهاز آخر، يرسل لك شيخ الدعوة من بطاقتك وتفتحها أنت على ذلك الجهاز. <strong>لا تُغلَق الجلسة على الجهاز الأول.</strong></li><li>يتزامن تقريرك بين جميع أجهزتك.</li></ul>
+<h3>ربط البريد الإلكتروني (اختياري، ويُنصح به للمسؤولين)</h3>
+<ol class="pasos"><li>افتح <strong>القائمة ← الإعدادات ← حسابي ← ربط بريدي الإلكتروني</strong>.</li><li>اكتب بريدك الإلكتروني. ستصلك رسالة تأكيد برابط.</li><li><strong>افتحها على الهاتف نفسه</strong>، في تطبيق البريد. ستُغلق الشاشة من تلقاء نفسها ويصبح حسابك مرتبطًا.</li></ol>
+<h3>تغيير اللغة</h3>
+<p>يستخدم Wkit لغة الهاتف. ولتغييرها لـ Wkit فقط: إعدادات الهاتف ← التطبيقات ← Wkit ← اللغة.</p>
+<h3>حذف الحساب</h3>
+<p><strong>القائمة ← الإعدادات ← حسابي ← حذف حسابي.</strong> يُحذف حسابك وبطاقتك في القائمة والبيانات المحفوظة على الهاتف (ومنها التقرير)؛ وتُحرَّر المناطق التي كانت لديك. لا يمكن التراجع عن ذلك. إذا كنتَ المسؤول الوحيد وكان هناك إخوة آخرون، فعليك أولًا تعيين مسؤول آخر (في قائمة الإخوة افتح بطاقته وفعّل «مسؤول»). وإذا كنتَ الشخص الوحيد في الجماعة، تُحذف الجماعة كلها أيضًا.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">حذف الحساب <strong>لا يلغي</strong> اشتراك الجماعة إذا كان هذا الحساب هو الذي يدفعه: يُلغى من App Store <span class="plat i">iPhone</span> أو من Google Play ← المدفوعات والاشتراكات ← الاشتراكات <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>٢١. النسخة الاحتياطية</h2>
+<p>تفيد أساسًا في الاحتفاظ <strong>بنسخة إضافية من تقريرك</strong>: فرغم أنه يتزامن بين أجهزتك، تحميك النسخة الاحتياطية إن حذفتَه بالخطأ. تجدها في <strong>القائمة ← الإعدادات ← نسخة احتياطية</strong>.</p>
+<ul><li><strong>نسخة تلقائية</strong>: تُنشئ نسخة بنفسها مرة في الشهر.</li><li><strong>«إنشاء نسخة الآن»</strong> و<strong>«تصدير النسخة الاحتياطية»</strong>: يمكنك حفظ الملف حيث تشاء أو إرساله لنفسك.</li><li><strong>«استعادة النسخة الاحتياطية»</strong>: اختر ملفًا صدّرته من Wkit. تُ<strong>ضاف</strong> بيانات النسخة إلى ما لديك أصلًا: لا يُحذف شيء.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> تُحفظ النسخة التلقائية في iCloud الخاص بك. <span class="plat a">Android</span> تُحفظ على الهاتف، وإن فعّلتَ النسخ الاحتياطي في Android على حساب Google (إعدادات الهاتف ← Google ← النسخ الاحتياطي) فستستعيدها تلقائيًا عند تسجيل الدخول إلى ذلك الحساب على هاتف جديد.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">للمسؤولين (الشيوخ)</h2>
+<section id="crear-congregacion"><h2>٨. إنشاء الجماعة</h2>
+<p>يفعل الشيخ هذا <strong>مرة واحدة فقط</strong>؛ ثم يدعو الآخرين.</p>
+<ol class="pasos"><li>افتح Wkit والمس <strong>«إنشاء حساب أو تسجيل الدخول كمسؤول»</strong>.</li><li>اكتب بريدك الإلكتروني والمس <strong>«إرسال رابط الوصول»</strong>. لا توجد كلمات مرور: يصلك رابط يؤكد أن البريد لك.</li><li><strong>افتح الرابط على الهاتف نفسه.</strong> يُفتح Wkit تلقائيًا.</li><li>املأ <strong>اسمك</strong> و<strong>اسم الجماعة</strong> و<strong>رقم الجماعة</strong> و<strong>البلد</strong>، ثم المس <strong>«إنشاء الجماعة»</strong>.</li><li>سترى <strong>«الخطوات الأولى كشيخ»</strong>: ١) أضف الإخوة إلى قائمة الإخوة و٢) ادعُهم.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">لم تصل الرسالة؟ تحقق من مجلد الرسائل غير المرغوب فيها والمس <strong>«لم تصلني، أعد الإرسال»</strong>. لا يمكن أن يكون للبريد الإلكتروني الواحد إلا حساب واحد في Wkit.</div>
+</section>
+<section id="hermanos"><h2>٩. قائمة الإخوة</h2>
+<p>هي الأساس لكل شيء: البرامج والمجموعات والمهام تستخدم الأسماء الموجودة في هذه القائمة. تجدها في <strong>القائمة ← قائمة الإخوة</strong>.</p>
+<h3>إضافة أخ</h3>
+<ol class="pasos"><li>المس الزر <strong>+</strong> (<strong>«أخ جديد»</strong>).</li><li>اكتب <strong>الاسم</strong> واختر هل هو <strong>أخ</strong> أم <strong>أخت</strong>.</li><li>اختر <strong>دوره</strong>: ناشر معتمد أو غير معتمد، فاتح، خادم مساعد، أو شيخ.</li><li>إن لزم الأمر، اختر <strong>مجموعة خدمته</strong> وفعّل <strong>المسؤول عن المناطق</strong> أو <strong>الصوت والفيديو / المرحِّبون</strong> أو <strong>مسؤول</strong>.</li><li>المس <strong>«إنشاء»</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>أخوان بالاسم نفسه:</strong> أضف شيئًا يميّز بينهما (مثل «الابن») حتى لا تختلط المهام.</div>
+<h3>دعوة أخ إلى Wkit</h3>
+<ol class="pasos"><li>افتح بطاقة الأخ والمس <strong>«دعوة»</strong> (أو <strong>«إنشاء رابط»</strong>).</li><li>المس <strong>«مشاركة الدعوة»</strong> واختر WhatsApp أو الرسائل وغيرها. تُرسَل <strong>رسالتان متتاليتان</strong>: أولًا الرابط، ثم الرمز منفصلًا، ليسهل نسخه.</li><li>يفتح الأخ الرابط (أو يلصق الرمز) ويدخل. وإن لم ينضمّ بعد، يمكنك مشاركة الدعوة مرة أخرى؛ وإن أنشأتَ دعوة جديدة فإن السابقة تتوقف عن العمل.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>التعديل والحذف وتعيين المسؤولين</h3>
+<ul><li>المس أخًا واختر <strong>«تعديل»</strong> لتغيير بياناته.</li><li>على Android، للحذف المس <strong>الأيقونة الحمراء</strong> في سطره؛ وعلى iPhone اسحب السطر نحو اليسار. يُزال من القائمة على جميع الأجهزة، وتُحرَّر المناطق التي كانت لديه.</li><li>يمكن لـ<strong>المسؤول</strong> إدارة الإخوة والمناطق والإعلانات والبرنامج. <strong>لا يمكنك حذف بطاقتك ولا حذف آخر مسؤول</strong>: عيّن آخر أولًا.</li></ul>
+</section>
+<section id="grupos"><h2>١٠. مجموعات الخدمة</h2>
+<p>تُستخدم المجموعات لاجتماعات الخدمة وللتنظيف. توجد في <strong>القائمة ← مجموعات الخدمة ← قائمة</strong>.</p>
+<ol class="pasos"><li>إن لم تكن موجودة، المس <strong>«إنشاء مجموعات الخدمة»</strong> واختر <strong>كم مجموعة</strong> تريد (ويمكنك لاحقًا إضافة المزيد بالزر <strong>+</strong>).</li><li>لتوزيع الإخوة على المجموعات، انتقل إلى <strong>قائمة الإخوة</strong> وافتح بطاقة كل واحد واختر <strong>مجموعة خدمته</strong>.</li><li>عُد إلى <strong>القائمة ← مجموعات الخدمة ← قائمة</strong>. سترى في كل مجموعة <strong>ناظر المجموعة</strong> و<strong>المساعد</strong> والإخوة <strong>بالترتيب الأبجدي</strong>.</li><li>المس زر <strong>القلم</strong> (تعديل). المس <strong>«ناظر المجموعة»</strong> واختر أحد إخوة تلك المجموعة؛ وافعل الشيء نفسه مع <strong>«المساعد»</strong>. ولا يمكن أن يكونا الشخص نفسه.</li><li>المس <strong>علامة التأكيد</strong> للانتهاء.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">يُختار ناظر المجموعة والمساعد <strong>بعد</strong> توزيع الإخوة، لأنه لا يمكن الاختيار إلا من بين إخوة المجموعة نفسها. وإذا نقلتَ أخًا إلى مجموعة أخرى فإنه لا يعود ناظرًا أو مساعدًا للمجموعة السابقة.</div>
+<div class="nota">يمكن لناظر كل مجموعة ومساعدها <strong>تحديد يوم التنظيف وساعته</strong> لمجموعتهما (القسم ١٢) حتى لو لم يكونا مسؤولَين.</div>
+</section>
+<section id="salidas"><h2>١١. اجتماعات الخدمة</h2>
+<p>اجتماعات الخدمة هي أوقات الاجتماع وأماكنه للخروج إلى الخدمة. منها <strong>عامة</strong> (للجماعة كلها) و<strong>خاصة بكل مجموعة</strong>. توجد في <strong>القائمة ← مجموعات الخدمة ← اجتماعات الخدمة</strong>. ويجب أولًا إنشاء المجموعات.</p>
+<ol class="pasos"><li>المس قسم <strong>«الجماعة»</strong> (الاجتماعات العامة) أو قسم <strong>مجموعة</strong>.</li><li>المس <strong>«إضافة اجتماع»</strong> في اليوم المناسب واكتب <strong>تسمية</strong> (مثل «صباحًا» أو «بعد الظهر») و<strong>الوقت</strong> و<strong>المكان</strong> إن أردت.</li><li>لـ<strong>تعديل</strong> اجتماع، غيّر حقوله مباشرةً. ولـ<strong>حذفه</strong>، المس الأيقونة الحمراء في سطره.</li><li>يمكن للإخوة لمس المكان لفتحه على خريطة الهاتف.</li></ol>
+<div class="nota">إذا لم تكن لدى مجموعة اجتماعات خاصة، تُستخدم اجتماعات الجماعة («لا اجتماعات خاصة — استخدم اجتماعات الجماعة»).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>١٢. التنظيف: دور من، وفي أي يوم وساعة</h2>
+<p>يتناوب التنظيف <strong>تلقائيًا</strong> بين مجموعات الخدمة: كل أسبوع يكون الدور لمجموعة مختلفة، بدءًا من المجموعة ١. تجده في <strong>القائمة ← التنظيف ← المجموعات</strong>.</p>
+<h3>تغيير المجموعة التي تنظّف هذا الأسبوع (المسؤولون)</h3>
+<ol class="pasos"><li>المس زر <strong>القلم</strong> (تعديل).</li><li>المس <strong>المجموعة</strong> التي دورها هذا الأسبوع. وفي الأسبوع القادم ستكون المجموعة التالية بالترتيب.</li><li>المس <strong>علامة التأكيد</strong>. سترى <strong>جميع أجهزة</strong> الجماعة التغيير.</li></ol>
+<h3>تحديد اليوم والساعة بدقة (المسؤولون، وناظر المجموعة ومساعدها)</h3>
+<ol class="pasos"><li>في <strong>القائمة ← التنظيف ← المجموعات</strong>، جِد مجموعتك (أو المجموعة التي تهتم بها) والمس <strong>القلم</strong> في سطرها.</li><li>اختر <strong>اليوم</strong> و<strong>الساعة</strong> (مثلًا الأحد 12:30) والمس <strong>«حفظ»</strong>. ولإزالة التاريخ المس <strong>«إزالة التاريخ»</strong>.</li><li>سيراه إخوة تلك المجموعة في الرئيسية: <strong>«المجموعة 1 · هذا الأسبوع»</strong> وتحته <strong>«الأحد 12:30»</strong>، مع <strong>جرس</strong> خاص بكل منهم لضبط التذكير.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">يظهر التاريخ في الرئيسية فقط إذا كان في <strong>الأسبوع الحالي</strong> (من الاثنين إلى الأحد). ويمكنك ضبطه مسبقًا: سيظهر عندما يحين ذلك الأسبوع. وتختفي تواريخ الأسابيع الماضية من تلقاء نفسها.</div>
+</section>
+<section id="vida-ministerio"><h2>١٣. برنامج اجتماع الحياة والخدمة المسيحية</h2>
+<p>في تبويب <strong>البرنامج ← الحياة والخدمة المسيحية</strong> تُنشئ برنامج كل أسبوع وتعيّن الأجزاء. يراه جميع الإخوة؛ ولا يعدّله إلا المسؤولون.</p>
+<ol class="pasos"><li>المس <strong>«أسبوع جديد»</strong> واختر <strong>تاريخ الاجتماع</strong> (أي يوم من ذلك الأسبوع، من الاثنين إلى الأحد).</li><li>يُنشئ Wkit الأسبوع <strong>بالبنية المعتادة</strong>: كنوز من كلمة الله، وتحسين مهاراتنا في الخدمة، والحياة المسيحية.</li><li>المس أي <strong>عنوان</strong> لتغييره، وعند الحاجة <strong>المدة</strong> أيضًا. وبالزر <strong>«إضافة مسؤولية»</strong> يمكنك إضافة أجزاء أخرى.</li><li>في كل جزء المس <strong>«اختيار»</strong> وحدّد الأخ أو الإخوة (مثلًا التلميذ والمساعد). وللـ<strong>قاعة الإضافية</strong> استخدم <strong>«إضافة قاعة إضافية»</strong>.</li><li>اختر أيضًا <strong>الترانيم</strong> و<strong>الصلوات</strong> والمس <strong>«حفظ البرنامج»</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>لرؤية أسبوع آخر استخدم <strong>مبدّل الأسابيع</strong> (<strong>«الأسبوع السابق»</strong> / <strong>«الأسبوع التالي»</strong>)؛ ومن هناك يمكنك أيضًا <strong>تعديله أو حذفه</strong>.</li><li>يتلقّى الإخوة <strong>إشعارًا</strong> عندما يُعيَّن لهم جزء، ويرونه في الرئيسية.</li><li>يختفي برنامج الأسبوع من تلقاء نفسه عندما ينتهي يوم الأحد.</li></ul>
+</section>
+<section id="reunion-publica"><h2>١٤. الاجتماع العام</h2>
+<p>في <strong>البرنامج ← الاجتماع العام</strong> يُجهَّز كل اجتماع في نهاية الأسبوع.</p>
+<ol class="pasos"><li>المس <strong>«خطبة عامة جديدة»</strong> واختر <strong>التاريخ</strong>. وإذا كان هناك اجتماع في ذلك التاريخ فسينبّهك Wkit.</li><li>اختر <strong>الرئيس</strong> و<strong>المتكلم</strong> واكتب <strong>عنوان الخطبة</strong>.</li><li>اختر <strong>قارئ دراسة برج المراقبة</strong> و<strong>الترانيم</strong> و<strong>الصلوات</strong>.</li><li>احفظ. سيرى الإخوة أجزاءهم في الرئيسية.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>١٥. الصوت والفيديو / المرحِّبون</h2>
+<p>في <strong>القائمة ← الصوت والفيديو / المرحِّبون</strong> تعيّن مسؤوليات كل أسبوع: الصوت والفيديو والميكروفونات والمرحِّبين وZoom وضبط الوقت…</p>
+<ol class="pasos"><li>المس <strong>«أسبوع جديد»</strong> واختر <strong>تاريخ الاجتماع</strong>.</li><li>المس <strong>«اختيار»</strong> عند كل مسؤولية وحدّد أخًا. وبعضها، مثل الميكروفونات، يسمح بـ<strong>عدة إخوة</strong> (<strong>«إضافة أخ»</strong>).</li><li>لمسؤولية أخرى غير موجودة في القائمة، المس <strong>«إضافة مسؤولية»</strong> وأعطها اسمًا.</li><li>احفظ. سيراها كل أخ في قسم <strong>المسؤوليات</strong> في رئيسيته، مع جرسه الخاص.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>١٦. برامج أخرى</h2>
+<p>لـ<strong>كل ما عدا ذلك</strong> مما تنظّمه الجماعة وليس اجتماعًا: مثل نقل الإخوة الذين لا يستطيعون الحضور، أو مساعدة الناشرين. لكل برنامج تكراره الخاص. يوجد في <strong>القائمة ← برامج أخرى</strong>.</p>
+<ol class="pasos"><li>المس <strong>«برنامج جديد»</strong>. اكتب <strong>الاسم</strong> واختر <strong>كم مرة يُقام</strong>: يوميًا أو أسبوعيًا أو شهريًا أو سنويًا.</li><li>المس <strong>«إنشاء الأسبوع الأول»</strong> (أو <strong>«فترة جديدة»</strong>) واختر التاريخ: أي يوم من ذلك الأسبوع أو الشهر أو السنة.</li><li>المس <strong>«إضافة مسؤولية»</strong>: اكتب <strong>تسمية</strong> اختيارية (مثلًا «يقلّه مبكرًا») و<strong>اختر أخًا أو أختًا</strong>.</li><li>احفظ. سيراه الجميع في رئيسيتهم، في قسم <strong>«برامج أخرى»</strong>، وتختفي الفترة تلقائيًا عند انتهائها.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>١٧. الإعلانات</h2>
+<p>يُنشئ الإعلانات المسؤولون، ولمجموعتهما فقط ناظر كل مجموعة خدمة ومساعدها. ويراها الإخوة الموجَّهة إليهم. توجد في <strong>القائمة ← الإعلانات</strong>.</p>
+<ol class="pasos"><li>المس <strong>«إعلان جديد»</strong> واكتب <strong>الرسالة</strong>.</li><li>افتراضيًا يُنشر <strong>فورًا</strong> بمجرد أن تحفظه، ويصل إشعار إلى الجميع.</li><li>إذا فضّلتَ أن يصدر لاحقًا، فعّل <strong>«جدولة لوقت لاحق»</strong> واختر <strong>التاريخ والساعة</strong>: لن يراه أحد حتى ذلك الحين، وفي تلك الساعة يصل الإشعار إلى الجميع.</li><li>احفظ. ولحذف إعلان المسه واختر <strong>«حذف»</strong>: يختفي عند الجميع.</li></ol>
+<h3>إعلانات لمجموعة واحدة فقط</h3>
+<ul><li>يرى <strong>ناظر</strong> كل مجموعة خدمة و<strong>مساعدها</strong> الزر <strong>+</strong> حتى لو لم يكونا مسؤولَين، وتصل إعلاناتهما <strong>إلى أعضاء مجموعتهما فقط</strong>.</li><li>يمكن للمسؤول الذي له مجموعة أيضًا أن يفعّل عند إنشاء الإعلان <strong>«إرسال هذا الإعلان إلى أعضاء مجموعتي فقط»</strong>.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>٢٢. تقويم الجماعة</h2>
+<p>يتيح للجميع رؤية أحداث الجماعة، مثل <strong>محفل الدائرة</strong> أو <strong>زيارة ناظر الدائرة</strong>. ولا يُنشئها إلا المسؤولون.</p>
+<ol class="pasos"><li>افتح <strong>القائمة ← التقويم</strong> والمس <strong>«إضافة حدث»</strong>.</li><li>اكتب <strong>العنوان</strong> والمس <strong>أيام</strong> الحدث: وإن استمر عدة أيام فالمس كل يوم.</li><li>احفظ. سيراه الجميع في شاشة <strong>الرئيسية</strong>، في قسم «التقويم»، مع <strong>جرس</strong> لضبط التذكير.</li><li>لتغييره أو حذفه، افتحه واختر <strong>«تعديل الحدث»</strong> أو <strong>«حذف الحدث»</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>١٨. المناطق: التعيين والحملات ولوحة الويب</h2>
+<p>من لديه صلاحية <strong>المسؤول عن المناطق</strong> يدير مناطق الجماعة كلها في تبويب <strong>المناطق</strong> (أما الناشرون فلا يرون إلا مناطقهم).</p>
+<h3>تعيين المناطق واستلامها</h3>
+<ul><li>المس منطقة واختر <strong>«تعيين»</strong> (أو «تعيين لناشر») وأخًا. سترى من لديه المنطقة ومنذ متى، وأيّها <strong>منتهية</strong> أو <strong>لم يُعيَّن قط</strong>.</li><li>عندما <strong>يطلب</strong> ناشر منطقة، يصل إشعار إلى جميع المسؤولين عن المناطق (<strong>«طلبات المناطق»</strong>)؛ وأول من يستطيع يعيّنها له.</li><li>عندما <strong>يُرجع</strong> أخ منطقة، تصبح شاغرة ويُسجَّل التاريخ.</li></ul>
+<h3>الحملات</h3>
+<ul><li><strong>«حملة جديدة»</strong> تسجّل جميع المناطق من الصفر لفترة محدّدة. تُنشأ <strong>نسخة</strong> من المناطق الحالية لتُوزَّع على حدة؛ ولا تُمسّ المناطق المعتادة.</li><li>لا يمكن أن توجد إلا <strong>حملة نشطة واحدة</strong> في كل مرة. ولإنهائها اختر <strong>«حذف الحملة»</strong>: تُحذف تعييناتها ويعود كل شيء إلى طبيعته.</li></ul>
+<h3>بطاقة S-13 ولوحة الويب</h3>
+<ul><li>في <strong>أدوات</strong> يمكنك إنشاء <strong>بطاقة S-13 بصيغة PDF</strong> (واحدة لكل قطاع) لمشاركتها.</li><li><strong>لوحة ويب المناطق</strong> تُفتح في متصفح الحاسوب. لمنح مسؤول عن المناطق صلاحية الوصول: افتح بطاقته في قائمة الإخوة والمس <strong>«الوصول إلى اللوحة»</strong> ← <strong>«إنشاء رابط»</strong>. الرابط شخصي؛ ويسجّل هو الدخول بـ<strong>كلمة مرور من ٦ أرقام</strong> تختارها أنت ويمكنك تغييرها متى شئت.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">رابط اللوحة مثل كلمة المرور: لا تشاركه مع من لا ينبغي أن يصل إليها. وإن أنشأتَ رابطًا جديدًا فإن السابق يتوقف عن العمل.</div>
+</section>
+<section id="suscripcion"><h2>١٩. اشتراك الجماعة</h2>
+<p>لكي يتمتع جميع الإخوة بالوصول الكامل، يلزم <strong>اشتراك الجماعة السنوي</strong>. <strong>يدفعه مسؤول واحد ويشمل جميع الإخوة</strong>، على iPhone وعلى Android. ولا يدفع الإخوة الآخرون شيئًا.</p>
+<ol class="pasos"><li>افتح <strong>القائمة ← الإعدادات ← اشتراك الجماعة</strong>.</li><li>المس <strong>«الاشتراك عن الجماعة»</strong>. قبل التأكيد سترى السعر السنوي؛ وإن كانت هناك <strong>فترة تجربة مجانية</strong> فلن يُخصم منك شيء حتى تنتهي.</li><li>أكّد في App Store (iPhone) أو في Google Play (Android). وبذلك تصبح الجماعة كلها قادرة على الوصول.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li><strong>يتجدد تلقائيًا</strong> كل سنة ما لم تلغِه قبل نهاية الفترة بـ٢٤ ساعة على الأقل.</li><li>لـ<strong>إدارته أو إلغائه</strong>: <span class="plat i">iPhone</span> إعدادات iPhone ← اسمك ← الاشتراكات؛ <span class="plat a">Android</span> Google Play ← ملفك الشخصي ← المدفوعات والاشتراكات ← الاشتراكات (أو زر Wkit «إدارة أو إلغاء في Google Play»).</li><li>إذا <strong>غيّرتَ هاتفك</strong>، المس <strong>«استعادة المشتريات»</strong> في الشاشة نفسها.</li><li>إذا <strong>انتهى</strong> الاشتراك، تنتقل الجماعة إلى وضع <strong>القراءة فقط</strong>: يمكن رؤية كل شيء، و<strong>لا يُحذف شيء</strong>. وبعد التجديد يمكن التعديل من جديد.</li></ul>
+<div class="nota">لا يرى Wkit بيانات الدفع الخاصة بك ولا يخزّنها أبدًا: تتولّى ذلك Apple أو Google.</div>
+</section>
+<section id="copias"><h2>٢٠. بيانات محفوظة على هذا الهاتف فقط</h2>
+<p>إذا استخدمتَ Wkit دون اتصال أو قبل أن تُنشأ جماعتك، فقد يسألك التطبيق ماذا يفعل بـ<strong>البيانات المحفوظة على هذا الهاتف فقط</strong> (مثل الإخوة أو الإعلانات). أمامك خياران: <strong>«رفع»</strong> إلى الجماعة (سيراها الجميع) أو <strong>«تجاهل»</strong>. ولا يحدث شيء حتى تقرّر.</p>
+</section>
+      <div class="caja pie"><strong>لا تجد ما تبحث عنه؟</strong> اكتب إلينا على <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> وأخبرنا بما يحدث. وإن أمكن، أخبرنا بالجهاز الذي تستخدمه (iPhone أو iPad أو Android) وبما كنت تفعله.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

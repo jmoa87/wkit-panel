@@ -1,0 +1,110 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkitin tietosuojakäytäntö — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <b>Suomi</b> <a href="privacidad-nb.html">Norsk</a></p>
+      <h1>Wkitin tietosuojakäytäntö</h1>
+      <p class="fecha">Viimeksi päivitetty: 6. marraskuuta 2026</p>
+      <h2>1. Keitä olemme ja mikä Wkit on</h2>
+      <p>Wkit on <strong>Titan Estudiosin</strong> sovellus, joka auttaa järjestämään seurakunnan elämää: kokousohjelman, alueet, ilmoitukset, veljilistan ja henkilökohtaisen palveluskertomuksen. Se toimii iPhonessa, iPadissa ja Androidissa, ja siihen kuuluu verkkopaneeli alueiden hallintaan.</p>
+      <div class="caja"><strong>Kuka vastaa mistä.</strong> Me olemme <em>tilin</em> tietojen (esimerkiksi sähköpostiosoitteen) rekisterinpitäjä. <em>Seurakunnan veljien ja sisarten</em> tiedoista (luettelo, ohjelma, alueet...) vastaa seurakunta itse ylläpitäjiensä kautta; he syöttävät tiedot ja päättävät, mihin niitä käytetään. Me tarjoamme vain työkalun ja tallennamme tiedot heidän puolestaan.</div>
+      <h2>2. Mitä tietoja käsitellään</h2>
+      <table>
+        <tr><th>Tilisi</th><td>Sähköpostiosoite, vain seurakunnan luovalta henkilöltä ja ylläpitäjiltä, jotka liittävät sellaisen; muut veljet ja sisaret eivät tarvitse sähköpostia, vaan liittyvät kutsulla. Lisäksi sisäinen tilin tunniste.</td></tr>
+        <tr><th>Merkintäsi veljilistassa</th><td>Nimi, sukupuoli, rooli (julistaja, tienraivaaja, avustava palvelija, vanhin), palvelusryhmä, auttaako hän äänessä ja kuvassa tai alueissa, sekä sovelluksessa hänellä olevat oikeudet. Seurakunnan ylläpitäjät syöttävät ja muokkaavat sen.</td></tr>
+        <tr><th>Seurakunnan tiedot</th><td>Kokousohjelma ja se, kenellä kukin osa on (nimen mukaan), julkiset kokoukset, ääni ja kuva, palvelusryhmät (ryhmänvalvojineen ja apulaisineen), siivous (mikä ryhmä sekä päivä ja aika), kenttäpalvelukokoukset, ilmoitukset, muut ohjelmat, alueet (niiden muoto kartalla, kenellä ne ovat ja päivämäärät), kampanjat ja aluepyynnöt. Myös kalenteritapahtumat (otsikko ja päivät).</td></tr>
+        <tr><th>Tilaus</th><td>Kun ylläpitäjä tilaa seurakunnalle, maksun käsittelee Apple (Androidilla Google): emme näe emmekä tallenna mitään maksutietoja. Tallennamme vain seurakuntaan liitetyn tilauksen tilan: päivämäärät ja ostotunnisteen.</td></tr>
+        <tr><th>Tekniset tiedot</th><td>Laitetunniste, jotta voimme lähettää sinulle ilmoituksia (sen tarjoaa Apple iPhonessa ja iPadissa ja Google Androidissa), sekä palvelinten tallentamat tekniset yhteystiedot, kuten IP-osoite.</td></tr>
+        <tr><th>Palveluskertomuksesi</th><td>Kertomukseen kirjaamasi tunnit ja tutkistelut tallennetaan laitteellesi ja, jotta voit käyttää sitä kaikilla laitteillasi, myös palvelimillemme (Supabase) merkintääsi liitettynä. <strong>Vain sinä voit nähdä sen</strong>: seurakuntasi vanhimmilla tai ylläpitäjillä ei ole pääsyä siihen, eikä sitä jaeta kenellekään muulle.</td></tr>
+<tr><th>Vain laitteellasi</th><td>Tuntitavoitteesi, muistutukset ja asetukset. <strong>Niitä ei lähetetä palvelimillemme.</strong> Jos otat varmuuskopioinnin käyttöön, se tallennetaan omaan iCloudiisi, jota hallitset itse. Androidissa varmuuskopio tallennetaan itse puhelimeen ja, jos Androidin varmuuskopiointi on päällä, myös Google-tilillesi, jota hallitset itse.</td></tr>
+      </table>
+      <h2>3. Mitä emme tee</h2>
+      <ul>
+        <li>Mainontaa ei ole, emmekä myy tai luovuta tietoja kolmansille osapuolille kaupallisiin tarkoituksiin.</li>
+        <li>Analytiikka-, seuranta- tai sovellusten välisen seurannan työkaluja ei ole.</li>
+        <li>Sovellus <strong>ei käytä sijaintiasi</strong>, kameraasi, kuviasi, yhteystietojasi eikä mikrofonia.</li>
+        <li>Emme luo profiileja emmekä tee sinua koskevia automaattisia päätöksiä.</li>
+      </ul>
+      <h2>4. Mihin tietoja käytetään</h2>
+      <ul>
+        <li>Pyytämäsi palvelun tarjoamiseen: tilillesi kirjautumiseen, kunkin seurakunnan omien tietojen näyttämiseen ja niiden pitämiseen ajan tasalla kaikilla sen laitteilla.</li>
+        <li>Seurakunnassasi syntyvien ilmoitusten (ilmoitus, sinulle määrätty alue...) lähettämiseen, kunhan olet sallinut ilmoitukset laitteellasi; luvan voit perua milloin tahansa.</li>
+        <li>Palvelun turvallisuuteen ja apupyyntöjesi vastaamiseen.</li>
+      </ul>
+      <h2>5. Ketkä voivat nähdä tietosi</h2>
+      <ul>
+        <li><strong>Seurakunnassasi:</strong> kaikki jäsenet näkevät veljilistan, ohjelman ja julkaistut ilmoitukset. Vain ylläpitäjät voivat luoda tai muuttaa niitä. Julistaja näkee vain hänelle määrätyt alueet. Alueita hallinnoiva näkee koko seurakunnan alueet. Palveluskertomuksesi näkyy vain sinulle. Ryhmälle osoitetut ilmoitukset näkevät vain kyseisen ryhmän jäsenet, ja ryhmänvalvoja ja apulainen voivat luoda niitä omalle ryhmälleen.</li>
+        <li><strong>Muut seurakunnat: ei kukaan.</strong> Jokainen seurakunta pääsee käsiksi vain omiin tietoihinsa; tämän takaa tietokannan oma pääsynhallinta.</li>
+        <li><strong>Palveluntarjoajat, jotka auttavat meitä tarjoamaan palvelun</strong> (he käsittelevät tietoja vain sitä varten):
+          <ul>
+            <li><strong>Supabase</strong>, joka ylläpitää tietokantaa ja tilejä palvelimilla Euroopan unionissa (Frankfurt).</li>
+            <li><strong>Apple</strong> sovelluksen jakeluun, ilmoituksiin, sovelluksen karttoihin (Apple Maps) ja tilausmaksun perimiseen.</li>
+            <li><strong>Google</strong>: Androidilla sovelluksen jakeluun (Google Play), ilmoituksiin (Firebase Cloud Messaging), sovelluksen karttaan (Google Maps) ja tilausmaksun perimiseen; ja kaikilla alustoilla sähköpostipalvelu, jolla lähetetään käyttölinkin sisältävät viestit. Kun kartta näytetään, Google voi saada teknisiä yhteystietoja, kuten IP-osoitteen.</li>
+            <li><strong>GitHub</strong>, joka ylläpitää verkkopaneelia, ja <strong>OpenFreeMap</strong>, joka tarjoaa verkkopaneelin kartat. Näiden sivujen näyttämiseksi ne saavat teknisiä yhteystietoja, kuten IP-osoitteen.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Erityisen arkaluonteiset tiedot</h2>
+      <p>Seurakunnan jäsenluettelo voi luonteensa vuoksi paljastaa uskonnollisen vakaumuksen, joka on henkilötietojen erityinen ryhmä. Siksi Wkit on suunniteltu kunkin seurakunnan sisäiseen käyttöön: tiedot syöttää ja hallinnoi seurakunta itse omiin tarkoituksiinsa, vain sen jäsenet näkevät ne, ja ne kulkevat salattuina internetissä. Suosittelemme syöttämään vain tarpeellisen.</p>
+      <h2>7. Kuinka kauan tietoja säilytetään ja miten ne poistetaan</h2>
+      <p>Tietoja säilytetään niin kauan kuin tili tai seurakunta on olemassa. Voit poistaa tilisi milloin tahansa sovelluksessa:</p>
+      <div class="caja"><strong>Asetukset → Oma tilini → Poista tilini.</strong></div>
+      <p><a href="eliminar-cuenta-fi.html">Sivu, jossa on tilin ja tietojen poistamisen vaiheet</a>.</p>
+      <ul>
+        <li>Kirjautumistilisi ja merkintäsi veljilistassa poistetaan. Kaikki sinulla olleet alueet vapautetaan.</li>
+        <li>Sovelluksen laitteellesi tallentamat tiedot ja palvelimillemme tallennettu kertomuksesi poistetaan.</li>
+        <li>Jos olet ainoa henkilö seurakunnassasi, myös seurakunta poistetaan kaikkine tietoineen (kysymme sinulta nimenomaisesti ennen sitä).</li>
+        <li>Jos olet ainoa ylläpitäjä ja muita veljiä tai sisaria on, sinun on ensin nimettävä toinen ylläpitäjä, jotta seurakunta ei jää ilman hallintaa.</li>
+        <li>Tiedot, joita ei enää ole, voivat säilyä rajoitetun ajan palveluntarjoajamme varmuuskopioissa ennen kuin ne pyyhitään kokonaan.</li>
+        <li>Tilin poistaminen ei peru maksullista tilausta, jos sellainen on: se tehdään Apple ID:n asetuksissa tai Androidilla Google Playssa → Maksut ja tilaukset.</li>
+      </ul>
+      <p>Ylläpitäjät voivat tarvittaessa poistaa myös veljen tai sisaren merkinnän luettelosta.</p>
+      <h2>8. Oikeutesi</h2>
+      <p>Voit pyytää pääsyä tietoihisi, niiden oikaisua, poistamista ja siirrettävyyttä, käsittelyn rajoittamista, ja voit vastustaa käsittelyä. Monia näistä oikeuksista voit käyttää itse sovelluksessa; muissa kirjoita meille. Merkinnän ja ohjelman tietoja hallinnoi seurakuntasi: jos haluat korjata ne, pyydä myös sen ylläpitäjiä.</p>
+      <p>Jos katsot, ettemme ole käsitelleet tietojasi asianmukaisesti, voit tehdä valituksen <a href="https://www.aepd.es">Espanjan tietosuojaviranomaiselle</a> tai oman maasi tietosuojaviranomaiselle.</p>
+      <h2>9. Turvallisuus</h2>
+      <ul>
+        <li>Kaikki viestintä kulkee salattuna (HTTPS).</li>
+        <li>Tietojen käyttöä valvotaan tietokannan omilla oikeuksilla, ei vain sovelluksen näytöllä.</li>
+        <li>Alueiden verkkopaneelin käyttö perustuu linkkiin sisältyvään henkilökohtaiseen avaimeen. Kohtele sitä kuin salasanaa äläkä jaa sitä.</li>
+      </ul>
+      <h2>10. Alaikäiset</h2>
+      <p>Wkit ei ole suunnattu alle 14-vuotiaille lapsille. Jos seurakunta sisällyttää alaikäisen luetteloonsa, aikuinen ylläpitäjä tekee sen omalla vastuullaan ja alaikäisen vanhempien tai huoltajien luvalla.</p>
+      <h2>11. Muutokset tähän käytäntöön</h2>
+      <p>Jos muutamme jotain tärkeää, kerromme siitä täällä ja päivitämme yllä olevan päivämäärän.</p>
+      <h2>12. Yhteystiedot</h2>
+      <p>Kaikissa kysymyksissä tai oikeuksiesi käyttämiseksi: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Meillä on myös <a href="soporte-fi.html">ohjesivu</a>.</p>
+    </main>
+  </body>
+</html>

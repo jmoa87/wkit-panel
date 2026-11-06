@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="fi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkitin vaiheittainen opas — Wkit</title>
+    <meta name="description" content="Wkitin vaiheittainen opas julistajille ja ylläpitäjille: kirjautuminen, muistutukset, kertomus, veljet, ryhmät, siivous, ohjelmat, ilmoitukset, alueet ja tilaus." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-fi.html">← Wkit</a> · <a href="privacidad-fi.html">Tietosuojakäytäntö</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <b>Suomi</b> <a href="ayuda-nb.html">Norsk</a></p>
+      <h1>Wkitin vaiheittainen opas</h1>
+      <p class="sub">Kaikki, mitä sovelluksella voi tehdä, rauhassa selitettynä: julistajille ja ylläpitäjille. iPhonessa, iPadissa ja Androidissa se toimii samoin; jos on eroja, ne on merkitty <span class="plat a">Android</span> tai <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Jokaiselle jäsenelle</h3><ol class="toc"><li><a href="#entrar">Ensimmäinen kerta Wkitissä</a></li><li><a href="#inicio">Etusivu</a></li><li><a href="#recordatorios">Muistutukset: kello</a></li><li><a href="#notificaciones">Ilmoitukset: mistä Wkit kertoo sinulle</a></li><li><a href="#informe">Palveluskertomuksesi (yksityinen)</a></li><li><a href="#territorios-pub">Alueet: katselu, palautus ja pyynnöt</a></li><li><a href="#cuenta">Tilisi: puhelimen vaihto, sähköpostin liittäminen, kieli ja poistaminen</a></li><li><a href="#copia-seguridad">Varmuuskopio</a></li></ol></div><div class="toc-g"><h3>Ylläpitäjille (vanhimmille)</h3><ol class="toc"><li><a href="#crear-congregacion">Seurakunnan luominen</a></li><li><a href="#hermanos">Veljilista</a></li><li><a href="#grupos">Palvelusryhmät</a></li><li><a href="#salidas">Kenttäpalvelukokoukset</a></li><li><a href="#limpieza">Siivous: kenen vuoro on ja mikä päivä ja kellonaika</a></li><li><a href="#vida-ministerio">Elämä ja palvelus -kokouksen ohjelma</a></li><li><a href="#reunion-publica">Julkinen kokous</a></li><li><a href="#audio-video">Ääni ja kuva / Vastaanottajat</a></li><li><a href="#otros-programas">Muut ohjelmat</a></li><li><a href="#anuncios">Ilmoitukset</a></li><li><a href="#calendario">Seurakunnan kalenteri</a></li><li><a href="#territorios-admin">Alueet: määrääminen, kampanjat ja verkkopaneeli</a></li><li><a href="#suscripcion">Seurakunnan tilaus</a></li><li><a href="#copias">Tiedot, jotka on tallennettu vain tähän puhelimeen</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Jokaiselle jäsenelle</h2>
+<section id="entrar"><h2>1. Ensimmäinen kerta Wkitissä</h2>
+<p>Wkitiin pääsemiseen <strong>et tarvitse sähköpostia etkä salasanaa</strong>: seurakuntasi vanhin kutsuu sinut, ja liityt linkillä tai koodilla.</p>
+<ol class="pasos"><li>Pyydä veljilistaa hoitavaa vanhinta kutsumaan sinut. Saat <strong>kaksi viestiä peräkkäin</strong>: ensin linkin ja sitten erikseen koodin (jotta voit kopioida sen helposti).</li><li>Asenna <strong>Wkit</strong> App Storesta (iPhone ja iPad) tai Google Playsta (Android).</li><li>Napauta ensimmäisen viestin linkkiä: sovellus avautuu ja tunnistaa sinut.</li><li>Jos linkki ei avaa sovellusta, avaa se itse, napauta <strong>“Minulla on kutsulinkki tai -koodi”</strong> ja liitä koko viesti tai pelkkä koodi: sovellus poimii tarvitsemansa.</li><li>Näet muutaman tervetulonäytön (<strong>“Ensimmäiset askeleet”</strong>), jotka kertovat, mikä on yhteistä ja mikä ei. Kun olet valmis, olet sisällä.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Jos koodi ei toimi</strong> (“virheellinen tai vanhentunut”), pyydä vanhinta luomaan uusi: se vie minuutin sinun kortistasi.</div>
+<div class="nota"><strong>Mikä on yhteistä ja mikä ei:</strong> veljilistan, ohjelman, siivouksen, alueet ja ilmoitukset näkee koko seurakunta, ja ne luo vanhin. <strong>Kertomuksesi on vain sinun</strong>: kukaan muu ei näe sitä, ei edes vanhin, ja se synkronoituu laitteidesi välillä.</div>
+</section>
+<section id="inicio"><h2>2. Etusivu</h2>
+<p>Se on ensimmäinen asia, jonka näet avatessasi Wkitin. Se näyttää <strong>sen, mikä on sinun</strong>, yhdellä silmäyksellä; jos sinulle ei ole määrätty mitään, näet “Ei lähellä olevaa tehtävää”.</p>
+<ul><li><strong>Seuraavat osat</strong>: osasi Elämä ja palvelus -kokouksessa ja julkisessa kokouksessa (puheenjohtaja, lukija, puhuja…).</li><li><strong>Vastuut</strong>: se, mikä sinulla on Ääni ja kuva / Vastaanottajat -osiossa.</li><li><strong>Siivous</strong>: näkyy vain, jos <em>tällä viikolla</em> on ryhmäsi vuoro. Jos ryhmänvalvoja tai apulainen on asettanut päivän ja kellonajan, näet sen alla (esimerkiksi “Sunnuntai 12:30”).</li><li><strong>Muut ohjelmat</strong>, <strong>Alueet</strong> (ja kampanja, jos sellainen on) sekä <strong>kertomuksen</strong> muistutus.</li><li><strong>Kalenteri</strong>: seurakunnan tapahtumat (kierroskokous, kierrosvalvojan vierailu…), kellolla muistutusta varten.</li></ul>
+<p>Alareunassa on viisi välilehteä: <strong>Etusivu</strong>, <strong>Ohjelma</strong>, <strong>Raportti</strong>, <strong>Alueet</strong> ja <strong>Valikko</strong> (siellä ovat veljilista, ryhmät, siivous, ilmoitukset ja asetukset).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Muistutukset: kello</h2>
+<p>Jokaisen tehtävän, vastuun tai siivousvuoron vieressä on <strong>kello</strong>. Sen avulla puhelin muistuttaa sinua etukäteen valitsemanasi aikana.</p>
+<ol class="pasos"><li>Napauta tehtävän vieressä olevaa kelloa.</li><li>Valitse muistutuksen päivä ja kellonaika.</li><li>Vahvista. Kello muuttuu vihreäksi ja soi (värisee), kun aika koittaa.</li><li>Voit poistaa sen napauttamalla kelloa uudelleen ja valitsemalla muistutuksen poistamisen.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Jos vanhin muuttaa siivouksen päivää tai kellonaikaa, kello ehdottaa muistutuksen asettamista uudelleen uudella päivämäärällä.</div>
+<div class="nota"><span class="plat a">Android</span> Jos muistutukset eivät tavoita sinua, tarkista puhelimen asetuksista, että Wkitillä on lupa ilmoituksiin ja ettei sen akunkäyttöä ole rajoitettu.</div>
+</section>
+<section id="notificaciones"><h2>4. Ilmoitukset: mistä Wkit kertoo sinulle</h2>
+<p>Wkit ilmoittaa sinulle, kun uusi ilmoitus ilmestyy, kun sinulle määrätään jotain tai kun tulee sinua koskevia muutoksia.</p>
+<ol class="pasos"><li>Ensimmäisellä kerralla <strong>salli ilmoitukset</strong>, kun puhelin kysyy.</li><li>Avaa <strong>Valikko → Asetukset → Ilmoitukset</strong>.</li><li>Poista käytöstä ne luokat, joita et halua (Ilmoitukset, Ohjelma, Ääni ja kuva, Siivous, Alueet…) ja valitse päivät ja kellonaika, jolloin haluat saada ne.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Laite vastaanottaa vain yhden henkilön ilmoitukset kerrallaan</strong>: sen, jonka istunto on auki. Jos ne eivät tavoita sinua, avaa Wkit tililläsi vähintään kerran, jotta laite rekisteröidään.</div>
+</section>
+<section id="informe"><h2>5. Palveluskertomuksesi (yksityinen)</h2>
+<p>Kertomus on <strong>henkilökohtainen</strong> työkalu: vain sinä näet sen, ei edes vanhin. Se tallennetaan puhelimeesi ja synkronoituu laitteidesi välillä.</p>
+<ol class="pasos"><li>Avaa <strong>Raportti</strong>-välilehti. Ensimmäisellä kerralla Wkit kysyy muutaman kysymyksen: millaista palvelusta teet (julistaja, tienraivaaja…) ja mikä <strong>tuntitavoitteesi</strong> on kuukaudessa.</li><li>Kirjataksesi palvelusta napauta <strong>“Uusi”</strong> ja täytä päivämäärä, tunnit ja minuutit sekä raamatuntutkistelut.</li><li><strong>Historiassa</strong> näet, paljonko sinulla on kuukauden ja palveluskauden aikana, ja voit muokata tai poistaa merkinnän.</li><li>Jokaisen kuukauden ensimmäisenä päivänä Wkit voi muistuttaa sinua valitsemanasi aikana <strong>lähettämään kertomuksen</strong>. <strong>“Lähetä kertomus”</strong> -painike valmistelee viestin tunneillasi ja tutkisteluillasi.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Kertomuksesi synkronoituu</strong> tiliisi, joten jos vaihdat puhelinta, saat sen takaisin kirjautuessasi uudelleen. Tee silti varmuuskopio (Valikko → Asetukset → Varmuuskopio): se on lisäturva. Katso kohta 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Alueet: katselu, palautus ja pyynnöt</h2>
+<p><strong>Alueet</strong>-välilehdellä näet sinulle määrätyt alueet ja päivämäärän, josta lähtien ne ovat sinulla.</p>
+<ol class="pasos"><li><strong>Palauttaaksesi</strong> alueen sen työstämisen jälkeen avaa se ja napauta <strong>“Palauta”</strong> (tai <strong>“Ilmoita, kun aika on loppu”</strong>). Alueista vastaava saa ilmoituksen.</li><li>Jos sinulla <strong>ei ole yhtään</strong> ja haluat sellaisen, napauta <strong>“Pyydä aluetta”</strong>. Voit lisätä valinnaisen viestin (esimerkiksi “Haluaisin alueen lähellä keskustaa”).</li><li>Kaikki aluevastaavat saavat ilmoituksen, ja ensimmäinen, joka pystyy, määrää sinulle alueen. Kun saat sellaisen, saat ilmoituksen.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Tilisi: puhelimen vaihto, sähköpostin liittäminen, kieli ja poistaminen</h2>
+<h3>Jos vaihdat puhelinta tai kadotat sen</h3>
+<ul><li>Jos <strong>et ole liittänyt sähköpostia</strong> (veljien ei tarvitse), vanhin lähettää sinulle <strong>uuden kutsun</strong> kortistasi veljilistassa. Saat paikkasi takaisin kaikkine seurakuntaan kuuluvine asioineen ja kertomuksesi.</li><li>Jos <strong>olet liittänyt sähköpostin</strong>, avaa Wkit, napauta <strong>“Luo tili tai kirjaudu ylläpitäjänä”</strong>, kirjoita sähköpostiosoitteesi ja avaa saamasi linkki. Pääset sisään kaiken sen kanssa, mitä sinulla oli.</li></ul>
+<h3>Wkitin käyttö usealla laitteella</h3>
+<ul><li>Voit käyttää <strong>samaa tiliä samanaikaisesti</strong> iPhonessa, iPadissa ja Androidissa (esimerkiksi puhelimessa ja tabletissa).</li><li>Toisen laitteen lisäämiseksi vanhin lähettää kutsun kortistasi, ja avaat sen kyseisellä laitteella. <strong>Ensimmäisen laitteen istuntoa ei suljeta.</strong></li><li>Kertomuksesi synkronoituu kaikkien laitteidesi välillä.</li></ul>
+<h3>Sähköpostin liittäminen (valinnainen, suositeltu ylläpitäjille)</h3>
+<ol class="pasos"><li>Avaa <strong>Valikko → Asetukset → Oma tilini → Liitä sähköpostiosoitteeni</strong>.</li><li>Kirjoita sähköpostiosoitteesi. Saat vahvistuslinkin.</li><li><strong>Avaa se samalla puhelimella</strong> sähköpostisovelluksessa. Näyttö sulkeutuu itsestään, ja tilisi on liitetty.</li></ol>
+<h3>Kielen vaihtaminen</h3>
+<p>Wkit käyttää puhelimen kieltä. Vaihtaaksesi sen vain Wkitille: puhelimen asetukset → Sovellukset → Wkit → Kieli.</p>
+<h3>Tilin poistaminen</h3>
+<p><strong>Valikko → Asetukset → Oma tilini → Poista tilini.</strong> Tilisi, korttisi luettelossa ja puhelimeen tallennetut tiedot (myös kertomus) poistetaan; sinulla olleet alueet vapautetaan. Tätä ei voi perua. Jos olet ainoa ylläpitäjä ja muita veljiä tai sisaria on, sinun on ensin nimettävä toinen (avaa veljilistassa hänen korttinsa ja ota “Ylläpitäjä” käyttöön). Jos olet ainoa henkilö seurakunnassa, myös koko seurakunta poistetaan.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Tilin poistaminen <strong>ei peru</strong> seurakunnan tilausta, jos tämä tili maksaa sen: se perutaan App Storessa <span class="plat i">iPhone</span> tai Google Playssa → Maksut ja tilaukset → Tilaukset <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Varmuuskopio</h2>
+<p>Se on tarkoitettu lähinnä siihen, että sinulla on <strong>ylimääräinen kopio kertomuksestasi</strong>: vaikka se synkronoituu laitteidesi välillä, varmuuskopio suojaa, jos poistat sen vahingossa. Löydät sen kohdasta <strong>Valikko → Asetukset → Varmuuskopio</strong>.</p>
+<ul><li><strong>Automaattinen kopio</strong>: tekee itse kopion kerran kuukaudessa.</li><li><strong>“Tee kopio nyt”</strong> ja <strong>“Vie varmuuskopio”</strong>: voit tallentaa tiedoston minne haluat tai lähettää sen itsellesi.</li><li><strong>“Palauta varmuuskopio”</strong>: valitse Wkitistä viety tiedosto. Kopion tiedot <strong>lisätään</strong> jo olemassa oleviin: mitään ei poisteta.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Automaattinen kopio tallennetaan iCloudiisi. <span class="plat a">Android</span> Se tallennetaan puhelimeen, ja jos Androidin varmuuskopiointi on päällä Google-tililläsi (puhelimen asetukset → Google → Varmuuskopiointi), saat sen automaattisesti takaisin kirjautuessasi kyseiselle tilille uudella puhelimella.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Ylläpitäjille (vanhimmille)</h2>
+<section id="crear-congregacion"><h2>8. Seurakunnan luominen</h2>
+<p>Vanhin tekee tämän <strong>vain kerran</strong>; sen jälkeen hän kutsuu muut.</p>
+<ol class="pasos"><li>Avaa Wkit ja napauta <strong>“Luo tili tai kirjaudu ylläpitäjänä”</strong>.</li><li>Kirjoita sähköpostiosoitteesi ja napauta <strong>“Lähetä käyttölinkki”</strong>. Salasanoja ei ole: saat linkin, joka vahvistaa, että sähköposti on sinun.</li><li><strong>Avaa linkki samalla puhelimella.</strong> Wkit avautuu itsestään.</li><li>Täytä <strong>nimesi</strong>, <strong>seurakunnan nimi</strong>, <strong>seurakunnan numero</strong> ja <strong>maa</strong> ja napauta <strong>“Luo seurakunta”</strong>.</li><li>Näet <strong>“Ensimmäiset askeleet vanhimpana”</strong>: 1) lisää veljet ja sisaret veljilistaan ja 2) kutsu heidät.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Eikö sähköposti saapunut? Tarkista roskapostikansio ja napauta <strong>“Se ei tullut perille, lähetä uudelleen”</strong>. Yhdellä sähköpostiosoitteella voi olla Wkitissä vain yksi tili.</div>
+</section>
+<section id="hermanos"><h2>9. Veljilista</h2>
+<p>Se on kaiken perusta: ohjelmat, ryhmät ja tehtävät käyttävät tämän luettelon nimiä. Löydät sen kohdasta <strong>Valikko → Veljilista</strong>.</p>
+<h3>Veljen lisääminen</h3>
+<ol class="pasos"><li>Napauta <strong>+</strong>-painiketta (<strong>“Uusi veli”</strong>).</li><li>Kirjoita <strong>nimi</strong> ja valitse, onko kyseessä <strong>veli</strong> vai <strong>sisar</strong>.</li><li>Valitse hänen <strong>roolinsa</strong>: kastettu tai kastamaton julistaja, tienraivaaja, avustava palvelija tai vanhin.</li><li>Valitse tarvittaessa hänen <strong>palvelusryhmänsä</strong> ja ota käyttöön <strong>Aluevastaava</strong>, <strong>Ääni ja kuva / Vastaanottajat</strong> tai <strong>Ylläpitäjä</strong>.</li><li>Napauta <strong>“Luo”</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Kaksi samannimistä veljeä:</strong> lisää jotain, mikä erottaa heidät (esimerkiksi “nuor.”), jotta tehtävät eivät mene sekaisin.</div>
+<h3>Veljen kutsuminen Wkitiin</h3>
+<ol class="pasos"><li>Avaa veljen kortti ja napauta <strong>“Kutsu”</strong> (tai <strong>“Luo linkki”</strong>).</li><li>Napauta <strong>“Jaa kutsu”</strong> ja valitse WhatsApp, viestit jne. Lähetetään <strong>kaksi viestiä peräkkäin</strong>: ensin linkki ja sitten erikseen koodi, jotta se on helppo kopioida.</li><li>Veli avaa linkin (tai liittää koodin) ja pääsee sisään. Jos hän ei ole vielä liittynyt, voit jakaa kutsun uudelleen; jos luot uuden, edellinen lakkaa toimimasta.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Muokkaaminen, poistaminen ja ylläpitäjien nimeäminen</h3>
+<ul><li>Napauta veljeä ja valitse <strong>“Muokkaa”</strong> muuttaaksesi hänen tietojaan.</li><li>Poistaaksesi Androidilla napauta <strong>punaista kuvaketta</strong> hänen rivillään; iPhonessa pyyhkäise riviä vasemmalle. Hänet poistetaan luettelosta kaikilla laitteilla, ja hänellä olleet alueet vapautetaan.</li><li><strong>Ylläpitäjä</strong> voi hallita veljiä, alueita, ilmoituksia ja ohjelmaa. <strong>Et voi poistaa omaa korttiasi etkä viimeistä ylläpitäjää</strong>: nimeä ensin toinen.</li></ul>
+</section>
+<section id="grupos"><h2>10. Palvelusryhmät</h2>
+<p>Ryhmiä käytetään kenttäpalvelukokouksiin ja siivoukseen. Ne löytyvät kohdasta <strong>Valikko → Palvelusryhmät → Luettelo</strong>.</p>
+<ol class="pasos"><li>Jos niitä ei ole, napauta <strong>“Luo palvelusryhmät”</strong> ja valitse, <strong>kuinka monta ryhmää</strong> haluat (myöhemmin voit lisätä lisää <strong>+</strong>-painikkeella).</li><li>Määrätäksesi veljet ryhmiin siirry <strong>Veljilistaan</strong>, avaa kunkin kortti ja valitse hänen <strong>palvelusryhmänsä</strong>.</li><li>Palaa kohtaan <strong>Valikko → Palvelusryhmät → Luettelo</strong>. Kussakin ryhmässä näet <strong>ryhmänvalvojan</strong>, <strong>apulaisen</strong> ja veljet <strong>aakkosjärjestyksessä</strong>.</li><li>Napauta <strong>kynä</strong>-painiketta (Muokkaa). Napauta <strong>“Ryhmänvalvoja”</strong> ja valitse yksi kyseisen ryhmän veljistä; tee sama <strong>“Apulainen”</strong>-kohdassa. Se ei voi olla sama henkilö.</li><li>Napauta <strong>vahvistusmerkkiä</strong> lopettaaksesi.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Ryhmänvalvoja ja apulainen valitaan <strong>sen jälkeen</strong>, kun veljet on määrätty, koska valita voi vain kyseisen ryhmän veljistä. Jos siirrät veljen toiseen ryhmään, hän ei ole enää edellisen ryhmän valvoja tai apulainen.</div>
+<div class="nota">Kunkin ryhmän valvoja ja apulainen <strong>voivat asettaa siivouksen päivän ja kellonajan</strong> ryhmälleen (kohta 12), vaikka he eivät olisi ylläpitäjiä.</div>
+</section>
+<section id="salidas"><h2>11. Kenttäpalvelukokoukset</h2>
+<p>Kenttäpalvelukokoukset ovat palvelukseen lähtemisen kokoontumisajat ja -paikat. On <strong>yleisiä</strong> (koko seurakunnalle) ja <strong>kunkin ryhmän omia</strong>. Ne löytyvät kohdasta <strong>Valikko → Palvelusryhmät → Kenttäpalvelukokoukset</strong>. Ryhmät on luotava ensin.</p>
+<ol class="pasos"><li>Napauta <strong>“Seurakunta”</strong>-osiota (yleiset kokoukset) tai <strong>ryhmän</strong> osiota.</li><li>Napauta <strong>“Lisää kokous”</strong> oikean päivän kohdalla ja kirjoita <strong>tunniste</strong> (esimerkiksi “Aamupäivä” tai “Iltapäivä”), <strong>kellonaika</strong> ja halutessasi <strong>paikka</strong>.</li><li><strong>Muokataksesi</strong> kokousta muuta sen kenttiä suoraan. <strong>Poistaaksesi</strong> sen napauta punaista kuvaketta sen rivillä.</li><li>Veljet voivat napauttaa paikkaa avatakseen sen puhelimen kartalla.</li></ol>
+<div class="nota">Jos ryhmällä ei ole omia kokouksia, käytetään seurakunnan kokouksia (“Ei omia kokouksia – käytä seurakunnan kokouksia”).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Siivous: kenen vuoro on ja mikä päivä ja kellonaika</h2>
+<p>Siivous <strong>kiertää automaattisesti</strong> palvelusryhmien välillä: joka viikko on eri ryhmän vuoro, alkaen Ryhmästä 1. Löydät sen kohdasta <strong>Valikko → Siivous → Ryhmät</strong>.</p>
+<h3>Tällä viikolla siivoavan ryhmän vaihtaminen (ylläpitäjät)</h3>
+<ol class="pasos"><li>Napauta <strong>kynä</strong>-painiketta (Muokkaa).</li><li>Napauta <strong>ryhmää</strong>, jonka vuoro on tällä viikolla. Ensi viikolla se on järjestyksessä seuraava ryhmä.</li><li>Napauta <strong>vahvistusmerkkiä</strong>. <strong>Kaikki seurakunnan laitteet</strong> näkevät muutoksen.</li></ol>
+<h3>Tarkan päivän ja kellonajan asettaminen (ylläpitäjät sekä ryhmän valvoja ja apulainen)</h3>
+<ol class="pasos"><li>Etsi kohdasta <strong>Valikko → Siivous → Ryhmät</strong> oma ryhmäsi (tai se, josta huolehdit) ja napauta sen rivin <strong>kynää</strong>.</li><li>Valitse <strong>päivä</strong> ja <strong>kellonaika</strong> (esimerkiksi sunnuntai klo 12:30) ja napauta <strong>“Tallenna”</strong>. Poistaaksesi päivämäärän napauta <strong>“Poista päivämäärä”</strong>.</li><li>Kyseisen ryhmän veljet näkevät sen etusivulla: <strong>“Ryhmä 1 · Tällä viikolla”</strong> ja sen alla <strong>“Sunnuntai 12:30”</strong>, omalla <strong>kellollaan</strong> muistutuksen asettamista varten.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Päivämäärä näkyy etusivulla vain, jos se on <strong>kuluvalla viikolla</strong> (maanantaista sunnuntaihin). Voit asettaa sen etukäteen: se tulee näkyviin, kun kyseinen viikko koittaa. Menneiden viikkojen päivämäärät katoavat itsestään.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Elämä ja palvelus -kokouksen ohjelma</h2>
+<p><strong>Ohjelma → Elämä ja palvelus</strong> -välilehdellä luot jokaisen viikon ohjelman ja määräät osat. Kaikki veljet ja sisaret näkevät sen; vain ylläpitäjät voivat muokata sitä.</p>
+<ol class="pasos"><li>Napauta <strong>“Uusi viikko”</strong> ja valitse <strong>kokouksen päivämäärä</strong> (mikä tahansa kyseisen viikon päivä, maanantaista sunnuntaihin).</li><li>Wkit luo viikon <strong>tavallisella rakenteella</strong>: Aarteita Jumalan sanasta, Kehitä palveluskykyäsi ja Kristityn elämä.</li><li>Napauta mitä tahansa <strong>otsikkoa</strong> muuttaaksesi sitä ja tarvittaessa myös <strong>kestoa</strong>. <strong>“Lisää vastuu”</strong> -painikkeella voit lisätä muita osia.</li><li>Napauta kussakin osassa <strong>“Valitse”</strong> ja osoita veli tai veljet (esimerkiksi oppilas ja apulainen). <strong>Sivusalia</strong> varten käytä <strong>“Lisää sivusali”</strong>.</li><li>Valitse myös <strong>laulut</strong> ja <strong>rukoukset</strong> ja napauta <strong>“Tallenna ohjelma”</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Nähdäksesi toisen viikon käytä <strong>viikkovalitsinta</strong> (<strong>“Edellinen viikko”</strong> / <strong>“Seuraava viikko”</strong>); sieltä voit myös <strong>muokata tai poistaa</strong> sen.</li><li>Veljet saavat <strong>ilmoituksen</strong>, kun heille määrätään osa, ja näkevät sen etusivulla.</li><li>Viikon ohjelma katoaa itsestään, kun sunnuntai päättyy.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Julkinen kokous</h2>
+<p>Kohdassa <strong>Ohjelma → Julkinen kokous</strong> valmistellaan jokainen viikonlopun kokous.</p>
+<ol class="pasos"><li>Napauta <strong>“Uusi julkinen esitelmä”</strong> ja valitse <strong>päivämäärä</strong>. Jos kyseiselle päivälle on jo kokous, Wkit varoittaa sinua.</li><li>Valitse <strong>puheenjohtaja</strong>, <strong>puhuja</strong> ja kirjoita <strong>esitelmän otsikko</strong>.</li><li>Valitse <strong>Vartiotornin lukija</strong> sekä <strong>laulut</strong> ja <strong>rukoukset</strong>.</li><li>Tallenna. Veljet näkevät osansa etusivulla.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Ääni ja kuva / Vastaanottajat</h2>
+<p>Kohdassa <strong>Valikko → Ääni ja kuva / Vastaanottajat</strong> määräät jokaisen viikon vastuut: ääni, kuva, mikrofonit, vastaanottajat, Zoom, ajanotto…</p>
+<ol class="pasos"><li>Napauta <strong>“Uusi viikko”</strong> ja valitse <strong>kokouksen päivämäärä</strong>.</li><li>Napauta kunkin vastuun kohdalla <strong>“Valitse”</strong> ja osoita veli. Jotkin, kuten mikrofonit, sallivat <strong>useita veljiä</strong> (<strong>“Lisää veli”</strong>).</li><li>Muuta vastuuta, jota ei ole luettelossa, varten napauta <strong>“Lisää vastuu”</strong> ja anna sille nimi.</li><li>Tallenna. Jokainen veli näkee sen etusivunsa <strong>Vastuut</strong>-osiossa omalla kellollaan.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Muut ohjelmat</h2>
+<p><strong>Kaikelle muulle</strong>, mitä seurakunta järjestää ja mikä ei ole kokous: esimerkiksi kuljetus veljille ja sisarille, jotka eivät pääse tulemaan, tai apu julistajille. Jokaisella ohjelmalla on oma tiheytensä. Se löytyy kohdasta <strong>Valikko → Muut ohjelmat</strong>.</p>
+<ol class="pasos"><li>Napauta <strong>“Uusi ohjelma”</strong>. Kirjoita <strong>nimi</strong> ja valitse, <strong>kuinka usein se pidetään</strong>: päivittäin, viikoittain, kuukausittain tai vuosittain.</li><li>Napauta <strong>“Luo ensimmäinen viikko”</strong> (tai <strong>“Uusi jakso”</strong>) ja valitse päivämäärä: mikä tahansa kyseisen viikon, kuukauden tai vuoden päivä.</li><li>Napauta <strong>“Lisää vastuu”</strong>: kirjoita valinnainen <strong>tunniste</strong> (esimerkiksi “Noutaa aiemmin”) ja <strong>valitse veli tai sisar</strong>.</li><li>Tallenna. Jokainen näkee sen etusivullaan <strong>“Muut ohjelmat”</strong> -osiossa, ja jakso katoaa itsestään, kun se päättyy.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Ilmoitukset</h2>
+<p>Ilmoituksia luovat ylläpitäjät ja, vain omalle ryhmälleen, kunkin palvelusryhmän valvoja ja apulainen. Ne näkevät veljet ja sisaret, joille ne on osoitettu. Ne löytyvät kohdasta <strong>Valikko → Ilmoitukset</strong>.</p>
+<ol class="pasos"><li>Napauta <strong>“Uusi ilmoitus”</strong> ja kirjoita <strong>viesti</strong>.</li><li>Oletuksena se julkaistaan <strong>heti</strong>, kun tallennat sen, ja kaikki saavat ilmoituksen.</li><li>Jos haluat sen lähtevän myöhemmin, ota käyttöön <strong>“Ajasta myöhemmäksi”</strong> ja valitse <strong>päivämäärä ja kellonaika</strong>: siihen asti kukaan ei näe sitä, ja kyseisenä ajankohtana kaikki saavat ilmoituksen.</li><li>Tallenna. Poistaaksesi ilmoituksen napauta sitä ja valitse <strong>“Poista”</strong>: se katoaa kaikilta.</li></ol>
+<h3>Ilmoitukset vain yhdelle ryhmälle</h3>
+<ul><li>Kunkin palvelusryhmän <strong>valvoja</strong> ja <strong>apulainen</strong> näkevät <strong>+</strong>-painikkeen, vaikka he eivät olisi ylläpitäjiä, ja heidän ilmoituksensa tavoittavat <strong>vain heidän ryhmänsä jäsenet</strong>.</li><li>Ylläpitäjä, jolla on myös ryhmä, voi ilmoitusta luodessaan ottaa käyttöön <strong>“Lähetä tämä ilmoitus vain ryhmäni jäsenille”</strong>.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Seurakunnan kalenteri</h2>
+<p>Sen avulla kaikki näkevät seurakunnan tapahtumat, kuten <strong>kierroskokouksen</strong> tai <strong>kierrosvalvojan vierailun</strong>. Vain ylläpitäjät luovat niitä.</p>
+<ol class="pasos"><li>Avaa <strong>Valikko → Kalenteri</strong> ja napauta <strong>“Lisää tapahtuma”</strong>.</li><li>Kirjoita <strong>otsikko</strong> ja napauta tapahtuman <strong>päiviä</strong>: jos se kestää useita päiviä, napauta jokaista.</li><li>Tallenna. Kaikki näkevät sen <strong>Etusivu</strong>-näytöllä “Kalenteri”-osiossa <strong>kellon</strong> kanssa muistutuksen asettamista varten.</li><li>Muuttaaksesi tai poistaaksesi sen avaa se ja valitse <strong>“Muokkaa tapahtumaa”</strong> tai <strong>“Poista tapahtuma”</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Alueet: määrääminen, kampanjat ja verkkopaneeli</h2>
+<p>Se, jolla on <strong>Aluevastaava</strong>-oikeus, hallinnoi koko seurakunnan alueita <strong>Alueet</strong>-välilehdellä (julistajat näkevät vain omansa).</p>
+<h3>Alueiden määrääminen ja vastaanottaminen</h3>
+<ul><li>Napauta aluetta ja valitse <strong>“Määrää”</strong> (tai “Määrää julistajalle”) ja veli. Näet, kenellä se on ja mistä lähtien, sekä mitkä ovat <strong>vanhentuneita</strong> tai <strong>ei koskaan määrättyjä</strong>.</li><li>Kun julistaja <strong>pyytää</strong> aluetta, kaikki aluevastaavat saavat ilmoituksen (<strong>“Aluepyynnöt”</strong>); ensimmäinen, joka pystyy, määrää sen hänelle.</li><li>Kun veli <strong>palauttaa</strong> alueen, se vapautuu ja päivämäärä kirjataan.</li></ul>
+<h3>Kampanjat</h3>
+<ul><li><strong>“Uusi kampanja”</strong> kirjaa kaikki alueet alusta tietylle ajanjaksolle. Nykyisistä alueista luodaan <strong>kopio</strong> jaettavaksi erikseen; tavallisiin alueisiin ei kosketa.</li><li>Aktiivinen kampanja voi olla vain <strong>yksi</strong> kerrallaan. Lopettaaksesi sen valitse <strong>“Poista kampanja”</strong>: sen määräykset poistetaan ja kaikki palaa normaaliksi.</li></ul>
+<h3>S-13-kortti ja verkkopaneeli</h3>
+<ul><li><strong>Työkaluissa</strong> voit luoda <strong>S-13-kortin PDF-tiedostona</strong> (yksi sektoria kohden) jaettavaksi.</li><li><strong>Alueiden verkkopaneeli</strong> avautuu tietokoneen selaimessa. Antaaksesi aluevastaavalle käyttöoikeuden: avaa hänen korttinsa veljilistassa ja napauta <strong>“Paneelin käyttöoikeus”</strong> → <strong>“Luo linkki”</strong>. Linkki on henkilökohtainen; hän kirjautuu <strong>6-numeroisella salasanalla</strong>, jonka valitset sinä ja jonka voit vaihtaa milloin tahansa.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Paneelin linkki on kuin salasana: älä jaa sitä kenellekään, jolla ei pitäisi olla käyttöoikeutta. Jos luot uuden, edellinen lakkaa toimimasta.</div>
+</section>
+<section id="suscripcion"><h2>19. Seurakunnan tilaus</h2>
+<p>Jotta kaikilla veljillä ja sisarilla on täysi käyttöoikeus, tarvitaan <strong>seurakunnan vuositilaus</strong>. <strong>Yksi ylläpitäjä maksaa sen, ja se kattaa kaikki veljet ja sisaret</strong>, sekä iPhonessa että Androidissa. Muut veljet ja sisaret eivät maksa mitään.</p>
+<ol class="pasos"><li>Avaa <strong>Valikko → Asetukset → Seurakunnan tilaus</strong>.</li><li>Napauta <strong>“Tilaa seurakunnalle”</strong>. Ennen vahvistusta näet vuosihinnan; jos on <strong>ilmainen kokeilujakso</strong>, sinulta ei veloiteta mitään ennen sen päättymistä.</li><li>Vahvista App Storessa (iPhone) tai Google Playssa (Android). Valmis: koko seurakunnalla on käyttöoikeus.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Se <strong>uusiutuu automaattisesti</strong> joka vuosi, ellet peruuta sitä vähintään 24 tuntia ennen jakson päättymistä.</li><li><strong>Hallitaksesi tai peruuttaaksesi</strong> sen: <span class="plat i">iPhone</span> iPhonen asetukset → nimesi → Tilaukset; <span class="plat a">Android</span> Google Play → profiilisi → Maksut ja tilaukset → Tilaukset (tai Wkitin painike “Hallitse tai peruuta Google Playssa”).</li><li>Jos <strong>vaihdat puhelinta</strong>, napauta samalla näytöllä <strong>“Palauta ostokset”</strong>.</li><li>Jos tilaus <strong>päättyy</strong>, seurakunta siirtyy <strong>vain luku</strong> -tilaan: kaikki on edelleen nähtävissä, eikä <strong>mitään poisteta</strong>. Uusimisen jälkeen voi taas muokata.</li></ul>
+<div class="nota">Wkit ei koskaan näe tai tallenna maksutietojasi: niistä huolehtii Apple tai Google.</div>
+</section>
+<section id="copias"><h2>20. Tiedot, jotka on tallennettu vain tähän puhelimeen</h2>
+<p>Jos olet käyttänyt Wkitiä offline-tilassa tai ennen kuin seurakuntasi oli olemassa, sovellus voi kysyä, mitä tehdä <strong>vain tähän puhelimeen tallennetuille tiedoille</strong> (esimerkiksi veljille tai ilmoituksille). Sinulla on kaksi vaihtoehtoa: <strong>“Lataa”</strong> ne seurakunnalle (kaikki näkevät ne) tai <strong>“Hylkää”</strong>. Mitään ei tapahdu, ennen kuin päätät.</p>
+</section>
+      <div class="caja pie"><strong>Etkö löydä etsimääsi?</strong> Kirjoita meille osoitteeseen <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> ja kerro, mitä tapahtuu. Jos voit, kerro, mitä laitetta käytät (iPhone, iPad vai Android) ja mitä olit tekemässä.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

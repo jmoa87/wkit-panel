@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="tr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkit adım adım kılavuz — Wkit</title>
+    <meta name="description" content="Müjdeciler ve yöneticiler için Wkit adım adım kılavuz: giriş, hatırlatıcılar, rapor, kardeşler, gruplar, temizlik, programlar, duyurular, bölgeler ve abonelik." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-tr.html">← Wkit</a> · <a href="privacidad-tr.html">Gizlilik politikası</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <b>Türkçe</b> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a></p>
+      <h1>Wkit adım adım kılavuz</h1>
+      <p class="sub">Uygulamada yapabileceğin her şey sakin sakin anlatılıyor: müjdeciler ve yöneticiler için. iPhone, iPad ve Android’de aynı şekilde çalışır; fark olduğunda <span class="plat a">Android</span> veya <span class="plat i">iPhone</span> olarak işaretlenmiş görürsün.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Her üye için</h3><ol class="toc"><li><a href="#entrar">Wkit’e ilk giriş</a></li><li><a href="#inicio">Ana sayfa ekranı</a></li><li><a href="#recordatorios">Hatırlatıcılar: çan</a></li><li><a href="#notificaciones">Bildirimler: Wkit sana neleri bildirir</a></li><li><a href="#informe">Hizmet raporun (özel)</a></li><li><a href="#territorios-pub">Bölgeler: görüntüleme, teslim ve talepler</a></li><li><a href="#cuenta">Hesabın: telefon değiştirme, e-posta ilişkilendirme, dil ve silme</a></li><li><a href="#copia-seguridad">Yedek</a></li></ol></div><div class="toc-g"><h3>Yöneticiler (ihtiyarlar) için</h3><ol class="toc"><li><a href="#crear-congregacion">Cemaati oluşturma</a></li><li><a href="#hermanos">Kardeş listesi</a></li><li><a href="#grupos">Hizmet grupları</a></li><li><a href="#salidas">Vaaz toplantıları</a></li><li><a href="#limpieza">Temizlik: sıra kimde, hangi gün ve saat</a></li><li><a href="#vida-ministerio">Hıristiyan Yaşamı ve Hizmeti toplantısı programı</a></li><li><a href="#reunion-publica">Umumi konuşma</a></li><li><a href="#audio-video">Ses ve görüntü / Görevliler</a></li><li><a href="#otros-programas">Diğer programlar</a></li><li><a href="#anuncios">Duyurular</a></li><li><a href="#calendario">Cemaat takvimi</a></li><li><a href="#territorios-admin">Bölgeler: atama, kampanyalar ve web paneli</a></li><li><a href="#suscripcion">Cemaat aboneliği</a></li><li><a href="#copias">Yalnızca bu telefonda kayıtlı veriler</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Her üye için</h2>
+<section id="entrar"><h2>1. Wkit’e ilk giriş</h2>
+<p>Wkit’e girmek için <strong>e-posta veya parolaya ihtiyacın yok</strong>: cemaatinden bir ihtiyar seni davet eder, sen de bir bağlantı veya kodla katılırsın.</p>
+<ol class="pasos"><li>Kardeş listesini yöneten ihtiyardan seni davet etmesini iste. <strong>Art arda iki mesaj</strong> alırsın: önce bağlantı, sonra ayrı olarak kod (kolayca kopyalayabilmen için).</li><li><strong>Wkit</strong>’i App Store’dan (iPhone ve iPad) veya Google Play’den (Android) yükle.</li><li>İlk mesajdaki bağlantıya dokun: uygulama açılır ve seni tanır.</li><li>Bağlantı uygulamayı açmazsa uygulamayı kendin aç, <strong>“Davet bağlantım veya kodum var”</strong>’a dokun ve mesajın tamamını ya da yalnızca kodu yapıştır: uygulama gerekeni seçer.</li><li>Neyin ortak, neyin ortak olmadığını anlatan birkaç karşılama ekranı (<strong>“İlk adımlar”</strong>) göreceksin. Bitirince içeridesin.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Kod çalışmazsa</strong> (“geçersiz veya süresi dolmuş”), ihtiyardan yenisini oluşturmasını iste: senin kartından bir dakikalık iştir.</div>
+<div class="nota"><strong>Neyin ortak, neyin ortak olmadığı:</strong> kardeş listesini, programı, temizliği, bölgeleri ve duyuruları tüm cemaat görür ve bir ihtiyar oluşturur. <strong>Raporun yalnızca senindir</strong>: başka kimse, bir ihtiyar bile görmez ve cihazların arasında senkronize olur.</div>
+</section>
+<section id="inicio"><h2>2. Ana sayfa ekranı</h2>
+<p>Wkit’i açtığında ilk gördüğün şeydir. <strong>Sana düşenleri</strong> tek bakışta gösterir; sana atanan bir şey yoksa “Yakında görev yok” görürsün.</p>
+<ul><li><strong>Sonraki bölümler</strong>: Hıristiyan Yaşamı ve Hizmeti toplantısındaki ve umumi konuşmadaki bölümlerin (başkan, okuyucu, konuşmacı…).</li><li><strong>Sorumluluklar</strong>: Ses ve görüntü / Görevliler’de sana düşenler.</li><li><strong>Temizlik</strong>: yalnızca <em>bu hafta</em> sıra grubundaysa görünür. Grup gözetmeni veya yardımcısı bir gün ve saat belirlediyse onu altında görürsün (örneğin “Pazar 12:30”).</li><li><strong>Diğer programlar</strong>, <strong>Bölgeler</strong> (ve varsa kampanya) ile <strong>rapor</strong> hatırlatıcısı.</li><li><strong>Takvim</strong>: cemaat etkinlikleri (kongre, çevre gözetmeni ziyareti…); hatırlatıcı için bir çanla.</li></ul>
+<p>Altta beş sekme var: <strong>Ana sayfa</strong>, <strong>Program</strong>, <strong>Rapor</strong>, <strong>Bölgeler</strong> ve <strong>Menü</strong> (kardeş listesi, gruplar, temizlik, duyurular ve ayarlar orada).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Hatırlatıcılar: çan</h2>
+<p>Her görevin, sorumluluğun veya temizlik sırasının yanında bir <strong>çan</strong> vardır. Onunla telefon seni önceden, seçtiğin saatte uyarır.</p>
+<ol class="pasos"><li>Görevin yanındaki çana dokun.</li><li>Hatırlatıcının gününü ve saatini seç.</li><li>Onayla. Çan yeşile döner ve zamanı gelince çalar (titrer).</li><li>Kaldırmak için çana tekrar dokun ve hatırlatıcıyı kaldırmayı seç.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Bir ihtiyar temizliğin gününü veya saatini değiştirirse çan, hatırlatıcıyı yeni tarihle yeniden ayarlamanı önerir.</div>
+<div class="nota"><span class="plat a">Android</span> Hatırlatıcılar sana ulaşmıyorsa telefon ayarlarında Wkit’in bildirim iznine sahip olduğunu ve pil kullanımının kısıtlanmadığını kontrol et.</div>
+</section>
+<section id="notificaciones"><h2>4. Bildirimler: Wkit sana neleri bildirir</h2>
+<p>Wkit, yeni bir duyuru çıktığında, sana bir şey atandığında veya seni ilgilendiren değişiklikler olduğunda seni uyarır.</p>
+<ol class="pasos"><li>İlk seferde telefon sorduğunda <strong>bildirimlere izin ver</strong>.</li><li><strong>Menü → Ayarlar → Bildirimler</strong>’i aç.</li><li>İstemediğin kategorileri (Duyurular, Program, Ses ve görüntü, Temizlik, Bölgeler…) kapat ve bildirimleri almak istediğin günleri ve saati seç.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Bir cihaz aynı anda yalnızca tek bir kişinin bildirimlerini alır</strong>: oturumu açık olan kişinin. Sana ulaşmıyorlarsa cihazın kaydedilmesi için Wkit’i hesabında en az bir kez aç.</div>
+</section>
+<section id="informe"><h2>5. Hizmet raporun (özel)</h2>
+<p>Rapor <strong>kişisel</strong> bir araçtır: yalnızca sen görürsün, bir ihtiyar bile görmez. Telefonunda kayıtlıdır ve cihazların arasında senkronize olur.</p>
+<ol class="pasos"><li><strong>Rapor</strong> sekmesini aç. İlk seferde Wkit birkaç soru sorar: ne tür hizmet yaptığın (müjdeci, öncü…) ve aylık <strong>saat hedefin</strong> ne olduğu.</li><li>Hizmeti kaydetmek için <strong>“Yeni”</strong>ye dokun ve tarihi, saatleri ve dakikaları ile Kutsal Kitap çalışmalarını doldur.</li><li><strong>Geçmiş</strong>’te ay içinde ve hizmet yılında ne kadarın olduğunu görür, bir kaydı düzenleyebilir veya silebilirsin.</li><li>Her ayın ilk günü Wkit, seçtiğin saatte sana <strong>raporu göndermeni</strong> hatırlatabilir. <strong>“Raporu gönder”</strong> düğmesi, saatlerin ve çalışmalarınla mesajı hazırlar.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Raporun senkronize edilir</strong>, yani telefonunu değiştirirsen yeniden giriş yaptığında geri alırsın. Yine de bir yedek al (Menü → Ayarlar → Yedek): ek bir güvencedir. 21. bölüme bak.</div>
+</section>
+<section id="territorios-pub"><h2>6. Bölgeler: görüntüleme, teslim ve talepler</h2>
+<p><strong>Bölgeler</strong> sekmesinde sana atanan bölgeleri, hangi tarihten beri sende olduklarıyla birlikte görürsün.</p>
+<ol class="pasos"><li>Bir bölgeyi çalıştıktan sonra <strong>teslim etmek</strong> için onu aç ve <strong>“Teslim et”</strong>e (veya <strong>“Sürenin dolduğunu bildir”</strong>e) dokun. Bölgelerden sorumlu kişiye haber verilir.</li><li><strong>Hiç bölgen yoksa</strong> ve bir tane istiyorsan <strong>“Bir bölge iste”</strong>ye dokun. İsteğe bağlı bir mesaj ekleyebilirsin (örneğin “Merkeze yakın bir bölge isterim”).</li><li>Tüm bölge sorumlularına haber verilir ve ilk müsait olan sana bir bölge atar. Atandığında bir bildirim alırsın.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Hesabın: telefon değiştirme, e-posta ilişkilendirme, dil ve silme</h2>
+<h3>Telefon değiştirirsen veya kaybedersen</h3>
+<ul><li><strong>Hiçbir e-posta ilişkilendirmediysen</strong> (kardeşlerin buna ihtiyacı yok), bir ihtiyar sana kardeş listesindeki kartından <strong>yeni bir davet</strong> gönderir. Yerini cemaatle ilgili her şeyle ve raporunla birlikte geri alırsın.</li><li><strong>Bir e-posta ilişkilendirdiysen</strong> Wkit’i aç, <strong>“Hesap oluştur veya yönetici olarak giriş yap”</strong>a dokun, e-postanı yaz ve gelen bağlantıyı aç. Sahip olduğun her şeyle girersin.</li></ul>
+<h3>Wkit’i birden fazla cihazda kullanma</h3>
+<ul><li><strong>Aynı hesabı aynı anda</strong> iPhone, iPad ve Android’de (örneğin telefonda ve tablette) kullanabilirsin.</li><li>Başka bir cihaz eklemek için bir ihtiyar kartından sana daveti gönderir, sen de onu o cihazda açarsın. <strong>İlk cihazdaki oturum kapanmaz.</strong></li><li>Raporun tüm cihazların arasında senkronize olur.</li></ul>
+<h3>E-posta ilişkilendirme (isteğe bağlı, yöneticiler için önerilir)</h3>
+<ol class="pasos"><li><strong>Menü → Ayarlar → Hesabım → E-postamı ilişkilendir</strong>’i aç.</li><li>E-postanı yaz. Bir onay bağlantısı alacaksın.</li><li><strong>Onu aynı telefonda</strong>, e-posta uygulamasında aç. Ekran kendiliğinden kapanır ve hesabın ilişkilendirilmiş olur.</li></ol>
+<h3>Dili değiştirme</h3>
+<p>Wkit telefonunun dilini kullanır. Yalnızca Wkit için değiştirmek için: telefon ayarları → Uygulamalar → Wkit → Dil.</p>
+<h3>Hesabı silme</h3>
+<p><strong>Menü → Ayarlar → Hesabım → Hesabımı sil.</strong> Hesabın, listedeki kartın ve telefonda kayıtlı veriler (rapor dahil) silinir; sende olan bölgeler serbest bırakılır. Geri alınamaz. Tek yönetici sensen ve başka kardeşler varsa önce başka birini atamalısın (kardeş listesinde onun kartını aç ve “Yönetici”yi etkinleştir). Cemaatteki tek kişi sensen cemaatin tamamı da silinir.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Hesabı silmek, bu hesap ödüyorsa cemaat aboneliğini <strong>iptal etmez</strong>: App Store’dan <span class="plat i">iPhone</span> veya Google Play → Ödemeler ve abonelikler → Abonelikler’den <span class="plat a">Android</span> iptal edilir.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Yedek</h2>
+<p>Esas olarak <strong>raporunun ek bir kopyasına</strong> sahip olmak içindir: cihazların arasında senkronize olsa da yedek, yanlışlıkla silersen seni korur. <strong>Menü → Ayarlar → Yedek</strong>’te bulursun.</p>
+<ul><li><strong>Otomatik yedek</strong>: ayda bir kez kendiliğinden yedek alır.</li><li><strong>“Şimdi yedek al”</strong> ve <strong>“Yedeği dışa aktar”</strong>: dosyayı istediğin yere kaydedebilir veya kendine gönderebilirsin.</li><li><strong>“Yedeği geri yükle”</strong>: Wkit’ten dışa aktarılmış bir dosya seç. Yedekteki veriler, zaten sahip olduklarına <strong>eklenir</strong>: hiçbir şey silinmez.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Otomatik yedek iCloud’unda saklanır. <span class="plat a">Android</span> Telefonda saklanır ve Google hesabında Android yedeklemesi açıksa (telefon ayarları → Google → Yedekleme) yeni bir telefonda o hesaba girdiğinde otomatik geri alırsın.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Yöneticiler (ihtiyarlar) için</h2>
+<section id="crear-congregacion"><h2>8. Cemaati oluşturma</h2>
+<p>Bir ihtiyar bunu <strong>yalnızca bir kez</strong> yapar; sonra diğerlerini davet eder.</p>
+<ol class="pasos"><li>Wkit’i aç ve <strong>“Hesap oluştur veya yönetici olarak giriş yap”</strong>a dokun.</li><li>E-postanı yaz ve <strong>“Erişim bağlantısını gönder”</strong>e dokun. Parola yok: e-postanın sana ait olduğunu doğrulayan bir bağlantı alırsın.</li><li><strong>Bağlantıyı aynı telefonda aç.</strong> Wkit kendiliğinden açılır.</li><li><strong>Adını</strong>, <strong>cemaat adını</strong>, <strong>cemaat numarasını</strong> ve <strong>ülkeyi</strong> doldur, sonra <strong>“Cemaati oluştur”</strong>a dokun.</li><li><strong>“İhtiyar olarak ilk adımlar”</strong>ı göreceksin: 1) kardeşleri kardeş listesine ekle ve 2) onları davet et.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">E-posta gelmedi mi? Spam klasörüne bak ve <strong>“Bana ulaşmadı, tekrar gönder”</strong>e dokun. Bir e-postanın Wkit’te yalnızca bir hesabı olabilir.</div>
+</section>
+<section id="hermanos"><h2>9. Kardeş listesi</h2>
+<p>Her şeyin temelidir: programlar, gruplar ve görevler bu listedeki adları kullanır. <strong>Menü → Kardeş listesi</strong>’nde bulursun.</p>
+<h3>Kardeş ekleme</h3>
+<ol class="pasos"><li><strong>+</strong> düğmesine (<strong>“Yeni kardeş”</strong>) dokun.</li><li><strong>Adı</strong> yaz ve <strong>erkek kardeş</strong> mi <strong>kız kardeş</strong> mi olduğunu seç.</li><li><strong>Görevini</strong> seç: vaftiz olmuş veya olmamış müjdeci, öncü, hizmetli yardımcı veya ihtiyar.</li><li>Gerekirse <strong>hizmet grubunu</strong> seç ve <strong>Bölge sorumlusu</strong>, <strong>Ses ve görüntü / Görevliler</strong> veya <strong>Yönetici</strong> seçeneğini etkinleştir.</li><li><strong>“Oluştur”</strong>a dokun.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Aynı adlı iki kardeş:</strong> görevler karışmasın diye onları ayıran bir şey ekle (örneğin “jr.”).</div>
+<h3>Bir kardeşi Wkit’e davet etme</h3>
+<ol class="pasos"><li>Kardeşin kartını aç ve <strong>“Davet et”</strong>e (veya <strong>“Bağlantı oluştur”</strong>a) dokun.</li><li><strong>“Daveti paylaş”</strong>a dokun ve WhatsApp, mesajlar vb. seç. <strong>Art arda iki mesaj</strong> gönderilir: önce bağlantı, sonra ayrı olarak kod; kolayca kopyalanabilsin diye.</li><li>Kardeş bağlantıyı açar (veya kodu yapıştırır) ve girer. Henüz katılmadıysa daveti yeniden paylaşabilirsin; yenisini oluşturursan eskisi çalışmaz.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Düzenleme, silme ve yönetici atama</h3>
+<ul><li>Bir kardeşe dokun ve verilerini değiştirmek için <strong>“Düzenle”</strong>yi seç.</li><li>Android’de silmek için satırındaki <strong>kırmızı simgeye</strong> dokun; iPhone’da satırı sola kaydır. Tüm cihazlarda listeden kaldırılır ve sahip olduğu bölgeler serbest bırakılır.</li><li>Bir <strong>yönetici</strong> kardeşleri, bölgeleri, duyuruları ve programı yönetebilir. <strong>Kendi kartını ve son yöneticiyi silemezsin</strong>: önce başka birini ata.</li></ul>
+</section>
+<section id="grupos"><h2>10. Hizmet grupları</h2>
+<p>Gruplar vaaz toplantıları ve temizlik için kullanılır. <strong>Menü → Hizmet grupları → Liste</strong>’de bulunurlar.</p>
+<ol class="pasos"><li>Yoksa <strong>“Hizmet grupları oluştur”</strong>a dokun ve <strong>kaç grup</strong> istediğini seç (sonra <strong>+</strong> düğmesiyle daha fazla ekleyebilirsin).</li><li>Kardeşleri gruplara atamak için <strong>Kardeş listesi</strong>ne git, her birinin kartını aç ve <strong>hizmet grubunu</strong> seç.</li><li><strong>Menü → Hizmet grupları → Liste</strong>’ye dön. Her grupta <strong>grup gözetmenini</strong>, <strong>yardımcısını</strong> ve kardeşleri <strong>alfabetik sırayla</strong> görürsün.</li><li><strong>Kalem</strong> düğmesine (Düzenle) dokun. <strong>“Grup gözetmeni”</strong>ne dokun ve o grubun kardeşlerinden birini seç; <strong>“Yardımcı”</strong> için de aynısını yap. Aynı kişi olamaz.</li><li>Bitirmek için <strong>onay işaretine</strong> dokun.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Grup gözetmeni ve yardımcısı kardeşleri atadıktan <strong>sonra</strong> seçilir, çünkü yalnızca o grubun kardeşleri arasından seçilebilir. Bir kardeşi başka bir gruba taşırsan önceki grubun gözetmeni veya yardımcısı olmaktan çıkar.</div>
+<div class="nota">Her grubun gözetmeni ve yardımcısı, yönetici olmasalar bile kendi grupları için <strong>temizliğin gününü ve saatini belirleyebilir</strong> (12. bölüm).</div>
+</section>
+<section id="salidas"><h2>11. Vaaz toplantıları</h2>
+<p>Vaaz toplantıları, vaaza çıkmak için buluşma saatleri ve yerleridir. <strong>Genel</strong> (tüm cemaat için) ve <strong>her grubun kendi</strong> toplantıları olabilir. <strong>Menü → Hizmet grupları → Vaaz toplantıları</strong>’nda bulunurlar. Önce grupların oluşturulması gerekir.</p>
+<ol class="pasos"><li><strong>“Cemaat”</strong> bölümüne (genel toplantılar) veya bir <strong>grubun</strong> bölümüne dokun.</li><li>İlgili günde <strong>“Toplantı ekle”</strong>ye dokun ve bir <strong>etiket</strong> (örneğin “Sabah” veya “Öğleden sonra”), <strong>saat</strong> ve istersen <strong>yer</strong> yaz.</li><li>Bir toplantıyı <strong>düzenlemek</strong> için alanlarını doğrudan değiştir. <strong>Silmek</strong> için satırındaki kırmızı simgeye dokun.</li><li>Kardeşler yere dokunarak telefonlarının haritasında açabilir.</li></ol>
+<div class="nota">Bir grubun kendi toplantısı yoksa cemaatinkiler kullanılır (“Kendi toplantıları yok — cemaatinkileri kullan”).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Temizlik: sıra kimde, hangi gün ve saat</h2>
+<p>Temizlik hizmet grupları arasında <strong>otomatik olarak döner</strong>: her hafta sıra başka bir gruptadır, Grup 1’den başlar. <strong>Menü → Temizlik → Gruplar</strong>’da bulunur.</p>
+<h3>Bu hafta temizlik yapan grubu değiştirme (yöneticiler)</h3>
+<ol class="pasos"><li><strong>Kalem</strong> düğmesine (Düzenle) dokun.</li><li>Bu hafta sırası olan <strong>gruba</strong> dokun. Gelecek hafta sıradaki grup olacaktır.</li><li><strong>Onay işaretine</strong> dokun. Cemaatin <strong>tüm cihazları</strong> değişikliği görür.</li></ol>
+<h3>Kesin gün ve saati belirleme (yöneticiler ile grup gözetmeni ve yardımcısı)</h3>
+<ol class="pasos"><li><strong>Menü → Temizlik → Gruplar</strong>’da grubunu (veya ilgilendiğin grubu) bul ve satırındaki <strong>kaleme</strong> dokun.</li><li><strong>Günü</strong> ve <strong>saati</strong> seç (örneğin Pazar 12:30) ve <strong>“Kaydet”</strong>e dokun. Tarihi kaldırmak için <strong>“Tarihi kaldır”</strong>a dokun.</li><li>O gruptaki kardeşler bunu Ana sayfa ekranında görür: <strong>“Grup 1 · Bu hafta”</strong> ve altında <strong>“Pazar 12:30”</strong>, hatırlatıcı ayarlamak için kendi <strong>çanlarıyla</strong>.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Tarih Ana sayfa ekranında yalnızca <strong>geçerli haftadaysa</strong> (Pazartesi’den Pazar’a) görünür. Önceden belirleyebilirsin: o hafta geldiğinde görünür. Geçmiş haftaların tarihleri kendiliğinden kaybolur.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Hıristiyan Yaşamı ve Hizmeti toplantısı programı</h2>
+<p><strong>Program → Hıristiyan Yaşamı ve Hizmeti</strong> sekmesinde her haftanın programını oluşturur ve bölümleri atarsın. Tüm kardeşler görür; yalnızca yöneticiler düzenleyebilir.</p>
+<ol class="pasos"><li><strong>“Yeni hafta”</strong>ya dokun ve <strong>toplantı tarihini</strong> seç (o haftanın herhangi bir günü, Pazartesi’den Pazar’a).</li><li>Wkit haftayı <strong>olağan yapıyla</strong> oluşturur: Kutsal Yazılar’dan Hazineler, Hizmette Daha Etkili Olalım ve Hıristiyan Yaşamı.</li><li>Değiştirmek için herhangi bir <strong>başlığa</strong> ve gerekirse <strong>süreye</strong> dokun. <strong>“Sorumluluk ekle”</strong> düğmesiyle başka bölümler ekleyebilirsin.</li><li>Her bölümde <strong>“Seç”</strong>e dokun ve kardeşi veya kardeşleri (örneğin öğrenci ve yardımcısı) göster. <strong>Yardımcı salon</strong> için <strong>“Yardımcı salon ekle”</strong>yi kullan.</li><li><strong>İlahileri</strong> ve <strong>duaları</strong> da seç ve <strong>“Programı kaydet”</strong>e dokun.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Başka bir haftayı görmek için <strong>hafta seçiciyi</strong> kullan (<strong>“Önceki hafta”</strong> / <strong>“Sonraki hafta”</strong>); oradan <strong>düzenleyebilir veya silebilirsin</strong> de.</li><li>Kardeşler bir bölüm atandığında <strong>bildirim</strong> alır ve onu Ana sayfa ekranında görür.</li><li>Haftanın programı Pazar bittiğinde kendiliğinden kaybolur.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Umumi konuşma</h2>
+<p><strong>Program → Umumi konuşma</strong>’da hafta sonu her toplantı hazırlanır.</p>
+<ol class="pasos"><li><strong>“Yeni umumi konuşma”</strong>ya dokun ve <strong>tarihi</strong> seç. O tarih için zaten bir toplantı varsa Wkit seni uyarır.</li><li><strong>Başkanı</strong>, <strong>konuşmacıyı</strong> seç ve <strong>konuşma başlığını</strong> yaz.</li><li><strong>Gözcü Kulesi okuyucusunu</strong>, ayrıca <strong>ilahileri</strong> ve <strong>duaları</strong> seç.</li><li>Kaydet. Kardeşler bölümlerini Ana sayfa ekranında görecek.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Ses ve görüntü / Görevliler</h2>
+<p><strong>Menü → Ses ve görüntü / Görevliler</strong>’de her haftanın sorumluluklarını atarsın: ses, görüntü, mikrofonlar, görevliler, Zoom, zaman tutma…</p>
+<ol class="pasos"><li><strong>“Yeni hafta”</strong>ya dokun ve <strong>toplantı tarihini</strong> seç.</li><li>Her sorumlulukta <strong>“Seç”</strong>e dokun ve bir kardeşi göster. Mikrofonlar gibi bazıları <strong>birden fazla kardeşe</strong> izin verir (<strong>“Kardeş ekle”</strong>).</li><li>Listede olmayan başka bir sorumluluk için <strong>“Sorumluluk ekle”</strong>ye dokun ve ona bir ad ver.</li><li>Kaydet. Her kardeş bunu Ana sayfa ekranındaki <strong>Sorumluluklar</strong> bölümünde, kendi çanıyla görecek.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Diğer programlar</h2>
+<p>Cemaatin düzenlediği ve toplantı olmayan <strong>her şey</strong> için: örneğin gelemeyen kardeşler için ulaşım veya müjdecilere destek. Her programın kendi sıklığı vardır. <strong>Menü → Diğer programlar</strong>’da bulunur.</p>
+<ol class="pasos"><li><strong>“Yeni program”</strong>a dokun. <strong>Adı</strong> yaz ve <strong>ne sıklıkla yapıldığını</strong> seç: günlük, haftalık, aylık veya yıllık.</li><li><strong>“İlk haftayı oluştur”</strong>a (veya <strong>“Yeni dönem”</strong>e) dokun ve tarihi seç: o haftanın, ayın veya yılın herhangi bir günü.</li><li><strong>“Sorumluluk ekle”</strong>ye dokun: isteğe bağlı bir <strong>etiket</strong> yaz (örneğin “Erken alır”) ve <strong>bir erkek veya kız kardeş seç</strong>.</li><li>Kaydet. Herkes bunu Ana sayfa ekranında <strong>“Diğer programlar”</strong> bölümünde görür ve dönem bittiğinde kendiliğinden kaybolur.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Duyurular</h2>
+<p>Duyuruları yöneticiler, yalnızca kendi grupları için de her hizmet grubunun gözetmeni ve yardımcısı oluşturur. Kime yönelikse o kardeşler görür. <strong>Menü → Duyurular</strong>’da bulunurlar.</p>
+<ol class="pasos"><li><strong>“Yeni duyuru”</strong>ya dokun ve <strong>mesajı</strong> yaz.</li><li>Varsayılan olarak kaydeder kaydetmez <strong>hemen</strong> yayımlanır ve herkes bildirim alır.</li><li>Daha sonra çıkmasını istersen <strong>“Daha sonrası için planla”</strong>yı etkinleştir ve <strong>tarih ve saati</strong> seç: o zamana kadar kimse görmez, o saatte herkes bildirimi alır.</li><li>Kaydet. Bir duyuruyu silmek için ona dokun ve <strong>“Sil”</strong>i seç: herkes için kaybolur.</li></ol>
+<h3>Yalnızca bir grup için duyurular</h3>
+<ul><li>Her hizmet grubunun <strong>gözetmeni</strong> ve <strong>yardımcısı</strong>, yönetici olmasalar bile <strong>+</strong> düğmesini görür ve duyuruları <strong>yalnızca kendi grubunun üyelerine</strong> ulaşır.</li><li>Kendi grubu da olan bir yönetici, duyuru oluştururken <strong>“Bu duyuruyu yalnızca grubumun üyelerine gönder”</strong> seçeneğini etkinleştirebilir.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Cemaat takvimi</h2>
+<p>Herkesin <strong>çevre toplantısı</strong> veya <strong>çevre gözetmeni ziyareti</strong> gibi cemaat etkinliklerini görmesini sağlar. Yalnızca yöneticiler oluşturur.</p>
+<ol class="pasos"><li><strong>Menü → Takvim</strong>’i aç ve <strong>“Etkinlik ekle”</strong>ye dokun.</li><li><strong>Başlığı</strong> yaz ve etkinliğin <strong>günlerine</strong> dokun: birkaç gün sürüyorsa her birine dokun.</li><li>Kaydet. Herkes bunu <strong>Ana sayfa</strong> ekranında “Takvim” bölümünde, hatırlatıcı ayarlamak için bir <strong>çanla</strong> görür.</li><li>Değiştirmek veya silmek için etkinliği aç ve <strong>“Etkinliği düzenle”</strong> veya <strong>“Etkinliği sil”</strong>i seç.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Bölgeler: atama, kampanyalar ve web paneli</h2>
+<p><strong>Bölge sorumlusu</strong> yetkisi olan kişi, tüm cemaatin bölgelerini <strong>Bölgeler</strong> sekmesinde yönetir (müjdeciler yalnızca kendilerininkini görür).</p>
+<h3>Bölge atama ve teslim alma</h3>
+<ul><li>Bir bölgeye dokun ve <strong>“Ata”</strong>yı (veya “Bir müjdeciye ata”) ve bir kardeşi seç. Kimde olduğunu ve ne zamandan beri olduğunu, ayrıca hangilerinin <strong>süresinin dolduğunu</strong> veya <strong>hiç atanmadığını</strong> görürsün.</li><li>Bir müjdeci bölge <strong>istediğinde</strong> tüm bölge sorumluları bildirim alır (<strong>“Bölge talepleri”</strong>); ilk müsait olan ona atar.</li><li>Bir kardeş bölgeyi <strong>teslim ettiğinde</strong> bölge boşa çıkar ve tarih kaydedilir.</li></ul>
+<h3>Kampanyalar</h3>
+<ul><li><strong>“Yeni kampanya”</strong>, belirli bir dönem için tüm bölgeleri sıfırdan kaydeder. Ayrı dağıtılmak üzere mevcut bölgelerin bir <strong>kopyası</strong> oluşturulur; olağan bölgelere dokunulmaz.</li><li>Aynı anda yalnızca <strong>bir etkin kampanya</strong> olabilir. Bitirmek için <strong>“Kampanyayı sil”</strong>i seç: atamaları silinir ve her şey normale döner.</li></ul>
+<h3>S-13 kartı ve web paneli</h3>
+<ul><li><strong>Araçlar</strong>’da paylaşmak için <strong>PDF olarak S-13 kartını</strong> (sektör başına bir tane) oluşturabilirsin.</li><li><strong>Bölgeler web paneli</strong> bilgisayarın tarayıcısında açılır. Bir bölge sorumlusuna erişim vermek için: kardeş listesinde kartını aç ve <strong>“Panele erişim”</strong> → <strong>“Bağlantı oluştur”</strong>a dokun. Bağlantı kişiseldir; o, senin seçtiğin ve istediğin zaman değiştirebileceğin <strong>6 haneli parolayla</strong> girer.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Panel bağlantısı bir parola gibidir: erişimi olmaması gereken kimseyle paylaşma. Yenisini oluşturursan eskisi çalışmaz.</div>
+</section>
+<section id="suscripcion"><h2>19. Cemaat aboneliği</h2>
+<p>Tüm kardeşlerin tam erişimi olması için <strong>yıllık cemaat aboneliği</strong> gerekir. <strong>Bir yönetici öder ve tüm kardeşleri kapsar</strong>; hem iPhone’da hem Android’de. Diğer kardeşler hiçbir şey ödemez.</p>
+<ol class="pasos"><li><strong>Menü → Ayarlar → Cemaat aboneliği</strong>’ni aç.</li><li><strong>“Cemaati abone et”</strong>e dokun. Onaylamadan önce yıllık fiyatı görürsün; <strong>ücretsiz deneme süresi</strong> varsa bitene kadar ücret alınmaz.</li><li>App Store’da (iPhone) veya Google Play’de (Android) onayla. Tamam: tüm cemaatin erişimi var.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Dönem bitmeden en az 24 saat önce iptal etmezsen her yıl <strong>otomatik olarak yenilenir</strong>.</li><li><strong>Yönetmek veya iptal etmek</strong> için: <span class="plat i">iPhone</span> iPhone Ayarları → adın → Abonelikler; <span class="plat a">Android</span> Google Play → profilin → Ödemeler ve abonelikler → Abonelikler (veya Wkit’in “Google Play’de yönet veya iptal et” düğmesi).</li><li><strong>Telefonunu değiştirirsen</strong> aynı ekranda <strong>“Satın alımları geri yükle”</strong>ye dokun.</li><li>Abonelik <strong>sona ererse</strong> cemaat <strong>salt okunur</strong> moda geçer: her şey görülmeye devam eder ve <strong>hiçbir şey silinmez</strong>. Yenilenince tekrar düzenlenebilir.</li></ul>
+<div class="nota">Wkit ödeme verilerini asla görmez veya saklamaz: onunla Apple veya Google ilgilenir.</div>
+</section>
+<section id="copias"><h2>20. Yalnızca bu telefonda kayıtlı veriler</h2>
+<p>Wkit’i çevrimdışı veya cemaatin oluşmadan önce kullandıysan uygulama, <strong>yalnızca bu telefonda kayıtlı verilerle</strong> (örneğin kardeşler veya duyurular) ne yapılacağını sorabilir. İki seçeneğin var: cemaate <strong>“Yükle”</strong> (herkes görecek) veya <strong>“Vazgeç”</strong>. Sen karar verene kadar hiçbir şey olmaz.</p>
+</section>
+      <div class="caja pie"><strong>Aradığını bulamıyor musun?</strong> <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> adresine yaz ve neler olduğunu anlat. Mümkünse hangi cihazı kullandığını (iPhone, iPad veya Android) ve ne yaptığını belirt.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

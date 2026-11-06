@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Stapsgewijze handleiding voor Wkit — Wkit</title>
+    <meta name="description" content="Stapsgewijze handleiding voor Wkit voor verkondigers en beheerders: inloggen, herinneringen, verslag, broeders, groepen, schoonmaken, programma’s, mededelingen, gebieden en abonnement." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-nl.html">← Wkit</a> · <a href="privacidad-nl.html">Privacybeleid</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <b>Nederlands</b> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a></p>
+      <h1>Stapsgewijze handleiding voor Wkit</h1>
+      <p class="sub">Alles wat je in de app kunt doen, rustig uitgelegd: voor verkondigers en voor beheerders. Op iPhone, iPad en Android werkt het hetzelfde; als er een verschil is, zie je dat aangegeven als <span class="plat a">Android</span> of <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Voor elk lid</h3><ol class="toc"><li><a href="#entrar">De eerste keer in Wkit</a></li><li><a href="#inicio">Het startscherm</a></li><li><a href="#recordatorios">Herinneringen: het belletje</a></li><li><a href="#notificaciones">Meldingen: waarover Wkit je informeert</a></li><li><a href="#informe">Je velddienstverslag (privé)</a></li><li><a href="#territorios-pub">Gebieden: bekijken, inleveren en aanvragen</a></li><li><a href="#cuenta">Je account: van telefoon wisselen, e-mailadres koppelen, taal en verwijderen</a></li><li><a href="#copia-seguridad">Back-up</a></li></ol></div><div class="toc-g"><h3>Voor beheerders (ouderlingen)</h3><ol class="toc"><li><a href="#crear-congregacion">De gemeente aanmaken</a></li><li><a href="#hermanos">De broederlijst</a></li><li><a href="#grupos">Velddienstgroepen</a></li><li><a href="#salidas">Velddienstbijeenkomsten</a></li><li><a href="#limpieza">Schoonmaken: wie aan de beurt is en welke dag en tijd</a></li><li><a href="#vida-ministerio">Het programma van de bijeenkomst Christelijk leven en bediening</a></li><li><a href="#reunion-publica">De openbare bijeenkomst</a></li><li><a href="#audio-video">Geluid en beeld / Dienaren</a></li><li><a href="#otros-programas">Overige programma’s</a></li><li><a href="#anuncios">Mededelingen</a></li><li><a href="#calendario">De agenda van de gemeente</a></li><li><a href="#territorios-admin">Gebieden: toewijzen, campagnes en webpaneel</a></li><li><a href="#suscripcion">Het abonnement van de gemeente</a></li><li><a href="#copias">Gegevens die alleen op deze telefoon zijn opgeslagen</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Voor elk lid</h2>
+<section id="entrar"><h2>1. De eerste keer in Wkit</h2>
+<p>Om in Wkit te komen heb je <strong>geen e-mailadres of wachtwoord nodig</strong>: een ouderling van je gemeente nodigt je uit en je sluit je aan via een link of een code.</p>
+<ol class="pasos"><li>Vraag de ouderling die de broederlijst beheert om je uit te nodigen. Je krijgt <strong>twee berichten achter elkaar</strong>: eerst de link en daarna, apart, de code (zodat je hem makkelijk kunt kopiëren).</li><li>Installeer <strong>Wkit</strong> vanuit de App Store (iPhone en iPad) of vanuit Google Play (Android).</li><li>Tik op de link in het eerste bericht: de app opent en herkent je.</li><li>Als de link de app niet opent, open de app dan zelf, tik op <strong>“Ik heb een uitnodigingslink of -code”</strong> en plak het hele bericht of alleen de code: de app kiest wat ze nodig heeft.</li><li>Je ziet een paar welkomstschermen (<strong>“Eerste stappen”</strong>) die uitleggen wat gedeeld wordt en wat niet. Als je klaar bent, ben je binnen.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Als de code niet werkt</strong> (“ongeldig of verlopen”), vraag de ouderling dan een nieuwe aan te maken: dat kost een minuut vanuit jouw kaart.</div>
+<div class="nota"><strong>Wat gedeeld wordt en wat niet:</strong> de broederlijst, het programma, het schoonmaken, de gebieden en de mededelingen worden door de hele gemeente gezien en door een ouderling aangemaakt. <strong>Je verslag is van jou alleen</strong>: niemand anders ziet het, ook geen ouderling, en het wordt gesynchroniseerd tussen je apparaten.</div>
+</section>
+<section id="inicio"><h2>2. Het startscherm</h2>
+<p>Dit is het eerste wat je ziet als je Wkit opent. Het laat <strong>wat van jou is</strong> in één oogopslag zien; als er niets aan jou is toegewezen, zie je “Geen opdracht binnenkort”.</p>
+<ul><li><strong>Volgende onderdelen</strong>: je onderdelen in de bijeenkomst Christelijk leven en bediening en in de openbare bijeenkomst (voorzitter, lezer, spreker…).</li><li><strong>Verantwoordelijkheden</strong>: wat je hebt bij Geluid en beeld / Dienaren.</li><li><strong>Schoonmaken</strong>: verschijnt alleen als je groep <em>deze week</em> aan de beurt is. Als de groepsopziener of de helper een dag en tijd heeft vastgesteld, zie je die eronder (bijvoorbeeld “Zondag 12:30”).</li><li><strong>Overige programma’s</strong>, <strong>Gebieden</strong> (en de campagne, als er een is) en de herinnering voor het <strong>verslag</strong>.</li><li><strong>Agenda</strong>: de gebeurtenissen van de gemeente (congres, bezoek van de kringopziener…), met een belletje voor een herinnering.</li></ul>
+<p>Onderaan zie je vijf tabbladen: <strong>Start</strong>, <strong>Programma</strong>, <strong>Verslag</strong>, <strong>Gebieden</strong> en <strong>Menu</strong> (daar staan de broederlijst, groepen, schoonmaken, mededelingen en instellingen).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Herinneringen: het belletje</h2>
+<p>Naast elke taak, verantwoordelijkheid of schoonmaakbeurt staat een <strong>belletje</strong>. Daarmee herinnert je telefoon je er van tevoren aan, op het tijdstip dat jij kiest.</p>
+<ol class="pasos"><li>Tik op het belletje naast de taak.</li><li>Kies de dag en het tijdstip van de herinnering.</li><li>Bevestig. Het belletje wordt groen en gaat over (trilt) als het zover is.</li><li>Om het te verwijderen, tik je nogmaals op het belletje en kies je de herinnering verwijderen.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Als een ouderling de dag of het tijdstip van het schoonmaken wijzigt, stelt het belletje je voor de herinnering opnieuw in te stellen met de nieuwe datum.</div>
+<div class="nota"><span class="plat a">Android</span> Als de herinneringen je niet bereiken, controleer dan in de instellingen van je telefoon of Wkit toestemming heeft voor meldingen en of het batterijgebruik niet is beperkt.</div>
+</section>
+<section id="notificaciones"><h2>4. Meldingen: waarover Wkit je informeert</h2>
+<p>Wkit waarschuwt je als er een nieuwe mededeling is, als je iets is toegewezen of als er wijzigingen zijn die jou raken.</p>
+<ol class="pasos"><li><strong>Sta meldingen toe</strong> als de telefoon er de eerste keer naar vraagt.</li><li>Open <strong>Menu → Instellingen → Meldingen</strong>.</li><li>Zet categorieën die je niet wilt uit (Mededelingen, Programma, Geluid en beeld, Schoonmaken, Gebieden…) en kies de dagen en het uur waarop je ze liever ontvangt.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Een apparaat ontvangt maar de meldingen van één persoon tegelijk</strong>: degene die is ingelogd. Als ze je niet bereiken, open dan minstens één keer Wkit met je account zodat het apparaat wordt geregistreerd.</div>
+</section>
+<section id="informe"><h2>5. Je velddienstverslag (privé)</h2>
+<p>Het verslag is een <strong>persoonlijk</strong> hulpmiddel: alleen jij ziet het, zelfs een ouderling niet. Het wordt op je telefoon opgeslagen en gesynchroniseerd tussen je apparaten.</p>
+<ol class="pasos"><li>Open het tabblad <strong>Verslag</strong>. De eerste keer stelt Wkit je een paar vragen: wat voor dienst je doet (verkondiger, pionier…) en wat <strong>je urendoel</strong> per maand is.</li><li>Om dienst te noteren, tik je op <strong>“Nieuw”</strong> en vul je de datum, de uren en minuten en de bijbelstudies in.</li><li>In de <strong>Geschiedenis</strong> zie je hoeveel je hebt in de maand en in het dienstjaar, en kun je een vermelding bewerken of verwijderen.</li><li>Op de eerste dag van elke maand kan Wkit je op het tijdstip dat je kiest eraan herinneren om <strong>het verslag in te leveren</strong>. De knop <strong>“Verslag versturen”</strong> bereidt het bericht voor met je uren en studies.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Je verslag wordt gesynchroniseerd</strong> met je account, dus als je van telefoon wisselt, krijg je het terug zodra je opnieuw inlogt. Maak toch een back-up (Menu → Instellingen → Back-up): het is een extra veiligheid. Zie punt 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Gebieden: bekijken, inleveren en aanvragen</h2>
+<p>In het tabblad <strong>Gebieden</strong> zie je de gebieden die aan jou zijn toegewezen, met de datum vanaf wanneer je ze hebt.</p>
+<ol class="pasos"><li>Om een gebied <strong>in te leveren</strong> nadat je het hebt bewerkt, open je het en tik je op <strong>“Inleveren”</strong> (of <strong>“Melden dat de tijd om is”</strong>). De verantwoordelijke voor de gebieden krijgt een melding.</li><li>Als je <strong>er geen hebt</strong> en er een wilt, tik je op <strong>“Een gebied aanvragen”</strong>. Je kunt een optioneel bericht toevoegen (bijvoorbeeld “Ik zou graag een gebied dicht bij het centrum willen”).</li><li>Alle gebiedenopzieners krijgen een melding en de eerste die kan, wijst je er een toe. Als je er een krijgt, ontvang je een melding.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Je account: van telefoon wisselen, e-mailadres koppelen, taal en verwijderen</h2>
+<h3>Als je van telefoon wisselt of je telefoon kwijtraakt</h3>
+<ul><li>Als je <strong>geen e-mailadres hebt gekoppeld</strong> (broeders hebben dat niet nodig), stuurt een ouderling je een <strong>nieuwe uitnodiging</strong> vanuit jouw kaart in de broederlijst. Je krijgt je plek terug, met alles wat bij de gemeente hoort, en je verslag.</li><li>Als je <strong>een e-mailadres hebt gekoppeld</strong>, open dan Wkit, tik op <strong>“Account aanmaken of inloggen als beheerder”</strong>, typ je e-mailadres en open de link die je krijgt. Je komt binnen met alles wat je had.</li></ul>
+<h3>Wkit op meerdere apparaten gebruiken</h3>
+<ul><li>Je kunt <strong>hetzelfde account tegelijk</strong> gebruiken op iPhone, iPad en Android (bijvoorbeeld op je telefoon en je tablet).</li><li>Om een ander apparaat toe te voegen, stuurt een ouderling je de uitnodiging vanuit jouw kaart en open jij die op dat apparaat. <strong>De sessie op het eerste apparaat wordt niet gesloten.</strong></li><li>Je verslag wordt gesynchroniseerd tussen al je apparaten.</li></ul>
+<h3>Een e-mailadres koppelen (optioneel, aanbevolen voor beheerders)</h3>
+<ol class="pasos"><li>Open <strong>Menu → Instellingen → Mijn account → Mijn e-mailadres koppelen</strong>.</li><li>Typ je e-mailadres. Je krijgt een bevestigingslink.</li><li><strong>Open die op dezelfde telefoon</strong>, in de e-mailapp. Het scherm sluit vanzelf en je account is gekoppeld.</li></ol>
+<h3>De taal wijzigen</h3>
+<p>Wkit gebruikt de taal van je telefoon. Om die alleen voor Wkit te wijzigen: instellingen van de telefoon → Apps → Wkit → Taal.</p>
+<h3>Het account verwijderen</h3>
+<p><strong>Menu → Instellingen → Mijn account → Mijn account verwijderen.</strong> Je account, je kaart in de lijst en de gegevens die op de telefoon zijn opgeslagen (inclusief het verslag) worden verwijderd; gebieden die je had, komen weer vrij. Dit kan niet ongedaan worden gemaakt. Als je de enige beheerder bent en er andere broeders en zusters zijn, moet je eerst een andere aanwijzen (open in de broederlijst zijn of haar kaart en zet “Beheerder” aan). Als je de enige persoon in de gemeente bent, wordt ook de hele gemeente verwijderd.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Het verwijderen van het account <strong>zegt het abonnement van de gemeente niet op</strong> als dat account het betaalt: dat zeg je op in de App Store <span class="plat i">iPhone</span> of in Google Play → Betalingen en abonnementen → Abonnementen <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Back-up</h2>
+<p>Dient vooral om <strong>een extra kopie van je verslag</strong> te hebben: hoewel het tussen je apparaten wordt gesynchroniseerd, beschermt de back-up je als je het per ongeluk verwijdert. Je vindt hem in <strong>Menu → Instellingen → Back-up</strong>.</p>
+<ul><li><strong>Automatische kopie</strong>: maakt zelf eens per maand een kopie.</li><li><strong>“Nu een kopie maken”</strong> en <strong>“Back-up exporteren”</strong>: je kunt het bestand opslaan waar je wilt of naar jezelf sturen.</li><li><strong>“Back-up herstellen”</strong>: kies een bestand dat uit Wkit is geëxporteerd. De gegevens uit de back-up worden <strong>toegevoegd</strong> aan wat je al hebt: er wordt niets verwijderd.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> De automatische kopie wordt opgeslagen in je iCloud. <span class="plat a">Android</span> Hij wordt op de telefoon opgeslagen en als je de Android-back-up hebt ingeschakeld in je Google-account (instellingen van de telefoon → Google → Back-up), krijg je hem automatisch terug als je op een nieuwe telefoon bij dat account inlogt.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Voor beheerders (ouderlingen)</h2>
+<section id="crear-congregacion"><h2>8. De gemeente aanmaken</h2>
+<p>Een ouderling doet dit <strong>maar één keer</strong>; daarna nodigt hij de anderen uit.</p>
+<ol class="pasos"><li>Open Wkit en tik op <strong>“Account aanmaken of inloggen als beheerder”</strong>.</li><li>Typ je e-mailadres en tik op <strong>“Toegangslink versturen”</strong>. Er zijn geen wachtwoorden: je krijgt een link die bevestigt dat het e-mailadres van jou is.</li><li><strong>Open de link op dezelfde telefoon.</strong> Wkit opent vanzelf.</li><li>Vul <strong>je naam</strong>, <strong>de naam van de gemeente</strong>, <strong>het gemeentenummer</strong> en <strong>het land</strong> in en tik op <strong>“Gemeente aanmaken”</strong>.</li><li>Je ziet <strong>“Eerste stappen als ouderling”</strong>: 1) voeg de broeders en zusters toe aan de broederlijst en 2) nodig ze uit.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Is de e-mail niet aangekomen? Kijk in je spammap en tik op <strong>“Het is niet aangekomen, opnieuw versturen”</strong>. Een e-mailadres kan maar één account in Wkit hebben.</div>
+</section>
+<section id="hermanos"><h2>9. De broederlijst</h2>
+<p>Dit is de basis van alles: programma’s, groepen en taken gebruiken de namen uit deze lijst. Je vindt hem in <strong>Menu → Broederlijst</strong>.</p>
+<h3>Een broeder toevoegen</h3>
+<ol class="pasos"><li>Tik op de knop <strong>+</strong> (<strong>“Nieuwe broeder”</strong>).</li><li>Typ de <strong>naam</strong> en kies of het een <strong>broeder</strong> of een <strong>zuster</strong> is.</li><li>Kies zijn of haar <strong>rol</strong>: gedoopte of ongedoopte verkondiger, pionier, dienaar in de bediening of ouderling.</li><li>Kies indien nodig zijn of haar <strong>velddienstgroep</strong> en zet <strong>Gebiedenopziener</strong>, <strong>Geluid en beeld / Dienaren</strong> of <strong>Beheerder</strong> aan.</li><li>Tik op <strong>“Aanmaken”</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Twee broeders met dezelfde naam:</strong> voeg iets toe waaraan je ze kunt onderscheiden (bijvoorbeeld “jr.”), zodat de taken niet door elkaar raken.</div>
+<h3>Een broeder uitnodigen voor Wkit</h3>
+<ol class="pasos"><li>Open de kaart van de broeder en tik op <strong>“Uitnodigen”</strong> (of <strong>“Link aanmaken”</strong>).</li><li>Tik op <strong>“Uitnodiging delen”</strong> en kies WhatsApp, berichten enzovoort. Er worden <strong>twee berichten achter elkaar</strong> verstuurd: eerst de link en daarna, apart, de code, zodat die makkelijk te kopiëren is.</li><li>De broeder opent de link (of plakt de code) en komt binnen. Als hij zich nog niet heeft aangesloten, kun je de uitnodiging opnieuw delen; als je een nieuwe aanmaakt, werkt de vorige niet meer.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Bewerken, verwijderen en beheerders aanwijzen</h3>
+<ul><li>Tik op een broeder en kies <strong>“Bewerken”</strong> om zijn gegevens te wijzigen.</li><li>Om te verwijderen tik je op Android op het <strong>rode pictogram</strong> in zijn rij; op iPhone veeg je de rij naar links. Hij wordt op alle apparaten uit de lijst verwijderd en de gebieden die hij had, komen weer vrij.</li><li>Een <strong>beheerder</strong> kan broeders, gebieden, mededelingen en het programma beheren. <strong>Je kunt je eigen kaart en de laatste beheerder niet verwijderen</strong>: wijs eerst een andere aan.</li></ul>
+</section>
+<section id="grupos"><h2>10. Velddienstgroepen</h2>
+<p>Groepen worden gebruikt voor de velddienstbijeenkomsten en voor het schoonmaken. Je vindt ze in <strong>Menu → Velddienstgroepen → Lijst</strong>.</p>
+<ol class="pasos"><li>Als ze er niet zijn, tik je op <strong>“Velddienstgroepen aanmaken”</strong> en kies je <strong>hoeveel groepen</strong> je wilt (later kun je er meer toevoegen met de knop <strong>+</strong>).</li><li>Om broeders en zusters aan groepen toe te wijzen, ga je naar de <strong>Broederlijst</strong>, open je ieders kaart en kies je zijn of haar <strong>velddienstgroep</strong>.</li><li>Ga terug naar <strong>Menu → Velddienstgroepen → Lijst</strong>. In elke groep zie je de <strong>groepsopziener</strong>, de <strong>helper</strong> en de broeders <strong>in alfabetische volgorde</strong>.</li><li>Tik op de knop met het <strong>potlood</strong> (Bewerken). Tik op <strong>“Groepsopziener”</strong> en kies een van de broeders van die groep; doe hetzelfde met <strong>“Helper”</strong>. Het mag niet dezelfde persoon zijn.</li><li>Tik op het <strong>vinkje</strong> om af te ronden.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">De groepsopziener en de helper kies je <strong>nadat</strong> je de broeders hebt toegewezen, omdat je alleen kunt kiezen uit de broeders van die groep. Als je een broeder naar een andere groep verplaatst, is hij geen opziener of helper meer van de vorige.</div>
+<div class="nota">De opziener en de helper van elke groep <strong>kunnen de dag en het tijdstip van het schoonmaken instellen</strong> voor hun groep (punt 12), ook als ze geen beheerder zijn.</div>
+</section>
+<section id="salidas"><h2>11. Velddienstbijeenkomsten</h2>
+<p>Velddienstbijeenkomsten zijn de tijden en plaatsen waar je samenkomt om erop uit te gaan. Er zijn <strong>algemene</strong> (voor de hele gemeente) en <strong>eigen bijeenkomsten van elke groep</strong>. Je vindt ze in <strong>Menu → Velddienstgroepen → Velddienstbijeenkomsten</strong>. Eerst moeten de groepen zijn aangemaakt.</p>
+<ol class="pasos"><li>Tik op het onderdeel <strong>“Gemeente”</strong> (algemene bijeenkomsten) of op dat van een <strong>groep</strong>.</li><li>Tik op <strong>“Bijeenkomst toevoegen”</strong> bij de juiste dag en typ een <strong>label</strong> (bijvoorbeeld “Ochtend” of “Middag”), de <strong>tijd</strong> en, als je wilt, de <strong>plaats</strong>.</li><li>Om een bijeenkomst te <strong>bewerken</strong>, wijzig je de velden rechtstreeks. Om hem te <strong>verwijderen</strong>, tik je op het rode pictogram in zijn rij.</li><li>Broeders en zusters kunnen op de plaats tikken om die op de kaart van hun telefoon te openen.</li></ol>
+<div class="nota">Als een groep geen eigen bijeenkomsten heeft, worden die van de gemeente gebruikt (“Geen eigen bijeenkomsten — gebruik die van de gemeente”).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Schoonmaken: wie aan de beurt is en welke dag en tijd</h2>
+<p>Het schoonmaken <strong>wisselt automatisch</strong> tussen de velddienstgroepen: elke week is een andere groep aan de beurt, te beginnen met Groep 1. Je vindt het in <strong>Menu → Schoonmaken → Groepen</strong>.</p>
+<h3>De groep wijzigen die deze week schoonmaakt (beheerders)</h3>
+<ol class="pasos"><li>Tik op de knop met het <strong>potlood</strong> (Bewerken).</li><li>Tik op de <strong>groep</strong> die deze week aan de beurt is. Volgende week is het de volgende groep in de volgorde.</li><li>Tik op het <strong>vinkje</strong>. <strong>Alle apparaten</strong> van de gemeente zien de wijziging.</li></ol>
+<h3>De exacte dag en tijd instellen (beheerders, en de opziener en de helper van de groep)</h3>
+<ol class="pasos"><li>Zoek in <strong>Menu → Schoonmaken → Groepen</strong> je groep (of de groep waarvoor je zorgt) en tik op het <strong>potlood</strong> in haar rij.</li><li>Kies de <strong>dag</strong> en het <strong>tijdstip</strong> (bijvoorbeeld zondag om 12:30) en tik op <strong>“Opslaan”</strong>. Om de datum te verwijderen, tik je op <strong>“Datum verwijderen”</strong>.</li><li>De broeders en zusters van die groep zien die op het startscherm: <strong>“Groep 1 · Deze week”</strong> en daaronder <strong>“Zondag 12:30”</strong>, met hun eigen <strong>belletje</strong> om de herinnering in te stellen.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">De datum verschijnt alleen op het startscherm als hij in de <strong>huidige week</strong> valt (van maandag tot zondag). Je kunt hem van tevoren instellen: hij verschijnt zodra die week aanbreekt. Data van voorbije weken verdwijnen vanzelf.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Het programma van de bijeenkomst Christelijk leven en bediening</h2>
+<p>In het tabblad <strong>Programma → Christelijk leven en bediening</strong> maak je het programma van elke week en wijs je de onderdelen toe. Alle broeders en zusters zien het; alleen beheerders kunnen het bewerken.</p>
+<ol class="pasos"><li>Tik op <strong>“Nieuwe week”</strong> en kies de <strong>datum van de bijeenkomst</strong> (een willekeurige dag van die week, van maandag tot zondag).</li><li>Wkit maakt de week aan met de <strong>gebruikelijke opzet</strong>: Schatten uit Gods Woord, Verbeter je vaardigheden in de bediening en Christelijk leven.</li><li>Tik op een willekeurige <strong>titel</strong> om die te wijzigen en, indien nodig, ook de <strong>duur</strong>. Met de knop <strong>“Verantwoordelijkheid toevoegen”</strong> kun je andere onderdelen toevoegen.</li><li>Tik bij elk onderdeel op <strong>“Kiezen”</strong> en geef de broeder of broeders aan (bijvoorbeeld de leerling en de helper). Voor de <strong>extra zaal</strong> gebruik je <strong>“Hulpzaal toevoegen”</strong>.</li><li>Kies ook de <strong>liederen</strong> en de <strong>gebeden</strong> en tik op <strong>“Programma opslaan”</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Om een andere week te zien, gebruik je de <strong>weekkiezer</strong> (<strong>“Vorige week”</strong> / <strong>“Volgende week”</strong>); vanaf daar kun je hem ook <strong>bewerken of verwijderen</strong>.</li><li>De broeders en zusters krijgen een <strong>melding</strong> als hun een onderdeel wordt toegewezen en zien het op het startscherm.</li><li>Het programma van de week verdwijnt vanzelf als de zondag voorbij is.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. De openbare bijeenkomst</h2>
+<p>In <strong>Programma → Openbare bijeenkomst</strong> bereid je elke bijeenkomst in het weekend voor.</p>
+<ol class="pasos"><li>Tik op <strong>“Nieuwe openbare lezing”</strong> en kies de <strong>datum</strong>. Als er voor die datum al een bijeenkomst is, waarschuwt Wkit je.</li><li>Kies de <strong>voorzitter</strong>, de <strong>spreker</strong> en typ de <strong>titel van de lezing</strong>.</li><li>Kies de <strong>Wachttoren-lezer</strong> en de <strong>liederen</strong> en <strong>gebeden</strong>.</li><li>Sla op. De broeders en zusters zien hun onderdelen op het startscherm.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Geluid en beeld / Dienaren</h2>
+<p>In <strong>Menu → Geluid en beeld / Dienaren</strong> wijs je de verantwoordelijkheden van elke week toe: geluid, beeld, microfoons, dienaren, Zoom, tijdbewaking…</p>
+<ol class="pasos"><li>Tik op <strong>“Nieuwe week”</strong> en kies de <strong>datum van de bijeenkomst</strong>.</li><li>Tik bij elke verantwoordelijkheid op <strong>“Kiezen”</strong> en geef een broeder aan. Sommige, zoals microfoons, laten <strong>meerdere broeders</strong> toe (<strong>“Broeder toevoegen”</strong>).</li><li>Voor een andere verantwoordelijkheid die niet in de lijst staat, tik je op <strong>“Verantwoordelijkheid toevoegen”</strong> en geef je haar een naam.</li><li>Sla op. Elke broeder ziet het in het onderdeel <strong>Verantwoordelijkheden</strong> op zijn startscherm, met zijn eigen belletje.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Overige programma’s</h2>
+<p>Voor <strong>al het andere</strong> dat de gemeente organiseert en dat geen bijeenkomst is: bijvoorbeeld vervoer voor broeders en zusters die niet kunnen komen of hulp voor verkondigers. Elk programma heeft zijn eigen frequentie. Je vindt het in <strong>Menu → Overige programma’s</strong>.</p>
+<ol class="pasos"><li>Tik op <strong>“Nieuw programma”</strong>. Typ de <strong>naam</strong> en kies <strong>hoe vaak het plaatsvindt</strong>: dagelijks, wekelijks, maandelijks of jaarlijks.</li><li>Tik op <strong>“De eerste week aanmaken”</strong> (of <strong>“Nieuwe periode”</strong>) en kies de datum: een willekeurige dag van die week, maand of dat jaar.</li><li>Tik op <strong>“Verantwoordelijkheid toevoegen”</strong>: typ een optioneel <strong>label</strong> (bijvoorbeeld “Haalt eerder op”) en <strong>kies een broeder of zuster</strong>.</li><li>Sla op. Iedereen ziet het op zijn of haar startscherm, in het onderdeel <strong>“Overige programma’s”</strong>, en de periode verdwijnt vanzelf als hij voorbij is.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Mededelingen</h2>
+<p>Mededelingen worden gemaakt door de beheerders en, alleen voor hun eigen groep, door de opziener en de helper van elke velddienstgroep. De broeders en zusters voor wie ze bedoeld zijn, zien ze. Je vindt ze in <strong>Menu → Mededelingen</strong>.</p>
+<ol class="pasos"><li>Tik op <strong>“Nieuwe mededeling”</strong> en typ het <strong>bericht</strong>.</li><li>Standaard wordt hij <strong>meteen</strong> gepubliceerd zodra je hem opslaat en iedereen krijgt een melding.</li><li>Als je liever hebt dat hij later uitgaat, zet je <strong>“Plannen voor later”</strong> aan en kies je de <strong>datum en het tijdstip</strong>: tot dan ziet niemand hem en op dat tijdstip krijgt iedereen de melding.</li><li>Sla op. Om een mededeling te verwijderen, tik je erop en kies je <strong>“Verwijderen”</strong>: hij verdwijnt voor iedereen.</li></ol>
+<h3>Mededelingen voor maar één groep</h3>
+<ul><li>De <strong>opziener</strong> en de <strong>helper</strong> van elke velddienstgroep zien de knop <strong>+</strong>, ook als ze geen beheerder zijn, en hun mededelingen bereiken <strong>alleen de leden van hun groep</strong>.</li><li>Een beheerder die ook een groep heeft, kan bij het aanmaken van een mededeling <strong>“Deze mededeling alleen naar de leden van mijn groep sturen”</strong> aanzetten.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. De agenda van de gemeente</h2>
+<p>Hiermee kan iedereen de gebeurtenissen van de gemeente zien, zoals het <strong>kringcongres</strong> of het <strong>bezoek van de kringopziener</strong>. Alleen beheerders maken ze aan.</p>
+<ol class="pasos"><li>Open <strong>Menu → Agenda</strong> en tik op <strong>“Een gebeurtenis toevoegen”</strong>.</li><li>Typ de <strong>titel</strong> en tik op de <strong>dagen</strong> van de gebeurtenis: duurt hij meerdere dagen, tik dan op elk van die dagen.</li><li>Sla op. Iedereen ziet hem op het scherm <strong>Start</strong>, in het onderdeel “Agenda”, met een <strong>belletje</strong> om een herinnering in te stellen.</li><li>Om hem te wijzigen of te verwijderen, open je hem en kies je <strong>“Gebeurtenis bewerken”</strong> of <strong>“Gebeurtenis verwijderen”</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Gebieden: toewijzen, campagnes en webpaneel</h2>
+<p>Wie het recht <strong>Gebiedenopziener</strong> heeft, beheert de gebieden van de hele gemeente in het tabblad <strong>Gebieden</strong> (verkondigers zien alleen hun eigen gebieden).</p>
+<h3>Gebieden toewijzen en in ontvangst nemen</h3>
+<ul><li>Tik op een gebied en kies <strong>“Toewijzen”</strong> (of “Aan een verkondiger toewijzen”) en een broeder. Je ziet wie het heeft en sinds wanneer, en welke gebieden <strong>verlopen</strong> zijn of <strong>nooit toegewezen</strong>.</li><li>Wanneer een verkondiger een gebied <strong>aanvraagt</strong>, krijgen alle gebiedenopzieners een melding (<strong>“Gebiedsaanvragen”</strong>); de eerste die kan, wijst het toe.</li><li>Wanneer een broeder een gebied <strong>inlevert</strong>, komt het vrij en wordt de datum vastgelegd.</li></ul>
+<h3>Campagnes</h3>
+<ul><li><strong>“Nieuwe campagne”</strong> registreert alle gebieden opnieuw vanaf nul voor een bepaalde periode. Er wordt een <strong>kopie</strong> van de huidige gebieden gemaakt om apart uit te delen; de gewone gebieden blijven onaangeroerd.</li><li>Er kan maar <strong>één actieve campagne</strong> tegelijk zijn. Om hem te beëindigen, kies je <strong>“Campagne verwijderen”</strong>: de toewijzingen ervan worden verwijderd en alles gaat terug naar normaal.</li></ul>
+<h3>De S-13-kaart en het webpaneel</h3>
+<ul><li>In <strong>Hulpmiddelen</strong> kun je de <strong>S-13-kaart als pdf</strong> maken (één per sector) om te delen.</li><li>Het <strong>webpaneel voor gebieden</strong> opent in de browser van je computer. Om een gebiedenopziener toegang te geven: open zijn kaart in de broederlijst en tik op <strong>“Toegang tot het paneel”</strong> → <strong>“Link aanmaken”</strong>. De link is persoonlijk; hij logt in met een <strong>wachtwoord van 6 cijfers</strong> dat jij kiest en wanneer je maar wilt kunt wijzigen.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">De link naar het paneel is als een wachtwoord: deel hem met niemand die geen toegang hoort te hebben. Als je een nieuwe aanmaakt, werkt de vorige niet meer.</div>
+</section>
+<section id="suscripcion"><h2>19. Het abonnement van de gemeente</h2>
+<p>Om alle broeders en zusters volledige toegang te geven, is het <strong>jaarabonnement van de gemeente</strong> nodig. <strong>Een beheerder betaalt het en het geldt voor alle broeders en zusters</strong>, zowel op iPhone als op Android. De andere broeders en zusters betalen niets.</p>
+<ol class="pasos"><li>Open <strong>Menu → Instellingen → Abonnement van de gemeente</strong>.</li><li>Tik op <strong>“De gemeente abonneren”</strong>. Voordat je bevestigt, zie je de jaarprijs; als er een <strong>gratis proefperiode</strong> is, word je niets in rekening gebracht tot die voorbij is.</li><li>Bevestig in de App Store (iPhone) of in Google Play (Android). Klaar: de hele gemeente heeft toegang.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Het wordt elk jaar <strong>automatisch verlengd</strong>, tenzij je minstens 24 uur voor het einde van de periode opzegt.</li><li>Om het <strong>te beheren of op te zeggen</strong>: <span class="plat i">iPhone</span> Instellingen van de iPhone → je naam → Abonnementen; <span class="plat a">Android</span> Google Play → je profiel → Betalingen en abonnementen → Abonnementen (of de Wkit-knop “Beheren of opzeggen in Google Play”).</li><li>Als je <strong>van telefoon wisselt</strong>, tik je op hetzelfde scherm op <strong>“Aankopen herstellen”</strong>.</li><li>Als het abonnement <strong>verloopt</strong>, gaat de gemeente over op <strong>alleen-lezen</strong>: alles blijft zichtbaar en <strong>er wordt niets verwijderd</strong>. Na verlenging kan er weer worden bewerkt.</li></ul>
+<div class="nota">Wkit ziet of bewaart nooit je betaalgegevens: dat regelt Apple of Google.</div>
+</section>
+<section id="copias"><h2>20. Gegevens die alleen op deze telefoon zijn opgeslagen</h2>
+<p>Als je Wkit offline hebt gebruikt of voordat je gemeente bestond, kan de app vragen wat ze moet doen met de <strong>gegevens die alleen op deze telefoon zijn opgeslagen</strong> (bijvoorbeeld broeders of mededelingen). Je hebt twee mogelijkheden: ze <strong>“Uploaden”</strong> naar de gemeente (iedereen ziet ze) of <strong>“Verwerpen”</strong>. Er gebeurt niets totdat je beslist.</p>
+</section>
+      <div class="caja pie"><strong>Kun je niet vinden wat je zoekt?</strong> Schrijf ons op <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> en vertel wat er aan de hand is. Geef indien mogelijk aan welk apparaat je gebruikt (iPhone, iPad of Android) en wat je aan het doen was.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

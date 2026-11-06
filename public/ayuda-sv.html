@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="sv">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Steg-för-steg-guide till Wkit — Wkit</title>
+    <meta name="description" content="Steg-för-steg-guide till Wkit för förkunnare och administratörer: inloggning, påminnelser, rapport, bröder, grupper, städning, program, meddelanden, områden och prenumeration." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-sv.html">← Wkit</a> · <a href="privacidad-sv.html">Integritetspolicy</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <b>Svenska</b> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a></p>
+      <h1>Steg-för-steg-guide till Wkit</h1>
+      <p class="sub">Allt du kan göra i appen, lugnt förklarat: för förkunnare och för administratörer. På iPhone, iPad och Android fungerar det likadant; när det finns en skillnad ser du den markerad som <span class="plat a">Android</span> eller <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>För alla medlemmar</h3><ol class="toc"><li><a href="#entrar">Första gången i Wkit</a></li><li><a href="#inicio">Startskärmen</a></li><li><a href="#recordatorios">Påminnelser: klockan</a></li><li><a href="#notificaciones">Aviseringar: vad Wkit meddelar dig</a></li><li><a href="#informe">Din tjänsterapport (privat)</a></li><li><a href="#territorios-pub">Områden: titta, lämna tillbaka och be om</a></li><li><a href="#cuenta">Ditt konto: byta telefon, koppla e-post, språk och borttagning</a></li><li><a href="#copia-seguridad">Säkerhetskopia</a></li></ol></div><div class="toc-g"><h3>För administratörer (äldste)</h3><ol class="toc"><li><a href="#crear-congregacion">Skapa församlingen</a></li><li><a href="#hermanos">Broderlistan</a></li><li><a href="#grupos">Tjänstegrupper</a></li><li><a href="#salidas">Möten för tjänsten</a></li><li><a href="#limpieza">Städning: vems tur det är och vilken dag och tid</a></li><li><a href="#vida-ministerio">Programmet för mötet Vårt liv och vår tjänst som kristna</a></li><li><a href="#reunion-publica">Det offentliga mötet</a></li><li><a href="#audio-video">Ljud och bild / Värdar</a></li><li><a href="#otros-programas">Övriga program</a></li><li><a href="#anuncios">Meddelanden</a></li><li><a href="#calendario">Församlingens kalender</a></li><li><a href="#territorios-admin">Områden: tilldela, kampanjer och webbpanel</a></li><li><a href="#suscripcion">Församlingens prenumeration</a></li><li><a href="#copias">Data som bara är sparade på den här telefonen</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">För alla medlemmar</h2>
+<section id="entrar"><h2>1. Första gången i Wkit</h2>
+<p>För att komma in i Wkit <strong>behöver du varken e-postadress eller lösenord</strong>: en äldste i din församling bjuder in dig och du ansluter med en länk eller en kod.</p>
+<ol class="pasos"><li>Be den äldste som sköter broderlistan att bjuda in dig. Du får <strong>två meddelanden i rad</strong>: först länken och sedan, separat, koden (så att du lätt kan kopiera den).</li><li>Installera <strong>Wkit</strong> från App Store (iPhone och iPad) eller från Google Play (Android).</li><li>Tryck på länken i det första meddelandet: appen öppnas och känner igen dig.</li><li>Om länken inte öppnar appen, öppna den själv, tryck på <strong>“Jag har en inbjudningslänk eller -kod”</strong> och klistra in hela meddelandet eller bara koden: appen väljer ut det den behöver.</li><li>Du ser några välkomstskärmar (<strong>“Första stegen”</strong>) som förklarar vad som delas och vad som inte delas. När du är klar är du inne.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Om koden inte fungerar</strong> (“ogiltig eller utgången”), be den äldste skapa en ny: det tar en minut från ditt kort.</div>
+<div class="nota"><strong>Vad som delas och vad som inte delas:</strong> broderlistan, programmet, städningen, områdena och meddelandena ser hela församlingen och de skapas av en äldste. <strong>Din rapport är bara din</strong>: ingen annan ser den, inte ens en äldste, och den synkroniseras mellan dina enheter.</div>
+</section>
+<section id="inicio"><h2>2. Startskärmen</h2>
+<p>Det är det första du ser när du öppnar Wkit. Den visar <strong>det som gäller dig</strong> med en blick; om inget har tilldelats dig ser du “Ingen uppgift inom kort”.</p>
+<ul><li><strong>Nästa delar</strong>: dina delar i mötet Vårt liv och vår tjänst som kristna och i det offentliga mötet (ordförande, läsare, talare…).</li><li><strong>Ansvar</strong>: det du har inom Ljud och bild / Värdar.</li><li><strong>Städning</strong>: visas bara om det är din grupps tur <em>den här veckan</em>. Om gruppövervakaren eller medhjälparen har bestämt en dag och tid ser du den under (till exempel “Söndag 12:30”).</li><li><strong>Övriga program</strong>, <strong>Områden</strong> (och kampanjen, om det finns någon) och påminnelsen om <strong>rapporten</strong>.</li><li><strong>Kalender</strong>: församlingens händelser (sammankomst, kretstillsyningsmannens besök…), med en klocka för påminnelse.</li></ul>
+<p>Längst ner finns fem flikar: <strong>Hem</strong>, <strong>Program</strong>, <strong>Rapport</strong>, <strong>Områden</strong> och <strong>Meny</strong> (där finns broderlistan, grupper, städning, meddelanden och inställningar).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Påminnelser: klockan</h2>
+<p>Bredvid varje uppgift, ansvar eller städtur finns en <strong>klocka</strong>. Med den påminner telefonen dig i förväg, vid den tid du väljer.</p>
+<ol class="pasos"><li>Tryck på klockan bredvid uppgiften.</li><li>Välj dag och tid för påminnelsen.</li><li>Bekräfta. Klockan blir grön och ringer (vibrerar) när det är dags.</li><li>För att ta bort den, tryck på klockan igen och välj att ta bort påminnelsen.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Om en äldste ändrar dag eller tid för städningen föreslår klockan att du ställer in påminnelsen på nytt med det nya datumet.</div>
+<div class="nota"><span class="plat a">Android</span> Om påminnelserna inte når dig, kontrollera i telefonens inställningar att Wkit har tillstånd för aviseringar och att dess batterianvändning inte är begränsad.</div>
+</section>
+<section id="notificaciones"><h2>4. Aviseringar: vad Wkit meddelar dig</h2>
+<p>Wkit varnar dig när det kommer ett nytt meddelande, när något tilldelas dig eller när det sker ändringar som rör dig.</p>
+<ol class="pasos"><li>Första gången: <strong>tillåt aviseringar</strong> när telefonen frågar.</li><li>Öppna <strong>Meny → Inställningar → Aviseringar</strong>.</li><li>Stäng av kategorier du inte vill ha (Meddelanden, Program, Ljud och bild, Städning, Områden…) och välj de dagar och den tid du helst får dem.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>En enhet tar bara emot aviseringar för en person i taget</strong>: den som har sessionen öppen. Om de inte når dig, öppna Wkit med ditt konto minst en gång så att enheten registreras.</div>
+</section>
+<section id="informe"><h2>5. Din tjänsterapport (privat)</h2>
+<p>Rapporten är ett <strong>personligt</strong> verktyg: bara du ser den, inte ens en äldste. Den sparas på din telefon och synkroniseras mellan dina enheter.</p>
+<ol class="pasos"><li>Öppna fliken <strong>Rapport</strong>. Första gången ställer Wkit några frågor: vilken sorts tjänst du utför (förkunnare, pionjär…) och vad <strong>ditt timmål</strong> per månad är.</li><li>För att notera tjänst, tryck på <strong>“Ny”</strong> och fyll i datum, timmar och minuter samt bibelstudier.</li><li>Under <strong>Historik</strong> ser du hur mycket du har under månaden och under tjänsteåret, och du kan redigera eller ta bort en post.</li><li>Den första dagen i varje månad kan Wkit påminna dig, vid den tid du väljer, om att <strong>lämna in rapporten</strong>. Knappen <strong>“Skicka rapporten”</strong> förbereder meddelandet med dina timmar och studier.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Din rapport synkroniseras</strong> med ditt konto, så om du byter telefon får du tillbaka den när du loggar in igen. Gör ändå en säkerhetskopia (Meny → Inställningar → Säkerhetskopia): det är en extra trygghet. Se avsnitt 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Områden: titta, lämna tillbaka och be om</h2>
+<p>På fliken <strong>Områden</strong> ser du de områden som har tilldelats dig, med datumet från vilket du har dem.</p>
+<ol class="pasos"><li>För att <strong>lämna tillbaka</strong> ett område när du har arbetat det, öppna det och tryck på <strong>“Lämna tillbaka”</strong> (eller <strong>“Meddela att tiden är slut”</strong>). Den som ansvarar för områdena får en avisering.</li><li>Om du <strong>inte har något</strong> och vill ha ett, tryck på <strong>“Be om ett område”</strong>. Du kan lägga till ett valfritt meddelande (till exempel “Jag skulle vilja ha ett område nära centrum”).</li><li>Alla områdesansvariga får en avisering och den första som kan tilldelar dig ett. När du får ett får du en avisering.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Ditt konto: byta telefon, koppla e-post, språk och borttagning</h2>
+<h3>Om du byter eller tappar bort telefonen</h3>
+<ul><li>Om du <strong>inte har kopplat någon e-postadress</strong> (bröderna behöver ingen) skickar en äldste en <strong>ny inbjudan</strong> från ditt kort i broderlistan. Du får tillbaka din plats med allt som hör till församlingen, och din rapport.</li><li>Om du <strong>har kopplat en e-postadress</strong>, öppna Wkit, tryck på <strong>“Skapa konto eller logga in som administratör”</strong>, skriv din e-postadress och öppna länken du får. Du kommer in med allt du hade.</li></ul>
+<h3>Använda Wkit på flera enheter</h3>
+<ul><li>Du kan använda <strong>samma konto samtidigt</strong> på iPhone, iPad och Android (till exempel på telefonen och surfplattan).</li><li>För att lägga till en annan enhet skickar en äldste inbjudan från ditt kort och du öppnar den på den enheten. <strong>Sessionen på den första enheten stängs inte.</strong></li><li>Din rapport synkroniseras mellan alla dina enheter.</li></ul>
+<h3>Koppla e-post (valfritt, rekommenderas för administratörer)</h3>
+<ol class="pasos"><li>Öppna <strong>Meny → Inställningar → Mitt konto → Koppla min e-postadress</strong>.</li><li>Skriv din e-postadress. Du får en bekräftelselänk.</li><li><strong>Öppna den på samma telefon</strong>, i e-postappen. Skärmen stängs av sig själv och ditt konto är kopplat.</li></ol>
+<h3>Byta språk</h3>
+<p>Wkit använder telefonens språk. För att ändra det bara för Wkit: telefonens inställningar → Appar → Wkit → Språk.</p>
+<h3>Ta bort kontot</h3>
+<p><strong>Meny → Inställningar → Mitt konto → Ta bort mitt konto.</strong> Ditt konto, ditt kort i listan och uppgifterna som är sparade på telefonen (inklusive rapporten) tas bort; områden du hade frigörs. Det går inte att ångra. Om du är den enda administratören och det finns andra bröder och systrar måste du först utse en annan (öppna hans eller hennes kort i broderlistan och slå på “Administratör”). Om du är den enda personen i församlingen tas hela församlingen också bort.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Att ta bort kontot <strong>avslutar inte</strong> församlingens prenumeration om det är det kontot som betalar den: den avslutas i App Store <span class="plat i">iPhone</span> eller i Google Play → Betalningar och prenumerationer → Prenumerationer <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Säkerhetskopia</h2>
+<p>Den är mest till för att ha <strong>en extra kopia av din rapport</strong>: även om den synkroniseras mellan dina enheter skyddar säkerhetskopian dig om du råkar ta bort den. Du hittar den i <strong>Meny → Inställningar → Säkerhetskopia</strong>.</p>
+<ul><li><strong>Automatisk kopia</strong>: gör själv en kopia en gång i månaden.</li><li><strong>“Gör en kopia nu”</strong> och <strong>“Exportera säkerhetskopia”</strong>: du kan spara filen var du vill eller skicka den till dig själv.</li><li><strong>“Återställ säkerhetskopia”</strong>: välj en fil som exporterats från Wkit. Uppgifterna i kopian <strong>läggs till</strong> det du redan har: ingenting tas bort.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Den automatiska kopian sparas i din iCloud. <span class="plat a">Android</span> Den sparas på telefonen och, om du har slagit på Androids säkerhetskopiering i Google-kontot (telefonens inställningar → Google → Säkerhetskopiering), får du tillbaka den automatiskt när du loggar in på det kontot på en ny telefon.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">För administratörer (äldste)</h2>
+<section id="crear-congregacion"><h2>8. Skapa församlingen</h2>
+<p>En äldste gör detta <strong>bara en gång</strong>; sedan bjuder han in de andra.</p>
+<ol class="pasos"><li>Öppna Wkit och tryck på <strong>“Skapa konto eller logga in som administratör”</strong>.</li><li>Skriv din e-postadress och tryck på <strong>“Skicka åtkomstlänk”</strong>. Det finns inga lösenord: du får en länk som bekräftar att e-postadressen är din.</li><li><strong>Öppna länken på samma telefon.</strong> Wkit öppnas av sig själv.</li><li>Fyll i <strong>ditt namn</strong>, <strong>församlingens namn</strong>, <strong>församlingsnummer</strong> och <strong>land</strong> och tryck på <strong>“Skapa församling”</strong>.</li><li>Du ser <strong>“Första stegen som äldste”</strong>: 1) lägg till bröderna och systrarna i broderlistan och 2) bjud in dem.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Kom inte e-postmeddelandet fram? Kontrollera skräppostmappen och tryck på <strong>“Det kom inte fram, skicka igen”</strong>. En e-postadress kan bara ha ett konto i Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. Broderlistan</h2>
+<p>Den är grunden för allt: program, grupper och uppgifter använder namnen i den här listan. Du hittar den i <strong>Meny → Broderlista</strong>.</p>
+<h3>Lägga till en bror</h3>
+<ol class="pasos"><li>Tryck på knappen <strong>+</strong> (<strong>“Ny bror”</strong>).</li><li>Skriv <strong>namnet</strong> och välj om det är en <strong>bror</strong> eller en <strong>syster</strong>.</li><li>Välj hans eller hennes <strong>roll</strong>: döpt eller odöpt förkunnare, pionjär, biträdande tjänare eller äldste.</li><li>Välj vid behov hans eller hennes <strong>tjänstegrupp</strong> och slå på <strong>Områdesansvarig</strong>, <strong>Ljud och bild / Värdar</strong> eller <strong>Administratör</strong>.</li><li>Tryck på <strong>“Skapa”</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Två bröder med samma namn:</strong> lägg till något som skiljer dem åt (till exempel “jr”), så att uppgifterna inte blandas ihop.</div>
+<h3>Bjuda in en bror till Wkit</h3>
+<ol class="pasos"><li>Öppna broderns kort och tryck på <strong>“Bjud in”</strong> (eller <strong>“Skapa länk”</strong>).</li><li>Tryck på <strong>“Dela inbjudan”</strong> och välj WhatsApp, meddelanden osv. Det skickas <strong>två meddelanden i rad</strong>: först länken och sedan, separat, koden, så att den lätt kan kopieras.</li><li>Brodern öppnar länken (eller klistrar in koden) och kommer in. Om han ännu inte har anslutit kan du dela inbjudan igen; om du skapar en ny slutar den förra fungera.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Redigera, ta bort och utse administratörer</h3>
+<ul><li>Tryck på en bror och välj <strong>“Redigera”</strong> för att ändra hans uppgifter.</li><li>På Android trycker du, för att ta bort, på den <strong>röda ikonen</strong> på hans rad; på iPhone drar du raden åt vänster. Han tas bort från listan på alla enheter och områdena han hade frigörs.</li><li>En <strong>administratör</strong> kan hantera bröder, områden, meddelanden och programmet. <strong>Du kan inte ta bort ditt eget kort eller den sista administratören</strong>: utse först en annan.</li></ul>
+</section>
+<section id="grupos"><h2>10. Tjänstegrupper</h2>
+<p>Grupperna används för möten för tjänsten och för städning. De finns i <strong>Meny → Tjänstegrupper → Lista</strong>.</p>
+<ol class="pasos"><li>Om de inte finns, tryck på <strong>“Skapa tjänstegrupper”</strong> och välj <strong>hur många grupper</strong> du vill ha (senare kan du lägga till fler med knappen <strong>+</strong>).</li><li>För att placera bröderna i grupper, gå till <strong>Broderlistan</strong>, öppna var och ens kort och välj hans eller hennes <strong>tjänstegrupp</strong>.</li><li>Gå tillbaka till <strong>Meny → Tjänstegrupper → Lista</strong>. I varje grupp ser du <strong>gruppövervakaren</strong>, <strong>medhjälparen</strong> och bröderna <strong>i alfabetisk ordning</strong>.</li><li>Tryck på knappen med <strong>pennan</strong> (Redigera). Tryck på <strong>“Gruppövervakare”</strong> och välj en av bröderna i gruppen; gör likadant med <strong>“Medhjälpare”</strong>. Det kan inte vara samma person.</li><li>Tryck på <strong>bekräftelsemarkeringen</strong> för att avsluta.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Gruppövervakaren och medhjälparen väljs <strong>efter</strong> att bröderna har placerats, eftersom man bara kan välja bland bröderna i den gruppen. Om du flyttar en bror till en annan grupp är han inte längre övervakare eller medhjälpare i den förra.</div>
+<div class="nota">Övervakaren och medhjälparen i varje grupp <strong>kan bestämma dag och tid för städningen</strong> för sin grupp (avsnitt 12), även om de inte är administratörer.</div>
+</section>
+<section id="salidas"><h2>11. Möten för tjänsten</h2>
+<p>Möten för tjänsten är tiderna och platserna för samling inför tjänsten. Det finns <strong>allmänna</strong> (för hela församlingen) och <strong>varje grupps egna</strong>. De finns i <strong>Meny → Tjänstegrupper → Möten för tjänsten</strong>. Först måste grupperna skapas.</p>
+<ol class="pasos"><li>Tryck på avsnittet <strong>“Församling”</strong> (allmänna möten) eller på en <strong>grupps</strong> avsnitt.</li><li>Tryck på <strong>“Lägg till möte”</strong> vid rätt dag och skriv en <strong>etikett</strong> (till exempel “Förmiddag” eller “Eftermiddag”), <strong>tiden</strong> och, om du vill, <strong>platsen</strong>.</li><li>För att <strong>redigera</strong> ett möte ändrar du fälten direkt. För att <strong>ta bort</strong> det trycker du på den röda ikonen på dess rad.</li><li>Bröderna kan trycka på platsen för att öppna den på telefonens karta.</li></ol>
+<div class="nota">Om en grupp inte har egna möten används församlingens (“Inga egna möten – använd församlingens”).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Städning: vems tur det är och vilken dag och tid</h2>
+<p>Städningen <strong>roterar automatiskt</strong> mellan tjänstegrupperna: varje vecka är det en ny grupps tur, med början i Grupp 1. Du hittar den i <strong>Meny → Städning → Grupper</strong>.</p>
+<h3>Ändra vilken grupp som städar den här veckan (administratörer)</h3>
+<ol class="pasos"><li>Tryck på knappen med <strong>pennan</strong> (Redigera).</li><li>Tryck på den <strong>grupp</strong> vars tur det är den här veckan. Nästa vecka blir det nästa grupp i ordningen.</li><li>Tryck på <strong>bekräftelsemarkeringen</strong>. <strong>Alla enheter</strong> i församlingen ser ändringen.</li></ol>
+<h3>Bestämma exakt dag och tid (administratörer samt gruppens övervakare och medhjälpare)</h3>
+<ol class="pasos"><li>I <strong>Meny → Städning → Grupper</strong>, hitta din grupp (eller den du sköter) och tryck på <strong>pennan</strong> på dess rad.</li><li>Välj <strong>dag</strong> och <strong>tid</strong> (till exempel söndag kl. 12:30) och tryck på <strong>“Spara”</strong>. För att ta bort datumet trycker du på <strong>“Ta bort datum”</strong>.</li><li>Bröderna i den gruppen ser det på startskärmen: <strong>“Grupp 1 · Den här veckan”</strong> och under det <strong>“Söndag 12:30”</strong>, med sin egen <strong>klocka</strong> för att ställa in påminnelsen.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Datumet visas på startskärmen bara om det ligger i <strong>den aktuella veckan</strong> (måndag till söndag). Du kan ställa in det i förväg: det visas när den veckan kommer. Datum från gångna veckor försvinner av sig själva.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Programmet för mötet Vårt liv och vår tjänst som kristna</h2>
+<p>På fliken <strong>Program → Vårt liv och vår tjänst som kristna</strong> skapar du varje veckas program och tilldelar delarna. Alla bröder och systrar ser det; bara administratörer kan redigera det.</p>
+<ol class="pasos"><li>Tryck på <strong>“Ny vecka”</strong> och välj <strong>mötets datum</strong> (vilken dag som helst i den veckan, från måndag till söndag).</li><li>Wkit skapar veckan med den <strong>vanliga strukturen</strong>: Skatter ur Guds ord, Bli bättre i tjänsten och Kristet liv.</li><li>Tryck på vilken <strong>rubrik</strong> som helst för att ändra den och vid behov även <strong>längden</strong>. Med knappen <strong>“Lägg till ansvar”</strong> kan du lägga till fler delar.</li><li>I varje del trycker du på <strong>“Välj”</strong> och anger bror eller bröder (till exempel eleven och medhjälparen). För <strong>hjälpsalen</strong> använder du <strong>“Lägg till hjälpsal”</strong>.</li><li>Välj också <strong>sångerna</strong> och <strong>bönerna</strong> och tryck på <strong>“Spara programmet”</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>För att se en annan vecka använder du <strong>veckoväljaren</strong> (<strong>“Föregående vecka”</strong> / <strong>“Nästa vecka”</strong>); därifrån kan du också <strong>redigera eller ta bort</strong> den.</li><li>Bröderna får en <strong>avisering</strong> när en del tilldelas dem och ser den på startskärmen.</li><li>Veckans program försvinner av sig själv när söndagen är slut.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Det offentliga mötet</h2>
+<p>I <strong>Program → Offentligt möte</strong> förbereds varje möte i helgen.</p>
+<ol class="pasos"><li>Tryck på <strong>“Nytt offentligt föredrag”</strong> och välj <strong>datum</strong>. Om det redan finns ett möte för det datumet varnar Wkit dig.</li><li>Välj <strong>ordförande</strong>, <strong>talare</strong> och skriv <strong>föredragets rubrik</strong>.</li><li>Välj <strong>läsare vid Vakttornsstudiet</strong> samt <strong>sånger</strong> och <strong>böner</strong>.</li><li>Spara. Bröderna ser sina delar på startskärmen.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Ljud och bild / Värdar</h2>
+<p>I <strong>Meny → Ljud och bild / Värdar</strong> tilldelar du varje veckas ansvar: ljud, bild, mikrofoner, värdar, Zoom, tidtagning…</p>
+<ol class="pasos"><li>Tryck på <strong>“Ny vecka”</strong> och välj <strong>mötets datum</strong>.</li><li>Tryck på <strong>“Välj”</strong> vid varje ansvar och ange en bror. Vissa, som mikrofoner, tillåter <strong>flera bröder</strong> (<strong>“Lägg till bror”</strong>).</li><li>För ett annat ansvar som inte finns i listan trycker du på <strong>“Lägg till ansvar”</strong> och ger det ett namn.</li><li>Spara. Varje bror ser det i avsnittet <strong>Ansvar</strong> på sin startskärm, med sin egen klocka.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Övriga program</h2>
+<p>För <strong>allt annat</strong> som församlingen ordnar och som inte är ett möte: till exempel transport för bröder och systrar som inte kan komma eller hjälp åt förkunnare. Varje program har sin egen frekvens. Det finns i <strong>Meny → Övriga program</strong>.</p>
+<ol class="pasos"><li>Tryck på <strong>“Nytt program”</strong>. Skriv <strong>namnet</strong> och välj <strong>hur ofta det hålls</strong>: dagligen, varje vecka, varje månad eller varje år.</li><li>Tryck på <strong>“Skapa den första veckan”</strong> (eller <strong>“Ny period”</strong>) och välj datum: vilken dag som helst i den veckan, månaden eller det året.</li><li>Tryck på <strong>“Lägg till ansvar”</strong>: skriv en valfri <strong>etikett</strong> (till exempel “Hämtar tidigare”) och <strong>välj en bror eller syster</strong>.</li><li>Spara. Alla ser det på sin startskärm, i avsnittet <strong>“Övriga program”</strong>, och perioden försvinner av sig själv när den är slut.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Meddelanden</h2>
+<p>Meddelanden skapas av administratörerna och, bara för sin egen grupp, av övervakaren och medhjälparen i varje tjänstegrupp. De bröder och systrar de riktas till ser dem. De finns i <strong>Meny → Meddelanden</strong>.</p>
+<ol class="pasos"><li>Tryck på <strong>“Nytt meddelande”</strong> och skriv <strong>meddelandet</strong>.</li><li>Som standard publiceras det <strong>omedelbart</strong> så fort du sparar det och alla får en avisering.</li><li>Om du hellre vill att det går ut senare, slå på <strong>“Schemalägg till senare”</strong> och välj <strong>datum och tid</strong>: till dess ser ingen det, och vid den tiden får alla aviseringen.</li><li>Spara. För att ta bort ett meddelande trycker du på det och väljer <strong>“Ta bort”</strong>: det försvinner för alla.</li></ol>
+<h3>Meddelanden bara till en grupp</h3>
+<ul><li><strong>Övervakaren</strong> och <strong>medhjälparen</strong> i varje tjänstegrupp ser knappen <strong>+</strong>, även om de inte är administratörer, och deras meddelanden når <strong>bara medlemmarna i deras grupp</strong>.</li><li>En administratör som också har en grupp kan, när hon eller han skapar ett meddelande, slå på <strong>“Skicka det här meddelandet bara till medlemmarna i min grupp”</strong>.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Församlingens kalender</h2>
+<p>Den låter alla se församlingens händelser, som <strong>kretssammankomsten</strong> eller <strong>kretstillsyningsmannens besök</strong>. Bara administratörer skapar dem.</p>
+<ol class="pasos"><li>Öppna <strong>Meny → Kalender</strong> och tryck på <strong>“Lägg till en händelse”</strong>.</li><li>Skriv <strong>rubriken</strong> och tryck på händelsens <strong>dagar</strong>: om den varar flera dagar trycker du på var och en.</li><li>Spara. Alla ser den på skärmen <strong>Hem</strong>, i avsnittet “Kalender”, med en <strong>klocka</strong> för att ställa in en påminnelse.</li><li>För att ändra eller ta bort den öppnar du den och väljer <strong>“Redigera händelse”</strong> eller <strong>“Ta bort händelse”</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Områden: tilldela, kampanjer och webbpanel</h2>
+<p>Den som har behörigheten <strong>Områdesansvarig</strong> hanterar hela församlingens områden på fliken <strong>Områden</strong> (förkunnare ser bara sina egna).</p>
+<h3>Tilldela och ta emot områden</h3>
+<ul><li>Tryck på ett område och välj <strong>“Tilldela”</strong> (eller “Tilldela en förkunnare”) och en bror. Du ser vem som har det och sedan när, samt vilka som är <strong>utgångna</strong> eller <strong>aldrig tilldelade</strong>.</li><li>När en förkunnare <strong>ber om</strong> ett område får alla områdesansvariga en avisering (<strong>“Områdesbegäranden”</strong>); den första som kan tilldelar det.</li><li>När en bror <strong>lämnar tillbaka</strong> ett område blir det ledigt och datumet registreras.</li></ul>
+<h3>Kampanjer</h3>
+<ul><li><strong>“Ny kampanj”</strong> registrerar alla områden från noll för en viss period. En <strong>kopia</strong> av de aktuella områdena skapas för att delas ut separat; de vanliga områdena rörs inte.</li><li>Det kan bara finnas <strong>en aktiv kampanj</strong> åt gången. För att avsluta den väljer du <strong>“Ta bort kampanj”</strong>: dess tilldelningar tas bort och allt återgår till det normala.</li></ul>
+<h3>S-13-kortet och webbpanelen</h3>
+<ul><li>I <strong>Verktyg</strong> kan du skapa <strong>S-13-kortet som pdf</strong> (ett per sektor) för att dela det.</li><li><strong>Områdenas webbpanel</strong> öppnas i datorns webbläsare. För att ge en områdesansvarig åtkomst: öppna hans kort i broderlistan och tryck på <strong>“Åtkomst till panelen”</strong> → <strong>“Skapa länk”</strong>. Länken är personlig; han loggar in med ett <strong>lösenord på 6 siffror</strong> som du väljer och kan ändra när du vill.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Panellänken är som ett lösenord: dela den inte med någon som inte ska ha åtkomst. Om du skapar en ny slutar den förra fungera.</div>
+</section>
+<section id="suscripcion"><h2>19. Församlingens prenumeration</h2>
+<p>För att alla bröder och systrar ska ha full tillgång behövs <strong>församlingens årsprenumeration</strong>. <strong>En administratör betalar den och den gäller alla bröder och systrar</strong>, både på iPhone och på Android. De andra bröderna och systrarna betalar ingenting.</p>
+<ol class="pasos"><li>Öppna <strong>Meny → Inställningar → Församlingens prenumeration</strong>.</li><li>Tryck på <strong>“Prenumerera för församlingen”</strong>. Innan du bekräftar ser du årspriset; om det finns en <strong>gratis provperiod</strong> debiteras du ingenting förrän den är slut.</li><li>Bekräfta i App Store (iPhone) eller i Google Play (Android). Klart: hela församlingen har tillgång.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Den <strong>förnyas automatiskt</strong> varje år, om du inte avslutar den minst 24 timmar före periodens slut.</li><li>För att <strong>hantera eller avsluta den</strong>: <span class="plat i">iPhone</span> iPhones inställningar → ditt namn → Prenumerationer; <span class="plat a">Android</span> Google Play → din profil → Betalningar och prenumerationer → Prenumerationer (eller Wkits knapp “Hantera eller avsluta i Google Play”).</li><li>Om du <strong>byter telefon</strong> trycker du på <strong>“Återställ köp”</strong> på samma skärm.</li><li>Om prenumerationen <strong>löper ut</strong> övergår församlingen till <strong>skrivskyddat</strong> läge: allt kan fortfarande ses och <strong>ingenting tas bort</strong>. Efter förnyelse går det att redigera igen.</li></ul>
+<div class="nota">Wkit ser eller lagrar aldrig dina betalningsuppgifter: Apple eller Google sköter det.</div>
+</section>
+<section id="copias"><h2>20. Data som bara är sparade på den här telefonen</h2>
+<p>Om du har använt Wkit offline eller innan din församling fanns kan appen fråga vad den ska göra med <strong>data som bara är sparade på den här telefonen</strong> (till exempel bröder eller meddelanden). Du har två val: <strong>“Ladda upp”</strong> dem till församlingen (alla ser dem) eller <strong>“Förkasta”</strong>. Ingenting händer förrän du bestämmer dig.</p>
+</section>
+      <div class="caja pie"><strong>Hittar du inte det du söker?</strong> Skriv till oss på <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> och berätta vad som händer. Om du kan, berätta vilken enhet du använder (iPhone, iPad eller Android) och vad du höll på med.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

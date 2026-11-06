@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="ro">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Ghid pas cu pas pentru Wkit — Wkit</title>
+    <meta name="description" content="Ghid pas cu pas pentru Wkit pentru proclamatori și administratori: conectare, mementouri, raport, frați, grupuri, curățenie, programe, anunțuri, teritorii și abonament." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    
+  </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-ro.html">← Wkit</a> · <a href="privacidad-ro.html">Politica de confidențialitate</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <b>Română</b> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a></p>
+      <h1>Ghid pas cu pas pentru Wkit</h1>
+      <p class="sub">Tot ce poți face în aplicație, explicat pe îndelete: pentru proclamatori și pentru administratori. Pe iPhone, iPad și Android funcționează la fel; când există o diferență, o vei vedea marcată ca <span class="plat a">Android</span> sau <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Pentru orice membru</h3><ol class="toc"><li><a href="#entrar">Prima intrare în Wkit</a></li><li><a href="#inicio">Ecranul Acasă</a></li><li><a href="#recordatorios">Mementouri: clopoțelul</a></li><li><a href="#notificaciones">Notificări: ce îți comunică Wkit</a></li><li><a href="#informe">Raportul tău de predicare (privat)</a></li><li><a href="#territorios-pub">Teritorii: consultare, predare și cereri</a></li><li><a href="#cuenta">Contul tău: schimbarea telefonului, asocierea e-mailului, limba și ștergerea</a></li><li><a href="#copia-seguridad">Copia de siguranță</a></li></ol></div><div class="toc-g"><h3>Pentru administratori (bătrâni)</h3><ol class="toc"><li><a href="#crear-congregacion">Crearea congregației</a></li><li><a href="#hermanos">Lista fraților</a></li><li><a href="#grupos">Grupuri de predicare</a></li><li><a href="#salidas">Întruniri pentru predicare</a></li><li><a href="#limpieza">Curățenia: al cui e rândul și ce zi și oră</a></li><li><a href="#vida-ministerio">Programul întrunirii Viața și predicarea creștină</a></li><li><a href="#reunion-publica">Întrunirea publică</a></li><li><a href="#audio-video">Audio și video / Însoțitori</a></li><li><a href="#otros-programas">Alte programe</a></li><li><a href="#anuncios">Anunțuri</a></li><li><a href="#calendario">Calendarul congregației</a></li><li><a href="#territorios-admin">Teritorii: alocare, campanii și panoul web</a></li><li><a href="#suscripcion">Abonamentul congregației</a></li><li><a href="#copias">Date salvate doar pe acest telefon</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Pentru orice membru</h2>
+<section id="entrar"><h2>1. Prima intrare în Wkit</h2>
+<p>Pentru a intra în Wkit <strong>nu ai nevoie de e-mail sau parolă</strong>: un bătrân din congregația ta te invită, iar tu te alături printr-un link sau un cod.</p>
+<ol class="pasos"><li>Roagă bătrânul care gestionează lista fraților să te invite. Vei primi <strong>două mesaje la rând</strong>: mai întâi link-ul, apoi, separat, codul (ca să îl poți copia ușor).</li><li>Instalează <strong>Wkit</strong> din App Store (iPhone și iPad) sau din Google Play (Android).</li><li>Atinge link-ul din primul mesaj: aplicația se deschide și te recunoaște.</li><li>Dacă link-ul nu deschide aplicația, deschide-o tu, atinge <strong>„Am un link sau un cod de invitație”</strong> și lipește tot mesajul sau doar codul: aplicația alege ce are nevoie.</li><li>Vei vedea câteva ecrane de bun venit (<strong>„Primii pași”</strong>) care explică ce este comun și ce nu. Când termini, ești înăuntru.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Dacă codul nu funcționează</strong> („este invalid sau a expirat”), roagă bătrânul să genereze unul nou: durează puțin, din fișa ta.</div>
+<div class="nota"><strong>Ce este comun și ce nu:</strong> lista fraților, programul, curățenia, teritoriile și anunțurile le vede toată congregația și le creează un bătrân. <strong>Raportul tău este doar al tău</strong>: nimeni altcineva nu îl vede, nici măcar un bătrân, și se sincronizează între dispozitivele tale.</div>
+</section>
+<section id="inicio"><h2>2. Ecranul Acasă</h2>
+<p>Este primul lucru pe care îl vezi când deschizi Wkit. Îți arată <strong>ce îți revine</strong>, dintr-o privire; dacă nu ai nimic alocat, vei vedea „Nicio însărcinare apropiată”.</p>
+<ul><li><strong>Următoarele părți</strong>: părțile tale din întrunirea Viața și predicarea creștină și din întrunirea publică (președinte, cititor, vorbitor…).</li><li><strong>Responsabilități</strong>: ce ai la Audio și video / Însoțitori.</li><li><strong>Curățenia</strong>: apare doar dacă <em>în această săptămână</em> este rândul grupului tău. Dacă supraveghetorul grupului sau ajutorul a stabilit o zi și o oră, le vei vedea dedesubt (de exemplu „Duminică 12:30”).</li><li><strong>Alte programe</strong>, <strong>Teritorii</strong> (și campania, dacă există una) și mementoul pentru <strong>raport</strong>.</li><li><strong>Calendar</strong>: evenimentele congregației (adunare, vizita supraveghetorului de circumscripție…), cu un clopoțel pentru memento.</li></ul>
+<p>Jos ai cinci file: <strong>Acasă</strong>, <strong>Program</strong>, <strong>Raport</strong>, <strong>Teritorii</strong> și <strong>Meniu</strong> (acolo sunt lista fraților, grupurile, curățenia, anunțurile și setările).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Mementouri: clopoțelul</h2>
+<p>Lângă fiecare sarcină, responsabilitate sau rând la curățenie există un <strong>clopoțel</strong>. Cu el, telefonul ți-o amintește din timp, la ora pe care o alegi.</p>
+<ol class="pasos"><li>Atinge clopoțelul de lângă sarcină.</li><li>Alege ziua și ora mementoului.</li><li>Confirmă. Clopoțelul devine verde și sună (vibrează) când vine momentul.</li><li>Ca să îl elimini, atinge din nou clopoțelul și alege eliminarea mementoului.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Dacă un bătrân schimbă ziua sau ora curățeniei, clopoțelul îți propune din nou să programezi mementoul cu noua dată.</div>
+<div class="nota"><span class="plat a">Android</span> Dacă nu primești mementourile, verifică dacă Wkit are permisiunea de a trimite notificări în setările telefonului și dacă consumul său de baterie nu este restricționat.</div>
+</section>
+<section id="notificaciones"><h2>4. Notificări: ce îți comunică Wkit</h2>
+<p>Wkit te anunță când apare un anunț nou, când ți se alocă ceva sau când au loc schimbări care te privesc.</p>
+<ol class="pasos"><li>Prima dată, <strong>permite notificările</strong> când telefonul te întreabă.</li><li>Deschide <strong>Meniu → Setări → Notificări</strong>.</li><li>Dezactivează categoriile care nu te interesează (Anunțuri, Program, Audio și video, Curățenie, Teritorii…) și alege zilele și ora la care preferi să le primești.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Un dispozitiv primește notificările unei singure persoane odată</strong>: a celei care are sesiunea deschisă. Dacă nu îți ajung, deschide Wkit în contul tău cel puțin o dată, ca dispozitivul să fie înregistrat.</div>
+</section>
+<section id="informe"><h2>5. Raportul tău de predicare (privat)</h2>
+<p>Raportul este un instrument <strong>personal</strong>: doar tu îl vezi, nici măcar un bătrân nu îl vede. Este salvat pe telefonul tău și se sincronizează între dispozitivele tale.</p>
+<ol class="pasos"><li>Deschide fila <strong>Raport</strong>. Prima dată, Wkit îți pune câteva întrebări: ce fel de serviciu faci (proclamator, pionier…) și <strong>care este obiectivul tău de ore</strong> pe lună.</li><li>Ca să notezi predicarea, atinge <strong>„Nou”</strong> și completează data, orele și minutele și studiile biblice.</li><li>În <strong>Istoric</strong> vezi cât ai pe lună și pe anul de serviciu și poți edita sau șterge o înregistrare.</li><li>În prima zi a fiecărei luni, Wkit îți poate aminti, la ora aleasă de tine, să <strong>trimiți raportul</strong>. Butonul <strong>„Trimite raportul”</strong> pregătește mesajul cu orele și studiile tale.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Raportul tău se sincronizează</strong> cu contul tău, așa că, dacă îți schimbi telefonul, îl recuperezi când te conectezi din nou. Totuși, fă o copie de siguranță (Meniu → Setări → Copie de siguranță): este o protecție în plus. Vezi secțiunea 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Teritorii: consultare, predare și cereri</h2>
+<p>În fila <strong>Teritorii</strong> vezi teritoriile care ți-au fost alocate, cu data de la care le ai.</p>
+<ol class="pasos"><li>Pentru a <strong>preda</strong> un teritoriu după ce l-ai lucrat, deschide-l și atinge <strong>„Predă”</strong> (sau <strong>„Notifică faptul că timpul a expirat”</strong>). Persoana care răspunde de teritorii este anunțată.</li><li>Dacă <strong>nu ai niciunul</strong> și vrei unul, atinge <strong>„Cere un teritoriu”</strong>. Poți adăuga un mesaj opțional (de exemplu „Aș dori un teritoriu lângă centru”).</li><li>Toți responsabilii cu teritoriile sunt anunțați, iar primul care poate îți alocă unul. Când ți-l alocă, primești o notificare.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Contul tău: schimbarea telefonului, asocierea e-mailului, limba și ștergerea</h2>
+<h3>Dacă îți schimbi sau îți pierzi telefonul</h3>
+<ul><li>Dacă <strong>nu ai asociat niciun e-mail</strong> (frații nu au nevoie), un bătrân îți trimite o <strong>nouă invitație</strong> din fișa ta din lista fraților. Îți recuperezi locul, cu tot ce ține de congregație, și raportul tău.</li><li>Dacă <strong>ai asociat un e-mail</strong>, deschide Wkit, atinge <strong>„Creează un cont sau conectează-te ca administrator”</strong>, scrie e-mailul și deschide link-ul pe care îl primești. Intri cu tot ce aveai.</li></ul>
+<h3>Folosirea Wkit pe mai multe dispozitive</h3>
+<ul><li>Poți folosi <strong>același cont în același timp</strong> pe iPhone, iPad și Android (de exemplu, pe telefon și pe tabletă).</li><li>Pentru a adăuga un alt dispozitiv, un bătrân îți trimite invitația din fișa ta, iar tu o deschizi pe acel dispozitiv. <strong>Sesiunea de pe primul dispozitiv nu se închide.</strong></li><li>Raportul tău se sincronizează între toate dispozitivele tale.</li></ul>
+<h3>Asocierea e-mailului (opțional, recomandat administratorilor)</h3>
+<ol class="pasos"><li>Deschide <strong>Meniu → Setări → Contul meu → Asociază e-mailul meu</strong>.</li><li>Scrie-ți e-mailul. Vei primi un link de confirmare.</li><li><strong>Deschide-l pe același telefon</strong>, în aplicația de e-mail. Ecranul se va închide singur, iar contul tău va fi asociat.</li></ol>
+<h3>Schimbarea limbii</h3>
+<p>Wkit folosește limba telefonului. Pentru a o schimba doar pentru Wkit: setările telefonului → Aplicații → Wkit → Limbă.</p>
+<h3>Ștergerea contului</h3>
+<p><strong>Meniu → Setări → Contul meu → Șterge contul meu.</strong> Se șterg contul tău, fișa ta din listă și datele salvate pe telefon (inclusiv raportul); teritoriile pe care le aveai sunt eliberate. Nu se poate anula. Dacă ești singurul administrator și există alți frați, trebuie mai întâi să numești un altul (în lista fraților, deschide fișa lui și activează „Administrator”). Dacă ești singura persoană din congregație, se șterge și toată congregația.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Ștergerea contului <strong>nu anulează</strong> abonamentul congregației dacă acest cont îl plătește: se anulează din App Store <span class="plat i">iPhone</span> sau din Google Play → Plăți și abonamente → Abonamente <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Copia de siguranță</h2>
+<p>Servește mai ales ca să ai o <strong>copie suplimentară a raportului tău</strong>: deși se sincronizează între dispozitivele tale, copia te protejează dacă îl ștergi din greșeală. O găsești în <strong>Meniu → Setări → Copie de siguranță</strong>.</p>
+<ul><li><strong>Copia automată</strong>: face singură o copie o dată pe lună.</li><li><strong>„Fă o copie acum”</strong> și <strong>„Exportă copia de siguranță”</strong>: poți salva fișierul unde vrei sau ți-l poți trimite.</li><li><strong>„Restaurează copia de siguranță”</strong>: alege un fișier exportat din Wkit. Datele din copie se <strong>adaugă</strong> la cele pe care le ai deja: nu se șterge nimic.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Copia automată se salvează în iCloud-ul tău. <span class="plat a">Android</span> Se salvează pe telefon și, dacă ai activată copia de siguranță Android în contul Google (setările telefonului → Google → Copie de siguranță), când te conectezi la acel cont pe un telefon nou o recuperezi automat.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Pentru administratori (bătrâni)</h2>
+<section id="crear-congregacion"><h2>8. Crearea congregației</h2>
+<p>Un bătrân face asta <strong>o singură dată</strong>; apoi îi invită pe ceilalți.</p>
+<ol class="pasos"><li>Deschide Wkit și atinge <strong>„Creează un cont sau conectează-te ca administrator”</strong>.</li><li>Scrie-ți e-mailul și atinge <strong>„Trimite link-ul de acces”</strong>. Nu există parole: primești un link care confirmă că e-mailul îți aparține.</li><li><strong>Deschide link-ul pe același telefon.</strong> Wkit se deschide singur.</li><li>Completează <strong>numele tău</strong>, <strong>numele congregației</strong>, <strong>numărul congregației</strong> și <strong>țara</strong>, apoi atinge <strong>„Creează congregația”</strong>.</li><li>Vei vedea <strong>„Primii pași ca bătrân”</strong>: 1) adaugă frații în lista fraților și 2) invită-i.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Nu a ajuns e-mailul? Verifică folderul de spam și atinge <strong>„Nu mi-a ajuns, trimite din nou”</strong>. Un e-mail poate avea un singur cont în Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. Lista fraților</h2>
+<p>Este baza a tot: programele, grupurile și sarcinile folosesc numele din această listă. O găsești în <strong>Meniu → Lista fraților</strong>.</p>
+<h3>Adăugarea unui frate</h3>
+<ol class="pasos"><li>Atinge butonul <strong>+</strong> (<strong>„Frate nou”</strong>).</li><li>Scrie <strong>numele</strong> și alege dacă este <strong>frate</strong> sau <strong>soră</strong>.</li><li>Alege <strong>rolul</strong> lui: proclamator botezat sau nebotezat, pionier, slujitor ministerial sau bătrân.</li><li>Dacă este cazul, alege <strong>grupul lui de predicare</strong> și activează <strong>Responsabil cu teritoriile</strong>, <strong>Audio și video / Însoțitori</strong> sau <strong>Administrator</strong>.</li><li>Atinge <strong>„Creează”</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Doi frați cu același nume:</strong> adaugă ceva care îi deosebește (de exemplu „jr.”), ca să nu se încurce sarcinile.</div>
+<h3>Invitarea unui frate în Wkit</h3>
+<ol class="pasos"><li>Deschide fișa fratelui și atinge <strong>„Invită”</strong> (sau <strong>„Generează link”</strong>).</li><li>Atinge <strong>„Partajează invitația”</strong> și alege WhatsApp, mesaje etc. Se trimit <strong>două mesaje la rând</strong>: mai întâi link-ul, apoi, separat, codul, ca să poată fi copiat ușor.</li><li>Fratele deschide link-ul (sau lipește codul) și intră. Dacă nu s-a alăturat încă, poți partaja din nou invitația; dacă generezi una nouă, cea veche nu mai funcționează.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Editarea, ștergerea și numirea administratorilor</h3>
+<ul><li>Atinge un frate și alege <strong>„Editează”</strong> pentru a-i schimba datele.</li><li>Pe Android, pentru a șterge, atinge <strong>pictograma roșie</strong> din rândul lui; pe iPhone, glisează rândul spre stânga. Este eliminat din listă pe toate dispozitivele, iar teritoriile pe care le avea sunt eliberate.</li><li>Un <strong>administrator</strong> poate gestiona frații, teritoriile, anunțurile și programul. <strong>Nu îți poți șterge propria fișă și nici pe ultimul administrator</strong>: numește mai întâi un altul.</li></ul>
+</section>
+<section id="grupos"><h2>10. Grupuri de predicare</h2>
+<p>Grupurile servesc pentru întrunirile de predicare și pentru curățenie. Se află în <strong>Meniu → Grupuri de predicare → Listă</strong>.</p>
+<ol class="pasos"><li>Dacă nu există, atinge <strong>„Creează grupuri de predicare”</strong> și alege <strong>câte grupuri</strong> vrei (mai târziu poți adăuga altele cu butonul <strong>+</strong>).</li><li>Pentru a atribui frații grupurilor, mergi la <strong>Lista fraților</strong>, deschide fișa fiecăruia și alege <strong>grupul lui de predicare</strong>.</li><li>Revino la <strong>Meniu → Grupuri de predicare → Listă</strong>. În fiecare grup vei vedea <strong>supraveghetorul grupului</strong>, <strong>ajutorul</strong> și frații <strong>în ordine alfabetică</strong>.</li><li>Atinge butonul cu <strong>creionul</strong> (Editează). Atinge <strong>„Supraveghetorul grupului”</strong> și alege unul dintre frații acelui grup; fă la fel cu <strong>„Ajutor”</strong>. Nu pot fi aceeași persoană.</li><li>Atinge <strong>bifa de confirmare</strong> pentru a termina.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Supraveghetorul grupului și ajutorul se aleg <strong>după</strong> ce ai atribuit frații, deoarece se poate alege doar dintre frații grupului respectiv. Dacă muți un frate în alt grup, el nu mai este supraveghetor sau ajutor al celui anterior.</div>
+<div class="nota">Supraveghetorul și ajutorul fiecărui grup <strong>pot stabili ziua și ora curățeniei</strong> pentru grupul lor (secțiunea 12), chiar dacă nu sunt administratori.</div>
+</section>
+<section id="salidas"><h2>11. Întruniri pentru predicare</h2>
+<p>Întrunirile pentru predicare sunt orele și locurile de adunare pentru predicare. Pot fi <strong>generale</strong> (pentru toată congregația) și <strong>proprii fiecărui grup</strong>. Se află în <strong>Meniu → Grupuri de predicare → Întruniri pentru predicare</strong>. Mai întâi trebuie create grupurile.</p>
+<ol class="pasos"><li>Atinge secțiunea <strong>„Congregație”</strong> (întruniri generale) sau secțiunea unui <strong>grup</strong>.</li><li>Atinge <strong>„Adaugă întrunire”</strong> la ziua dorită și scrie o <strong>etichetă</strong> (de exemplu „Dimineață” sau „După-amiază”), <strong>ora</strong> și, dacă vrei, <strong>locul</strong>.</li><li>Pentru a <strong>edita</strong> o întrunire, modifică direct câmpurile ei. Pentru a o <strong>șterge</strong>, atinge pictograma roșie din rândul ei.</li><li>Frații pot atinge locul pentru a-l deschide pe harta telefonului.</li></ol>
+<div class="nota">Dacă un grup nu are întruniri proprii, se folosesc cele ale congregației („Fără întruniri proprii — folosește pe cele ale congregației”).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Curățenia: al cui e rândul și ce zi și oră</h2>
+<p>Curățenia <strong>se rotește automat</strong> între grupurile de predicare: în fiecare săptămână este rândul altui grup, începând cu Grupul 1. O găsești în <strong>Meniu → Curățenie → Grupuri</strong>.</p>
+<h3>Schimbarea grupului care face curățenie în această săptămână (administratori)</h3>
+<ol class="pasos"><li>Atinge butonul cu <strong>creionul</strong> (Editează).</li><li>Atinge <strong>grupul</strong> al cărui rând este în această săptămână. Săptămâna viitoare va fi următorul grup, în ordine.</li><li>Atinge <strong>bifa de confirmare</strong>. <strong>Toate dispozitivele</strong> congregației vor vedea schimbarea.</li></ol>
+<h3>Stabilirea zilei și orei exacte (administratori, precum și supraveghetorul și ajutorul grupului)</h3>
+<ol class="pasos"><li>În <strong>Meniu → Curățenie → Grupuri</strong>, găsește grupul tău (sau cel de care te ocupi) și atinge <strong>creionul</strong> din rândul lui.</li><li>Alege <strong>ziua</strong> și <strong>ora</strong> (de exemplu duminică la 12:30) și atinge <strong>„Salvează”</strong>. Pentru a elimina data, atinge <strong>„Elimină data”</strong>.</li><li>Frații din acel grup o vor vedea pe ecranul Acasă: <strong>„Grupul 1 · Săptămâna aceasta”</strong> și, dedesubt, <strong>„Duminică 12:30”</strong>, cu <strong>clopoțelul</strong> lor pentru a programa mementoul.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Data apare pe ecranul Acasă doar dacă este în <strong>săptămâna curentă</strong> (de luni până duminică). O poți stabili din timp: va apărea când vine acea săptămână. Datele din săptămânile trecute dispar singure.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Programul întrunirii Viața și predicarea creștină</h2>
+<p>În fila <strong>Program → Viața și predicarea creștină</strong> creezi programul fiecărei săptămâni și alocezi părțile. Îl văd toți frații; doar administratorii îl pot edita.</p>
+<ol class="pasos"><li>Atinge <strong>„Săptămână nouă”</strong> și alege <strong>data întrunirii</strong> (orice zi din acea săptămână, de luni până duminică).</li><li>Wkit creează săptămâna cu <strong>structura obișnuită</strong>: Comori din Cuvântul lui Dumnezeu, Să fim mai eficienți în predicare și Viața creștină.</li><li>Atinge orice <strong>titlu</strong> pentru a-l schimba și, dacă este nevoie, și <strong>durata</strong>. Cu butonul <strong>„Adaugă responsabilitate”</strong> poți adăuga alte părți.</li><li>La fiecare parte, atinge <strong>„Alege”</strong> și indică fratele sau frații (de exemplu elevul și ajutorul). Pentru <strong>sala auxiliară</strong>, folosește <strong>„Adaugă sala auxiliară”</strong>.</li><li>Alege și <strong>cântările</strong> și <strong>rugăciunile</strong> și atinge <strong>„Salvează programul”</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Pentru a vedea altă săptămână, folosește <strong>selectorul de săptămâni</strong> (<strong>„Săptămâna anterioară”</strong> / <strong>„Săptămâna următoare”</strong>); de acolo o poți și <strong>edita sau șterge</strong>.</li><li>Frații primesc o <strong>notificare</strong> când li se alocă o parte și o văd pe ecranul Acasă.</li><li>Programul săptămânii dispare singur când se termină duminica.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Întrunirea publică</h2>
+<p>În <strong>Program → Întrunirea publică</strong> se pregătește fiecare întrunire de la sfârșit de săptămână.</p>
+<ol class="pasos"><li>Atinge <strong>„Întrunire publică nouă”</strong> și alege <strong>data</strong>. Dacă există deja o întrunire pentru acea dată, Wkit te avertizează.</li><li>Alege <strong>președintele</strong>, <strong>vorbitorul</strong> și scrie <strong>titlul cuvântării</strong>.</li><li>Alege <strong>cititorul la Turnul de Veghere</strong>, precum și <strong>cântările</strong> și <strong>rugăciunile</strong>.</li><li>Salvează. Frații își vor vedea părțile pe ecranul Acasă.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Audio și video / Însoțitori</h2>
+<p>În <strong>Meniu → Audio și video / Însoțitori</strong> aloci responsabilitățile fiecărei săptămâni: audio, video, microfoane, însoțitori, Zoom, cronometrare…</p>
+<ol class="pasos"><li>Atinge <strong>„Săptămână nouă”</strong> și alege <strong>data întrunirii</strong>.</li><li>Atinge <strong>„Alege”</strong> la fiecare responsabilitate și indică un frate. Unele, precum microfoanele, permit <strong>mai mulți frați</strong> (<strong>„Adaugă frate”</strong>).</li><li>Pentru o altă responsabilitate care nu apare în listă, atinge <strong>„Adaugă responsabilitate”</strong> și dă-i un nume.</li><li>Salvează. Fiecare frate o va vedea în secțiunea <strong>Responsabilități</strong> de pe ecranul lui Acasă, cu clopoțelul lui.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Alte programe</h2>
+<p>Pentru <strong>orice altceva</strong> organizează congregația și nu este o întrunire: de exemplu, transport pentru frații care nu pot veni sau ajutor pentru proclamatori. Fiecare program are propria frecvență. Se află în <strong>Meniu → Alte programe</strong>.</p>
+<ol class="pasos"><li>Atinge <strong>„Program nou”</strong>. Scrie <strong>numele</strong> și alege <strong>cât de des are loc</strong>: zilnic, săptămânal, lunar sau anual.</li><li>Atinge <strong>„Creează prima săptămână”</strong> (sau <strong>„Perioadă nouă”</strong>) și alege data: orice zi din acea săptămână, lună sau an.</li><li>Atinge <strong>„Adaugă responsabilitate”</strong>: scrie o <strong>etichetă</strong> opțională (de exemplu „Îl ia mai devreme”) și <strong>alege un frate sau o soră</strong>.</li><li>Salvează. Fiecare o va vedea pe ecranul lui Acasă, în secțiunea <strong>„Alte programe”</strong>, iar perioada dispare singură când se termină.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Anunțuri</h2>
+<p>Anunțurile le creează administratorii și, doar pentru propriul grup, supraveghetorul și ajutorul fiecărui grup de predicare. Le văd frații cărora le sunt adresate. Se află în <strong>Meniu → Anunțuri</strong>.</p>
+<ol class="pasos"><li>Atinge <strong>„Anunț nou”</strong> și scrie <strong>mesajul</strong>.</li><li>Implicit se publică <strong>imediat</strong>, de îndată ce îl salvezi, iar toți primesc o notificare.</li><li>Dacă preferi să iasă mai târziu, activează <strong>„Programează pentru mai târziu”</strong> și alege <strong>data și ora</strong>: până atunci nimeni nu îl vede, iar la acea oră toți primesc notificarea.</li><li>Salvează. Pentru a șterge un anunț, atinge-l și alege <strong>„Șterge”</strong>: dispare pentru toți.</li></ol>
+<h3>Anunțuri doar pentru un grup</h3>
+<ul><li><strong>Supraveghetorul</strong> și <strong>ajutorul</strong> fiecărui grup de predicare văd butonul <strong>+</strong>, chiar dacă nu sunt administratori, iar anunțurile lor ajung <strong>doar la membrii grupului lor</strong>.</li><li>Un administrator care are și el un grup poate activa, când creează un anunț, <strong>„Trimite acest anunț doar membrilor grupului meu”</strong>.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Calendarul congregației</h2>
+<p>Le permite tuturor să vadă evenimentele congregației, precum <strong>adunarea de circumscripție</strong> sau <strong>vizita supraveghetorului de circumscripție</strong>. Le creează doar administratorii.</p>
+<ol class="pasos"><li>Deschide <strong>Meniu → Calendar</strong> și atinge <strong>„Adaugă un eveniment”</strong>.</li><li>Scrie <strong>titlul</strong> și atinge <strong>zilele</strong> evenimentului: dacă durează mai multe zile, atinge-le pe fiecare.</li><li>Salvează. Toți îl vor vedea pe ecranul <strong>Acasă</strong>, în secțiunea „Calendar”, cu un <strong>clopoțel</strong> pentru a programa mementoul.</li><li>Pentru a-l modifica sau șterge, deschide-l și alege <strong>„Editează evenimentul”</strong> sau <strong>„Șterge evenimentul”</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Teritorii: alocare, campanii și panoul web</h2>
+<p>Cine are permisiunea <strong>Responsabil cu teritoriile</strong> gestionează teritoriile întregii congregații în fila <strong>Teritorii</strong> (proclamatorii le văd doar pe ale lor).</p>
+<h3>Alocarea și primirea teritoriilor</h3>
+<ul><li>Atinge un teritoriu și alege <strong>„Alocă”</strong> (sau „Alocă unui proclamator”) și un frate. Vei vedea cine îl are și de când, precum și care sunt <strong>expirate</strong> sau <strong>niciodată alocate</strong>.</li><li>Când un proclamator <strong>cere</strong> un teritoriu, toți responsabilii cu teritoriile primesc o notificare (<strong>„Cereri de teritorii”</strong>); primul care poate i-l alocă.</li><li>Când un frate <strong>predă</strong> un teritoriu, acesta devine liber, iar data se înregistrează.</li></ul>
+<h3>Campanii</h3>
+<ul><li><strong>„Campanie nouă”</strong> înregistrează toate teritoriile de la zero pentru o perioadă determinată. Se creează o <strong>copie</strong> a teritoriilor curente pentru a fi distribuite separat; teritoriile obișnuite nu se ating.</li><li>Poate exista o singură <strong>campanie activă</strong> odată. Pentru a o încheia, alege <strong>„Șterge campania”</strong>: alocările ei se șterg și totul revine la normal.</li></ul>
+<h3>Fișa S-13 și panoul web</h3>
+<ul><li>În <strong>Instrumente</strong> poți genera <strong>fișa S-13 în PDF</strong> (una pe sector) pentru a o partaja.</li><li><strong>Panoul web al teritoriilor</strong> se deschide în browserul calculatorului. Pentru a da acces unui responsabil cu teritoriile: deschide fișa lui din lista fraților și atinge <strong>„Acces la panou”</strong> → <strong>„Generează link”</strong>. Link-ul este personal; el se conectează cu o <strong>parolă de 6 cifre</strong> pe care o alegi tu și o poți schimba oricând.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Link-ul panoului este ca o parolă: nu îl da nimănui care nu trebuie să aibă acces. Dacă generezi unul nou, cel vechi nu mai funcționează.</div>
+</section>
+<section id="suscripcion"><h2>19. Abonamentul congregației</h2>
+<p>Pentru ca toți frații să aibă acces complet, este nevoie de <strong>abonamentul anual al congregației</strong>. <strong>Îl plătește un administrator și acoperă toți frații</strong>, atât pe iPhone, cât și pe Android. Ceilalți frați nu plătesc nimic.</p>
+<ol class="pasos"><li>Deschide <strong>Meniu → Setări → Abonamentul congregației</strong>.</li><li>Atinge <strong>„Abonează congregația”</strong>. Înainte de a confirma vei vedea prețul anual; dacă există o <strong>perioadă de probă gratuită</strong>, nu ți se percepe nimic până se termină.</li><li>Confirmă în App Store (iPhone) sau în Google Play (Android). Gata: toată congregația are acces.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Se <strong>reînnoiește automat</strong> în fiecare an, dacă nu îl anulezi cu cel puțin 24 de ore înainte de sfârșitul perioadei.</li><li>Pentru a-l <strong>gestiona sau anula</strong>: <span class="plat i">iPhone</span> Setările iPhone-ului → numele tău → Abonamente; <span class="plat a">Android</span> Google Play → profilul tău → Plăți și abonamente → Abonamente (sau butonul Wkit „Gestionează sau anulează în Google Play”).</li><li>Dacă <strong>îți schimbi telefonul</strong>, atinge <strong>„Restaurează achizițiile”</strong> pe același ecran.</li><li>Dacă abonamentul <strong>expiră</strong>, congregația trece în mod <strong>doar citire</strong>: totul se poate vedea în continuare, iar <strong>nu se șterge nimic</strong>. După reînnoire, se poate edita din nou.</li></ul>
+<div class="nota">Wkit nu vede și nu stochează niciodată datele tale de plată: se ocupă Apple sau Google.</div>
+</section>
+<section id="copias"><h2>20. Date salvate doar pe acest telefon</h2>
+<p>Dacă ai folosit Wkit offline sau înainte de a exista congregația ta, aplicația te poate întreba ce să facă cu <strong>datele salvate doar pe acest telefon</strong> (de exemplu frați sau anunțuri). Ai două opțiuni: să le <strong>„Încarci”</strong> în congregație (le vor vedea toți) sau să <strong>„Renunți”</strong>. Nu se întâmplă nimic până nu decizi.</p>
+</section>
+      <div class="caja pie"><strong>Nu găsești ce cauți?</strong> Scrie-ne la <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> și spune-ne ce se întâmplă. Dacă poți, spune-ne ce dispozitiv folosești (iPhone, iPad sau Android) și ce făceai.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Missing video" : "Missing image") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>
