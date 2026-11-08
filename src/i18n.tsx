@@ -1,7 +1,9 @@
 import { useEffect, useState, type CSSProperties } from 'react'
 import { TEXTOS } from './textos'
 
-export type Idioma = 'es' | 'en' | 'fr' | 'de' | 'it' | 'pt-BR' | 'pt-PT'
+export type Idioma =
+  | 'es' | 'en' | 'fr' | 'de' | 'it' | 'pt-BR' | 'pt-PT'
+  | 'ru' | 'pl' | 'ro' | 'tr' | 'zh' | 'ja' | 'ko' | 'ar' | 'nl' | 'sv' | 'fi' | 'nb'
 
 /** Cada idioma con su nombre propio (así lo reconoce quien lo habla). */
 export const IDIOMAS: { codigo: Idioma; nombre: string }[] = [
@@ -12,6 +14,18 @@ export const IDIOMAS: { codigo: Idioma; nombre: string }[] = [
   { codigo: 'it', nombre: 'Italiano' },
   { codigo: 'pt-BR', nombre: 'Português (Brasil)' },
   { codigo: 'pt-PT', nombre: 'Português (Portugal)' },
+  { codigo: 'ru', nombre: 'Русский' },
+  { codigo: 'pl', nombre: 'Polski' },
+  { codigo: 'ro', nombre: 'Română' },
+  { codigo: 'tr', nombre: 'Türkçe' },
+  { codigo: 'zh', nombre: '简体中文' },
+  { codigo: 'ja', nombre: '日本語' },
+  { codigo: 'ko', nombre: '한국어' },
+  { codigo: 'ar', nombre: 'العربية' },
+  { codigo: 'nl', nombre: 'Nederlands' },
+  { codigo: 'sv', nombre: 'Svenska' },
+  { codigo: 'fi', nombre: 'Suomi' },
+  { codigo: 'nb', nombre: 'Norsk bokmål' },
 ]
 
 const CLAVE_GUARDADA = 'wkit_idioma'
@@ -20,17 +34,15 @@ const CLAVE_GUARDADA = 'wkit_idioma'
 function aIdioma(codigo: string | null | undefined): Idioma | null {
   if (!codigo) return null
   const c = codigo.toLowerCase()
-  if (c.startsWith('es')) return 'es'
-  if (c.startsWith('en')) return 'en'
-  if (c.startsWith('fr')) return 'fr'
-  if (c.startsWith('de')) return 'de'
-  if (c.startsWith('it')) return 'it'
   if (c.startsWith('pt')) {
     // "pt" solo o "pt-BR" → Brasil. Cualquier otro portugués (Portugal,
     // Angola, Mozambique…) → el de Portugal.
     return c === 'pt' || c === 'pt-br' ? 'pt-BR' : 'pt-PT'
   }
-  return null
+  const base = c.split(/[-_]/)[0]
+  if (base === 'no' || base === 'nn') return 'nb' // noruego (bokmål)
+  const propios: Idioma[] = ['es', 'en', 'fr', 'de', 'it', 'ru', 'pl', 'ro', 'tr', 'zh', 'ja', 'ko', 'ar', 'nl', 'sv', 'fi', 'nb']
+  return propios.find((i) => i === base) ?? null
 }
 
 /**
@@ -60,7 +72,9 @@ let idiomaActual: Idioma = detectarIdioma()
 const oyentes = new Set<() => void>()
 
 function aplicarAlDocumento() {
-  document.documentElement.lang = idiomaActual
+  document.documentElement.lang = idiomaActual === 'zh' ? 'zh-Hans' : idiomaActual
+  // El árabe se lee de derecha a izquierda.
+  document.documentElement.dir = idiomaActual === 'ar' ? 'rtl' : 'ltr'
   document.title = `Wkit — ${t('Territorios')}`
 }
 
@@ -87,7 +101,7 @@ export function formatearFecha(iso?: string): string {
   if (!iso) return '—'
   const [anio, mes, dia] = iso.split('-').map(Number)
   if (!anio || !mes || !dia) return iso
-  return new Date(anio, mes - 1, dia).toLocaleDateString(idiomaActual)
+  return new Date(anio, mes - 1, dia).toLocaleDateString(idiomaActual === 'zh' ? 'zh-Hans' : idiomaActual)
 }
 
 /** Hace que el componente que lo usa se vuelva a pintar cuando cambia el idioma. */
