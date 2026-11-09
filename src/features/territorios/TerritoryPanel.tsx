@@ -1,6 +1,7 @@
 import { t, formatearFecha } from '../../i18n'
 import { useState } from 'react'
 import type { Sector, Territorio } from '../../api/types'
+import { NotasTerritorio } from './NotasTerritorio'
 
 interface Publicador {
   id: string
@@ -143,6 +144,11 @@ export function TerritoryPanel({
             </div>
           )}
         </Campo>
+      )}
+
+      {/* Solo mientras el territorio está asignado: las notas (p. ej. quién no desea visitas). */}
+      {!modoCreacion && territorioOriginal.publicadorAsignado && (
+        <NotasTerritorio territorioId={territorioOriginal.id} />
       )}
 
       <button
