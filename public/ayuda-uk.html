@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Посібник Wkit крок за кроком — Wkit</title>
+    <meta name="description" content="Посібник Wkit крок за кроком для вісників і адміністраторів: вхід, нагадування, звіт, брати, групи, прибирання, програми, оголошення, території та підписка." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-uk.html">← Wkit</a> · <a href="privacidad-uk.html">Політика конфіденційності</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <b>Українська</b> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Посібник Wkit крок за кроком</h1>
+      <p class="sub">Усе, що можна робити в застосунку, пояснено докладно: для вісників і для адміністраторів. На iPhone, iPad і Android він працює однаково; коли є відмінності, ви побачите позначку <span class="plat a">Android</span> або <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Для всіх братів</h3><ol class="toc"><li><a href="#entrar">Перший вхід у Wkit</a></li><li><a href="#inicio">Головний екран</a></li><li><a href="#recordatorios">Нагадування: дзвіночок</a></li><li><a href="#notificaciones">Сповіщення: про що вам повідомляє Wkit</a></li><li><a href="#informe">Ваш звіт про служіння (особистий)</a></li><li><a href="#territorios-pub">Території: переглядати, повертати й просити</a></li><li><a href="#cuenta">Ваш обліковий запис: зміна телефону, прив’язка пошти, мова і видалення</a></li><li><a href="#copia-seguridad">Резервна копія</a></li></ol></div><div class="toc-g"><h3>Для адміністраторів (старійшин)</h3><ol class="toc"><li><a href="#crear-congregacion">Створення збору</a></li><li><a href="#hermanos">Список братів</a></li><li><a href="#grupos">Групи служіння</a></li><li><a href="#salidas">Служіння</a></li><li><a href="#limpieza">Прибирання: яка група за чергою, в який день і о котрій</a></li><li><a href="#vida-ministerio">Програма «Життя і служіння»</a></li><li><a href="#reunion-publica">Публічна зустріч</a></li><li><a href="#audio-video">Аудіо й відео / Служителі порядку</a></li><li><a href="#otros-programas">Інші програми</a></li><li><a href="#anuncios">Оголошення</a></li><li><a href="#calendario">Календар збору</a></li><li><a href="#territorios-admin">Території: доручення, кампанії та вебпанель</a></li><li><a href="#suscripcion">Підписка збору</a></li><li><a href="#copias">Дані зберігаються лише на цьому телефоні</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Для всіх братів</h2>
+<section id="entrar"><h2>1. Перший вхід у Wkit</h2>
+<p>Щоб увійти в Wkit, <strong>електронна пошта чи пароль не потрібні</strong>: старійшина вашого збору запрошує вас, і ви заходите за посиланням або кодом.</p>
+<ol class="pasos"><li>Попросіть старійшину, який веде список братів, запросити вас. Ви отримаєте <strong>два повідомлення поспіль</strong>: спершу посилання, а потім сам код (щоб його легко було скопіювати).</li><li>Встановіть <strong>Wkit</strong> з App Store (iPhone та iPad) або з Google Play (Android).</li><li>Торкніться посилання в першому повідомленні: застосунок відкриється й упізнає вас.</li><li>Якщо посилання не відкриває застосунок, відкрийте його самі, торкніться <strong>«У мене є посилання або код запрошення»</strong> і вставте все повідомлення або лише код: застосунок сам візьме потрібне.</li><li>Ви побачите кілька вітальних екранів (<strong>«Перші кроки»</strong>), які пояснюють, що є спільним, а що ні. Коли закінчите, ви вже всередині.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Якщо код не працює</strong> («недійсний або термін дії минув»), попросіть старійшину створити новий: це робиться за кілька секунд з вашої картки.</div>
+<div class="nota"><strong>Що спільне, а що ні:</strong> список братів, програми, прибирання, території й оголошення бачить увесь збір, і створює їх старійшина. <strong>Ваш звіт належить лише вам</strong>: його ніхто більше не бачить, навіть старійшини, і він синхронізується між вашими пристроями.</div>
+</section>
+<section id="inicio"><h2>2. Головний екран</h2>
+<p>Це перше, що ви бачите, відкривши Wkit. Він показує <strong>ваші частини</strong> з першого погляду; якщо вам нічого не доручено, ви побачите «Немає найближчих доручень».</p>
+<ul><li><strong>Наступні частини</strong>: ваші частини на зібранні «Життя і служіння» та на публічному зібранні (голова, читець, доповідач тощо).</li><li><strong>Обов’язки</strong>: що вам доручено з аудіо й відео / обслуговування.</li><li><strong>Очищення</strong>: з’являється лише якщо <em>цього тижня</em> черга вашої групи. Якщо наглядач або помічник групи призначив день і годину, ви побачите їх нижче (наприклад, «Неділя 12:30»).</li><li><strong>Інші програми</strong>, <strong>Території</strong> (і кампанія, якщо вона є) та нагадування <strong>Звіт</strong>.</li><li><strong>Календар</strong>: події збору (зібрання, візит наглядача округу тощо) зі своїм дзвіночком для нагадування.</li></ul>
+<p>Унизу п’ять вкладок: <strong>Головна</strong>, <strong>Програма</strong>, <strong>Звіт</strong>, <strong>Території</strong> і <strong>Меню</strong> (там список братів, групи, прибирання, оголошення та налаштування).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Нагадування: дзвіночок</h2>
+<p>Біля кожного доручення, обов’язку чи черги прибирання є <strong>дзвіночок</strong>. Він потрібен, щоб телефон нагадав вам заздалегідь, у вибраний вами час.</p>
+<ol class="pasos"><li>Торкніться дзвіночка доручення.</li><li>Виберіть день і годину нагадування.</li><li>Підтвердьте. Дзвіночок стане зеленим і завібрує, коли настане час.</li><li>Щоб його прибрати, торкніться дзвіночка ще раз і виберіть видалити нагадування.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Якщо старійшина змінить день чи годину прибирання, дзвіночок запропонує поставити нагадування знову з новою датою.</div>
+<div class="nota"><span class="plat a">Android</span> Якщо нагадування не приходить, перевірте, що Wkit має дозвіл на сповіщення в налаштуваннях телефону і що батарея не обмежена.</div>
+</section>
+<section id="notificaciones"><h2>4. Сповіщення: про що вам повідомляє Wkit</h2>
+<p>Wkit повідомляє вас, коли є нове оголошення, коли вам щось доручають або коли відбуваються зміни, що вас стосуються.</p>
+<ol class="pasos"><li>Першого разу <strong>дозвольте сповіщення</strong>, коли телефон запитає.</li><li>Відкрийте <strong>Меню → Налаштування → Сповіщення</strong>.</li><li>Вимкніть категорії, які вам не потрібні (Оголошення, Програма, Аудіо й відео, Прибирання, Території тощо) і виберіть дні та години, коли вам зручніше отримувати сповіщення.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Один пристрій отримує сповіщення лише однієї людини за раз</strong>: тієї, чий сеанс відкритий. Якщо вони не приходять, відкрийте Wkit зі своїм обліковим записом принаймні один раз, щоб пристрій зареєструвався.</div>
+</section>
+<section id="informe"><h2>5. Ваш звіт про служіння (особистий)</h2>
+<p>Звіт — це <strong>особистий</strong> інструмент: бачите його лише ви, навіть старійшини ні. Він зберігається на вашому телефоні й синхронізується між вашими пристроями.</p>
+<ol class="pasos"><li>Відкрийте вкладку <strong>Звіт</strong>. Першого разу Wkit поставить кілька запитань: ваш вид служіння (вісник, піонер тощо) і <strong>ваша щомісячна ціль у годинах</strong>.</li><li>Щоб записати служіння, торкніться <strong>«Новий»</strong> і заповніть дату, години, хвилини та вивчення.</li><li>В <strong>Історії</strong> ви бачите, чого досягли за місяць і за службовий рік, і можете змінити чи видалити запис.</li><li>Першого дня кожного місяця Wkit може нагадати вам у вибраний час <strong>здати звіт</strong>. Кнопка <strong>«Надіслати звіт»</strong> готує повідомлення з вашими годинами та вивченнями.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Ваш звіт синхронізується</strong> з вашим обліковим записом, тож якщо ви змінюєте телефон, то повертаєте його, коли заходите знову. Попри це, робіть резервну копію (Меню → Налаштування → Резервна копія): це додаткова гарантія. Дивіться розділ 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Території: переглядати, повертати й просити</h2>
+<p>У вкладці <strong>Території</strong> ви бачите території, які вам доручені, з датою, з якої ви їх тримаєте.</p>
+<ol class="pasos"><li>Щоб <strong>повернути</strong> територію, коли закінчите, відкрийте її й торкніться <strong>«Повернути»</strong> (або <strong>«Повідомити, що закінчено»</strong>). Того, хто відповідає за території, буде сповіщено.</li><li>Якщо у вас <strong>немає жодної</strong> і ви хочете, торкніться <strong>«Попросити територію»</strong>. Можна додати необов’язкове повідомлення (наприклад, «Хочу ту, що в Каркабуеї»).</li><li>Усіх, хто відповідає за території, буде сповіщено, і перший, хто матиме змогу, дасть вам одну. Коли її буде доручено, ви отримаєте сповіщення.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Ваш обліковий запис: зміна телефону, прив’язка пошти, мова і видалення</h2>
+<h3>Зміна або втрата телефону</h3>
+<ul><li>Якщо ви <strong>не прив’язали пошту</strong> (братам вона не потрібна), старійшина надсилає <strong>нове запрошення</strong> з вашої картки в Списку братів. Ви повертаєте своє місце з усім, що є у зборі, та зі своїм Звітом.</li><li>Якщо ви <strong>прив’язали пошту</strong>, відкрийте Wkit, торкніться <strong>«Створити обліковий запис або увійти як адміністратор»</strong>, введіть свою пошту й відкрийте отримане посилання. Ви заходите з усім, як раніше.</li></ul>
+<h3>Користування Wkit на кількох пристроях</h3>
+<ul><li>Ви можете користуватися <strong>одним обліковим записом одночасно</strong> на iPhone, iPad і Android (наприклад, на телефоні й планшеті).</li><li>Щоб додати інший пристрій, старійшина надсилає запрошення з вашої картки, а ви відкриваєте його на тому пристрої. <strong>Сеанс на першому не закривається.</strong></li><li>Ваш Звіт синхронізується між усіма вашими пристроями.</li></ul>
+<h3>Прив’язка пошти (необов’язково, радимо для адміністраторів)</h3>
+<ol class="pasos"><li>Відкрийте <strong>Меню → Налаштування → Мій обліковий запис → Прив’язати мою пошту</strong>.</li><li>Введіть свою пошту. Прийде посилання для підтвердження.</li><li><strong>Відкрийте його з того самого телефону</strong>, в поштовому застосунку. Екран закриється сам, і ваш обліковий запис буде прив’язано.</li></ol>
+<h3>Зміна мови</h3>
+<p>Wkit використовує мову телефону. Щоб змінити її лише для Wkit: налаштування телефону → Застосунки → Wkit → Мова.</p>
+<h3>Видалення облікового запису</h3>
+<p><strong>Меню → Налаштування → Мій обліковий запис → Видалити мій обліковий запис.</strong> Видаляються ваш обліковий запис, ваша картка в списку та дані, збережені на телефоні (включно зі Звітом); території, які ви тримали, стають вільними. Це не можна скасувати. Якщо ви єдиний адміністратор і є інші брати, спершу потрібно призначити іншого (у Списку братів відкрийте його картку й увімкніть «Адміністратор»). Якщо ви єдина людина у зборі, видаляється і весь збір.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Видалення облікового запису <strong>не скасовує</strong> підписку збору, якщо її оплачує цей обліковий запис: вона скасовується в App Store <span class="plat i">iPhone</span> або в Google Play → Платежі та підписки → Підписки <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Резервна копія</h2>
+<p>Вона потрібна передусім, щоб мати <strong>додаткову копію вашого Звіту</strong>: хоча він і синхронізується між пристроями, копія захистить вас, якщо ви випадково щось видалите. Знайдете її в <strong>Меню → Налаштування → Резервна копія</strong>.</p>
+<ul><li><strong>Автоматична копія</strong>: робить копію раз на місяць автоматично.</li><li><strong>«Зробити копію зараз»</strong> y <strong>«Експортувати резервну копію»</strong>: ви можете зберегти файл де завгодно або надіслати його собі.</li><li><strong>«Відновити резервну копію»</strong>: виберіть файл, експортований з Wkit. Дані з копії <strong>додаються</strong> до тих, що у вас уже є: нічого не видаляється.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Автоматична копія зберігається у вашому iCloud. <span class="plat a">Android</span> Зберігається на телефоні, а якщо у вашому обліковому записі Google ввімкнено резервне копіювання Android (налаштування телефону → Google → Резервне копіювання), то, коли ви увійдете з цим обліковим записом на новому телефоні, ви автоматично її відновите.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Для адміністраторів (старійшин)</h2>
+<section id="crear-congregacion"><h2>8. Створення збору</h2>
+<p>Це робить <strong>лише один раз</strong> старійшина; потім він запрошує інших.</p>
+<ol class="pasos"><li>Відкрийте Wkit і торкніться <strong>«Створити обліковий запис або увійти як адміністратор»</strong>.</li><li>Введіть свою пошту й торкніться <strong>«Надіслати посилання для входу»</strong>. Пароля немає: ви отримуєте посилання, щоб підтвердити, що пошта ваша.</li><li><strong>Відкрийте посилання з того самого телефону.</strong> Wkit відкриється сам.</li><li>Заповніть <strong>своє ім’я</strong>, <strong>назву збору</strong>, <strong>номер збору</strong> і <strong>країну</strong> та торкніться <strong>«Створити збір»</strong>.</li><li>Ви побачите <strong>«Перші кроки як старійшина»</strong>: 1) додайте братів у Список братів і 2) запросіть їх.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Лист не приходить? Перевірте теку зі спамом і торкніться <strong>«Ще не прийшов, надіслати знову»</strong>. Одна пошта може мати лише один обліковий запис у Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. Список братів</h2>
+<p>Це основа всього: програми, групи та доручення використовують імена з цього списку. Він у <strong>Меню → Список братів</strong>.</p>
+<h3>Додавання брата</h3>
+<ol class="pasos"><li>Торкніться кнопки <strong>+</strong> (<strong>«Новий брат»</strong>).</li><li>Введіть <strong>ім’я</strong> і виберіть, <strong>брат</strong> це чи <strong>сестра</strong>.</li><li>Виберіть його <strong>обов’язки</strong>: хрещений або нехрещений вісник, піонер, служитель чи старійшина.</li><li>За потреби виберіть його <strong>групу служіння</strong> і ввімкніть <strong>Відповідальний за території</strong>, <strong>Аудіо й відео / Обслуговування</strong> або <strong>Адміністратор</strong>.</li><li>Торкніться <strong>«Створити»</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Двоє братів з однаковим іменем:</strong> додайте щось, що їх розрізняє (наприклад, «син»), щоб доручення не переплутувалися.</div>
+<h3>Запрошення брата до Wkit</h3>
+<ol class="pasos"><li>Відкрийте картку брата й торкніться <strong>«Запросити»</strong> (або <strong>«Створити посилання»</strong>).</li><li>Торкніться <strong>«Поділитися запрошенням»</strong> і виберіть WhatsApp, повідомлення тощо. Надсилаються <strong>два повідомлення поспіль</strong>: спершу посилання, а потім сам код, щоб його легко було скопіювати.</li><li>Брат відкриває посилання (або вставляє код) і заходить. Якщо він ще не зайшов, ви можете поділитися запрошенням знову; якщо створите нове, попереднє перестане діяти.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Зміна, видалення й призначення адміністраторів</h3>
+<ul><li>Торкніться брата й виберіть <strong>«Змінити»</strong>, щоб змінити його дані.</li><li>На Android, щоб видалити, торкніться <strong>червоної іконки</strong> в його рядку; на iPhone проведіть рядок ліворуч. Його видаляють зі списку на всіх пристроях, а території, які він тримав, стають вільними.</li><li><strong>Адміністратор</strong> може керувати братами, територіями, оголошеннями та програмами. <strong>Не можна видалити власну картку або останнього адміністратора</strong>: спершу призначте іншого.</li></ul>
+</section>
+<section id="grupos"><h2>10. Групи служіння</h2>
+<p>Групи використовуються для служіння та для прибирання. Вони в <strong>Меню → Групи служіння → Список</strong>.</p>
+<ol class="pasos"><li>Якщо жодної немає, торкніться <strong>«Створити групи служіння»</strong> і виберіть, <strong>скільки груп</strong> вам потрібно (потім можна додати ще кнопкою <strong>+</strong>).</li><li>Щоб розподілити братів по групах, перейдіть до <strong>Списку братів</strong>, відкрийте картку кожного й виберіть його <strong>групу служіння</strong>.</li><li>Поверніться до <strong>Меню → Групи служіння → Список</strong>. У кожній групі ви побачите <strong>наглядача</strong>, <strong>помічника</strong> та братів <strong>за алфавітом</strong>.</li><li>Торкніться кнопки <strong>олівця</strong> (Змінити). Торкніться <strong>«Наглядач»</strong> і виберіть одного з братів цієї групи; те саме зробіть з <strong>«Помічник»</strong>. Це не може бути одна й та сама людина.</li><li>Торкніться <strong>галочки</strong>, щоб завершити.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Наглядача й помічника вибирають <strong>після</strong> того, як братів розподілено, бо вибрати можна лише з братів самої групи. Якщо ви переводите брата в іншу групу, він перестає бути наглядачем або помічником попередньої.</div>
+<div class="nota">Наглядач і помічник кожної групи <strong>можуть призначати день і годину прибирання</strong> своєї групи (розділ 12), навіть якщо вони не адміністратори.</div>
+</section>
+<section id="salidas"><h2>11. Служіння</h2>
+<p>Служіння — це розклад і місця збору для проповідування. Є <strong>загальні</strong> (для всього збору) і <strong>окремі для кожної групи</strong>. Вони в <strong>Меню → Групи служіння → Служіння</strong>. Спершу потрібно створити групи.</p>
+<ol class="pasos"><li>Торкніться розділу <strong>«Збір»</strong> (загальне служіння) або розділу однієї з <strong>груп</strong>.</li><li>Торкніться <strong>«Додати служіння»</strong> у відповідний день і введіть <strong>підпис</strong> (наприклад, «Ранок» або «Вечір»), <strong>годину</strong> і, якщо хочете, <strong>місце</strong>.</li><li>Щоб <strong>змінити</strong> служіння, змініть безпосередньо його поля. Щоб <strong>видалити</strong>, торкніться червоної іконки в його рядку.</li><li>Брати можуть торкнутися місця, щоб відкрити його на карті телефону.</li></ol>
+<div class="nota">Якщо група не має власного служіння, використовується служіння збору («Немає власного служіння — використовується служіння збору»).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Прибирання: яка група за чергою, в який день і о котрій</h2>
+<p>Прибирання <strong>чергується автоматично</strong> між групами служіння: щотижня черга іншої групи, починаючи з Групи 1. Воно в <strong>Меню → Прибирання → Групи</strong>.</p>
+<h3>Зміна групи, що прибирає цього тижня (адміністратор)</h3>
+<ol class="pasos"><li>Торкніться кнопки <strong>олівця</strong> (Змінити).</li><li>Торкніться <strong>групи</strong>, якій випала черга цього тижня. Наступного тижня черга наступної групи за порядком.</li><li>Торкніться <strong>галочки</strong>. Зміну бачать <strong>усі пристрої</strong> збору.</li></ol>
+<h3>Призначення точного дня й години (адміністратор, наглядач і помічник групи)</h3>
+<ol class="pasos"><li>У <strong>Меню → Прибирання → Групи</strong> знайдіть свою групу (або ту, якою керуєте) і торкніться <strong>олівця</strong> в її рядку.</li><li>Виберіть <strong>день</strong> і <strong>годину</strong> (наприклад, неділя о 12:30) і торкніться <strong>«Зберегти»</strong>. Щоб прибрати дату, торкніться <strong>«Прибрати дату»</strong>.</li><li>Брати групи побачать це на головному екрані: <strong>«Група 1 · Цього тижня»</strong> і нижче <strong>«Неділя 12:30»</strong> зі своїм <strong>дзвіночком</strong> для нагадування.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Дата з’являється на головному екрані лише якщо припадає на <strong>поточний тиждень</strong> (з понеділка до неділі). Можна призначити її наперед: вона з’явиться, коли настане цей тиждень. Дати минулих тижнів зникають самі.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Програма «Життя і служіння»</h2>
+<p>У вкладці <strong>Програма → Життя і служіння</strong> ви створюєте програму кожного тижня й доручаєте частини. Усі брати її бачать; змінювати можуть лише адміністратори.</p>
+<ol class="pasos"><li>Торкніться <strong>«Новий тиждень»</strong> і виберіть <strong>дату зібрання</strong> (будь-який день тижня, з понеділка до неділі).</li><li>Wkit створює тиждень зі <strong>звичайною структурою</strong>: Скарби з Божого Слова, Навчімося краще проповідувати та Християнське життя.</li><li>Торкніться будь-якого <strong>заголовка</strong>, щоб змінити його, і <strong>тривалість</strong>, якщо потрібно. Кнопкою <strong>«Додати доручення»</strong> можна додати більше частин.</li><li>У кожній частині торкніться <strong>«Вибрати»</strong> і виберіть брата чи братів (наприклад, учня й помічника). Для <strong>додаткових класів</strong> скористайтеся <strong>«Додати додатковий клас»</strong>.</li><li>Виберіть також <strong>пісню</strong> і <strong>молитву</strong> та торкніться <strong>«Зберегти програму»</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Щоб побачити інший тиждень, скористайтеся <strong>вибором тижня</strong> (<strong>«Минулий тиждень»</strong> / <strong>«Наступний тиждень»</strong>); звідти його також можна <strong>змінити або видалити</strong>.</li><li>Брати отримують <strong>сповіщення</strong>, коли їм доручають частину, і бачать її на головному екрані.</li><li>Програма тижня зникає сама після завершення неділі.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Публічне зібрання</h2>
+<p>У <strong>Програма → Публічне зібрання</strong> готується кожне недільне чи суботнє зібрання.</p>
+<ol class="pasos"><li>Торкніться <strong>«Нове публічне зібрання»</strong> і виберіть <strong>дату</strong>. Якщо на цю дату вже є зібрання, Wkit вас попередить.</li><li>Виберіть <strong>голову</strong>, <strong>доповідача</strong> і введіть <strong>тему доповіді</strong>.</li><li>Виберіть <strong>читця «Вартової башти»</strong> («Читець wS»), а також <strong>пісню</strong> і <strong>молитву</strong>.</li><li>Збережіть. Брати бачать свою частину на головному екрані.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Аудіо й відео / Обслуговування</h2>
+<p>У <strong>Меню → Аудіо й відео / Обслуговування</strong> ви доручаєте обов’язки на кожен тиждень: аудіо, відео, мікрофони, обслуговування, Zoom, контроль часу тощо.</p>
+<ol class="pasos"><li>Торкніться <strong>«Новий тиждень»</strong> і виберіть <strong>дату зібрання</strong>.</li><li>Торкніться <strong>«Вибрати»</strong> біля кожного обов’язку й виберіть брата. Деякі, як-от мікрофони, допускають <strong>кількох братів</strong> (<strong>«Додати брата»</strong>).</li><li>Для іншого обов’язку, якого немає, торкніться <strong>«Додати обов’язок»</strong> і дайте йому назву.</li><li>Збережіть. Кожен брат бачить це в <strong>Обов’язках</strong>, на своєму головному екрані, з дзвіночком.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Інші програми</h2>
+<p>Для <strong>всього іншого</strong>, що організовує збір і що не є зібранням: наприклад, підвезення братів, які не можуть дістатися, або допомога вісникам. Кожна програма має власну періодичність. Вона в <strong>Меню → Інші програми</strong>.</p>
+<ol class="pasos"><li>Торкніться <strong>«Нова програма»</strong>. Введіть <strong>назву</strong> і виберіть, <strong>як часто вона проводиться</strong>: щодня, щотижня, щомісяця чи щороку.</li><li>Торкніться <strong>«Створити перший тиждень»</strong> (або <strong>«Новий період»</strong>) і виберіть дату: будь-який день цього тижня, місяця чи року.</li><li>Торкніться <strong>«Додати обов’язок»</strong>: введіть необов’язковий <strong>підпис</strong> (наприклад, «Заїхати раніше») і <strong>виберіть брата чи сестру</strong>.</li><li>Збережіть. Кожен бачить це на своєму головному екрані в <strong>«Інші програми»</strong>, а період зникає сам, коли закінчується.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Оголошення</h2>
+<p>Оголошення створюють адміністратори, а також, лише для своїх груп, наглядачі та помічники кожної групи служіння. Їх бачать брати, яким вони адресовані. Вони в <strong>Меню → Оголошення</strong>.</p>
+<ol class="pasos"><li>Торкніться <strong>«Нове оголошення»</strong> і введіть <strong>повідомлення</strong>.</li><li>За замовчуванням воно публікується <strong>одразу</strong>, щойно ви його зберігаєте, і всіх повідомляють сповіщенням.</li><li>Якщо хочете, щоб воно вийшло пізніше, увімкніть <strong>«Запланувати на потім»</strong> і виберіть <strong>дату й годину</strong>: до того часу його ніхто не побачить, а в цю годину всіх буде сповіщено.</li><li>Збережіть. Щоб прибрати оголошення, торкніться його й виберіть <strong>«Видалити»</strong>: воно зникне в усіх.</li></ol>
+<h3>Оголошення лише для однієї групи</h3>
+<ul><li><strong>Наглядачі</strong> та <strong>помічники</strong> кожної групи служіння бачать кнопку <strong>+</strong>, навіть якщо вони не адміністратори, і їхні оголошення доходять <strong>лише до членів їхньої групи</strong>.</li><li>Адміністратор, який також має групу, може ввімкнути <strong>«Надіслати це оголошення лише членам моєї групи»</strong> під час створення оголошення.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Календар збору</h2>
+<p>Він потрібен, щоб усі бачили події збору, як-от <strong>обласний конгрес</strong> чи <strong>візит наглядача округу</strong>. Створювати події можуть лише адміністратори.</p>
+<ol class="pasos"><li>Відкрийте <strong>Меню → Календар</strong> і торкніться <strong>«Додати подію»</strong>.</li><li>Введіть <strong>назву</strong> і торкніться <strong>днів</strong> події: якщо вона триває кілька днів, торкайтеся кожного.</li><li>Збережіть. Усі побачать її на <strong>Головній</strong>, у розділі «Календар», зі своїм <strong>дзвіночком</strong> для нагадування.</li><li>Щоб змінити або прибрати її, відкрийте її й виберіть <strong>«Змінити подію»</strong> або <strong>«Видалити подію»</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Території: доручення, кампанії та вебпанель</h2>
+<p>Той, хто має дозвіл <strong>Відповідальний за території</strong>, керує територіями всього збору у вкладці <strong>Території</strong> (вісники бачать лише свої).</p>
+<h3>Видача й прийом територій</h3>
+<ul><li>Торкніться території й виберіть <strong>«Доручити»</strong> (або «Доручити віснику») і брата. Ви бачите, хто її тримає і відколи, а також ті, що <strong>прострочені</strong> або <strong>ніколи не доручалися</strong>.</li><li>Коли вісник <strong>просить</strong> територію, усіх відповідальних за території буде сповіщено (<strong>«Запит на територію»</strong>); той, хто перший матиме змогу, доручить її.</li><li>Коли брат <strong>повертає</strong> територію, вона стає вільною, і дату записано.</li></ul>
+<h3>Кампанії</h3>
+<ul><li><strong>«Нова кампанія»</strong> знову фіксує всі території на певний період. Створюється <strong>копія</strong> поточних територій, щоб розподілити їх окремо; звичайні території не чіпаються.</li><li>Одночасно може бути лише <strong>одна активна кампанія</strong>. Щоб її завершити, виберіть <strong>«Видалити кампанію»</strong>: її доручення видаляються, і все повертається до звичайного стану.</li></ul>
+<h3>Записи S-13 і вебпанель</h3>
+<ul><li>В <strong>Інструментах</strong> ви можете створити <strong>записи S-13 у PDF</strong> (по одному на зону), щоб ними поділитися.</li><li><strong>Вебпанель територій</strong> відкривається з браузера комп’ютера. Щоб надати доступ тому, хто відповідає за території, відкрийте його картку в Списку братів і торкніться <strong>«Доступ до панелі»</strong> → <strong>«Створити посилання»</strong>. Посилання приватне; вхід — за <strong>6-значним паролем</strong>, який ви вибираєте і можете змінити будь-коли.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Посилання на панель — як пароль: не діліться ним ні з ким, крім тих, кому потрібен доступ. Якщо створите нове, попереднє перестане працювати.</div>
+</section>
+<section id="suscripcion"><h2>19. Підписка збору</h2>
+<p>Щоб усі брати мали повний доступ, потрібна <strong>річна підписка збору</strong>. <strong>Її оплачує один адміністратор, і вона діє для всіх братів</strong>, на iPhone та Android. Решта братів нічого не платять.</p>
+<ol class="pasos"><li>Відкрийте <strong>Меню → Налаштування → Підписка збору</strong>.</li><li>Торкніться <strong>«Оформити підписку для збору»</strong>. Ви бачите річну ціну до підтвердження; якщо є <strong>безкоштовний пробний період</strong>, гроші не списуються, доки він не закінчиться.</li><li>Підтвердьте через App Store (iPhone) або Google Play (Android). Готово: увесь збір має доступ.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Вона <strong>поновлюється автоматично</strong> щороку, якщо ви не скасуєте її принаймні за 24 години до кінця періоду.</li><li>Щоб <strong>керувати нею або скасувати</strong>: <span class="plat i">iPhone</span> Налаштування iPhone → ваше ім’я → Підписки; <span class="plat a">Android</span> Google Play → ваш профіль → Платежі та підписки → Підписки (або кнопка «Керувати або скасувати в Google Play» у Wkit).</li><li>Якщо ви <strong>змінили телефон</strong>, торкніться <strong>«Відновити покупки»</strong> на тому самому екрані.</li><li>Якщо підписка <strong>закінчилася</strong>, збір переходить у режим <strong>лише читання</strong>: усе залишається видимим, і <strong>нічого не видаляється</strong>. Після поновлення знову можна редагувати.</li></ul>
+<div class="nota">Wkit ніколи не бачить і не зберігає ваші платіжні дані: цим займається Apple або Google.</div>
+</section>
+<section id="copias"><h2>20. Дані, збережені лише на цьому телефоні</h2>
+<p>Якщо ви користувалися Wkit офлайн або до того, як ваш збір з’явився, застосунок може запитати, що робити з <strong>даними, збереженими лише на цьому телефоні</strong> (наприклад, братами чи оголошеннями). У вас є два варіанти: <strong>«Завантажити»</strong> до збору (усі їх побачать) або <strong>«Відкинути»</strong>. Нічого не робиться, доки ви не вирішите.</p>
+</section>
+      <div class="caja pie"><strong>Не знайшли те, що шукали?</strong> Напишіть нам на <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> і розкажіть, що сталося. Якщо можете, вкажіть, який пристрій ви використовуєте (iPhone, iPad чи Android) і що ви робили.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Privatlivspolitik for Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <b>Dansk</b> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>Privatlivspolitik for Wkit</h1>
+      <p class="fecha">Sidst opdateret: 9. november 2026</p>
+      <h2>1. Hvem vi er, og hvad Wkit er</h2>
+      <p>Wkit er en app fra <strong>Titan Estudios</strong>, der hjælper med at organisere en menigheds hverdag: mødeprogrammet, distrikterne, meddelelserne, brøderlisten og den personlige tjenesterapport. Den virker på iPhone, iPad og Android og har et webpanel til at administrere distrikterne.</p>
+      <div class="caja"><strong>Hvem er ansvarlig for hvad.</strong> For data om <em>kontoen</em> (fx e-mailadressen) er vi ansvarlige. For data om <em>brødrene i en menighed</em> (listen, programmet, distrikterne …) er menigheden selv ansvarlig gennem sine administratorer, som indtaster dem og bestemmer, hvad de bruges til; vi stiller kun værktøjet til rådighed og opbevarer dem på deres vegne.</div>
+      <h2>2. Hvilke data behandles</h2>
+      <table>
+        <tr><th>Din konto</th><td>E-mailadressen, kun fra den, der opretter menigheden, og fra de administratorer, der kobler den til; de øvrige brødre behøver ingen e-mail, de kommer ind med en invitation. Og et internt kontoidentifikationsnummer.</td></tr>
+        <tr><th>Dit kort i brøderlisten</th><td>Navn, køn, opgave (forkynder, pioner, menighedstjener, ældste), forkyndergruppe, om man hjælper med Lyd og video eller Distrikter, og de rettigheder man har i appen. Det indtastes og ændres af menighedens administratorer.</td></tr>
+        <tr><th>Menighedens data</th><td>Mødeprogrammet og hvem der har hver del (med navn), de offentlige møder, Lyd og video, forkyndergrupperne (med tilsynsmand og hjælper), rengøringen (hvilken gruppe, og hvilken dag og time), udrykningerne, meddelelserne, de andre programmer, distrikterne (deres form på kortet, hvem der har dem, og datoerne), kampagnerne og anmodningerne om distrikt. Også kalenderbegivenhederne (titel og dage). Også noterne om distrikterne (en kort tekst og datoen, uden navnet på den, der har skrevet dem), som menighedens medlemmer kan se.</td></tr>
+        <tr><th>Abonnement</th><td>Når en administrator abonnerer på vegne af menigheden, håndteres betalingen af Apple (og Google på Android): vi ser eller gemmer ingen betalingsoplysninger. Vi gemmer kun abonnementets status, knyttet til menigheden: datoerne og et købsidentifikationsnummer.</td></tr>
+        <tr><th>Tekniske data</th><td>Et identifikationsnummer til din enhed, så vi kan sende dig notifikationer (det kommer fra Apple på iPhone og iPad og fra Google på Android), og tekniske forbindelsesdata, som serverne registrerer, fx IP-adressen.</td></tr>
+        <tr><th>Din tjenesterapport</th><td>De timer og bibelstudier, du noterer i din rapport, gemmes på din enhed og, så du kan bruge dem på alle dine enheder, også på vores servere (Supabase), knyttet til dit kort. <strong>Kun du kan se dem</strong>: hverken de ældste eller administratorerne i din menighed har adgang, og de deles ikke med andre.</td></tr>
+<tr><th>Kun på din enhed</th><td>Dit timemål, påmindelserne og indstillingerne. <strong>De sendes ikke til vores servere.</strong> Hvis du slår sikkerhedskopiering til, gemmes den i din egen iCloud, som du selv administrerer. På Android gemmes kopien på selve telefonen og, hvis du har slået Androids sikkerhedskopiering til, også på din Google-konto, som du selv administrerer.</td></tr>
+      </table>
+      <h2>3. Hvad vi IKKE gør</h2>
+      <ul>
+        <li>Ingen reklamer og intet salg eller overdragelse af data til tredjeparter til kommercielle formål.</li>
+        <li>Ingen statistikværktøjer, ingen sporing og ingen tracking på tværs af apps.</li>
+        <li>Appen <strong>bruger ikke din placering</strong>, dit kamera, dine fotos, dine kontakter eller mikrofonen.</li>
+        <li>Vi opretter ikke profiler og træffer ikke automatiserede afgørelser om dig.</li>
+      </ul>
+      <h2>4. Hvad dataene bruges til</h2>
+      <ul>
+        <li>At give dig den tjeneste, du har bedt om: at logge ind på din konto, vise hver menighed sine data og holde dem opdaterede på alle dens enheder.</li>
+        <li>At sende dig de beskeder, der opstår i din menighed (en meddelelse, et distrikt, du får tildelt …), forudsat at du har givet tilladelse til notifikationer på din enhed, hvilket du kan trække tilbage når som helst.</li>
+        <li>Til tjenestens sikkerhed og til at besvare dine anmodninger om hjælp.</li>
+      </ul>
+      <h2>5. Hvem kan se dine data</h2>
+      <ul>
+        <li><strong>Inden for din menighed:</strong> alle medlemmer ser brøderlisten, programmet og de udsendte meddelelser. Kun administratorerne kan oprette eller ændre dem. En forkynder ser kun de distrikter, han eller hun har fået tildelt. Den, der administrerer distrikterne, ser hele menighedens distrikter. Din tjenesterapport ser kun du. Meddelelser rettet til en gruppe ser kun medlemmerne af den gruppe, og tilsynsmanden og hjælperen i hver gruppe kan oprette dem til deres egen gruppe.</li>
+        <li><strong>Andre menigheder: ingen.</strong> Hver menighed har kun adgang til sine egne data; det sikrer adgangskontrollen i selve databasen.</li>
+        <li><strong>Leverandører, der hjælper os med at levere tjenesten</strong> (de behandler kun data til det formål):
+          <ul>
+            <li><strong>Supabase</strong>, som hoster databasen og kontoerne på servere i Den Europæiske Union (Frankfurt).</li>
+            <li><strong>Apple</strong>, til distribution af appen, notifikationer, appens kort (Apple Maps) og betaling af abonnementet.</li>
+            <li><strong>Google</strong>: på Android til distribution af appen (Google Play), notifikationer (Firebase Cloud Messaging), appens kort (Google Maps) og betaling af abonnementet; og på alle platforme dens mailtjeneste, som bruges til at sende beskeder med linket til adgang. Når kortet vises, kan Google modtage tekniske forbindelsesdata, fx IP-adressen.</li>
+            <li><strong>GitHub</strong>, som hoster webpanelet, og <strong>OpenFreeMap</strong>, som leverer webpanelets kort. For at vise disse sider modtager de tekniske forbindelsesdata, fx IP-adressen.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Særligt følsomme oplysninger</h2>
+      <p>Af sin natur kan en liste over en menigheds medlemmer afsløre religiøs overbevisning, som er en særlig kategori af personoplysninger. Derfor er Wkit tænkt til intern brug i hver menighed: dataene indtastes og administreres af menigheden selv til dens egne formål, kun dens medlemmer ser dem, og de sendes krypteret over internettet. Vi anbefaler kun at indtaste det nødvendige.</p>
+      <h2>7. Hvor længe de opbevares, og hvordan de slettes</h2>
+      <p>Dataene opbevares, så længe kontoen eller menigheden findes. Du kan slette din konto, når du vil, direkte i appen:</p>
+      <div class="caja"><strong>Indstillinger → Min konto → Slet min konto.</strong></div>
+      <p><a href="eliminar-cuenta-da.html">Side med trinene til at slette din konto og dine data</a>.</p>
+      <ul>
+        <li>Din adgangskonto og dit kort i brøderlisten slettes. De distrikter, du havde, bliver ledige.</li>
+        <li>De data, appen havde gemt på din enhed, og din rapport, der er gemt på vores servere, slettes.</li>
+        <li>Hvis du er den eneste person i din menighed, slettes menigheden også med alle dens data (det spørger vi udtrykkeligt om, før det sker).</li>
+        <li>Hvis du er den eneste administrator, og der er flere brødre, skal du først udpege en anden administrator, så menigheden ikke står uden administration.</li>
+        <li>Data, der ikke længere findes, kan i en begrænset periode forblive i vores leverandørs sikkerhedskopier, før de slettes helt.</li>
+        <li>Sletning af kontoen opsiger ikke et betalt abonnement, hvis der er et: det gøres i indstillingerne for dit Apple-id eller på Android i Google Play → Betalinger og abonnementer.</li>
+      </ul>
+      <p>Administratorerne kan desuden slette en brors kort fra listen, når det er nødvendigt.</p>
+      <h2>8. Dine rettigheder</h2>
+      <p>Du kan bede om indsigt i dine data, om berigtigelse, sletning, dataportabilitet og begrænsning af behandlingen, og du kan gøre indsigelse mod den. Mange af disse rettigheder kan du udøve selv i appen; for resten kan du skrive til os. Dataene på kortet og i programmet administreres af din menighed: hvis du vil have dem rettet, så bed også dens administratorer om det.</p>
+      <p>Hvis du mener, at vi ikke har behandlet dine data korrekt, kan du klage til <a href="https://www.aepd.es">det spanske datatilsyn (AEPD)</a> eller til datatilsynet i dit eget land.</p>
+      <h2>9. Sikkerhed</h2>
+      <ul>
+        <li>Al kommunikation sendes krypteret (HTTPS).</li>
+        <li>Adgangen til dataene styres af rettigheder i selve databasen, ikke kun på appens skærm.</li>
+        <li>Adgangen til distrikternes webpanel sker med en personlig nøgle, der ligger i linket. Behandl den som en adgangskode, og del den ikke.</li>
+      </ul>
+      <h2>10. Mindreårige</h2>
+      <p>Wkit er ikke rettet mod børn under 14 år. Hvis en menighed har en mindreårig på sin liste, gør en voksen administrator det på eget ansvar og med tilladelse fra forældre eller værger.</p>
+      <h2>11. Ændringer i denne politik</h2>
+      <p>Hvis vi ændrer noget vigtigt, angiver vi det her og opdaterer datoen øverst.</p>
+      <h2>12. Kontakt</h2>
+      <p>Hvis du har spørgsmål, eller vil udøve dine rettigheder: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Du har også en <a href="soporte-da.html">hjælpe</a>-side.</p>
+    </main>
+  </body>
+</html>

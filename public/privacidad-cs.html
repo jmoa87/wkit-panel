@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Zásady ochrany osobních údajů Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <b>Čeština</b> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>Zásady ochrany osobních údajů Wkit</h1>
+      <p class="fecha">Poslední aktualizace: 9. listopadu 2026</p>
+      <h2>1. Kdo jsme a co je Wkit</h2>
+      <p>Wkit je aplikace od <strong>Titan Estudios</strong>, která pomáhá organizovat život sboru: program shromáždění, území, oznámení, seznam bratří a osobní zprávu o službě. Funguje na iPhonu, iPadu i Androidu a má webový panel pro správu území.</p>
+      <div class="caja"><strong>Kdo za co odpovídá.</strong> Za údaje o <em>účtu</em> (například e-mail) odpovídáme my. Za údaje o <em>bratřích ve sboru</em> (seznam, program, území…) odpovídá samotný sbor prostřednictvím svých správců, kteří je zadávají a rozhodují, k čemu se použijí; my jen nabízíme nástroj a údaje pro ně uchováváme.</div>
+      <h2>2. Jaké údaje se zpracovávají</h2>
+      <table>
+        <tr><th>Tvůj účet</th><td>E-mail, a to jen toho, kdo sbor vytvoří, a správců, kteří ho propojí; ostatní bratři žádný e-mail nepotřebují, vstupují s pozvánkou. A interní identifikátor účtu.</td></tr>
+        <tr><th>Tvoje karta v seznamu bratří</th><td>Jméno, pohlaví, úkol (zvěstovatel, průkopník, služební pomocník, starší), skupina kazatelské služby, zda pomáhá ve Zvuku a videu nebo v Územích, a oprávnění v aplikaci. Zadávají a upravují ji správci sboru.</td></tr>
+        <tr><th>Údaje sboru</th><td>Program shromáždění a kdo má jakou část (jménem), veřejná shromáždění, Zvuk a video, skupiny kazatelské služby (s dohlížitelem a pomocníkem), úklid (která skupina a v který den a hodinu), shromáždění ke službě, oznámení, další programy, území (jejich tvar na mapě, kdo je má a data), kampaně a žádosti o území. Také události v kalendáři (název a dny). Také poznámky k územím (krátký text a datum, bez jména autora), které mohou vidět členové sboru.</td></tr>
+        <tr><th>Předplatné</th><td>Když správce sbor předplatí, platbu zpracovává Apple (a Google na Androidu): my nevidíme ani neukládáme žádné platební údaje. Ukládáme jen stav předplatného spojený se sborem: data a identifikátor nákupu.</td></tr>
+        <tr><th>Technické údaje</th><td>Identifikátor tvého zařízení, abychom ti mohli posílat oznámení (poskytuje ho Apple na iPhonu a iPadu a Google na Androidu), a technické údaje o připojení, které servery zaznamenávají, například IP adresu.</td></tr>
+        <tr><th>Tvoje zpráva o službě</th><td>Hodiny a studia, které si zapíšeš do Zprávy, se ukládají v tvém zařízení a, abys je mohl používat na všech svých zařízeních, také na našich serverech (Supabase), spojené s tvou kartou. <strong>Vidíš je jen ty</strong>: ani starší, ani správci tvého sboru k nim nemají přístup a nesdílí se s nikým dalším.</td></tr>
+<tr><th>Jen v tvém zařízení</th><td>Tvůj cíl hodin, připomínky a nastavení. <strong>Neposílají se na naše servery.</strong> Pokud zapneš zálohu, uloží se do tvého vlastního iCloudu, který spravuješ ty. Na Androidu se záloha ukládá do telefonu a, máš-li zapnutou zálohu Androidu, také do tvého účtu Google, který spravuješ ty.</td></tr>
+      </table>
+      <h2>3. Co NEDĚLÁME</h2>
+      <ul>
+        <li>Žádná reklama, žádný prodej ani předávání údajů třetím stranám pro komerční účely.</li>
+        <li>Žádné statistické nástroje, sledování ani trasování mezi aplikacemi.</li>
+        <li>Aplikace <strong>nepoužívá tvou polohu</strong>, fotoaparát, fotografie, kontakty ani mikrofon.</li>
+        <li>Nevytváříme profily ani o tobě neděláme automatizovaná rozhodnutí.</li>
+      </ul>
+      <h2>4. K čemu se údaje používají</h2>
+      <ul>
+        <li>Abychom ti poskytli požadovanou službu: přihlásit tě do účtu, ukázat každému sboru jeho údaje a udržovat je aktuální na všech zařízeních.</li>
+        <li>Abychom ti poslali upozornění, která ve tvém sboru vzniknou (oznámení, přidělené území…), pokud jsi v zařízení povolil oznámení, což můžeš kdykoli odvolat.</li>
+        <li>Pro bezpečnost služby a vyřízení tvých žádostí o pomoc.</li>
+      </ul>
+      <h2>5. Kdo může vidět tvoje údaje</h2>
+      <ul>
+        <li><strong>Ve tvém sboru:</strong> všichni členové vidí seznam bratří, program a zveřejněná oznámení. Vytvářet nebo upravovat je mohou jen správci. Zvěstovatel vidí jen území, která má přidělená. Kdo spravuje území, vidí území celého sboru. Tvou Zprávu o službě vidíš jen ty. Oznámení pro skupinu vidí jen členové této skupiny a dohlížitel a pomocník každé skupiny je mohou vytvářet pro svou skupinu.</li>
+        <li><strong>Jiné sbory: nikdo.</strong> Každý sbor přistupuje jen ke svým údajům; zaručuje to řízení přístupu v samotné databázi.</li>
+        <li><strong>Poskytovatelé, kteří nám pomáhají službu provozovat</strong> (zpracovávají údaje jen k tomuto účelu):
+          <ul>
+            <li><strong>Supabase</strong>, který hostuje databázi a účty na serverech v Evropské unii (Frankfurt).</li>
+            <li><strong>Apple</strong>, pro distribuci aplikace, oznámení, mapy v aplikaci (Apple Maps) a placení předplatného.</li>
+            <li><strong>Google</strong>: na Androidu pro distribuci aplikace (Google Play), oznámení (Firebase Cloud Messaging), mapu v aplikaci (Google Maps) a placení předplatného; a na všech platformách jeho e-mailovou službu, kterou se odesílají zprávy s odkazem pro přihlášení. Při zobrazení mapy může Google dostat technické údaje o připojení, například IP adresu.</li>
+            <li><strong>GitHub</strong>, který hostuje webový panel, a <strong>OpenFreeMap</strong>, který poskytuje mapy webového panelu. K zobrazení těchto stránek dostávají technické údaje o připojení, například IP adresu.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Zvlášť citlivé informace</h2>
+      <p>Seznam členů sboru může svou povahou odhalovat náboženské přesvědčení, což je zvláštní kategorie osobních údajů. Proto je Wkit určen pro vnitřní použití každého sboru: údaje zadává a spravuje sám sbor pro své účely, vidí je jen jeho členové a po internetu se přenášejí šifrovaně. Doporučujeme zadávat jen to, co je nezbytné.</p>
+      <h2>7. Jak dlouho se uchovávají a jak je smazat</h2>
+      <p>Údaje se uchovávají, dokud existuje účet nebo sbor. Svůj účet můžeš kdykoli smazat přímo v aplikaci:</p>
+      <div class="caja"><strong>Nastavení → Můj účet → Smazat můj účet.</strong></div>
+      <p><a href="eliminar-cuenta-cs.html">Stránka s postupem smazání tvého účtu a údajů</a>.</p>
+      <ul>
+        <li>Smaže se tvůj přístupový účet a tvoje karta v seznamu bratří. Území, která jsi měl, se uvolní.</li>
+        <li>Smažou se údaje uložené v tvém zařízení a tvoje Zpráva uložená na našich serverech.</li>
+        <li>Pokud jsi jediný člověk ve sboru, smaže se i sbor se všemi údaji (výslovně se tě před tím zeptáme).</li>
+        <li>Pokud jsi jediný správce a jsou tu další bratři, musíš nejdřív jmenovat dalšího správce, aby sbor nezůstal bez správy.</li>
+        <li>Údaje, které už neexistují, mohou zůstat omezenou dobu v zálohách našeho poskytovatele, než se úplně smažou.</li>
+        <li>Smazání účtu neruší placené předplatné, pokud existuje: to se dělá v nastavení tvého Apple ID nebo na Androidu v Google Play → Platby a předplatné.</li>
+      </ul>
+      <p>Správci mohou navíc smazat kartu bratra ze seznamu, když je to potřeba.</p>
+      <h2>8. Tvoje práva</h2>
+      <p>Můžeš požádat o přístup ke svým údajům, jejich opravu, výmaz, přenositelnost, omezení zpracování a vznést proti němu námitku. Mnoho z těchto práv můžeš uplatnit sám v aplikaci; pro ostatní nám napiš. Údaje v kartě a v programu spravuje tvůj sbor: chceš-li je opravit, požádej o to také jeho správce.</p>
+      <p>Pokud se domníváš, že jsme s tvými údaji nenakládali správně, můžeš podat stížnost u <a href="https://www.aepd.es">španělského Úřadu pro ochranu údajů (AEPD)</a> nebo u úřadu pro ochranu osobních údajů ve své zemi.</p>
+      <h2>9. Zabezpečení</h2>
+      <ul>
+        <li>Veškerá komunikace probíhá šifrovaně (HTTPS).</li>
+        <li>Přístup k údajům se řídí oprávněními přímo v databázi, nejen na obrazovce aplikace.</li>
+        <li>Přístup do webového panelu území se provádí osobním klíčem v odkazu. Zacházej s ním jako s heslem a nesdílej ho.</li>
+      </ul>
+      <h2>10. Nezletilí</h2>
+      <p>Wkit není určen dětem do 14 let. Pokud sbor zařadí do seznamu nezletilého, činí to dospělý správce na svou odpovědnost a se souhlasem rodičů nebo zákonných zástupců.</p>
+      <h2>11. Změny těchto zásad</h2>
+      <p>Pokud změníme něco důležitého, uvedeme to zde a aktualizujeme datum nahoře.</p>
+      <h2>12. Kontakt</h2>
+      <p>S jakýmkoli dotazem nebo pro uplatnění svých práv: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Máš také stránku s <a href="soporte-cs.html">nápovědou</a>.</p>
+    </main>
+  </body>
+</html>

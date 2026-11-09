@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Hướng dẫn Wkit từng bước — Wkit</title>
+    <meta name="description" content="Hướng dẫn Wkit từng bước cho người công bố và quản trị viên: đăng nhập, lời nhắc, báo cáo, anh em, nhóm, dọn dẹp, chương trình, thông báo, khu vực và gói đăng ký." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-vi.html">← Wkit</a> · <a href="privacidad-vi.html">Chính sách quyền riêng tư</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <b>Tiếng Việt</b></p>
+      <h1>Hướng dẫn Wkit từng bước</h1>
+      <p class="sub">Mọi điều bạn có thể làm trong ứng dụng, được giải thích kỹ càng: cho người công bố và cho quản trị viên. Ứng dụng hoạt động giống nhau trên iPhone, iPad và Android; khi có khác biệt, bạn sẽ thấy được đánh dấu bằng <span class="plat a">Android</span> hoặc <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Dành cho mọi anh em</h3><ol class="toc"><li><a href="#entrar">Đăng nhập Wkit lần đầu</a></li><li><a href="#inicio">Màn hình chính</a></li><li><a href="#recordatorios">Lời nhắc: chiếc chuông</a></li><li><a href="#notificaciones">Thông báo: những gì Wkit báo cho bạn</a></li><li><a href="#informe">Báo cáo thánh chức của bạn (cá nhân)</a></li><li><a href="#territorios-pub">Khu vực: xem, trả lại và yêu cầu</a></li><li><a href="#cuenta">Tài khoản của bạn: đổi điện thoại, liên kết email, ngôn ngữ và xóa</a></li><li><a href="#copia-seguridad">Sao lưu</a></li></ol></div><div class="toc-g"><h3>Dành cho quản trị viên (trưởng lão)</h3><ol class="toc"><li><a href="#crear-congregacion">Tạo hội thánh</a></li><li><a href="#hermanos">Danh sách anh em</a></li><li><a href="#grupos">Nhóm rao giảng</a></li><li><a href="#salidas">Thánh chức</a></li><li><a href="#limpieza">Dọn dẹp: nhóm nào đến phiên, ngày và giờ nào</a></li><li><a href="#vida-ministerio">Chương trình Đời sống và Thánh chức</a></li><li><a href="#reunion-publica">Buổi họp công cộng</a></li><li><a href="#audio-video">Âm thanh và Video / Người đón tiếp</a></li><li><a href="#otros-programas">Các chương trình khác</a></li><li><a href="#anuncios">Thông báo</a></li><li><a href="#calendario">Lịch hội thánh</a></li><li><a href="#territorios-admin">Khu vực: giao khu vực, chiến dịch và bảng điều khiển web</a></li><li><a href="#suscripcion">Gói đăng ký của hội thánh</a></li><li><a href="#copias">Dữ liệu chỉ được lưu trên điện thoại này</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Dành cho mọi anh em</h2>
+<section id="entrar"><h2>1. Đăng nhập Wkit lần đầu</h2>
+<p>Để vào Wkit, <strong>bạn không cần email hay mật khẩu</strong>: một trưởng lão trong hội thánh mời bạn và bạn vào bằng liên kết hoặc mã.</p>
+<ol class="pasos"><li>Hãy nhờ trưởng lão giữ danh sách anh em mời bạn. Bạn sẽ nhận <strong>hai tin nhắn liên tiếp</strong>: trước là liên kết, sau là riêng mã (để dễ sao chép).</li><li>Cài <strong>Wkit</strong> từ App Store (iPhone và iPad) hoặc từ Google Play (Android).</li><li>Chạm vào liên kết trong tin nhắn đầu: ứng dụng mở ra và nhận ra bạn.</li><li>Nếu liên kết không mở ứng dụng, hãy tự mở, chạm vào <strong>“Tôi có liên kết hoặc mã mời”</strong> và dán cả tin nhắn hoặc chỉ mã: ứng dụng sẽ tự lấy phần cần thiết.</li><li>Bạn sẽ thấy vài màn hình chào mừng (<strong>“Những bước đầu tiên”</strong>) giải thích điều gì được chia sẻ và điều gì không. Xong là bạn đã vào.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Nếu mã không dùng được</strong> (“không hợp lệ hoặc đã hết hạn”), hãy nhờ trưởng lão tạo mã mới: chỉ mất vài giây từ thẻ của bạn.</div>
+<div class="nota"><strong>Điều gì được chia sẻ và điều gì không:</strong> danh sách anh em, chương trình, việc dọn dẹp, khu vực và thông báo được cả hội thánh xem, và do một trưởng lão tạo. <strong>Báo cáo của bạn chỉ thuộc về bạn</strong>: không ai khác xem được, kể cả trưởng lão, và nó đồng bộ giữa các thiết bị của bạn.</div>
+</section>
+<section id="inicio"><h2>2. Màn hình chính</h2>
+<p>Đây là điều đầu tiên bạn thấy khi mở Wkit. Nó cho bạn thấy <strong>các phần của bạn</strong> trong nháy mắt; nếu không có phần nào được giao, bạn sẽ thấy “Chưa có phần nào sắp tới”.</p>
+<ul><li><strong>Các phần sắp tới</strong>: các phần của bạn trong buổi họp Đời sống và Thánh chức và trong buổi họp công cộng (chủ tọa, người đọc, diễn giả…).</li><li><strong>Trách nhiệm</strong>: những gì bạn được giao ở Âm thanh và Hình ảnh / Phục vụ.</li><li><strong>Dọn dẹp</strong>: chỉ hiện nếu <em>tuần này</em> là phiên của nhóm bạn. Nếu giám thị hoặc người phụ tá của nhóm đã đặt ngày và giờ, bạn sẽ thấy ở bên dưới (ví dụ “Chủ nhật 12:30”).</li><li><strong>Các chương trình khác</strong>, <strong>Khu vực</strong> (và chiến dịch, nếu có) và các lời nhắc <strong>Báo cáo</strong>.</li><li><strong>Lịch</strong>: các sự kiện của hội thánh (hội nghị, chuyến thăm của giám thị vòng quanh…), với chiếc chuông riêng để đặt lời nhắc.</li></ul>
+<p>Bên dưới có năm thẻ: <strong>Trang chủ</strong>, <strong>Chương trình</strong>, <strong>Báo cáo</strong>, <strong>Khu vực</strong> và <strong>Menu</strong> (ở đó có danh sách anh em, nhóm, dọn dẹp, thông báo và cài đặt).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Lời nhắc: chiếc chuông</h2>
+<p>Cạnh mỗi phần được giao, trách nhiệm hoặc phiên dọn dẹp có một <strong>chiếc chuông</strong>. Nó dùng để điện thoại nhắc bạn trước, vào thời điểm bạn chọn.</p>
+<ol class="pasos"><li>Chạm vào chiếc chuông của phần được giao đó.</li><li>Chọn ngày và giờ nhắc.</li><li>Xác nhận. Chiếc chuông chuyển sang màu xanh và rung khi đến lúc.</li><li>Để bỏ, chạm vào chiếc chuông lần nữa và chọn xóa lời nhắc.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Nếu trưởng lão đổi ngày hoặc giờ dọn dẹp, chiếc chuông sẽ đề nghị đặt lại lời nhắc với ngày mới.</div>
+<div class="nota"><span class="plat a">Android</span> Nếu lời nhắc không đến, hãy kiểm tra Wkit có quyền thông báo trong cài đặt điện thoại và pin không bị hạn chế.</div>
+</section>
+<section id="notificaciones"><h2>4. Thông báo: những gì Wkit báo cho bạn</h2>
+<p>Wkit báo cho bạn khi có thông báo mới, khi bạn được giao điều gì đó hoặc khi có thay đổi liên quan đến bạn.</p>
+<ol class="pasos"><li>Lần đầu, hãy <strong>cho phép thông báo</strong> khi điện thoại hỏi.</li><li>Mở <strong>Menu → Cài đặt → Thông báo</strong>.</li><li>Tắt các mục bạn không muốn (Thông báo, Chương trình, Âm thanh và Hình ảnh, Dọn dẹp, Khu vực…) và chọn ngày, giờ bạn thích nhận thông báo.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Một thiết bị mỗi lần chỉ nhận thông báo của một người</strong>: người đang mở phiên đăng nhập. Nếu không nhận được, hãy mở Wkit bằng tài khoản của bạn ít nhất một lần để thiết bị được đăng ký.</div>
+</section>
+<section id="informe"><h2>5. Báo cáo thánh chức của bạn (cá nhân)</h2>
+<p>Báo cáo là công cụ <strong>cá nhân</strong>: chỉ bạn xem được, trưởng lão cũng không. Nó được lưu trên điện thoại của bạn và đồng bộ giữa các thiết bị của bạn.</p>
+<ol class="pasos"><li>Mở thẻ <strong>Báo cáo</strong>. Lần đầu, Wkit hỏi vài câu: loại thánh chức của bạn (người công bố, tiên phong…) và <strong>mục tiêu giờ hằng tháng</strong> của bạn.</li><li>Để ghi thánh chức của bạn, chạm vào <strong>“Mới”</strong> và điền ngày, giờ, phút và các cuộc học hỏi.</li><li>Trong <strong>Lịch sử</strong>, bạn thấy mình đã đạt được gì trong tháng và trong năm công tác, và có thể sửa hoặc xóa một mục.</li><li>Vào ngày đầu mỗi tháng, Wkit có thể nhắc bạn, vào giờ bạn chọn, <strong>nộp báo cáo</strong>. Nút <strong>“Gửi báo cáo”</strong> soạn sẵn tin nhắn với số giờ và các cuộc học hỏi của bạn.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Báo cáo của bạn được đồng bộ</strong> với tài khoản, nên nếu đổi điện thoại, bạn sẽ lấy lại được khi đăng nhập. Dù vậy, hãy sao lưu (Menu → Cài đặt → Sao lưu): đó là một lớp bảo đảm thêm. Xem mục 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Khu vực: xem, trả lại và yêu cầu</h2>
+<p>Trong thẻ <strong>Khu vực</strong>, bạn thấy các khu vực được giao cho mình, cùng ngày bạn bắt đầu giữ.</p>
+<ol class="pasos"><li>Để <strong>trả lại</strong> một khu vực khi xong, hãy mở nó và chạm vào <strong>“Trả lại”</strong> (hoặc <strong>“Báo đã xong”</strong>). Người phụ trách khu vực sẽ được báo.</li><li>Nếu bạn <strong>chưa có khu vực nào</strong> và muốn có, chạm vào <strong>“Yêu cầu khu vực”</strong>. Bạn có thể thêm lời nhắn tùy chọn (ví dụ “Tôi muốn khu ở Carcabuey”).</li><li>Tất cả những người phụ trách khu vực đều được báo, và người nào có thể trước sẽ giao cho bạn một khu vực. Bạn sẽ nhận thông báo khi được giao.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Tài khoản của bạn: đổi điện thoại, liên kết email, ngôn ngữ và xóa</h2>
+<h3>Đổi hoặc mất điện thoại</h3>
+<ul><li>Nếu bạn <strong>chưa liên kết email</strong> (anh em không cần), một trưởng lão sẽ gửi <strong>lời mời mới</strong> từ thẻ của bạn trong Danh sách anh em. Bạn lấy lại chỗ của mình cùng mọi thứ của hội thánh và cả Báo cáo của bạn.</li><li>Nếu bạn <strong>đã liên kết email</strong>, hãy mở Wkit, chạm vào <strong>“Tạo tài khoản hoặc đăng nhập với tư cách quản trị viên”</strong>, nhập email và mở liên kết nhận được. Bạn vào với mọi thứ như trước.</li></ul>
+<h3>Dùng Wkit trên nhiều thiết bị</h3>
+<ul><li>Bạn có thể dùng <strong>cùng một tài khoản đồng thời</strong> trên iPhone, iPad và Android (ví dụ trên điện thoại và máy tính bảng).</li><li>Để thêm thiết bị khác, một trưởng lão gửi lời mời từ thẻ của bạn và bạn mở nó trên thiết bị đó. <strong>Phiên trên thiết bị đầu tiên không bị đóng.</strong></li><li>Báo cáo của bạn được đồng bộ giữa tất cả thiết bị.</li></ul>
+<h3>Liên kết email (tùy chọn, nên làm với quản trị viên)</h3>
+<ol class="pasos"><li>Mở <strong>Menu → Cài đặt → Tài khoản của tôi → Liên kết email của tôi</strong>.</li><li>Nhập email của bạn. Một liên kết xác nhận sẽ gửi đến.</li><li><strong>Hãy mở nó từ cùng điện thoại</strong>, trong ứng dụng email. Màn hình tự đóng và tài khoản của bạn được liên kết.</li></ol>
+<h3>Đổi ngôn ngữ</h3>
+<p>Wkit dùng ngôn ngữ của điện thoại. Để đổi riêng cho Wkit: cài đặt điện thoại → Ứng dụng → Wkit → Ngôn ngữ.</p>
+<h3>Xóa tài khoản</h3>
+<p><strong>Menu → Cài đặt → Tài khoản của tôi → Xóa tài khoản của tôi.</strong> Tài khoản của bạn, thẻ của bạn trong danh sách và dữ liệu lưu trên điện thoại (kể cả Báo cáo) bị xóa; các khu vực bạn đang giữ sẽ trống. Không thể hoàn tác. Nếu bạn là quản trị viên duy nhất và còn anh em khác, trước tiên bạn phải chỉ định người khác (trong Danh sách anh em, mở thẻ của người đó và bật “Quản trị viên”). Nếu bạn là người duy nhất trong hội thánh, cả hội thánh cũng bị xóa.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Xóa tài khoản <strong>không hủy</strong> gói đăng ký của hội thánh, nếu chính tài khoản đó trả tiền: gói được hủy trong App Store <span class="plat i">iPhone</span> hoặc trong Google Play → Thanh toán và gói đăng ký → Gói đăng ký <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Sao lưu</h2>
+<p>Chủ yếu để có <strong>một bản sao bổ sung của Báo cáo</strong>: dù nó đồng bộ giữa các thiết bị, bản sao bảo vệ bạn nếu lỡ xóa nhầm. Bạn thấy nó ở <strong>Menu → Cài đặt → Sao lưu</strong>.</p>
+<ul><li><strong>Sao lưu tự động</strong>: tạo bản sao mỗi tháng một lần, tự động.</li><li><strong>“Tạo bản sao ngay”</strong> y <strong>“Xuất bản sao lưu”</strong>: bạn có thể lưu tệp ở bất cứ đâu hoặc gửi cho chính mình.</li><li><strong>“Khôi phục bản sao lưu”</strong>: chọn tệp đã xuất từ Wkit. Dữ liệu trong bản sao được <strong>thêm vào</strong> những gì bạn đã có: không có gì bị xóa.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Bản sao tự động được lưu trong iCloud của bạn. <span class="plat a">Android</span> Nó được lưu trên điện thoại và, nếu sao lưu của Android được bật trong tài khoản Google của bạn (cài đặt điện thoại → Google → Sao lưu), khi bạn đăng nhập bằng tài khoản đó trên điện thoại mới, bạn sẽ tự động lấy lại.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Dành cho quản trị viên (trưởng lão)</h2>
+<section id="crear-congregacion"><h2>8. Tạo hội thánh</h2>
+<p>Việc này do một trưởng lão làm <strong>chỉ một lần</strong>; sau đó người đó mời những người khác.</p>
+<ol class="pasos"><li>Mở Wkit và chạm vào <strong>“Tạo tài khoản hoặc đăng nhập với tư cách quản trị viên”</strong>.</li><li>Nhập email của bạn và chạm vào <strong>“Gửi liên kết truy cập”</strong>. Không có mật khẩu: bạn nhận một liên kết để xác nhận email là của bạn.</li><li><strong>Mở liên kết từ cùng điện thoại.</strong> Wkit tự mở.</li><li>Điền <strong>tên của bạn</strong>, <strong>tên hội thánh</strong>, <strong>số hội thánh</strong> và <strong>quốc gia</strong>, rồi chạm vào <strong>“Tạo hội thánh”</strong>.</li><li>Bạn sẽ thấy <strong>“Những bước đầu tiên với tư cách trưởng lão”</strong>: 1) thêm anh em vào Danh sách anh em và 2) mời họ.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Email không đến? Kiểm tra thư mục spam và chạm vào <strong>“Chưa đến, gửi lại”</strong>. Một email chỉ có thể có một tài khoản trong Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. Danh sách anh em</h2>
+<p>Đây là nền tảng của mọi thứ: chương trình, nhóm và các phần được giao đều dùng tên trong danh sách này. Nó nằm ở <strong>Menu → Danh sách anh em</strong>.</p>
+<h3>Thêm một anh em</h3>
+<ol class="pasos"><li>Chạm vào nút <strong>+</strong> (<strong>“Anh em mới”</strong>).</li><li>Nhập <strong>tên</strong> và chọn là <strong>anh</strong> hay <strong>chị</strong>.</li><li>Chọn <strong>trách nhiệm</strong> của người đó: người công bố đã báp-têm hoặc chưa, tiên phong, tôi tớ thánh chức hay trưởng lão.</li><li>Nếu phù hợp, chọn <strong>nhóm rao giảng</strong> của người đó và bật <strong>Phụ trách khu vực</strong>, <strong>Âm thanh và Hình ảnh / Phục vụ</strong> hoặc <strong>Quản trị viên</strong>.</li><li>Chạm vào <strong>“Tạo”</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Hai anh em trùng tên:</strong> hãy thêm điều gì đó để phân biệt (ví dụ “con trai”) để các phần được giao không bị lẫn.</div>
+<h3>Mời một anh em vào Wkit</h3>
+<ol class="pasos"><li>Mở thẻ của anh em đó và chạm vào <strong>“Mời”</strong> (hoặc <strong>“Tạo liên kết”</strong>).</li><li>Chạm vào <strong>“Chia sẻ lời mời”</strong> và chọn WhatsApp, tin nhắn… <strong>Hai tin nhắn liên tiếp</strong> được gửi đi: trước là liên kết, sau là riêng mã, để dễ sao chép.</li><li>Anh em mở liên kết (hoặc dán mã) và vào. Nếu anh chưa vào, bạn có thể chia sẻ lại lời mời; nếu tạo mới, lời mời cũ sẽ không còn dùng được.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Sửa, xóa và chỉ định quản trị viên</h3>
+<ul><li>Chạm vào một anh em và chọn <strong>“Sửa”</strong> để đổi thông tin của anh.</li><li>Trên Android, để xóa hãy chạm vào <strong>biểu tượng đỏ</strong> ở hàng của anh; trên iPhone, vuốt hàng sang trái. Anh bị xóa khỏi danh sách trên mọi thiết bị và các khu vực anh đang giữ trở thành trống.</li><li><strong>Quản trị viên</strong> có thể quản lý anh em, khu vực, thông báo và chương trình. <strong>Bạn không thể xóa thẻ của chính mình hay quản trị viên cuối cùng</strong>: hãy chỉ định người khác trước.</li></ul>
+</section>
+<section id="grupos"><h2>10. Nhóm rao giảng</h2>
+<p>Các nhóm được dùng cho thánh chức và cho việc dọn dẹp. Chúng nằm ở <strong>Menu → Nhóm rao giảng → Danh sách</strong>.</p>
+<ol class="pasos"><li>Nếu chưa có nhóm nào, chạm vào <strong>“Tạo nhóm rao giảng”</strong> và chọn <strong>bạn muốn bao nhiêu nhóm</strong> (sau đó có thể thêm bằng nút <strong>+</strong>).</li><li>Để xếp anh em vào nhóm, vào <strong>Danh sách anh em</strong>, mở thẻ từng người và chọn <strong>nhóm rao giảng</strong> của người đó.</li><li>Quay lại <strong>Menu → Nhóm rao giảng → Danh sách</strong>. Trong mỗi nhóm, bạn sẽ thấy <strong>giám thị</strong>, <strong>người phụ tá</strong> và các anh em <strong>theo thứ tự bảng chữ cái</strong>.</li><li>Chạm vào nút <strong>bút chì</strong> (Sửa). Chạm vào <strong>“Giám thị”</strong> và chọn một trong các anh em của nhóm đó; làm tương tự với <strong>“Người phụ tá”</strong>. Không được là cùng một người.</li><li>Chạm vào <strong>dấu tích</strong> để xong.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Giám thị và người phụ tá được chọn <strong>sau khi</strong> đã xếp anh em vào nhóm, vì chỉ chọn được từ các anh em của chính nhóm. Nếu bạn chuyển một anh em sang nhóm khác, người đó không còn là giám thị hay người phụ tá của nhóm cũ.</div>
+<div class="nota">Giám thị và người phụ tá của mỗi nhóm <strong>có thể đặt ngày và giờ dọn dẹp</strong> của nhóm mình (mục 12), dù không phải quản trị viên.</div>
+</section>
+<section id="salidas"><h2>11. Thánh chức</h2>
+<p>Thánh chức là lịch và nơi tụ họp để đi rao giảng. Có loại <strong>chung</strong> (cho cả hội thánh) và loại <strong>riêng cho từng nhóm</strong>. Chúng nằm ở <strong>Menu → Nhóm rao giảng → Thánh chức</strong>. Trước đó bạn phải tạo các nhóm.</p>
+<ol class="pasos"><li>Chạm vào phần <strong>“Hội thánh”</strong> (thánh chức chung) hoặc phần của một <strong>nhóm</strong>.</li><li>Chạm vào <strong>“Thêm thánh chức”</strong> vào ngày phù hợp và nhập <strong>nhãn</strong> (ví dụ “Sáng” hoặc “Chiều”), <strong>giờ</strong> và, nếu muốn, <strong>địa điểm</strong>.</li><li>Để <strong>sửa</strong> một thánh chức, sửa trực tiếp các ô của nó. Để <strong>xóa</strong>, chạm vào biểu tượng đỏ ở hàng của nó.</li><li>Anh em có thể chạm vào địa điểm để mở trong bản đồ của điện thoại.</li></ol>
+<div class="nota">Nếu một nhóm không có thánh chức riêng, thánh chức của hội thánh sẽ được dùng (“Không có thánh chức riêng — dùng thánh chức của hội thánh”).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Dọn dẹp: nhóm nào đến phiên, ngày và giờ nào</h2>
+<p>Việc dọn dẹp <strong>luân phiên tự động</strong> giữa các nhóm rao giảng: mỗi tuần đến phiên một nhóm khác, bắt đầu từ Nhóm 1. Nó nằm ở <strong>Menu → Dọn dẹp → Nhóm</strong>.</p>
+<h3>Đổi nhóm dọn dẹp tuần này (quản trị viên)</h3>
+<ol class="pasos"><li>Chạm vào nút <strong>bút chì</strong> (Sửa).</li><li>Chạm vào <strong>nhóm</strong> đến phiên tuần này. Tuần sau đến phiên nhóm kế tiếp theo thứ tự.</li><li>Chạm vào <strong>dấu tích</strong>. Thay đổi được <strong>mọi thiết bị</strong> của hội thánh thấy.</li></ol>
+<h3>Đặt ngày và giờ chính xác (quản trị viên, giám thị và người phụ tá của nhóm)</h3>
+<ol class="pasos"><li>Trong <strong>Menu → Dọn dẹp → Nhóm</strong>, tìm nhóm của bạn (hoặc nhóm bạn phụ trách) và chạm vào <strong>bút chì</strong> ở hàng của nhóm.</li><li>Chọn <strong>ngày</strong> và <strong>giờ</strong> (ví dụ Chủ nhật lúc 12:30) rồi chạm vào <strong>“Lưu”</strong>. Để xóa ngày, chạm vào <strong>“Bỏ ngày”</strong>.</li><li>Anh em trong nhóm sẽ thấy trên màn hình chính: <strong>“Nhóm 1 · Tuần này”</strong> và bên dưới <strong>“Chủ nhật 12:30”</strong>, với <strong>chiếc chuông</strong> để đặt lời nhắc.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Ngày chỉ hiện trên màn hình chính nếu rơi vào <strong>tuần hiện tại</strong> (từ thứ Hai đến Chủ nhật). Bạn có thể đặt trước: nó hiện khi đến tuần đó. Ngày của các tuần đã qua tự biến mất.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Chương trình Đời sống và Thánh chức</h2>
+<p>Trong thẻ <strong>Chương trình → Đời sống và Thánh chức</strong>, bạn tạo chương trình mỗi tuần và giao các phần. Mọi anh em đều xem được; chỉ quản trị viên mới sửa.</p>
+<ol class="pasos"><li>Chạm vào <strong>“Tuần mới”</strong> và chọn <strong>ngày họp</strong> (bất kỳ ngày nào trong tuần, từ thứ Hai đến Chủ nhật).</li><li>Wkit tạo tuần đó với <strong>cấu trúc thông thường</strong>: Những báu vật trong Lời Đức Chúa Trời, Rèn luyện kỹ năng rao giảng và Đời sống Cơ Đốc nhân.</li><li>Chạm vào bất kỳ <strong>tiêu đề</strong> nào để sửa, và <strong>thời lượng</strong> nếu cần. Với <strong>“Thêm phần được giao”</strong>, bạn có thể thêm các phần khác.</li><li>Ở mỗi phần, chạm vào <strong>“Chọn”</strong> và chọn anh em (ví dụ học viên và người phụ tá). Với <strong>lớp phụ</strong>, dùng <strong>“Thêm lớp phụ”</strong>.</li><li>Chọn cả <strong>bài hát</strong> và <strong>lời cầu nguyện</strong>, rồi chạm vào <strong>“Lưu chương trình”</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Để xem tuần khác, dùng <strong>bộ chọn tuần</strong> (<strong>“Tuần trước”</strong> / <strong>“Tuần sau”</strong>); từ đó bạn cũng có thể <strong>sửa hoặc xóa</strong>.</li><li>Anh em nhận <strong>thông báo</strong> khi được giao một phần và thấy nó trên màn hình chính.</li><li>Chương trình của tuần tự biến mất sau khi ngày Chủ nhật kết thúc.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Buổi họp công cộng</h2>
+<p>Trong <strong>Chương trình → Buổi họp công cộng</strong>, bạn chuẩn bị từng buổi họp cuối tuần.</p>
+<ol class="pasos"><li>Chạm vào <strong>“Buổi họp công cộng mới”</strong> và chọn <strong>ngày</strong>. Nếu đã có buổi họp vào ngày đó, Wkit sẽ cảnh báo bạn.</li><li>Chọn <strong>chủ tọa</strong>, <strong>diễn giả</strong> và nhập <strong>đề tài bài giảng</strong>.</li><li>Chọn <strong>người đọc Tháp Canh</strong> (“Người đọc wS”) cùng <strong>bài hát</strong> và <strong>lời cầu nguyện</strong>.</li><li>Lưu lại. Anh em thấy phần của mình trên màn hình chính.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Âm thanh và Hình ảnh / Phục vụ</h2>
+<p>Trong <strong>Menu → Âm thanh và Hình ảnh / Phục vụ</strong>, bạn giao trách nhiệm mỗi tuần: âm thanh, hình ảnh, micrô, phục vụ, Zoom, bấm giờ…</p>
+<ol class="pasos"><li>Chạm vào <strong>“Tuần mới”</strong> và chọn <strong>ngày họp</strong>.</li><li>Chạm vào <strong>“Chọn”</strong> ở từng trách nhiệm và chọn anh em. Một số, như micrô, cho phép <strong>nhiều anh em</strong> (<strong>“Thêm anh em”</strong>).</li><li>Với trách nhiệm khác chưa có, chạm vào <strong>“Thêm trách nhiệm”</strong> và đặt tên.</li><li>Lưu lại. Mỗi anh em thấy nó trong <strong>Trách nhiệm</strong>, trên màn hình chính của mình, kèm chiếc chuông.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Các chương trình khác</h2>
+<p>Dành cho <strong>bất kỳ điều gì khác</strong> mà hội thánh tổ chức và không phải buổi họp: ví dụ đưa đón những anh em không thể đến, hoặc giúp đỡ người công bố. Mỗi chương trình có tần suất riêng. Nó nằm ở <strong>Menu → Các chương trình khác</strong>.</p>
+<ol class="pasos"><li>Chạm vào <strong>“Chương trình mới”</strong>. Nhập <strong>tên</strong> và chọn <strong>tần suất tổ chức</strong>: hằng ngày, hằng tuần, hằng tháng hoặc hằng năm.</li><li>Chạm vào <strong>“Tạo tuần đầu tiên”</strong> (hoặc <strong>“Giai đoạn mới”</strong>) và chọn ngày: bất kỳ ngày nào trong tuần, tháng hoặc năm đó.</li><li>Chạm vào <strong>“Thêm trách nhiệm”</strong>: nhập <strong>nhãn</strong> tùy chọn (ví dụ “Đón sớm”) và <strong>chọn anh hoặc chị</strong>.</li><li>Lưu lại. Mỗi người thấy nó trên màn hình chính của mình, trong <strong>“Các chương trình khác”</strong>, và giai đoạn tự biến mất khi kết thúc.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Thông báo</h2>
+<p>Thông báo do quản trị viên tạo và, chỉ cho nhóm của mình, do giám thị và người phụ tá của mỗi nhóm rao giảng. Các anh em được nhắm đến sẽ thấy. Chúng nằm ở <strong>Menu → Thông báo</strong>.</p>
+<ol class="pasos"><li>Chạm vào <strong>“Thông báo mới”</strong> và nhập <strong>nội dung</strong>.</li><li>Theo mặc định, thông báo được đăng <strong>ngay lập tức</strong> khi bạn lưu, và mọi người được báo bằng thông báo đẩy.</li><li>Nếu muốn nó ra sau, bật <strong>“Hẹn giờ cho sau”</strong> và chọn <strong>ngày và giờ</strong>: đến lúc đó không ai thấy, và vào giờ đó mọi người được báo.</li><li>Lưu lại. Để gỡ thông báo, chạm vào nó và chọn <strong>“Xóa”</strong>: nó biến mất với mọi người.</li></ol>
+<h3>Thông báo chỉ cho một nhóm</h3>
+<ul><li><strong>Giám thị</strong> và <strong>người phụ tá</strong> của mỗi nhóm rao giảng thấy nút <strong>+</strong> dù không phải quản trị viên, và thông báo của họ chỉ đến <strong>các thành viên trong nhóm của họ</strong>.</li><li>Quản trị viên cũng có nhóm có thể bật <strong>“Chỉ gửi thông báo này cho các thành viên trong nhóm của tôi”</strong> khi tạo thông báo.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Lịch hội thánh</h2>
+<p>Dùng để mọi người thấy các sự kiện của hội thánh, như <strong>hội nghị vòng quanh</strong> hay <strong>chuyến thăm của giám thị vòng quanh</strong>. Chỉ quản trị viên tạo được sự kiện.</p>
+<ol class="pasos"><li>Mở <strong>Menu → Lịch</strong> và chạm vào <strong>“Thêm sự kiện”</strong>.</li><li>Nhập <strong>tiêu đề</strong> và chạm vào các <strong>ngày</strong> của sự kiện: nếu kéo dài nhiều ngày, chạm từng ngày.</li><li>Lưu lại. Mọi người sẽ thấy ở <strong>Trang chủ</strong>, dưới “Lịch”, kèm <strong>chiếc chuông</strong> để đặt lời nhắc.</li><li>Để sửa hoặc gỡ, hãy mở nó và chọn <strong>“Sửa sự kiện”</strong> hoặc <strong>“Xóa sự kiện”</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Khu vực: giao khu vực, chiến dịch và bảng điều khiển web</h2>
+<p>Người có quyền <strong>Phụ trách khu vực</strong> quản lý khu vực của cả hội thánh từ thẻ <strong>Khu vực</strong> (người công bố chỉ thấy khu vực của mình).</p>
+<h3>Giao và nhận khu vực</h3>
+<ul><li>Chạm vào một khu vực và chọn <strong>“Giao”</strong> (hoặc “Giao cho người công bố”) và anh em. Bạn thấy ai đang giữ và từ khi nào, cùng những khu vực <strong>quá hạn</strong> hoặc <strong>chưa từng được giao</strong>.</li><li>Khi một người công bố <strong>yêu cầu</strong> khu vực, tất cả những người phụ trách khu vực đều được báo (<strong>“Yêu cầu khu vực”</strong>); người nào có thể trước sẽ giao.</li><li>Khi một anh em <strong>trả lại</strong> khu vực, nó trở thành trống và ngày được ghi lại.</li></ul>
+<h3>Chiến dịch</h3>
+<ul><li><strong>“Chiến dịch mới”</strong> ghi lại tất cả khu vực một lần nữa cho một khoảng thời gian. Một <strong>bản sao</strong> của các khu vực hiện tại được tạo để phân phát riêng; các khu vực thường không bị động đến.</li><li>Chỉ có thể có <strong>một chiến dịch đang hoạt động</strong> cùng lúc. Để kết thúc, chọn <strong>“Xóa chiến dịch”</strong>: các phần giao bị xóa và mọi thứ trở lại bình thường.</li></ul>
+<h3>Phiếu S-13 và bảng điều khiển web</h3>
+<ul><li>Trong <strong>Công cụ</strong>, bạn có thể tạo <strong>phiếu S-13 dạng PDF</strong> (mỗi phân khu một phiếu) để chia sẻ.</li><li><strong>Bảng điều khiển web của khu vực</strong> được mở từ trình duyệt máy tính. Để cấp quyền truy cập cho một người phụ trách khu vực: mở thẻ của người đó trong Danh sách anh em và chạm vào <strong>“Quyền truy cập bảng điều khiển”</strong> → <strong>“Tạo liên kết”</strong>. Liên kết là riêng tư; vào bằng <strong>mật khẩu 6 chữ số</strong> do bạn chọn, và bạn có thể đổi bất cứ lúc nào.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Liên kết bảng điều khiển giống như mật khẩu: đừng chia sẻ cho ai ngoài những người cần truy cập. Nếu tạo mới, liên kết cũ sẽ ngừng hoạt động.</div>
+</section>
+<section id="suscripcion"><h2>19. Gói đăng ký của hội thánh</h2>
+<p>Để mọi anh em có đầy đủ quyền truy cập, cần có <strong>gói đăng ký hằng năm của hội thánh</strong>. <strong>Một quản trị viên trả và gói áp dụng cho tất cả anh em</strong>, trên iPhone và Android. Những anh em khác không phải trả gì.</p>
+<ol class="pasos"><li>Mở <strong>Menu → Cài đặt → Gói đăng ký của hội thánh</strong>.</li><li>Chạm vào <strong>“Đăng ký cho hội thánh”</strong>. Bạn thấy giá hằng năm trước khi xác nhận; nếu có <strong>dùng thử miễn phí</strong>, sẽ không bị tính phí cho đến khi hết thời gian đó.</li><li>Xác nhận qua App Store (iPhone) hoặc Google Play (Android). Xong: cả hội thánh đã có quyền truy cập.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Gói <strong>tự động gia hạn</strong> mỗi năm, trừ khi bạn hủy ít nhất 24 giờ trước khi kết thúc kỳ.</li><li>Để <strong>quản lý hoặc hủy</strong>: <span class="plat i">iPhone</span> Cài đặt iPhone → tên của bạn → Gói đăng ký; <span class="plat a">Android</span> Google Play → hồ sơ của bạn → Thanh toán và gói đăng ký → Gói đăng ký (hoặc nút “Quản lý hoặc hủy trong Google Play” trong Wkit).</li><li>Nếu bạn <strong>đổi điện thoại</strong>, chạm vào <strong>“Khôi phục giao dịch mua”</strong> trên cùng màn hình.</li><li>Nếu gói <strong>hết hạn</strong>, hội thánh chuyển sang chế độ <strong>chỉ đọc</strong>: mọi thứ vẫn hiển thị và <strong>không có gì bị xóa</strong>. Sau khi gia hạn, lại sửa được.</li></ul>
+<div class="nota">Wkit không bao giờ xem hay lưu dữ liệu thanh toán của bạn: Apple hoặc Google xử lý.</div>
+</section>
+<section id="copias"><h2>20. Dữ liệu chỉ lưu trên điện thoại này</h2>
+<p>Nếu bạn dùng Wkit ngoại tuyến hoặc trước khi hội thánh của bạn tồn tại, ứng dụng có thể hỏi nên làm gì với <strong>dữ liệu chỉ lưu trên điện thoại này</strong> (ví dụ anh em hoặc thông báo). Bạn có hai lựa chọn: <strong>“Tải lên”</strong> hội thánh (mọi người sẽ thấy) hoặc <strong>“Bỏ”</strong>. Không có gì được làm cho đến khi bạn quyết định.</p>
+</section>
+      <div class="caja pie"><strong>Không tìm thấy điều bạn cần?</strong> Hãy viết cho chúng tôi tại <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> và kể điều đã xảy ra. Nếu được, cho biết bạn dùng thiết bị nào (iPhone, iPad hay Android) và bạn đang làm gì.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

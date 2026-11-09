@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Pravila privatnosti aplikacije Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <b>Hrvatski</b> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>Pravila privatnosti aplikacije Wkit</h1>
+      <p class="fecha">Zadnje ažuriranje: 9. studenoga 2026.</p>
+      <h2>1. Tko smo i što je Wkit</h2>
+      <p>Wkit je aplikacija tvrtke <strong>Titan Estudios</strong> koja pomaže organizirati život skupštine: program sastanaka, područja, objave, popis braće i osobno izvješće o službi. Radi na iPhoneu, iPadu i Androidu, a ima i web-ploču za upravljanje područjima.</p>
+      <div class="caja"><strong>Tko je za što odgovoran.</strong> Za podatke o <em>računu</em> (na primjer e-adresa) odgovorni smo mi. Za podatke o <em>braći u skupštini</em> (popis, program, područja…) odgovorna je sama skupština preko svojih administratora, koji ih unose i odlučuju za što se koriste; mi samo nudimo alat i čuvamo ih po njihovu nalogu.</div>
+      <h2>2. Koji se podaci obrađuju</h2>
+      <table>
+        <tr><th>Tvoj račun</th><td>E-adresa, i to samo osobe koja stvara skupštinu i administratora koji je povežu; ostaloj braći nije potrebna e-adresa, ulaze s pozivnicom. I interni identifikator računa.</td></tr>
+        <tr><th>Tvoja kartica u popisu braće</th><td>Ime, spol, zadatak (objavitelj, pionir, ministarski pomoćnik, starješina), grupa za službu propovijedanja, pomaže li u Zvuku i videu ili u Područjima te dopuštenja u aplikaciji. Unose ih i mijenjaju administratori skupštine.</td></tr>
+        <tr><th>Podaci skupštine</th><td>Program sastanaka i tko ima koji dio (po imenu), javni govori, Zvuk i video, grupe za službu propovijedanja (s nadglednikom i pomoćnikom), čišćenje (koja grupa te koji dan i sat), izlasci u službu, objave, ostali programi, područja (njihov oblik na karti, tko ih ima i datumi), kampanje i zahtjevi za područje. Također događaji u kalendaru (naslov i dani). Također bilješke o područjima (kratak tekst i datum, bez imena autora), koje mogu vidjeti članovi skupštine.</td></tr>
+        <tr><th>Pretplata</th><td>Kad administrator pretplati skupštinu, plaćanje obrađuje Apple (a Google na Androidu): mi ne vidimo niti spremamo nikakve podatke o plaćanju. Spremamo samo stanje pretplate povezano sa skupštinom: datume i identifikator kupnje.</td></tr>
+        <tr><th>Tehnički podaci</th><td>Identifikator tvog uređaja kako bismo ti mogli slati obavijesti (daje ga Apple na iPhoneu i iPadu, a Google na Androidu) i tehnički podaci o povezivanju koje poslužitelji bilježe, poput IP adrese.</td></tr>
+        <tr><th>Tvoje izvješće o službi</th><td>Sati i studiji koje upisuješ u Izvješće spremaju se na tvom uređaju i, da ih možeš koristiti na svim svojim uređajima, također na našim poslužiteljima (Supabase), povezani s tvojom karticom. <strong>Vidiš ih samo ti</strong>: ni starješine ni administratori tvoje skupštine nemaju pristup, a ne dijele se ni s kim drugim.</td></tr>
+<tr><th>Samo na tvom uređaju</th><td>Tvoj cilj sati, podsjetnici i postavke. <strong>Ne šalju se na naše poslužitelje.</strong> Ako uključiš sigurnosnu kopiju, sprema se u tvoj vlastiti iCloud, kojim upravljaš ti. Na Androidu se kopija sprema na sam telefon i, ako imaš uključenu Androidovu sigurnosnu kopiju, također na tvoj Google račun, kojim upravljaš ti.</td></tr>
+      </table>
+      <h2>3. Što NE radimo</h2>
+      <ul>
+        <li>Nema reklama, prodaje ni ustupanja podataka trećim stranama u komercijalne svrhe.</li>
+        <li>Nema alata za statistiku, praćenje ni sljedivost među aplikacijama.</li>
+        <li>Aplikacija <strong>ne koristi tvoju lokaciju</strong>, kameru, fotografije, kontakte ni mikrofon.</li>
+        <li>Ne stvaramo profile niti donosimo automatizirane odluke o tebi.</li>
+      </ul>
+      <h2>4. Za što se podaci koriste</h2>
+      <ul>
+        <li>Da ti pružimo uslugu koju si zatražio: ulazak u tvoj račun, prikaz podataka svakoj skupštini i njihovo održavanje ažurnima na svim uređajima.</li>
+        <li>Da ti pošaljemo obavijesti koje nastanu u tvojoj skupštini (objava, dodijeljeno područje…), uz uvjet da si na uređaju dopustio obavijesti, što možeš povući kad god želiš.</li>
+        <li>Za sigurnost usluge i odgovaranje na tvoje zahtjeve za pomoć.</li>
+      </ul>
+      <h2>5. Tko može vidjeti tvoje podatke</h2>
+      <ul>
+        <li><strong>Unutar tvoje skupštine:</strong> svi članovi vide popis braće, program i objavljene objave. Samo ih administratori mogu stvarati ili mijenjati. Objavitelj vidi samo područja koja su mu dodijeljena. Tko upravlja područjima, vidi područja cijele skupštine. Tvoje Izvješće o službi vidiš samo ti. Objave namijenjene grupi vide samo članovi te grupe, a nadglednik i pomoćnik svake grupe mogu ih stvarati za svoju grupu.</li>
+        <li><strong>Druge skupštine: nitko.</strong> Svaka skupština pristupa samo svojim podacima; to jamči kontrola pristupa same baze podataka.</li>
+        <li><strong>Pružatelji koji nam pomažu pružati uslugu</strong> (obrađuju podatke samo za to):
+          <ul>
+            <li><strong>Supabase</strong>, koji hostira bazu podataka i račune na poslužiteljima u Europskoj uniji (Frankfurt).</li>
+            <li><strong>Apple</strong>, za distribuciju aplikacije, obavijesti, karte u aplikaciji (Apple Maps) i naplatu pretplate.</li>
+            <li><strong>Google</strong>: na Androidu za distribuciju aplikacije (Google Play), obavijesti (Firebase Cloud Messaging), kartu u aplikaciji (Google Maps) i naplatu pretplate; te na svim platformama njegova usluga e-pošte kojom se šalju poruke s poveznicom za pristup. Pri prikazu karte Google može primiti tehničke podatke o povezivanju, poput IP adrese.</li>
+            <li><strong>GitHub</strong>, koji hostira web-ploču, i <strong>OpenFreeMap</strong>, koji poslužuje karte web-ploče. Za prikaz tih stranica primaju tehničke podatke o povezivanju, poput IP adrese.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Posebno osjetljive informacije</h2>
+      <p>Zbog svoje prirode popis članova skupštine može otkriti vjerska uvjerenja, što je posebna kategorija osobnih podataka. Zato je Wkit zamišljen za unutarnju upotrebu svake skupštine: podatke unosi i vodi sama skupština za svoje potrebe, vide ih samo njezini članovi, a putuju internetom šifrirani. Preporučujemo unositi samo ono što je nužno.</p>
+      <h2>7. Koliko se dugo čuvaju i kako ih izbrisati</h2>
+      <p>Podaci se čuvaju dok postoji račun ili skupština. Svoj račun možeš izbrisati kad god želiš izravno u aplikaciji:</p>
+      <div class="caja"><strong>Postavke → Moj račun → Izbriši moj račun.</strong></div>
+      <p><a href="eliminar-cuenta-hr.html">Stranica s koracima za brisanje tvog računa i podataka</a>.</p>
+      <ul>
+        <li>Briše se tvoj pristupni račun i tvoja kartica u popisu braće. Područja koja si imao ostaju slobodna.</li>
+        <li>Brišu se podaci koje je aplikacija imala spremljene na tvom uređaju i tvoje Izvješće spremljeno na našim poslužiteljima.</li>
+        <li>Ako si jedina osoba u svojoj skupštini, briše se i skupština sa svim podacima (izričito te pitamo prije toga).</li>
+        <li>Ako si jedini administrator, a ima još braće, prvo moraš imenovati drugog administratora kako skupština ne bi ostala bez upravljanja.</li>
+        <li>Podaci koji više ne postoje mogu ograničeno vrijeme ostati u sigurnosnim kopijama našeg pružatelja prije nego se potpuno izbrišu.</li>
+        <li>Brisanje računa ne otkazuje plaćenu pretplatu ako postoji: to se radi u postavkama tvog Apple ID-a ili na Androidu u Google Play → Plaćanja i pretplate.</li>
+      </ul>
+      <p>Administratori mogu osim toga izbrisati karticu brata iz popisa kad je potrebno.</p>
+      <h2>8. Tvoja prava</h2>
+      <p>Možeš zatražiti pristup svojim podacima, njihov ispravak, brisanje, prenosivost, ograničenje obrade i prigovoriti obradi. Mnoga od tih prava možeš ostvariti sam u aplikaciji; za ostala nam piši. Podatke kartice i programa vodi tvoja skupština: ako ih želiš ispraviti, zatraži to i od njezinih administratora.</p>
+      <p>Ako smatraš da nismo pravilno postupali s tvojim podacima, možeš podnijeti prigovor <a href="https://www.aepd.es">španjolskoj Agenciji za zaštitu podataka (AEPD)</a> ili tijelu za zaštitu podataka u svojoj zemlji.</p>
+      <h2>9. Sigurnost</h2>
+      <ul>
+        <li>Sva komunikacija putuje šifrirana (HTTPS).</li>
+        <li>Pristup podacima kontrolira se dopuštenjima u samoj bazi podataka, a ne samo na zaslonu aplikacije.</li>
+        <li>Pristup web-ploči područja ostvaruje se osobnim ključem koji je u poveznici. Postupaj s njim kao s lozinkom i ne dijeli ga.</li>
+      </ul>
+      <h2>10. Maloljetnici</h2>
+      <p>Wkit nije namijenjen djeci mlađoj od 14 godina. Ako skupština uvrsti maloljetnika u svoj popis, to čini odrasli administrator, na svoju odgovornost i uz dopuštenje roditelja ili skrbnika.</p>
+      <h2>11. Promjene ovih pravila</h2>
+      <p>Ako promijenimo nešto važno, naznačit ćemo to ovdje i ažurirati gornji datum.</p>
+      <h2>12. Kontakt</h2>
+      <p>Za bilo kakvo pitanje ili za ostvarivanje svojih prava: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Imaš i stranicu <a href="soporte-hr.html">pomoći</a>.</p>
+    </main>
+  </body>
+</html>

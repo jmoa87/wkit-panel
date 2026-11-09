@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>מדריך שלב אחר שלב ל־Wkit — Wkit</title>
+    <meta name="description" content="מדריך שלב אחר שלב ל־Wkit למבשרים ולמנהלים: כניסה, תזכורות, דוח, אחים, קבוצות, ניקיון, תוכניות, הודעות, שטחים ומנוי." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-he.html">← Wkit</a> · <a href="privacidad-he.html">מדיניות פרטיות</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <b>עברית</b> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>מדריך שלב אחר שלב ל־Wkit</h1>
+      <p class="sub">כל מה שאפשר לעשות באפליקציה, מוסבר בנחת: למבשרים ולמנהלים. היא פועלת באותו אופן באייפון, באייפד ובאנדרואיד; כשיש הבדל, תראה אותו מסומן ב־<span class="plat a">Android</span> או ב־<span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>לכל האחים</h3><ol class="toc"><li><a href="#entrar">הכניסה הראשונה ל־Wkit</a></li><li><a href="#inicio">מסך הבית</a></li><li><a href="#recordatorios">תזכורות: הפעמון</a></li><li><a href="#notificaciones">התראות: על מה Wkit מודיעה לך</a></li><li><a href="#informe">דוח השירות שלך (פרטי)</a></li><li><a href="#territorios-pub">שטחים: צפייה, מסירה ובקשה</a></li><li><a href="#cuenta">החשבון שלך: החלפת טלפון, קישור דוא״ל, שפה ומחיקה</a></li><li><a href="#copia-seguridad">גיבוי</a></li></ol></div><div class="toc-g"><h3>למנהלים (זקנים)</h3><ol class="toc"><li><a href="#crear-congregacion">יצירת הקהילה</a></li><li><a href="#hermanos">רשימת האחים</a></li><li><a href="#grupos">קבוצות שירות</a></li><li><a href="#salidas">יציאות לשירות</a></li><li><a href="#limpieza">ניקיון: איזו קבוצה בתור ואיזה יום ושעה</a></li><li><a href="#vida-ministerio">תוכנית החיים והשירות</a></li><li><a href="#reunion-publica">הרצאה ציבורית</a></li><li><a href="#audio-video">שמע ווידאו / סדרנים</a></li><li><a href="#otros-programas">תוכניות נוספות</a></li><li><a href="#anuncios">הודעות</a></li><li><a href="#calendario">לוח השנה של הקהילה</a></li><li><a href="#territorios-admin">שטחים: הקצאה, מסעות ולוח אינטרנטי</a></li><li><a href="#suscripcion">מנוי הקהילה</a></li><li><a href="#copias">הנתונים נשמרים רק בטלפון הזה</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">לכל האחים</h2>
+<section id="entrar"><h2>1. הכניסה הראשונה ל־Wkit</h2>
+<p>כדי להיכנס ל־Wkit <strong>אינך זקוק לדוא״ל או לסיסמה</strong>: זקן מהקהילה שלך מזמין אותך ואתה נכנס עם קישור או קוד.</p>
+<ol class="pasos"><li>בקש מהזקן שמנהל את רשימת האחים להזמין אותך. יגיעו אליך <strong>שתי הודעות ברצף</strong>: קודם קישור ואחר כך הקוד לבדו (כדי שיהיה קל להעתיק אותו).</li><li>התקן את <strong>Wkit</strong> מ־App Store (אייפון ואייפד) או מ־Google Play (אנדרואיד).</li><li>הקש על הקישור בהודעה הראשונה: האפליקציה נפתחת ומזהה אותך.</li><li>אם הקישור לא פותח את האפליקציה, פתח אותה בעצמך, הקש על <strong>״יש לי קישור או קוד הזמנה״</strong> והדבק את ההודעה כולה או רק את הקוד: האפליקציה לוקחת לבד את מה שהיא צריכה.</li><li>תראה כמה מסכי פתיחה (<strong>״צעדים ראשונים״</strong>) שמסבירים מה משותף ומה לא. כשתסיים, אתה בפנים.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>אם הקוד לא עובד</strong> (״אינו תקף או שפג תוקפו״), בקש מהזקן ליצור לך חדש: זה נעשה ברגע מהכרטיס שלך.</div>
+<div class="nota"><strong>מה משותף ומה לא:</strong> רשימת האחים, התוכנית, הניקיון, השטחים וההודעות נראים לכל הקהילה ונוצרים על ידי זקן. <strong>הדוח שלך הוא רק שלך</strong>: אף אחד אחר לא רואה אותו, אפילו לא זקן, והוא מסתנכרן בין המכשירים שלך.</div>
+</section>
+<section id="inicio"><h2>2. מסך הבית</h2>
+<p>זה הדבר הראשון שאתה רואה כשאתה פותח את Wkit. הוא מראה לך את <strong>העניינים שלך</strong> במבט אחד; אם אין לך שום דבר מוקצה, תראה ״אין הקצאות קרובות״.</p>
+<ul><li><strong>חלקים קרובים</strong>: החלקים שלך באסיפת החיים והשירות ובאסיפה הציבורית (יושב־ראש, קורא, נואם…).</li><li><strong>אחריות</strong>: מה שיש לך בשמע ווידאו / סדרנים.</li><li><strong>ניקוי</strong>: מופיע רק אם <em>השבוע</em> תורה של הקבוצה שלך. אם המשגיח או העוזר של הקבוצה קבעו יום ושעה, תראה אותם מתחת (למשל ״יום ראשון 12:30״).</li><li><strong>תוכניות נוספות</strong>, <strong>שטחים</strong> (והמסע, אם יש) והתזכורת של <strong>דוח</strong>.</li><li><strong>לוח שנה</strong>: אירועי הקהילה (כינוס, ביקור משגיח המעגל…), עם הפעמון שלהם לתזכורת.</li></ul>
+<p>למטה יש לך חמש לשוניות: <strong>בית</strong>, <strong>תוכנית</strong>, <strong>דוח</strong>, <strong>שטחים</strong> ו<strong>תפריט</strong> (שם נמצאים רשימת האחים, הקבוצות, הניקיון, ההודעות וההגדרות).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. תזכורות: הפעמון</h2>
+<p>ליד כל הקצאה, אחריות או תור ניקיון יש <strong>פעמון</strong>. הוא משמש כדי שהטלפון יתריע לך מראש, בשעה שתבחר.</p>
+<ol class="pasos"><li>הקש על הפעמון של ההקצאה.</li><li>בחר את היום והשעה של התזכורת.</li><li>אשר. הפעמון הופך לירוק ורועד כשמגיע הזמן.</li><li>כדי להסיר אותה, הקש שוב על הפעמון ובחר להסיר את התזכורת.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">אם הזקן משנה את היום או השעה של הניקיון, הפעמון מציע לך שוב לקבוע את התזכורת עם התאריך החדש.</div>
+<div class="nota"><span class="plat a">Android</span> אם התזכורות לא מגיעות, בדוק שלאפליקציה Wkit יש הרשאה להתראות בהגדרות הטלפון ושהסוללה שלה אינה מוגבלת.</div>
+</section>
+<section id="notificaciones"><h2>4. התראות: על מה Wkit מודיעה לך</h2>
+<p>Wkit מודיעה לך כשיש הודעה חדשה, כשמקצים לך משהו או כשיש שינויים שנוגעים לך.</p>
+<ol class="pasos"><li>בפעם הראשונה, <strong>אפשר התראות</strong> כשהטלפון ישאל אותך.</li><li>פתח <strong>תפריט ← הגדרות ← התראות</strong>.</li><li>כבה את הקטגוריות שאינך רוצה (הודעות, תוכנית, שמע ווידאו, ניקיון, שטחים…) ובחר את הימים והשעה שבהם אתה מעדיף לקבל את ההתראות.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>מכשיר מקבל התראות של אדם אחד בלבד בכל פעם</strong>: זה שהחיבור שלו פתוח. אם הן לא מגיעות אליך, פתח את Wkit עם החשבון שלך לפחות פעם אחת כדי שהמכשיר יירשם.</div>
+</section>
+<section id="informe"><h2>5. דוח השירות שלך (פרטי)</h2>
+<p>הדוח הוא כלי <strong>אישי</strong>: רק אתה רואה אותו, אפילו לא זקן. הוא נשמר בטלפון שלך ומסתנכרן בין המכשירים שלך.</p>
+<ol class="pasos"><li>פתח את הלשונית <strong>דוח</strong>. בפעם הראשונה Wkit שואלת אותך כמה שאלות: סוג השירות שלך (מבשר, חלוץ…) ו<strong>יעד השעות החודשי שלך</strong>.</li><li>כדי לרשום את השירות שלך, הקש על <strong>״חדש״</strong> ומלא את התאריך, השעות והדקות והלימודים.</li><li>ב<strong>היסטוריה</strong> אתה רואה מה יש לך בחודש ובשנת השירות, ואפשר לערוך או למחוק רישום.</li><li>ב־1 בכל חודש Wkit יכולה להתריע לך, בשעה שתבחר, <strong>להגיש את הדוח</strong>. הכפתור <strong>״שלח דוח״</strong> מכין את ההודעה עם השעות והלימודים שלך.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>הדוח שלך מסתנכרן</strong> עם החשבון שלך, ולכן אם תחליף טלפון תקבל אותו בחזרה כשתיכנס שוב. ובכל זאת, עשה גיבוי (תפריט ← הגדרות ← גיבוי): זו ערובה נוספת. ראה סעיף 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. שטחים: צפייה, מסירה ובקשה</h2>
+<p>בלשונית <strong>שטחים</strong> אתה רואה את השטחים שהוקצו לך, עם התאריך שבו קיבלת אותם.</p>
+<ol class="pasos"><li>כדי <strong>למסור</strong> שטח כשסיימת אותו, פתח אותו והקש על <strong>״מסור״</strong> (או <strong>״דווח שהושלם״</strong>). מי שמנהל את השטחים מקבל הודעה.</li><li>אם <strong>אין לך אף אחד</strong> ואתה רוצה, הקש על <strong>״בקש שטח״</strong>. אפשר להוסיף הודעה לא חובה (למשל ״אני רוצה את זה של Carcabuey״).</li><li>כל משרתי השטחים מקבלים הודעה, והראשון שיכול יקצה לך אחד. תגיע אליך התראה כשיהיה לך.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. החשבון שלך: החלפת טלפון, קישור דוא״ל, שפה ומחיקה</h2>
+<h3>החלפת טלפון או אובדנו</h3>
+<ul><li>אם <strong>לא קישרת דוא״ל</strong> (האחים לא צריכים), זקן שולח לך <strong>הזמנה חדשה</strong> מהכרטיס שלך ברשימת האחים. אתה מקבל בחזרה את מקומך עם כל מה שיש בקהילה ועם הדוח שלך.</li><li>אם <strong>קישרת את הדוא״ל שלך</strong>, פתח את Wkit, הקש על <strong>״צור חשבון או היכנס כמנהל״</strong>, כתוב את הדוא״ל ופתח את הקישור שמגיע אליך. אתה נכנס עם הכול כפי שהיה.</li></ul>
+<h3>שימוש ב־Wkit בכמה מכשירים</h3>
+<ul><li>אפשר להשתמש ב<strong>אותו חשבון בו־זמנית</strong> באייפון, באייפד ובאנדרואיד (למשל בטלפון ובטאבלט).</li><li>כדי להוסיף מכשיר נוסף, זקן שולח לך הזמנה מהכרטיס שלך ואתה פותח אותה באותו מכשיר. <strong>ההתחברות במכשיר הראשון לא נסגרת.</strong></li><li>הדוח שלך מסתנכרן בין כל המכשירים שלך.</li></ul>
+<h3>קישור הדוא״ל שלך (אופציונלי, מומלץ למנהלים)</h3>
+<ol class="pasos"><li>פתח <strong>תפריט ← הגדרות ← החשבון שלי ← קשר את הדוא״ל שלי</strong>.</li><li>כתוב את הדוא״ל שלך. יגיע אליך קישור אישור.</li><li><strong>פתח אותו מאותו טלפון</strong>, באפליקציית הדוא״ל. המסך נסגר מעצמו והחשבון שלך מקושר.</li></ol>
+<h3>שינוי שפה</h3>
+<p>Wkit משתמשת בשפת הטלפון. כדי לשנות אותה רק ב־Wkit: הגדרות הטלפון ← אפליקציות ← Wkit ← שפה.</p>
+<h3>מחיקת החשבון שלך</h3>
+<p><strong>תפריט ← הגדרות ← החשבון שלי ← מחק את החשבון שלי.</strong> החשבון שלך, הכרטיס שלך ברשימה והנתונים השמורים בטלפון שלך (כולל הדוח) נמחקים; השטחים שהיו לך מתפנים. אי אפשר לבטל. אם אתה המנהל היחיד ויש עוד אחים, עליך למנות קודם אחר (ברשימת האחים, פתח את הכרטיס שלו והפעל ״מנהל״). אם אתה האדם היחיד בקהילה, גם הקהילה כולה נמחקת.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">מחיקת החשבון <strong>אינה מבטלת</strong> את מנוי הקהילה, אם החשבון הזה משלם עליו: מבטלים אותו ב־App Store <span class="plat i">iPhone</span> או ב־Google Play ← תשלומים ומינויים ← מינויים <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. גיבוי</h2>
+<p>הוא משמש בעיקר כדי שיהיה לך <strong>עותק נוסף של הדוח שלך</strong>: למרות שהוא מסתנכרן בין המכשירים שלך, עותק מגן עליך אם תמחק אותו בטעות. תמצא אותו ב<strong>תפריט ← הגדרות ← גיבוי</strong>.</p>
+<ul><li><strong>גיבוי אוטומטי</strong>: עושה עותק פעם בחודש, לבד.</li><li><strong>״גבה עכשיו״</strong> y <strong>״ייצא גיבוי״</strong>: אפשר לשמור את הקובץ היכן שתרצה או לשלוח אותו לעצמך.</li><li><strong>״שחזר גיבוי״</strong>: בחר את הקובץ שיוצא מ־Wkit. הנתונים שבעותק <strong>מתווספים</strong> לאלה שכבר יש לך: שום דבר לא נמחק.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> הגיבוי האוטומטי נשמר ב־iCloud שלך. <span class="plat a">Android</span> הוא נשמר בטלפון, ואם הפעלת את הגיבוי של אנדרואיד בחשבון Google שלך (הגדרות הטלפון ← Google ← גיבוי), כשתיכנס עם אותו חשבון בטלפון חדש תקבל אותו בחזרה לבד.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">למנהלים (זקנים)</h2>
+<section id="crear-congregacion"><h2>8. יצירת הקהילה</h2>
+<p>זקן עושה זאת <strong>פעם אחת</strong>; אחר כך הוא מזמין את האחרים.</p>
+<ol class="pasos"><li>פתח את Wkit והקש על <strong>״צור חשבון או היכנס כמנהל״</strong>.</li><li>כתוב את הדוא״ל שלך והקש על <strong>״שלח קישור כניסה״</strong>. אין סיסמאות: מגיע אליך קישור שמאשר שהדוא״ל שלך.</li><li><strong>פתח את הקישור מאותו טלפון.</strong> Wkit נפתחת לבד.</li><li>מלא את <strong>שמך</strong>, את <strong>שם הקהילה</strong>, את <strong>מספר הקהילה</strong> ואת <strong>המדינה</strong>, והקש על <strong>״צור קהילה״</strong>.</li><li>תראה את <strong>״צעדים ראשונים כזקן״</strong>: 1) הוסף את האחים לרשימת האחים ו־2) הזמן אותם.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">המייל לא מגיע? בדוק בתיקיית הספאם והקש על <strong>״לא הגיע, שלח שוב״</strong>. לדוא״ל אחד יכול להיות רק חשבון אחד ב־Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. רשימת האחים</h2>
+<p>היא הבסיס לכול: התוכניות, הקבוצות וההקצאות משתמשים בשמות של הרשימה הזו. היא נמצאת ב<strong>תפריט ← רשימת אחים</strong>.</p>
+<h3>הוספת אח</h3>
+<ol class="pasos"><li>הקש על הכפתור <strong>+</strong> (<strong>״אח חדש״</strong>).</li><li>כתוב את <strong>השם</strong> ובחר אם הוא <strong>אח</strong> או <strong>אחות</strong>.</li><li>בחר את <strong>האחריות</strong> שלו: מבשר מוטבל או לא מוטבל, חלוץ/ה, משרת מסייע או זקן.</li><li>אם רלוונטי, בחר את <strong>קבוצת השירות</strong> שלו והפעל <strong>משרת שטחים</strong>, <strong>שמע ווידאו / סדרנים</strong> או <strong>מנהל</strong>.</li><li>הקש על <strong>״צור״</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>שני אחים עם אותו שם:</strong> הוסף משהו שמבדיל ביניהם (למשל ״הבן״) כדי שההקצאות לא יתבלבלו.</div>
+<h3>הזמנת אח ל־Wkit</h3>
+<ol class="pasos"><li>פתח את כרטיס האח והקש על <strong>״הזמן״</strong> (או <strong>״צור קישור״</strong>).</li><li>הקש על <strong>״שתף הזמנה״</strong> ובחר WhatsApp, הודעות וכו׳. נשלחות <strong>שתי הודעות ברצף</strong>: קודם הקישור ואחר כך הקוד לבדו, כדי שיהיה קל להעתיק אותו.</li><li>האח פותח את הקישור (או מדביק את הקוד) ונכנס. אם עוד לא נכנס, אפשר לשתף שוב את ההזמנה; אם תיצור חדשה, הקודמת מפסיקה להיות תקפה.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>עריכה, מחיקה ומינוי מנהלים</h3>
+<ul><li>הקש על אח ובחר <strong>״ערוך״</strong> כדי לשנות את פרטיו.</li><li>באנדרואיד, כדי למחוק הקש על <strong>הסמל האדום</strong> בשורה שלו; באייפון, החלק את השורה שמאלה. הוא נמחק מהרשימה בכל המכשירים והשטחים שהיו לו מתפנים.</li><li><strong>מנהל</strong> יכול לנהל אחים, שטחים, הודעות ותוכנית. <strong>אי אפשר למחוק את הכרטיס שלך עצמך ואת המנהל האחרון</strong>: מנה קודם אחר.</li></ul>
+</section>
+<section id="grupos"><h2>10. קבוצות שירות</h2>
+<p>הקבוצות משמשות ליציאות לשירות ולניקיון. הן נמצאות ב<strong>תפריט ← קבוצות שירות ← רשימה</strong>.</p>
+<ol class="pasos"><li>אם אין אף אחת, הקש על <strong>״צור קבוצות שירות״</strong> ובחר <strong>כמה קבוצות</strong> אתה רוצה (אפשר להוסיף עוד אחר כך עם הכפתור <strong>+</strong>).</li><li>כדי לשבץ את האחים בקבוצה שלהם, עבור אל <strong>רשימת האחים</strong>, פתח את הכרטיס של כל אחד ובחר את <strong>קבוצת השירות</strong> שלו.</li><li>חזור אל <strong>תפריט ← קבוצות שירות ← רשימה</strong>. תראה בכל קבוצה את <strong>המשגיח</strong>, את <strong>העוזר</strong> ואת האחים <strong>לפי סדר אלפביתי</strong>.</li><li>הקש על כפתור <strong>העיפרון</strong> (ערוך). הקש על <strong>״משגיח״</strong> ובחר אחד מהאחים של אותה קבוצה; עשה אותו דבר עם <strong>״עוזר״</strong>. לא יכול להיות אותו אדם.</li><li>הקש על <strong>הסימון ✓</strong> כדי לסיים.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">המשגיח והעוזר נבחרים <strong>אחרי</strong> ששיבצת את האחים, כי אפשר לבחור רק מבין אחי הקבוצה עצמה. אם תעביר אח לקבוצה אחרת, הוא מפסיק להיות משגיח או עוזר בקודמת.</div>
+<div class="nota">המשגיח והעוזר של כל קבוצה <strong>יכולים לקבוע את היום והשעה של הניקיון</strong> של הקבוצה שלהם (סעיף 12), גם אם אינם מנהלים.</div>
+</section>
+<section id="salidas"><h2>11. יציאות לשירות</h2>
+<p>היציאות הן שעות ומקומות המפגש לשירות. יש <strong>כלליות</strong> (לכל הקהילה) ו<strong>של כל קבוצה</strong>. הן נמצאות ב<strong>תפריט ← קבוצות שירות ← יציאות לשירות</strong>. קודם צריך שתהיינה קבוצות שנוצרו.</p>
+<ol class="pasos"><li>הקש על החלק <strong>״קהילה״</strong> (יציאות כלליות) או על זה של <strong>קבוצה</strong>.</li><li>הקש על <strong>״הוסף יציאה״</strong> ביום המתאים וכתוב את <strong>התווית</strong> (למשל ״בוקר״ או ״אחר הצהריים״), את <strong>השעה</strong> ואם תרצה את <strong>המיקום</strong>.</li><li>כדי <strong>לערוך</strong> יציאה, שנה ישירות את השדות שלה. כדי <strong>למחוק</strong> אותה, הקש על הסמל האדום בשורה שלה.</li><li>האחים יכולים להקיש על המיקום כדי לפתוח אותו במפת הטלפון שלהם.</li></ol>
+<div class="nota">אם לקבוצה אין יציאות משלה, משתמשים באלה של הקהילה (״אין יציאות משלה — משתמשת באלה של הקהילה״).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. ניקיון: איזו קבוצה בתור ואיזה יום ושעה</h2>
+<p>הניקיון <strong>מתחלף אוטומטית</strong> בין קבוצות השירות: בכל שבוע תורה של קבוצה אחרת, החל מקבוצה 1. הוא נמצא ב<strong>תפריט ← ניקיון ← קבוצות</strong>.</p>
+<h3>שינוי איזו קבוצה מנקה השבוע (מנהלים)</h3>
+<ol class="pasos"><li>הקש על כפתור <strong>העיפרון</strong> (ערוך).</li><li>הקש על ה<strong>קבוצה</strong> שתורה השבוע. בשבוע הבא תורה של הקבוצה הבאה לפי הסדר.</li><li>הקש על <strong>הסימון ✓</strong>. את השינוי רואים <strong>כל המכשירים</strong> של הקהילה.</li></ol>
+<h3>קביעת היום והשעה המדויקים (מנהלים, משגיח ועוזר הקבוצה)</h3>
+<ol class="pasos"><li>ב<strong>תפריט ← ניקיון ← קבוצות</strong>, מצא את הקבוצה שלך (או זו שאתה מנהל) והקש על <strong>העיפרון</strong> בשורה שלה.</li><li>בחר את ה<strong>יום</strong> וה<strong>שעה</strong> (למשל יום ראשון בשעה 12:30) והקש על <strong>״שמור״</strong>. כדי למחוק את התאריך, הקש על <strong>״הסר תאריך״</strong>.</li><li>אחי הקבוצה הזו יראו זאת במסך הבית שלהם: <strong>״קבוצה 1 · השבוע״</strong> ומתחתיו <strong>״יום ראשון 12:30״</strong>, עם <strong>הפעמון</strong> שלו לקביעת תזכורת.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">התאריך מופיע במסך הבית רק אם הוא חל ב<strong>שבוע הנוכחי</strong> (מיום שני עד יום ראשון). אפשר לקבוע אותו מראש: הוא יופיע כשיגיע אותו שבוע. תאריכים של שבועות עבר נעלמים מעצמם.</div>
+</section>
+<section id="vida-ministerio"><h2>13. תוכנית החיים והשירות</h2>
+<p>בלשונית <strong>תוכנית ← החיים והשירות</strong> אתה יוצר את התוכנית של כל שבוע ומקצה את החלקים. כל האחים רואים אותה; רק המנהלים עורכים אותה.</p>
+<ol class="pasos"><li>הקש על <strong>״שבוע חדש״</strong> ובחר את <strong>תאריך האסיפה</strong> (כל יום באותו שבוע, מיום שני עד יום ראשון).</li><li>Wkit יוצרת את השבוע עם <strong>המבנה הרגיל</strong>: אוצרות מדבר־אלוהים, התייעל בשירות השדה ולחיות כמשיחיים.</li><li>הקש על כל <strong>כותרת</strong> כדי לשנות אותה, ועל <strong>משך הזמן</strong> אם צריך. עם <strong>״הוסף הקצאה״</strong> אפשר להוסיף עוד חלקים.</li><li>בכל חלק, הקש על <strong>״בחר״</strong> ובחר את האח או האחים (למשל תלמיד ועוזר). עבור <strong>אולם צדדי</strong>, השתמש ב<strong>״הוסף אולם צדדי״</strong>.</li><li>בחר גם את <strong>השירים</strong> ואת <strong>התפילות</strong> והקש על <strong>״שמור תוכנית״</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>כדי לראות שבוע אחר, השתמש ב<strong>בורר השבועות</strong> (<strong>״שבוע קודם״</strong> / <strong>״שבוע הבא״</strong>); משם אפשר גם <strong>לערוך או למחוק אותו</strong>.</li><li>האחים מקבלים <strong>התראה</strong> כשמוקצה להם חלק, ורואים אותו במסך הבית שלהם.</li><li>תוכנית השבוע נעלמת מעצמה בסוף יום ראשון.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. הרצאה ציבורית</h2>
+<p>ב<strong>תוכנית ← הרצאה ציבורית</strong> מכינים כל אסיפה של סוף השבוע.</p>
+<ol class="pasos"><li>הקש על <strong>״הרצאה ציבורית חדשה״</strong> ובחר את <strong>התאריך</strong>. אם כבר יש אסיפה לתאריך הזה, Wkit מזהירה אותך.</li><li>בחר את <strong>יושב־הראש</strong>, את <strong>הנואם</strong> וכתוב את <strong>כותרת הנאום</strong>.</li><li>בחר את <strong>קורא המצפה</strong> (״קורא wS״) ואת <strong>השירים</strong> ו<strong>התפילות</strong>.</li><li>שמור. האחים רואים את החלקים שלהם במסך הבית.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. שמע ווידאו / סדרנים</h2>
+<p>ב<strong>תפריט ← שמע ווידאו / סדרנים</strong> אתה מקצה את האחריות של כל שבוע: שמע, ווידאו, מיקרופונים, סדרנים, Zoom, מדידת זמנים…</p>
+<ol class="pasos"><li>הקש על <strong>״שבוע חדש״</strong> ובחר את <strong>תאריך האסיפה</strong>.</li><li>הקש על <strong>״בחר״</strong> בכל אחריות ובחר את האח. חלק מהן, כמו המיקרופונים, מאפשרות <strong>כמה אחים</strong> (<strong>״הוסף אח״</strong>).</li><li>לאחריות אחרת שלא מופיעה, הקש על <strong>״הוסף אחריות״</strong> ותן לה שם.</li><li>שמור. כל אח רואה אותה ב<strong>אחריות</strong> במסך הבית שלו, עם הפעמון שלה.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. תוכניות נוספות</h2>
+<p>עבור <strong>כל דבר אחר</strong> שהקהילה מארגנת ואינו אסיפה: למשל הסעה לאחים שאינם יכולים להגיע, או עזרה למבשרים. לכל תוכנית יש מחזוריות משלה. היא נמצאת ב<strong>תפריט ← תוכניות נוספות</strong>.</p>
+<ol class="pasos"><li>הקש על <strong>״תוכנית חדשה״</strong>. כתוב את <strong>השם</strong> ובחר <strong>כל כמה זמן היא מאורגנת</strong>: לפי יום, לפי שבוע, לפי חודש או שנתית.</li><li>הקש על <strong>״צור את השבוע הראשון״</strong> (או <strong>״תקופה חדשה״</strong>) ובחר את התאריך: כל יום באותו שבוע, חודש או שנה.</li><li>הקש על <strong>״הוסף אחריות״</strong>: כתוב <strong>תווית</strong> לא חובה (למשל ״אוסף מוקדם יותר״) ו<strong>בחר את האח או האחות</strong>.</li><li>שמור. כל אחד רואה זאת במסך הבית שלו ב<strong>״תוכניות נוספות״</strong>, והתקופה נעלמת מעצמה כשהיא מסתיימת.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. הודעות</h2>
+<p>ההודעות נוצרות על ידי המנהלים, ורק עבור הקבוצה שלהם, על ידי המשגיח והעוזר של כל קבוצת שירות. הן נראות לאחים שאליהם הן מיועדות. הן נמצאות ב<strong>תפריט ← הודעות</strong>.</p>
+<ol class="pasos"><li>הקש על <strong>״הודעה חדשה״</strong> וכתוב את ה<strong>הודעה</strong>.</li><li>כברירת מחדל היא מתפרסמת <strong>מיד</strong>, ברגע ששמרת אותה, וכולם מקבלים התראה.</li><li>אם אתה מעדיף שתצא מאוחר יותר, הפעל <strong>״תזמן להמשך״</strong> ובחר <strong>תאריך ושעה</strong>: אף אחד לא יראה אותה עד אז, ובשעה הזו כולם יקבלו התראה.</li><li>שמור. כדי להסיר הודעה, הקש עליה ובחר <strong>״מחק״</strong>: היא נעלמת לכולם.</li></ol>
+<h3>הודעות רק לקבוצה אחת</h3>
+<ul><li><strong>המשגיח</strong> וה<strong>עוזר</strong> של כל קבוצת שירות רואים את הכפתור <strong>+</strong> גם אם אינם מנהלים, וההודעות שלהם מגיעות <strong>רק לחברי הקבוצה שלהם</strong>.</li><li>מנהל שיש לו גם קבוצה יכול להפעיל <strong>״שלח את ההודעה הזו רק לחברי הקבוצה שלי״</strong> בעת יצירת ההודעה.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. לוח השנה של הקהילה</h2>
+<p>הוא משמש כדי שכולם יראו את אירועי הקהילה, כמו <strong>כינוס המעגל</strong> או <strong>ביקור משגיח המעגל</strong>. רק מנהלים יוצרים אותם.</p>
+<ol class="pasos"><li>פתח <strong>תפריט ← לוח שנה</strong> והקש על <strong>״הוסף אירוע״</strong>.</li><li>כתוב את <strong>הכותרת</strong> והקש על <strong>ימי</strong> האירוע: אם הוא נמשך כמה ימים, הקש על כל אחד.</li><li>שמור. כולם יראו אותו ב<strong>בית</strong>, מתחת ל״לוח שנה״, עם <strong>פעמון</strong> לקביעת תזכורת.</li><li>כדי לשנות או להסיר אותו, פתח אותו ובחר <strong>״ערוך אירוע״</strong> או <strong>״מחק אירוע״</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. שטחים: הקצאה, מסעות ולוח אינטרנטי</h2>
+<p>מי שיש לו הרשאת <strong>משרת שטחים</strong> מנהל את שטחי כל הקהילה מהלשונית <strong>שטחים</strong> (מבשרים רואים רק את שלהם).</p>
+<h3>הקצאת שטחים וקבלתם</h3>
+<ul><li>הקש על שטח ובחר <strong>״הקצה״</strong> (או ״הקצה למבשר״) ואת האח. תראה מי מחזיק בו ומאז מתי, ואילו <strong>באיחור</strong> או <strong>לא הוקצו מעולם</strong>.</li><li>כשמבשר <strong>מבקש</strong> שטח, כל משרתי השטחים מקבלים הודעה (<strong>״בקשות לשטח״</strong>); הראשון שיכול מקצה לו אותו.</li><li>כשאח <strong>מוסר</strong> שטח, הוא מתפנה ונרשם התאריך.</li></ul>
+<h3>מסעות</h3>
+<ul><li><strong>״מסע חדש״</strong> רושם מחדש את כל השטחים לתקופה מסוימת. נעשה <strong>עותק</strong> של השטחים הנוכחיים לחלוקה נפרדת; השטחים הרגילים אינם משתנים.</li><li>יכול להיות רק <strong>מסע פעיל אחד</strong> בכל פעם. כדי לסיים אותו, בחר <strong>״מחק מסע״</strong>: ההקצאות שלו נמחקות והכול חוזר לקדמותו.</li></ul>
+<h3>רישום S-13 ולוח אינטרנטי</h3>
+<ul><li>ב<strong>כלים</strong> אפשר ליצור את <strong>רישום S-13 ב־PDF</strong> (אחד לכל גזרה) ולשתף אותו.</li><li><strong>הלוח האינטרנטי של השטחים</strong> נפתח מדפדפן המחשב. כדי לתת גישה למשרת שטחים: פתח את הכרטיס שלו ברשימת האחים והקש על <strong>״גישה ללוח״</strong> ← <strong>״צור קישור״</strong>. הקישור אישי; נכנסים עם <strong>סיסמה בת 6 ספרות</strong> שאתה בוחר, ואפשר לשנות אותה בכל עת.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">קישור הלוח הוא כמו סיסמה: אל תשתף אותו מחוץ למי שצריך גישה. אם תיצור חדש, הקודם מפסיק לפעול.</div>
+</section>
+<section id="suscripcion"><h2>19. מנוי הקהילה</h2>
+<p>כדי שלכל האחים תהיה גישה מלאה נדרש <strong>מנוי שנתי של הקהילה</strong>. <strong>מנהל אחד משלם עליו והוא מכסה את כל האחים</strong>, גם באייפון וגם באנדרואיד. שאר האחים לא משלמים כלום.</p>
+<ol class="pasos"><li>פתח <strong>תפריט ← הגדרות ← מנוי הקהילה</strong>.</li><li>הקש על <strong>״הרשם כמנוי עבור הקהילה״</strong>. תראה את המחיר השנתי לפני האישור; אם יש <strong>תקופת ניסיון חינם</strong>, לא יחויב דבר עד שתסתיים.</li><li>אשר דרך App Store (אייפון) או Google Play (אנדרואיד). סיימנו: כל הקהילה בעלת גישה.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>הוא <strong>מתחדש אוטומטית</strong> בכל שנה, אלא אם תבטל אותו לפחות 24 שעות לפני סוף התקופה.</li><li>כדי <strong>לנהל או לבטל</strong>: <span class="plat i">iPhone</span> הגדרות האייפון ← שמך ← מינויים; <span class="plat a">Android</span> Google Play ← הפרופיל שלך ← תשלומים ומינויים ← מינויים (או הכפתור ״נהל או בטל ב־Google Play״ ב־Wkit).</li><li>אם <strong>החלפת טלפון</strong>, הקש על <strong>״שחזר רכישות״</strong> באותו מסך.</li><li>אם המנוי <strong>פג</strong>, הקהילה עוברת ל<strong>קריאה בלבד</strong>: הכול עדיין נראה ו<strong>שום דבר לא נמחק</strong>. עם החידוש אפשר לערוך שוב.</li></ul>
+<div class="nota">Wkit אף פעם לא רואה ולא שומרת את פרטי התשלום שלך: Apple או Google מטפלות בהם.</div>
+</section>
+<section id="copias"><h2>20. נתונים השמורים רק בטלפון הזה</h2>
+<p>אם השתמשת ב־Wkit בלי חיבור או לפני שהקהילה שלך הייתה קיימת, ייתכן שהאפליקציה תשאל אותך מה לעשות עם <strong>נתונים השמורים רק בטלפון הזה</strong> (למשל אחים או הודעות). יש לך שתי אפשרויות: <strong>״העלה אותם״</strong> לקהילה (כולם יראו אותם) או <strong>״השלך אותם״</strong>. שום דבר לא נעשה עד שתחליט.</p>
+</section>
+      <div class="caja pie"><strong>לא מוצא מה שאתה מחפש?</strong> כתוב לנו ל־ <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> וספר לנו מה קורה. אם אפשר, ציין באיזה מכשיר אתה משתמש (אייפון, אייפד או אנדרואיד) ומה עשית.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="da">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Trin-for-trin-guide til Wkit — Wkit</title>
+    <meta name="description" content="Trin-for-trin-guide til Wkit for forkyndere og administratorer: log ind, påmindelser, rapport, brødre, grupper, rengøring, programmer, meddelelser, distrikter og abonnement." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-da.html">← Wkit</a> · <a href="privacidad-da.html">Privatlivspolitik</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <b>Dansk</b> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Trin-for-trin-guide til Wkit</h1>
+      <p class="sub">Alt, hvad du kan gøre i appen, forklaret i ro og mag: til forkyndere og til administratorer. Den virker ens på iPhone, iPad og Android; når der er en forskel, ser du den markeret med <span class="plat a">Android</span> eller <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Til alle brødre</h3><ol class="toc"><li><a href="#entrar">Første gang du går ind i Wkit</a></li><li><a href="#inicio">Startskærmen</a></li><li><a href="#recordatorios">Påmindelser: klokken</a></li><li><a href="#notificaciones">Notifikationer: hvad Wkit giver dig besked om</a></li><li><a href="#informe">Din tjenesterapport (privat)</a></li><li><a href="#territorios-pub">Distrikter: se, aflever og anmod</a></li><li><a href="#cuenta">Din konto: skift telefon, kobl e-mail, sprog og sletning</a></li><li><a href="#copia-seguridad">Sikkerhedskopi</a></li></ol></div><div class="toc-g"><h3>Til administratorer (ældste)</h3><ol class="toc"><li><a href="#crear-congregacion">Opret menigheden</a></li><li><a href="#hermanos">Brøderlisten</a></li><li><a href="#grupos">Forkyndergrupper</a></li><li><a href="#salidas">Udrykninger til forkyndelsen</a></li><li><a href="#limpieza">Rengøring: hvilken gruppe der har tur, og hvilken dag og time</a></li><li><a href="#vida-ministerio">Program for Liv og Tjeneste</a></li><li><a href="#reunion-publica">Offentligt møde</a></li><li><a href="#audio-video">Lyd og video / Ordensmænd</a></li><li><a href="#otros-programas">Andre programmer</a></li><li><a href="#anuncios">Meddelelser</a></li><li><a href="#calendario">Menighedens kalender</a></li><li><a href="#territorios-admin">Distrikter: tildel, kampagner og webpanel</a></li><li><a href="#suscripcion">Menighedens abonnement</a></li><li><a href="#copias">Data gemt kun på denne telefon</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Til alle brødre</h2>
+<section id="entrar"><h2>1. Første gang du går ind i Wkit</h2>
+<p>For at komme ind i Wkit <strong>behøver du hverken e-mail eller adgangskode</strong>: en ældste i din menighed inviterer dig, og du kommer ind med et link eller en kode.</p>
+<ol class="pasos"><li>Bed den ældste, der fører brøderlisten, om at invitere dig. Du får <strong>to beskeder lige efter hinanden</strong>: først et link og derefter selve koden (så er den let at kopiere).</li><li>Installér <strong>Wkit</strong> fra App Store (iPhone og iPad) eller fra Google Play (Android).</li><li>Tryk på linket i den første besked: appen åbner og genkender dig.</li><li>Hvis linket ikke åbner appen, så åbn den selv, tryk på <strong>»Jeg har et link eller en invitationskode«</strong> og indsæt hele beskeden eller bare koden: appen tager selv det, den skal bruge.</li><li>Du ser nogle velkomstskærme (<strong>»Første skridt«</strong>), der forklarer, hvad der deles, og hvad der ikke gør. Når du er færdig, er du inde.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Hvis koden ikke virker</strong> (»er ikke gyldig eller er udløbet«), så bed den ældste om at lave en ny: det tager et øjeblik fra dit kort.</div>
+<div class="nota"><strong>Hvad der deles, og hvad der ikke gør:</strong> brøderlisten, programmet, rengøringen, distrikterne og meddelelserne ser hele menigheden, og de oprettes af en ældste. <strong>Din rapport er kun din</strong>: ingen andre ser den, ikke engang en ældste, og den synkroniseres mellem dine enheder.</div>
+</section>
+<section id="inicio"><h2>2. Startskærmen</h2>
+<p>Det er det første, du ser, når du åbner Wkit. Den viser <strong>det, der angår dig</strong>, med et enkelt blik; hvis du ikke har noget tildelt, ser du »Ingen kommende opgaver«.</p>
+<ul><li><strong>Kommende dele</strong>: dine dele på Liv og Tjeneste-mødet og på det offentlige møde (formand, oplæser, taler …).</li><li><strong>Ansvarsopgaver</strong>: det, du har i Lyd og video / Ordensmænd.</li><li><strong>Oprydning</strong>: vises kun hvis <em>i denne uge</em> din gruppe har tur. Hvis gruppens tilsynsmand eller hjælper har sat dag og time, ser du dem nedenunder (fx »Søndag 12:30«).</li><li><strong>Andre programmer</strong>, <strong>Distrikter</strong> (og kampagnen, hvis der er en) og påmindelsen om <strong>Rapport</strong>.</li><li><strong>Kalender</strong>: menighedens begivenheder (stævne, besøg af kredstilsynsmanden …), med sin klokke til påmindelser.</li></ul>
+<p>Nederst har du fem faner: <strong>Start</strong>, <strong>Program</strong>, <strong>Rapport</strong>, <strong>Distrikter</strong> og <strong>Menu</strong> (her finder du brøderlisten, grupperne, rengøringen, meddelelserne og indstillingerne).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Påmindelser: klokken</h2>
+<p>Ved siden af hver opgave, ansvarsopgave eller rengøringsvagt er der en <strong>klokke</strong>. Den bruges til, at telefonen giver dig besked i forvejen, på det tidspunkt, du vælger.</p>
+<ol class="pasos"><li>Tryk på opgavens klokke.</li><li>Vælg dag og tidspunkt for påmindelsen.</li><li>Bekræft. Klokken bliver grøn og ryster, når tiden kommer.</li><li>Hvis du vil fjerne den, så tryk på klokken igen og vælg at fjerne påmindelsen.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Hvis den ældste ændrer dag eller tidspunkt for rengøringen, tilbyder klokken igen at oprette påmindelsen med den nye dato.</div>
+<div class="nota"><span class="plat a">Android</span> Hvis du ikke får påmindelserne, så tjek, at Wkit har tilladelse til notifikationer i telefonens indstillinger, og at batteriet ikke er begrænset for appen.</div>
+</section>
+<section id="notificaciones"><h2>4. Notifikationer: hvad Wkit giver dig besked om</h2>
+<p>Wkit giver dig besked, når der er en ny meddelelse, når du får tildelt noget, eller når der sker ændringer, som berører dig.</p>
+<ol class="pasos"><li>Første gang skal du <strong>tillade notifikationer</strong>, når telefonen spørger.</li><li>Åbn <strong>Menu → Indstillinger → Notifikationer</strong>.</li><li>Slå de kategorier fra, du ikke vil have (Meddelelser, Program, Lyd og video, Rengøring, Distrikter …), og vælg de dage og det tidspunkt, hvor du helst vil have beskederne.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>En enhed modtager kun én persons beskeder ad gangen</strong>: den, der er logget ind. Hvis du ikke får dem, så åbn Wkit med din konto mindst én gang, så enheden bliver registreret.</div>
+</section>
+<section id="informe"><h2>5. Din tjenesterapport (privat)</h2>
+<p>Rapporten er et <strong>personligt</strong> værktøj: kun du ser den, ikke engang en ældste. Den gemmes på din telefon og synkroniseres mellem dine enheder.</p>
+<ol class="pasos"><li>Åbn fanen <strong>Rapport</strong>. Første gang stiller Wkit dig nogle spørgsmål: din tjenestetype (forkynder, pioner …) og <strong>dit månedlige timemål</strong>.</li><li>For at notere din tjeneste skal du trykke på <strong>»Ny«</strong> og udfylde datoen, timerne og minutterne og bibelstudierne.</li><li>Under <strong>Historik</strong> ser du, hvad du har i måneden og i tjenesteåret, og du kan redigere eller slette en registrering.</li><li>Den 1. i hver måned kan Wkit minde dig, på det tidspunkt du vælger, om at <strong>indsende rapporten</strong>. Knappen <strong>»Send rapport«</strong> forbereder beskeden med dine timer og bibelstudier.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Din rapport synkroniseres</strong> med din konto, så hvis du skifter telefon, får du den tilbage, når du logger ind igen. Tag alligevel en sikkerhedskopi (Menu → Indstillinger → Sikkerhedskopi): det er en ekstra sikkerhed. Se afsnit 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Distrikter: se, aflever og anmod</h2>
+<p>Under fanen <strong>Distrikter</strong> ser du de distrikter, du har fået tildelt, med datoen for, hvornår du fik dem.</p>
+<ol class="pasos"><li>For at <strong>aflevere</strong> et distrikt, når du er færdig med det, skal du åbne det og trykke på <strong>»Aflever«</strong> (eller <strong>»Meld, at det er gennemarbejdet«</strong>). Den, der administrerer distrikterne, får besked.</li><li>Hvis du <strong>ikke har nogen</strong> og gerne vil have et, så tryk på <strong>»Anmod om distrikt«</strong>. Du kan tilføje en valgfri besked (fx »Jeg vil gerne have det ved Carcabuey«).</li><li>Alle territorietjenere får besked, og den første, der kan, tildeler dig et. Du får en notifikation, når du har fået et.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Din konto: skift telefon, kobl e-mail, sprog og sletning</h2>
+<h3>Skift telefon, eller hvis du mister den</h3>
+<ul><li>Hvis du <strong>ikke har koblet nogen e-mail</strong> (brødrene behøver ikke en), sender en ældste dig en <strong>ny invitation</strong> fra dit kort i Brøderlisten. Du får din plads tilbage med alt fra menigheden og med din rapport.</li><li>Hvis du <strong>har koblet din e-mail</strong>, så åbn Wkit, tryk på <strong>»Opret konto eller log ind som administrator«</strong>, skriv din e-mail og åbn det link, du får. Du kommer ind med alt, som du havde det.</li></ul>
+<h3>Brug Wkit på flere enheder</h3>
+<ul><li>Du kan bruge <strong>den samme konto samtidig</strong> på iPhone, iPad og Android (fx på din telefon og din tablet).</li><li>For at tilføje en anden enhed sender en ældste dig en invitation fra dit kort, og du åbner den på den enhed. <strong>Sessionen på den første lukkes ikke.</strong></li><li>Din rapport synkroniseres mellem alle dine enheder.</li></ul>
+<h3>Kobl din e-mail (valgfrit, anbefalet for administratorer)</h3>
+<ol class="pasos"><li>Åbn <strong>Menu → Indstillinger → Min konto → Kobl min e-mail</strong>.</li><li>Skriv din e-mail. Du får et bekræftelseslink.</li><li><strong>Åbn det fra den samme telefon</strong>, i mailappen. Skærmen lukker af sig selv, og din konto er koblet.</li></ol>
+<h3>Skift sprog</h3>
+<p>Wkit bruger telefonens sprog. For kun at ændre det i Wkit: telefonens indstillinger → Apps → Wkit → Sprog.</p>
+<h3>Slet din konto</h3>
+<p><strong>Menu → Indstillinger → Min konto → Slet min konto.</strong> Din konto, dit kort i listen og de data, der er gemt på din telefon (inklusive rapporten), slettes; de distrikter, du havde, bliver ledige. Det kan ikke fortrydes. Hvis du er den eneste administrator, og der er flere brødre, skal du først udpege en anden (i Brøderlisten åbner du hans kort og slår »Administrator« til). Hvis du er den eneste person i menigheden, slettes hele menigheden også.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Sletning af kontoen <strong>opsiger ikke</strong> menighedens abonnement, hvis det betales af den konto: det opsiges i App Store <span class="plat i">iPhone</span> eller i Google Play → Betalinger og abonnementer → Abonnementer <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Sikkerhedskopi</h2>
+<p>Den er især til at have en <strong>ekstra kopi af din rapport</strong>: selvom den synkroniseres mellem dine enheder, beskytter en kopi dig, hvis du kommer til at slette den. Du finder den i <strong>Menu → Indstillinger → Sikkerhedskopi</strong>.</p>
+<ul><li><strong>Automatisk kopi</strong>: laver en kopi en gang om måneden, helt af sig selv.</li><li><strong>»Tag kopi nu«</strong> y <strong>»Eksportér sikkerhedskopi«</strong>: du kan gemme filen, hvor du vil, eller sende den til dig selv.</li><li><strong>»Gendan sikkerhedskopi«</strong>: vælg den fil, der er eksporteret fra Wkit. Dataene i kopien <strong>føjes til</strong> dem, du allerede har: intet slettes.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Den automatiske kopi gemmes i din iCloud. <span class="plat a">Android</span> Den gemmes på telefonen og, hvis du har slået Androids sikkerhedskopiering til på din Google-konto (telefonens indstillinger → Google → Sikkerhedskopi), får du den automatisk tilbage, når du logger ind med den konto på en ny telefon.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Til administratorer (ældste)</h2>
+<section id="crear-congregacion"><h2>8. Opret menigheden</h2>
+<p>Det gør en ældste <strong>kun én gang</strong>; derefter inviterer han de andre.</p>
+<ol class="pasos"><li>Åbn Wkit og tryk på <strong>»Opret konto eller log ind som administrator«</strong>.</li><li>Skriv din e-mail og tryk på <strong>»Send adgangslink«</strong>. Der er ingen adgangskoder: du får et link, der bekræfter, at e-mailen er din.</li><li><strong>Åbn linket fra den samme telefon.</strong> Wkit åbner af sig selv.</li><li>Udfyld <strong>dit navn</strong>, <strong>menighedens navn</strong>, <strong>menighedsnummeret</strong> og <strong>landet</strong>, og tryk på <strong>»Opret menighed«</strong>.</li><li>Du ser <strong>»Første skridt som ældste«</strong>: 1) tilføj brødrene i Brøderlisten og 2) inviter dem.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Får du ikke e-mailen? Tjek spam-mappen, og tryk på <strong>»Jeg har ikke fået den, send igen«</strong>. En e-mail kan kun have én konto i Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. Brøderlisten</h2>
+<p>Den er grundlaget for alt: programmer, grupper og tildelinger bruger navnene fra denne liste. Du finder den i <strong>Menu → Brøderliste</strong>.</p>
+<h3>Tilføj en bror</h3>
+<ol class="pasos"><li>Tryk på knappen <strong>+</strong> (<strong>»Ny bror«</strong>).</li><li>Skriv <strong>navnet</strong> og vælg, om det er en <strong>bror</strong> eller en <strong>søster</strong>.</li><li>Vælg hans eller hendes <strong>ansvar</strong>: døbt eller ikke døbt forkynder, pioner, menighedstjener eller ældste.</li><li>Hvis det er relevant, så vælg hans eller hendes <strong>forkyndergruppe</strong> og slå <strong>Territorietjener</strong>, <strong>Lyd og video / Ordensmænd</strong> eller <strong>Administrator</strong> til.</li><li>Tryk på <strong>»Opret«</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>To brødre med samme navn:</strong> tilføj noget, der adskiller dem (fx »søn«), så tildelingerne ikke bliver forvekslet.</div>
+<h3>Inviter en bror til Wkit</h3>
+<ol class="pasos"><li>Åbn brorens kort og tryk på <strong>»Inviter«</strong> (eller <strong>»Opret link«</strong>).</li><li>Tryk på <strong>»Del invitation«</strong> og vælg WhatsApp, beskeder osv. Der sendes <strong>to beskeder lige efter hinanden</strong>: først linket og derefter koden alene, så den er let at kopiere.</li><li>Broren åbner linket (eller indsætter koden) og kommer ind. Hvis han endnu ikke er kommet ind, kan du dele invitationen igen; hvis du opretter en ny, mister den forrige sin gyldighed.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Redigér, slet og udpeg administratorer</h3>
+<ul><li>Tryk på en bror og vælg <strong>»Redigér«</strong> for at ændre hans oplysninger.</li><li>På Android sletter du ved at trykke på det <strong>røde ikon</strong> i hans række; på iPhone stryger du rækken mod venstre. Han slettes fra listen på alle enheder, og de distrikter, han havde, bliver ledige.</li><li>En <strong>administrator</strong> kan administrere brødre, distrikter, meddelelser og programmet. <strong>Du kan ikke slette dit eget kort eller den sidste administrator</strong>: udpeg først en anden.</li></ul>
+</section>
+<section id="grupos"><h2>10. Forkyndergrupper</h2>
+<p>Grupperne bruges til udrykninger til forkyndelsen og til rengøringen. De findes i <strong>Menu → Forkyndergrupper → Liste</strong>.</p>
+<ol class="pasos"><li>Hvis der ikke er nogen, så tryk på <strong>»Opret forkyndergrupper«</strong> og vælg, <strong>hvor mange grupper</strong> du vil have (du kan tilføje flere senere med knappen <strong>+</strong>).</li><li>For at placere brødrene i deres gruppe skal du gå til <strong>Brøderlisten</strong>, åbne hver enkelts kort og vælge hans <strong>forkyndergruppe</strong>.</li><li>Gå tilbage til <strong>Menu → Forkyndergrupper → Liste</strong>. Du ser i hver gruppe <strong>tilsynsmanden</strong>, <strong>hjælperen</strong> og brødrene <strong>i alfabetisk rækkefølge</strong>.</li><li>Tryk på knappen med <strong>blyanten</strong> (Redigér). Tryk på <strong>»Tilsynsmand«</strong> og vælg en blandt brødrene i den gruppe; gør det samme med <strong>»Hjælper«</strong>. Det kan ikke være den samme person.</li><li>Tryk på <strong>flueben</strong> for at afslutte.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Tilsynsmanden og hjælperen vælges <strong>efter</strong> at have placeret brødrene, fordi man kun kan vælge blandt brødrene i selve gruppen. Hvis du flytter en bror til en anden gruppe, holder han op med at være tilsynsmand eller hjælper i den forrige.</div>
+<div class="nota">Tilsynsmanden og hjælperen i hver gruppe <strong>kan sætte dag og time for rengøringen</strong> af deres gruppe (afsnit 12), også selvom de ikke er administratorer.</div>
+</section>
+<section id="salidas"><h2>11. Udrykninger til forkyndelsen</h2>
+<p>Udrykningerne er tidspunkterne og stederne, hvor man mødes til forkyndelsen. Der er <strong>generelle</strong> (for hele menigheden) og <strong>egne for hver gruppe</strong>. De findes i <strong>Menu → Forkyndergrupper → Udrykninger til forkyndelsen</strong>. Du skal først have oprettet grupperne.</p>
+<ol class="pasos"><li>Tryk på sektionen <strong>»Menighed«</strong> (generelle udrykninger) eller på en <strong>gruppes</strong> sektion.</li><li>Tryk på <strong>»Tilføj udrykning«</strong> på den relevante dag, og skriv <strong>etiketten</strong> (fx »Formiddag« eller »Eftermiddag«), <strong>tidspunktet</strong> og, hvis du vil, <strong>stedet</strong>.</li><li>For at <strong>redigere</strong> en udrykning skal du ændre dens felter direkte. For at <strong>slette</strong> den skal du trykke på det røde ikon i dens række.</li><li>Brødrene kan trykke på stedet for at åbne det i telefonens kort.</li></ol>
+<div class="nota">Hvis en gruppe ikke har egne udrykninger, bruges menighedens (»Ingen egne udrykninger — bruger menighedens«).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Rengøring: hvilken gruppe der har tur, og hvilken dag og time</h2>
+<p>Rengøringen <strong>roterer automatisk</strong> mellem forkyndergrupperne: hver uge har en ny gruppe tur, begyndende med Gruppe 1. Den findes i <strong>Menu → Rengøring → Grupper</strong>.</p>
+<h3>Skift hvilken gruppe der gør rent i denne uge (administratorer)</h3>
+<ol class="pasos"><li>Tryk på knappen med <strong>blyanten</strong> (Redigér).</li><li>Tryk på den <strong>gruppe</strong>, der har tur i denne uge. Næste uge har den næste gruppe i rækkefølgen tur.</li><li>Tryk på <strong>flueben</strong>. Ændringen ses på <strong>alle enheder</strong> i menigheden.</li></ol>
+<h3>Sæt den præcise dag og time (administratorer, gruppens tilsynsmand og hjælper)</h3>
+<ol class="pasos"><li>I <strong>Menu → Rengøring → Grupper</strong> finder du din gruppe (eller den, du administrerer) og trykker på <strong>blyanten</strong> i dens række.</li><li>Vælg <strong>dag</strong> og <strong>tidspunkt</strong> (fx søndag kl. 12:30) og tryk på <strong>»Gem«</strong>. For at slette datoen skal du trykke på <strong>»Fjern dato«</strong>.</li><li>Brødrene i den gruppe ser det på deres startskærm: <strong>»Gruppe 1 · Denne uge«</strong> og nedenunder <strong>»Søndag 12:30«</strong>, med sin <strong>klokke</strong> til at sætte en påmindelse.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Datoen vises kun på startskærmen, hvis den falder i den <strong>aktuelle uge</strong> (fra mandag til søndag). Du kan sætte den i forvejen: den dukker op, når ugen kommer. Datoer fra tidligere uger forsvinder af sig selv.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Liv og Tjeneste-programmet</h2>
+<p>Under fanen <strong>Program → Liv og Tjeneste</strong> opretter du hver uges program og tildeler delene. Alle brødre ser det; kun administratorerne redigerer det.</p>
+<ol class="pasos"><li>Tryk på <strong>»Ny uge«</strong> og vælg <strong>mødets dato</strong> (en vilkårlig dag i den uge, fra mandag til søndag).</li><li>Wkit opretter ugen med den <strong>sædvanlige struktur</strong>: Perler fra Guds ord, Bliv dygtigere til at forkynde og Vores liv som kristne.</li><li>Tryk på en vilkårlig <strong>titel</strong> for at ændre den, og på <strong>varigheden</strong>, hvis det er nødvendigt. Med <strong>»Tilføj opgave«</strong> kan du tilføje flere dele.</li><li>Ved hver del skal du trykke på <strong>»Vælg«</strong> og udpege broren eller brødrene (fx elev og hjælper). Til <strong>Sideklasse</strong> bruger du <strong>»Tilføj sideklasse«</strong>.</li><li>Vælg også <strong>sangene</strong> og <strong>bønnerne</strong>, og tryk på <strong>»Gem program«</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>For at se en anden uge bruger du <strong>ugevælgeren</strong> (<strong>»Forrige uge«</strong> / <strong>»Næste uge«</strong>); derfra kan du også <strong>redigere eller slette den</strong>.</li><li>Brødrene får en <strong>notifikation</strong>, når de får tildelt en del, og de ser den på deres startskærm.</li><li>Ugens program forsvinder af sig selv, når søndagen er slut.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Offentligt møde</h2>
+<p>Under <strong>Program → Offentligt møde</strong> forberedes hvert weekendmøde.</p>
+<ol class="pasos"><li>Tryk på <strong>»Nyt offentligt møde«</strong> og vælg <strong>datoen</strong>. Hvis der allerede er et møde på den dato, advarer Wkit dig.</li><li>Vælg <strong>formanden</strong>, <strong>taleren</strong> og skriv <strong>foredragets titel</strong>.</li><li>Vælg <strong>oplæseren til Vagttårnet</strong> (»Oplæser wS«) og <strong>sangene</strong> og <strong>bønnerne</strong>.</li><li>Gem. Brødrene ser deres dele på startskærmen.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Lyd og video / Ordensmænd</h2>
+<p>Under <strong>Menu → Lyd og video / Ordensmænd</strong> tildeler du hver uges ansvarsopgaver: lyd, video, mikrofoner, ordensmænd, Zoom, tidtagning …</p>
+<ol class="pasos"><li>Tryk på <strong>»Ny uge«</strong> og vælg <strong>mødets dato</strong>.</li><li>Tryk på <strong>»Vælg«</strong> ved hver ansvarsopgave og udpeg broren. Nogle, som mikrofonerne, kan have <strong>flere brødre</strong> (<strong>»Tilføj bror«</strong>).</li><li>Til en anden ansvarsopgave, som ikke findes, skal du trykke på <strong>»Tilføj ansvarsopgave«</strong> og give den et navn.</li><li>Gem. Hver bror ser sin under <strong>Ansvarsopgaver</strong> på sin startskærm, med sin klokke.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Andre programmer</h2>
+<p>Til <strong>alt andet</strong>, som menigheden organiserer, og som ikke er et møde: fx kørsel til brødre, der ikke kan komme, eller hjælp til forkyndere. Hvert program har sin egen periodicitet. Det findes i <strong>Menu → Andre programmer</strong>.</p>
+<ol class="pasos"><li>Tryk på <strong>»Nyt program«</strong>. Skriv <strong>navnet</strong> og vælg, <strong>hvor ofte det organiseres</strong>: dagligt, ugentligt, månedligt eller årligt.</li><li>Tryk på <strong>»Opret første uge«</strong> (eller <strong>»Ny periode«</strong>) og vælg datoen: en vilkårlig dag i den uge, måned eller det år.</li><li>Tryk på <strong>»Tilføj ansvarsopgave«</strong>: skriv en valgfri <strong>etiket</strong> (fx »Henter tidligere«) og <strong>vælg broren eller søsteren</strong>.</li><li>Gem. Hver person ser det på sin startskærm under <strong>»Andre programmer«</strong>, og perioden forsvinder af sig selv, når den er slut.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Meddelelser</h2>
+<p>Meddelelserne oprettes af administratorerne og, kun til deres egen gruppe, af tilsynsmanden og hjælperen i hver forkyndergruppe. De ses af de brødre, de er rettet til. De findes i <strong>Menu → Meddelelser</strong>.</p>
+<ol class="pasos"><li>Tryk på <strong>»Ny meddelelse«</strong> og skriv <strong>beskeden</strong>.</li><li>Som standard udsendes den <strong>med det samme</strong>, så snart du gemmer den, og alle får besked med en notifikation.</li><li>Hvis du hellere vil have, at den kommer senere, så slå <strong>»Planlæg til senere«</strong> til og vælg <strong>dato og tidspunkt</strong>: ingen ser den før da, og på det tidspunkt får alle besked.</li><li>Gem. For at fjerne en meddelelse skal du trykke på den og vælge <strong>»Slet«</strong>: den forsvinder for alle.</li></ol>
+<h3>Meddelelser kun til én gruppe</h3>
+<ul><li><strong>Tilsynsmanden</strong> og <strong>hjælperen</strong> i hver forkyndergruppe ser knappen <strong>+</strong>, selvom de ikke er administratorer, og deres meddelelser går <strong>kun til medlemmerne af deres gruppe</strong>.</li><li>En administrator, der også har en gruppe, kan slå <strong>»Send denne meddelelse kun til medlemmerne af min gruppe«</strong> til, når han opretter meddelelsen.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Menighedens kalender</h2>
+<p>Den bruges til, at alle kan se menighedens begivenheder, som <strong>kredsstævnet</strong> eller <strong>kredstilsynsmandens besøg</strong>. Kun administratorerne opretter dem.</p>
+<ol class="pasos"><li>Åbn <strong>Menu → Kalender</strong> og tryk på <strong>»Tilføj begivenhed«</strong>.</li><li>Skriv <strong>titlen</strong> og tryk på begivenhedens <strong>dage</strong>: hvis den varer flere dage, så tryk på hver enkelt.</li><li>Gem. Alle ser den under <strong>Start</strong>, under »Kalender«, med en <strong>klokke</strong> til at sætte en påmindelse.</li><li>For at ændre eller fjerne den skal du åbne den og vælge <strong>»Redigér begivenhed«</strong> eller <strong>»Slet begivenhed«</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Distrikter: tildel, kampagner og webpanel</h2>
+<p>Den, der har rettigheden som <strong>Territorietjener</strong>, administrerer hele menighedens distrikter under fanen <strong>Distrikter</strong> (forkyndere ser kun deres egne).</p>
+<h3>Tildel og modtag distrikter</h3>
+<ul><li>Tryk på et distrikt og vælg <strong>»Tildel«</strong> (eller »Tildel til en forkynder«) og broren. Du ser, hvem der har det, og siden hvornår, og hvilke der er <strong>for gamle</strong> eller <strong>aldrig tildelt</strong>.</li><li>Når en forkynder <strong>anmoder</strong> om et distrikt, får alle territorietjenere besked (<strong>»Anmodninger om distrikt«</strong>); den første, der kan, tildeler det.</li><li>Når en bror <strong>afleverer</strong> et distrikt, bliver det ledigt, og datoen noteres.</li></ul>
+<h3>Kampagner</h3>
+<ul><li><strong>»Ny kampagne«</strong> registrerer alle distrikter igen i en bestemt periode. Der laves en <strong>kopi</strong> af de nuværende distrikter til at fordele separat; de almindelige distrikter røres ikke.</li><li>Der kan kun være <strong>én aktiv kampagne</strong> ad gangen. For at afslutte den skal du vælge <strong>»Slet kampagne«</strong>: dens tildelinger slettes, og alt vender tilbage til det normale.</li></ul>
+<h3>Register S-13 og webpanel</h3>
+<ul><li>Under <strong>Værktøjer</strong> kan du lave <strong>S-13-registret som PDF</strong> (ét for hver sektor) og dele det.</li><li><strong>Distrikternes webpanel</strong> åbnes fra computerens browser. For at give en territorietjener adgang: åbn hans kort i Brøderlisten og tryk på <strong>»Adgang til panelet«</strong> → <strong>»Opret link«</strong>. Linket er personligt; man kommer ind med den <strong>6-cifrede adgangskode</strong>, du selv vælger, og du kan ændre den, når du vil.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Panelets link er som en adgangskode: del det ikke uden for dem, der skal have adgang. Hvis du opretter et nyt, holder det forrige op med at virke.</div>
+</section>
+<section id="suscripcion"><h2>19. Menighedens abonnement</h2>
+<p>For at alle brødre kan have fuld adgang kræves der et <strong>årligt abonnement for menigheden</strong>. <strong>Det betales af en administrator og dækker alle brødre</strong>, både på iPhone og Android. De øvrige brødre betaler ikke noget.</p>
+<ol class="pasos"><li>Åbn <strong>Menu → Indstillinger → Menighedens abonnement</strong>.</li><li>Tryk på <strong>»Abonnér på vegne af menigheden«</strong>. Du ser årsprisen, før du bekræfter; hvis der er en <strong>gratis prøveperiode</strong>, trækkes der ikke penge, før den er slut.</li><li>Bekræft med App Store (iPhone) eller Google Play (Android). Færdig: hele menigheden har adgang.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Det <strong>fornyes automatisk</strong> hvert år, medmindre du opsiger det mindst 24 timer før perioden slutter.</li><li>For at <strong>administrere eller opsige det</strong>: <span class="plat i">iPhone</span> iPhones indstillinger → dit navn → Abonnementer; <span class="plat a">Android</span> Google Play → din profil → Betalinger og abonnementer → Abonnementer (eller knappen »Administrer eller opsig i Google Play« i Wkit).</li><li>Hvis du <strong>skifter telefon</strong>, så tryk på <strong>»Gendan køb«</strong> på den samme skærm.</li><li>Hvis abonnementet <strong>udløber</strong>, bliver menigheden <strong>skrivebeskyttet</strong>: alt kan stadig ses, og <strong>intet slettes</strong>. Når det fornyes, kan man redigere igen.</li></ul>
+<div class="nota">Wkit ser eller gemmer aldrig dine betalingsoplysninger: de håndteres af Apple eller Google.</div>
+</section>
+<section id="copias"><h2>20. Data gemt kun på denne telefon</h2>
+<p>Hvis du brugte Wkit offline eller før din menighed fandtes, kan appen spørge dig, hvad den skal gøre med <strong>data, der kun er gemt på denne telefon</strong> (fx brødre eller meddelelser). Du har to muligheder: <strong>»Upload dem«</strong> til menigheden (alle kan se dem) eller <strong>»Kassér dem«</strong>. Der sker intet, før du beslutter det.</p>
+</section>
+      <div class="caja pie"><strong>Kan du ikke finde det, du leder efter?</strong> Skriv til os på <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> og fortæl, hvad der er galt. Hvis du kan, så oplys, hvilken enhed du bruger (iPhone, iPad eller Android), og hvad du var i gang med.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Panduan Wkit langkah demi langkah — Wkit</title>
+    <meta name="description" content="Panduan Wkit langkah demi langkah untuk penyiar dan administrator: masuk, pengingat, laporan, saudara, kelompok, pembersihan, program, pengumuman, daerah, dan langganan." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-id.html">← Wkit</a> · <a href="privacidad-id.html">Kebijakan Privasi</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <b>Bahasa Indonesia</b> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Panduan Wkit langkah demi langkah</h1>
+      <p class="sub">Semua yang bisa kamu lakukan di aplikasi, dijelaskan dengan tenang: untuk penyiar dan untuk administrator. Berfungsi sama di iPhone, iPad, dan Android; jika ada perbedaan, kamu akan melihatnya ditandai dengan <span class="plat a">Android</span> atau <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Untuk semua saudara</h3><ol class="toc"><li><a href="#entrar">Masuk ke Wkit untuk pertama kali</a></li><li><a href="#inicio">Layar beranda</a></li><li><a href="#recordatorios">Pengingat: lonceng</a></li><li><a href="#notificaciones">Notifikasi: apa yang diberitahukan Wkit kepadamu</a></li><li><a href="#informe">Laporan dinasmu (pribadi)</a></li><li><a href="#territorios-pub">Daerah: melihat, menyerahkan, dan meminta</a></li><li><a href="#cuenta">Akunmu: ganti ponsel, tautkan email, bahasa, dan hapus</a></li><li><a href="#copia-seguridad">Cadangan</a></li></ol></div><div class="toc-g"><h3>Untuk administrator (penatua)</h3><ol class="toc"><li><a href="#crear-congregacion">Membuat sidang</a></li><li><a href="#hermanos">Daftar saudara</a></li><li><a href="#grupos">Kelompok dinas</a></li><li><a href="#salidas">Dinas pelayanan</a></li><li><a href="#limpieza">Pembersihan: kelompok mana yang giliran, serta hari dan jam berapa</a></li><li><a href="#vida-ministerio">Program Hidup dan Pelayanan</a></li><li><a href="#reunion-publica">Pertemuan Umum</a></li><li><a href="#audio-video">Audio dan Video / Petugas</a></li><li><a href="#otros-programas">Program lainnya</a></li><li><a href="#anuncios">Pengumuman</a></li><li><a href="#calendario">Kalender sidang</a></li><li><a href="#territorios-admin">Daerah: penugasan, kampanye, dan panel web</a></li><li><a href="#suscripcion">Langganan sidang</a></li><li><a href="#copias">Data hanya disimpan di ponsel ini</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Untuk semua saudara</h2>
+<section id="entrar"><h2>1. Masuk ke Wkit untuk pertama kali</h2>
+<p>Untuk masuk ke Wkit <strong>kamu tidak memerlukan email atau kata sandi</strong>: seorang penatua di sidangmu mengundangmu dan kamu masuk dengan tautan atau kode.</p>
+<ol class="pasos"><li>Mintalah penatua yang memegang daftar saudara untuk mengundangmu. Akan datang <strong>dua pesan berturut-turut</strong>: pertama sebuah tautan, lalu kode saja (agar mudah disalin).</li><li>Pasang <strong>Wkit</strong> dari App Store (iPhone dan iPad) atau dari Google Play (Android).</li><li>Ketuk tautan di pesan pertama: aplikasi terbuka dan mengenalimu.</li><li>Jika tautan tidak membuka aplikasi, buka sendiri aplikasinya, ketuk <strong>“Saya punya tautan atau kode undangan”</strong> dan tempel seluruh pesan atau hanya kodenya: aplikasi akan mengambil sendiri yang dibutuhkan.</li><li>Kamu akan melihat beberapa layar selamat datang (<strong>“Langkah pertama”</strong>) yang menjelaskan apa yang dibagikan dan apa yang tidak. Setelah selesai, kamu sudah masuk.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Jika kodenya tidak berfungsi</strong> (“tidak valid, atau sudah kedaluwarsa”), mintalah penatua membuatkan yang baru: itu dilakukan sebentar saja dari kartumu.</div>
+<div class="nota"><strong>Apa yang dibagikan dan apa yang tidak:</strong> daftar saudara, program, pembersihan, daerah, dan pengumuman dilihat oleh seluruh sidang dan dibuat oleh seorang penatua. <strong>Laporanmu hanya milikmu</strong>: tidak ada orang lain yang melihatnya, bahkan penatua pun tidak, dan laporan itu disinkronkan di antara perangkatmu.</div>
+</section>
+<section id="inicio"><h2>2. Layar beranda</h2>
+<p>Ini hal pertama yang kamu lihat saat membuka Wkit. Layar ini menunjukkan <strong>yang menjadi bagianmu</strong> sekilas; jika kamu tidak mendapat penugasan apa pun, kamu akan melihat “Tidak ada penugasan mendatang”.</p>
+<ul><li><strong>Bagian mendatang</strong>: bagianmu di perhimpunan Hidup dan Pelayanan dan di Pertemuan Umum (ketua, pembaca, pembicara …).</li><li><strong>Tanggung jawab</strong>: yang kamu pegang di Audio dan Video / Petugas.</li><li><strong>Pembersihan</strong>: muncul hanya jika <em>minggu ini</em> kelompokmu yang mendapat giliran. Jika pengawas atau pembantu kelompok sudah menetapkan hari dan jam, kamu akan melihatnya di bawahnya (misalnya “Minggu 12:30”).</li><li><strong>Program lainnya</strong>, <strong>Daerah</strong> (dan kampanye, jika ada) dan pengingat <strong>Laporan</strong>.</li><li><strong>Kalender</strong>: acara sidang (kebaktian, kunjungan pengawas wilayah …), dengan loncengnya untuk pengingat.</li></ul>
+<p>Di bawah ada lima tab: <strong>Beranda</strong>, <strong>Program</strong>, <strong>Laporan</strong>, <strong>Daerah</strong>, dan <strong>Menu</strong> (di sana ada daftar saudara, kelompok, pembersihan, pengumuman, dan pengaturan).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Pengingat: lonceng</h2>
+<p>Di samping setiap penugasan, tanggung jawab, atau giliran pembersihan ada sebuah <strong>lonceng</strong>. Fungsinya agar ponsel memberi tahumu lebih dulu, pada waktu yang kamu pilih.</p>
+<ol class="pasos"><li>Ketuk lonceng penugasan.</li><li>Pilih hari dan jam pengingat.</li><li>Konfirmasi. Lonceng berubah hijau dan bergetar saat waktunya tiba.</li><li>Untuk menghapusnya, ketuk lonceng lagi dan pilih hapus pengingat.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Jika penatua mengubah hari atau jam pembersihan, lonceng akan menawarkan lagi untuk memasang pengingat dengan tanggal yang baru.</div>
+<div class="nota"><span class="plat a">Android</span> Jika pengingat tidak masuk, periksa apakah Wkit punya izin notifikasi di pengaturan ponsel dan baterainya tidak dibatasi.</div>
+</section>
+<section id="notificaciones"><h2>4. Notifikasi: apa yang diberitahukan Wkit kepadamu</h2>
+<p>Wkit memberi tahumu saat ada pengumuman baru, saat sesuatu diberikan kepadamu, atau saat ada perubahan yang menyangkutmu.</p>
+<ol class="pasos"><li>Pertama kali, <strong>izinkan notifikasi</strong> saat ponsel menanyakannya.</li><li>Buka <strong>Menu → Pengaturan → Notifikasi</strong>.</li><li>Matikan kategori yang tidak kamu inginkan (Pengumuman, Program, Audio dan Video, Pembersihan, Daerah …) dan pilih hari serta jam yang kamu sukai untuk menerima pemberitahuan.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Satu perangkat menerima pemberitahuan satu orang saja pada satu waktu</strong>: orang yang sesinya terbuka. Jika tidak masuk, buka Wkit dengan akunmu setidaknya sekali agar perangkat terdaftar.</div>
+</section>
+<section id="informe"><h2>5. Laporan dinasmu (pribadi)</h2>
+<p>Laporan adalah alat <strong>pribadi</strong>: hanya kamu yang melihatnya, bahkan penatua pun tidak. Laporan disimpan di ponselmu dan disinkronkan di antara perangkatmu.</p>
+<ol class="pasos"><li>Buka tab <strong>Laporan</strong>. Pertama kali, Wkit mengajukan beberapa pertanyaan: jenis dinasmu (penyiar, perintis …) dan <strong>target jam bulananmu</strong>.</li><li>Untuk mencatat dinasmu, ketuk <strong>“Baru”</strong> dan isi tanggal, jam, menit, dan pelajaran.</li><li>Di <strong>Riwayat</strong> kamu melihat yang sudah kamu capai di bulan itu dan di tahun dinas, dan kamu bisa mengubah atau menghapus sebuah catatan.</li><li>Pada tanggal 1 setiap bulan, Wkit dapat mengingatkanmu, pada jam yang kamu pilih, untuk <strong>mengirim laporan</strong>. Tombol <strong>“Kirim laporan”</strong> menyiapkan pesan berisi jam dan pelajaranmu.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Laporanmu disinkronkan</strong> dengan akunmu, jadi jika kamu mengganti ponsel, kamu mendapatkannya kembali saat masuk lagi. Meski begitu, buatlah cadangan (Menu → Pengaturan → Cadangan): itu jaminan tambahan. Lihat bagian 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Daerah: melihat, menyerahkan, dan meminta</h2>
+<p>Di tab <strong>Daerah</strong> kamu melihat daerah yang diberikan kepadamu, dengan tanggal sejak kapan kamu memegangnya.</p>
+<ol class="pasos"><li>Untuk <strong>menyerahkan</strong> sebuah daerah setelah selesai, bukalah lalu ketuk <strong>“Serahkan”</strong> (atau <strong>“Beri tahu bahwa sudah selesai”</strong>). Orang yang mengelola daerah akan diberi tahu.</li><li>Jika kamu <strong>tidak punya satu pun</strong> dan menginginkannya, ketuk <strong>“Minta wilayah”</strong>. Kamu bisa menambahkan pesan opsional (misalnya “Saya mau yang di Carcabuey”).</li><li>Semua pelayan wilayah diberi tahu, dan yang pertama bisa akan memberimu satu. Kamu akan mendapat notifikasi saat sudah dapat.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Akunmu: ganti ponsel, tautkan email, bahasa, dan hapus</h2>
+<h3>Mengganti atau kehilangan ponsel</h3>
+<ul><li>Jika kamu <strong>tidak menautkan email apa pun</strong> (saudara-saudara tidak memerlukannya), seorang penatua mengirimimu <strong>undangan baru</strong> dari kartumu di Daftar saudara. Kamu mendapatkan kembali tempatmu dengan semua isi sidang dan dengan Laporanmu.</li><li>Jika kamu <strong>menautkan emailmu</strong>, buka Wkit, ketuk <strong>“Buat akun atau masuk sebagai administrator”</strong>, tulis emailmu, dan buka tautan yang datang. Kamu masuk dengan semuanya seperti semula.</li></ul>
+<h3>Memakai Wkit di beberapa perangkat</h3>
+<ul><li>Kamu bisa memakai <strong>akun yang sama secara bersamaan</strong> di iPhone, iPad, dan Android (misalnya di ponsel dan tabletmu).</li><li>Untuk menambahkan perangkat lain, seorang penatua mengirimimu undangan dari kartumu dan kamu membukanya di perangkat itu. <strong>Sesi di perangkat pertama tidak ditutup.</strong></li><li>Laporanmu disinkronkan di antara semua perangkatmu.</li></ul>
+<h3>Menautkan emailmu (opsional, disarankan untuk administrator)</h3>
+<ol class="pasos"><li>Buka <strong>Menu → Pengaturan → Akun saya → Tautkan email saya</strong>.</li><li>Tulis emailmu. Sebuah tautan konfirmasi akan datang.</li><li><strong>Buka dari ponsel yang sama</strong>, di aplikasi email. Layar menutup sendiri dan akunmu tertaut.</li></ol>
+<h3>Mengganti bahasa</h3>
+<p>Wkit memakai bahasa ponsel. Untuk mengubahnya hanya di Wkit: pengaturan ponsel → Aplikasi → Wkit → Bahasa.</p>
+<h3>Menghapus akunmu</h3>
+<p><strong>Menu → Pengaturan → Akun saya → Hapus akun saya.</strong> Akunmu, kartumu di daftar, dan data yang tersimpan di ponselmu (termasuk Laporan) dihapus; daerah yang kamu pegang menjadi bebas. Tidak dapat dibatalkan. Jika kamu satu-satunya administrator dan ada saudara lain, kamu harus lebih dulu menunjuk yang lain (di Daftar saudara, buka kartunya dan aktifkan “Administrator”). Jika kamu satu-satunya orang di sidang, seluruh sidang juga dihapus.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Menghapus akun <strong>tidak membatalkan</strong> langganan sidang, jika akun itu yang membayarnya: langganan dibatalkan di App Store <span class="plat i">iPhone</span> atau di Google Play → Pembayaran dan langganan → Langganan <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Cadangan</h2>
+<p>Fungsinya terutama untuk memiliki <strong>salinan tambahan Laporanmu</strong>: meski disinkronkan di antara perangkat, salinan melindungimu jika tak sengaja terhapus. Kamu menemukannya di <strong>Menu → Pengaturan → Cadangan</strong>.</p>
+<ul><li><strong>Cadangan otomatis</strong>: membuat salinan sebulan sekali, secara otomatis.</li><li><strong>“Buat salinan sekarang”</strong> y <strong>“Ekspor cadangan”</strong>: kamu bisa menyimpan berkasnya di mana saja atau mengirimkannya ke dirimu sendiri.</li><li><strong>“Pulihkan cadangan”</strong>: pilih berkas yang diekspor dari Wkit. Data dari salinan <strong>ditambahkan</strong> ke data yang sudah kamu punya: tidak ada yang dihapus.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Salinan otomatis disimpan di iCloud-mu. <span class="plat a">Android</span> Disimpan di ponsel dan, jika cadangan Android aktif di akun Google-mu (pengaturan ponsel → Google → Cadangan), saat masuk dengan akun itu di ponsel baru, kamu akan mendapatkannya kembali secara otomatis.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Untuk administrator (penatua)</h2>
+<section id="crear-congregacion"><h2>8. Membuat sidang</h2>
+<p>Hanya dilakukan <strong>sekali</strong> oleh seorang penatua; setelah itu dia mengundang yang lain.</p>
+<ol class="pasos"><li>Buka Wkit dan ketuk <strong>“Buat akun atau masuk sebagai administrator”</strong>.</li><li>Tulis emailmu dan ketuk <strong>“Kirim tautan masuk”</strong>. Tidak ada kata sandi: sebuah tautan datang untuk mengonfirmasi bahwa email itu milikmu.</li><li><strong>Buka tautan dari ponsel yang sama.</strong> Wkit terbuka sendiri.</li><li>Isi <strong>namamu</strong>, <strong>nama sidang</strong>, <strong>nomor sidang</strong>, dan <strong>negara</strong>, lalu ketuk <strong>“Buat sidang”</strong>.</li><li>Kamu akan melihat <strong>“Langkah pertama sebagai penatua”</strong>: 1) tambahkan saudara-saudara di Daftar saudara dan 2) undang mereka.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Email tidak masuk? Periksa folder spam dan ketuk <strong>“Belum masuk, kirim lagi”</strong>. Satu email hanya bisa punya satu akun di Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. Daftar saudara</h2>
+<p>Ini dasar dari segalanya: program, kelompok, dan penugasan memakai nama dari daftar ini. Letaknya di <strong>Menu → Daftar saudara</strong>.</p>
+<h3>Menambahkan seorang saudara</h3>
+<ol class="pasos"><li>Ketuk tombol <strong>+</strong> (<strong>“Saudara baru”</strong>).</li><li>Tulis <strong>nama</strong> dan pilih apakah dia <strong>saudara laki-laki</strong> atau <strong>saudari</strong>.</li><li>Pilih <strong>tanggung jawab</strong>-nya: penyiar sudah dibaptis atau belum dibaptis, perintis, hamba pelayanan, atau penatua.</li><li>Jika sesuai, pilih <strong>kelompok dinas</strong>-nya dan aktifkan <strong>Pelayan Wilayah</strong>, <strong>Audio dan Video / Petugas</strong>, atau <strong>Administrator</strong>.</li><li>Ketuk <strong>“Buat”</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Dua saudara dengan nama yang sama:</strong> tambahkan sesuatu yang membedakan mereka (misalnya “putra”) agar penugasan tidak tertukar.</div>
+<h3>Mengundang seorang saudara ke Wkit</h3>
+<ol class="pasos"><li>Buka kartu saudara itu dan ketuk <strong>“Undang”</strong> (atau <strong>“Buat tautan”</strong>).</li><li>Ketuk <strong>“Bagikan undangan”</strong> dan pilih WhatsApp, pesan, dan sebagainya. Dikirim <strong>dua pesan berturut-turut</strong>: pertama tautan, lalu kode saja agar mudah disalin.</li><li>Saudara itu membuka tautan (atau menempel kode) dan masuk. Jika dia belum masuk, kamu bisa membagikan undangan lagi; jika kamu membuat yang baru, yang sebelumnya tidak berlaku lagi.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Mengubah, menghapus, dan menunjuk administrator</h3>
+<ul><li>Ketuk seorang saudara dan pilih <strong>“Ubah”</strong> untuk mengubah datanya.</li><li>Di Android, untuk menghapus ketuk <strong>ikon merah</strong> di barisnya; di iPhone, geser barisnya ke kiri. Dia dihapus dari daftar di semua perangkat dan daerah yang dia pegang menjadi bebas.</li><li>Seorang <strong>administrator</strong> dapat mengelola saudara, daerah, pengumuman, dan program. <strong>Kamu tidak bisa menghapus kartumu sendiri maupun administrator terakhir</strong>: tunjuk dulu yang lain.</li></ul>
+</section>
+<section id="grupos"><h2>10. Kelompok dinas</h2>
+<p>Kelompok dipakai untuk dinas pelayanan dan untuk pembersihan. Letaknya di <strong>Menu → Kelompok dinas → Daftar</strong>.</p>
+<ol class="pasos"><li>Jika belum ada, ketuk <strong>“Buat kelompok dinas”</strong> dan pilih <strong>berapa kelompok</strong> yang kamu mau (nanti kamu bisa menambah lagi dengan tombol <strong>+</strong>).</li><li>Untuk menempatkan saudara-saudara di kelompoknya, buka <strong>Daftar saudara</strong>, buka kartu masing-masing, dan pilih <strong>kelompok dinas</strong>-nya.</li><li>Kembali ke <strong>Menu → Kelompok dinas → Daftar</strong>. Kamu akan melihat, di setiap kelompok, <strong>pengawas</strong>, <strong>pembantu</strong>, dan para saudara <strong>menurut urutan abjad</strong>.</li><li>Ketuk tombol <strong>pensil</strong> (Ubah). Ketuk <strong>“Pengawas”</strong> dan pilih satu di antara saudara-saudara kelompok itu; lakukan hal yang sama dengan <strong>“Pembantu”</strong>. Tidak boleh orang yang sama.</li><li>Ketuk <strong>centang</strong> untuk selesai.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Pengawas dan pembantu dipilih <strong>setelah</strong> saudara-saudara ditempatkan, karena hanya bisa memilih di antara saudara-saudara kelompok itu sendiri. Jika kamu memindahkan seorang saudara ke kelompok lain, dia tidak lagi menjadi pengawas atau pembantu di kelompok sebelumnya.</div>
+<div class="nota">Pengawas dan pembantu tiap kelompok <strong>dapat menetapkan hari dan jam pembersihan</strong> kelompok mereka (bagian 12), meskipun bukan administrator.</div>
+</section>
+<section id="salidas"><h2>11. Dinas pelayanan</h2>
+<p>Dinas pelayanan adalah jadwal dan tempat berkumpul untuk dinas. Ada yang <strong>umum</strong> (untuk seluruh sidang) dan ada yang <strong>khusus tiap kelompok</strong>. Letaknya di <strong>Menu → Kelompok dinas → Dinas pelayanan</strong>. Kamu harus sudah membuat kelompok lebih dulu.</p>
+<ol class="pasos"><li>Ketuk bagian <strong>“Sidang”</strong> (dinas umum) atau bagian sebuah <strong>kelompok</strong>.</li><li>Ketuk <strong>“Tambah dinas”</strong> pada hari yang sesuai, dan tulis <strong>label</strong> (misalnya “Pagi” atau “Sore”), <strong>jam</strong>, dan, jika mau, <strong>lokasi</strong>.</li><li>Untuk <strong>mengubah</strong> sebuah dinas, ubah langsung kolomnya. Untuk <strong>menghapusnya</strong>, ketuk ikon merah di barisnya.</li><li>Para saudara dapat mengetuk lokasi untuk membukanya di peta ponsel mereka.</li></ol>
+<div class="nota">Jika sebuah kelompok tidak punya dinas sendiri, dinas sidang yang dipakai (“Tanpa dinas sendiri — memakai dinas sidang”).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Pembersihan: kelompok mana yang giliran, serta hari dan jam berapa</h2>
+<p>Pembersihan <strong>berputar otomatis</strong> di antara kelompok dinas: setiap minggu giliran kelompok yang berbeda, dimulai dari Kelompok 1. Letaknya di <strong>Menu → Pembersihan → Kelompok</strong>.</p>
+<h3>Mengubah kelompok yang membersihkan minggu ini (administrator)</h3>
+<ol class="pasos"><li>Ketuk tombol <strong>pensil</strong> (Ubah).</li><li>Ketuk <strong>kelompok</strong> yang mendapat giliran minggu ini. Minggu berikutnya giliran kelompok selanjutnya menurut urutan.</li><li>Ketuk <strong>centang</strong>. Perubahan terlihat di <strong>semua perangkat</strong> sidang.</li></ol>
+<h3>Menetapkan hari dan jam yang pasti (administrator, pengawas dan pembantu kelompok)</h3>
+<ol class="pasos"><li>Di <strong>Menu → Pembersihan → Kelompok</strong>, cari kelompokmu (atau yang kamu kelola) dan ketuk <strong>pensil</strong> di barisnya.</li><li>Pilih <strong>hari</strong> dan <strong>jam</strong> (misalnya hari Minggu pukul 12:30) dan ketuk <strong>“Simpan”</strong>. Untuk menghapus tanggal, ketuk <strong>“Hapus tanggal”</strong>.</li><li>Para saudara kelompok itu akan melihatnya di layar beranda mereka: <strong>“Kelompok 1 · Minggu ini”</strong> dan di bawahnya <strong>“Minggu 12:30”</strong>, dengan <strong>lonceng</strong>-nya untuk memasang pengingat.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Tanggal hanya muncul di beranda jika jatuh pada <strong>minggu berjalan</strong> (Senin sampai Minggu). Kamu bisa menetapkannya lebih awal: tanggal itu muncul saat minggunya tiba. Tanggal minggu-minggu yang sudah lewat hilang dengan sendirinya.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Program Hidup dan Pelayanan</h2>
+<p>Di tab <strong>Program → Hidup dan Pelayanan</strong> kamu membuat program tiap minggu dan menugaskan bagian. Semua saudara melihatnya; hanya administrator yang mengubahnya.</p>
+<ol class="pasos"><li>Ketuk <strong>“Minggu baru”</strong> dan pilih <strong>tanggal perhimpunan</strong> (hari apa saja di minggu itu, dari Senin sampai Minggu).</li><li>Wkit membuat minggu itu dengan <strong>susunan yang biasa</strong>: Harta dalam Firman Allah, Bersemangatlah dalam Pelayanan, dan Kehidupan Kristen.</li><li>Ketuk <strong>judul</strong> mana pun untuk mengubahnya, dan <strong>durasi</strong> jika perlu. Dengan <strong>“Tambah penugasan”</strong> kamu bisa menambah bagian lain.</li><li>Di setiap bagian, ketuk <strong>“Pilih”</strong> dan pilih saudara atau para saudara (misalnya murid dan pembantunya). Untuk <strong>Ruang Tambahan</strong>, pakai <strong>“Tambah Ruang Tambahan”</strong>.</li><li>Pilih juga <strong>nyanyian</strong> dan <strong>doa</strong>, lalu ketuk <strong>“Simpan program”</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Untuk melihat minggu lain, pakai <strong>pemilih minggu</strong> (<strong>“Minggu sebelumnya”</strong> / <strong>“Minggu berikutnya”</strong>); dari sana kamu juga bisa <strong>mengubah atau menghapusnya</strong>.</li><li>Para saudara menerima <strong>notifikasi</strong> saat diberi suatu bagian, dan mereka melihatnya di layar beranda.</li><li>Program minggu itu hilang sendiri setelah hari Minggu berakhir.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Pertemuan Umum</h2>
+<p>Di <strong>Program → Pertemuan Umum</strong> disiapkan setiap perhimpunan akhir pekan.</p>
+<ol class="pasos"><li>Ketuk <strong>“Pertemuan Umum baru”</strong> dan pilih <strong>tanggalnya</strong>. Jika sudah ada perhimpunan pada tanggal itu, Wkit memberitahumu.</li><li>Pilih <strong>ketua</strong>, <strong>pembicara</strong>, dan tulis <strong>judul khotbah</strong>.</li><li>Pilih <strong>pembaca Menara Pengawal</strong> (“Pembaca wS”) serta <strong>nyanyian</strong> dan <strong>doa</strong>.</li><li>Simpan. Para saudara melihat bagian mereka di layar beranda.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Audio dan Video / Petugas</h2>
+<p>Di <strong>Menu → Audio dan Video / Petugas</strong> kamu menugaskan tanggung jawab tiap minggu: audio, video, mikrofon, petugas, Zoom, pencatat waktu …</p>
+<ol class="pasos"><li>Ketuk <strong>“Minggu baru”</strong> dan pilih <strong>tanggal perhimpunan</strong>.</li><li>Ketuk <strong>“Pilih”</strong> pada setiap tanggung jawab dan pilih saudaranya. Beberapa, seperti mikrofon, memungkinkan <strong>beberapa saudara</strong> (<strong>“Tambah saudara”</strong>).</li><li>Untuk tanggung jawab lain yang belum ada, ketuk <strong>“Tambah tanggung jawab”</strong> dan beri nama.</li><li>Simpan. Setiap saudara melihatnya di <strong>Tanggung jawab</strong>, di beranda mereka, dengan loncengnya.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Program lain</h2>
+<p>Untuk <strong>hal apa pun yang lain</strong> yang diatur sidang dan bukan perhimpunan: misalnya transportasi bagi saudara yang tidak bisa datang, atau bantuan untuk penyiar. Setiap program punya periodenya sendiri. Letaknya di <strong>Menu → Program lain</strong>.</p>
+<ol class="pasos"><li>Ketuk <strong>“Program baru”</strong>. Tulis <strong>nama</strong> dan pilih <strong>seberapa sering diatur</strong>: per hari, per minggu, per bulan, atau tahunan.</li><li>Ketuk <strong>“Buat minggu pertama”</strong> (atau <strong>“Periode baru”</strong>) dan pilih tanggalnya: hari apa saja di minggu, bulan, atau tahun itu.</li><li>Ketuk <strong>“Tambah tanggung jawab”</strong>: tulis <strong>label</strong> opsional (misalnya “Menjemput lebih awal”) dan <strong>pilih saudara atau saudarinya</strong>.</li><li>Simpan. Setiap orang melihatnya di beranda mereka, di <strong>“Program lain”</strong>, dan periodenya hilang sendiri saat berakhir.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Pengumuman</h2>
+<p>Pengumuman dibuat oleh administrator dan, hanya untuk kelompok mereka, oleh pengawas dan pembantu tiap kelompok dinas. Pengumuman dilihat oleh para saudara yang dituju. Letaknya di <strong>Menu → Pengumuman</strong>.</p>
+<ol class="pasos"><li>Ketuk <strong>“Pengumuman baru”</strong> dan tulis <strong>pesannya</strong>.</li><li>Secara bawaan, pengumuman terbit <strong>seketika</strong>, begitu kamu menyimpannya, dan semua orang diberi tahu lewat notifikasi.</li><li>Jika kamu ingin pengumuman terbit lebih lambat, aktifkan <strong>“Jadwalkan untuk nanti”</strong> dan pilih <strong>tanggal dan jam</strong>: tidak ada yang akan melihatnya sampai saat itu, dan pada jam itu semua orang diberi tahu.</li><li>Simpan. Untuk menghapus pengumuman, ketuk pengumumannya dan pilih <strong>“Hapus”</strong>: pengumuman itu hilang bagi semua orang.</li></ol>
+<h3>Pengumuman hanya untuk satu kelompok</h3>
+<ul><li><strong>Pengawas</strong> dan <strong>pembantu</strong> tiap kelompok dinas melihat tombol <strong>+</strong> meskipun bukan administrator, dan pengumuman mereka sampai <strong>hanya kepada anggota kelompok mereka</strong>.</li><li>Administrator yang juga punya kelompok dapat mengaktifkan <strong>“Kirim pengumuman ini hanya kepada anggota kelompok saya”</strong> saat membuat pengumuman.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Kalender sidang</h2>
+<p>Fungsinya agar semua orang melihat acara sidang, seperti <strong>kebaktian wilayah</strong> atau <strong>kunjungan pengawas wilayah</strong>. Hanya administrator yang membuatnya.</p>
+<ol class="pasos"><li>Buka <strong>Menu → Kalender</strong> dan ketuk <strong>“Tambah acara”</strong>.</li><li>Tulis <strong>judul</strong> dan ketuk <strong>hari</strong>-hari acara: jika berlangsung beberapa hari, ketuk satu per satu.</li><li>Simpan. Semua orang akan melihatnya di <strong>Beranda</strong>, di bawah “Kalender”, dengan <strong>lonceng</strong> untuk memasang pengingat.</li><li>Untuk mengubah atau menghapusnya, bukalah dan pilih <strong>“Ubah acara”</strong> atau <strong>“Hapus acara”</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Daerah: penugasan, kampanye, dan panel web</h2>
+<p>Yang memiliki izin <strong>Pelayan Wilayah</strong> mengelola daerah seluruh sidang dari tab <strong>Daerah</strong> (penyiar hanya melihat daerah mereka).</p>
+<h3>Menugaskan dan menerima daerah</h3>
+<ul><li>Ketuk sebuah daerah dan pilih <strong>“Tugaskan”</strong> (atau “Tugaskan kepada penyiar”) dan saudaranya. Kamu melihat siapa yang memegangnya dan sejak kapan, serta yang <strong>lewat batas waktu</strong> atau <strong>belum pernah ditugaskan</strong>.</li><li>Saat seorang penyiar <strong>meminta</strong> daerah, semua pelayan wilayah diberi tahu (<strong>“Permintaan daerah”</strong>); yang pertama bisa akan menugaskannya.</li><li>Saat seorang saudara <strong>menyerahkan</strong> daerah, daerah itu menjadi bebas dan tanggalnya dicatat.</li></ul>
+<h3>Kampanye</h3>
+<ul><li><strong>“Kampanye baru”</strong> mencatat ulang semua daerah selama periode tertentu. Dibuat sebuah <strong>salinan</strong> dari daerah yang ada untuk dibagikan terpisah; daerah biasa tidak disentuh.</li><li>Hanya boleh ada <strong>satu kampanye aktif</strong> pada satu waktu. Untuk mengakhirinya, pilih <strong>“Hapus kampanye”</strong>: penugasannya dihapus dan semuanya kembali normal.</li></ul>
+<h3>Catatan S-13 dan panel web</h3>
+<ul><li>Di <strong>Alat</strong> kamu dapat membuat <strong>catatan S-13 dalam PDF</strong> (satu untuk tiap sektor) untuk dibagikan.</li><li><strong>Panel web daerah</strong> dibuka dari peramban komputer. Untuk memberi akses kepada seorang pelayan wilayah: buka kartunya di Daftar saudara dan ketuk <strong>“Akses ke panel”</strong> → <strong>“Buat tautan”</strong>. Tautannya pribadi; masuk dengan <strong>kata sandi 6 angka</strong> yang kamu pilih, dan bisa kamu ubah kapan saja.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Tautan panel seperti kata sandi: jangan bagikan kepada selain yang berhak mendapat akses. Jika kamu membuat yang baru, yang sebelumnya berhenti berfungsi.</div>
+</section>
+<section id="suscripcion"><h2>19. Langganan sidang</h2>
+<p>Agar semua saudara mendapat akses penuh, diperlukan <strong>langganan tahunan sidang</strong>. <strong>Dibayar oleh seorang administrator dan mencakup semua saudara</strong>, baik di iPhone maupun Android. Saudara-saudara lain tidak membayar apa pun.</p>
+<ol class="pasos"><li>Buka <strong>Menu → Pengaturan → Langganan sidang</strong>.</li><li>Ketuk <strong>“Berlangganan untuk sidang”</strong>. Kamu melihat harga tahunan sebelum mengonfirmasi; jika ada <strong>masa percobaan gratis</strong>, tidak ada tagihan sampai masa itu selesai.</li><li>Konfirmasi lewat App Store (iPhone) atau Google Play (Android). Selesai: seluruh sidang punya akses.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Langganan <strong>diperpanjang otomatis</strong> setiap tahun, kecuali kamu membatalkannya setidaknya 24 jam sebelum periode berakhir.</li><li>Untuk <strong>mengelola atau membatalkannya</strong>: <span class="plat i">iPhone</span> Pengaturan iPhone → namamu → Langganan; <span class="plat a">Android</span> Google Play → profilmu → Pembayaran dan langganan → Langganan (atau tombol “Kelola atau batalkan di Google Play” di Wkit).</li><li>Jika kamu <strong>mengganti ponsel</strong>, ketuk <strong>“Pulihkan pembelian”</strong> di layar yang sama.</li><li>Jika langganan <strong>berakhir</strong>, sidang beralih ke <strong>hanya-baca</strong>: semuanya tetap terlihat dan <strong>tidak ada yang dihapus</strong>. Setelah diperpanjang, bisa diubah lagi.</li></ul>
+<div class="nota">Wkit tidak pernah melihat maupun menyimpan data pembayaranmu: data itu ditangani oleh Apple atau Google.</div>
+</section>
+<section id="copias"><h2>20. Data yang hanya tersimpan di ponsel ini</h2>
+<p>Jika kamu memakai Wkit secara offline atau sebelum sidangmu ada, aplikasi mungkin menanyakan apa yang harus dilakukan dengan <strong>data yang hanya tersimpan di ponsel ini</strong> (misalnya saudara-saudara atau pengumuman). Ada dua pilihan: <strong>“Unggah”</strong> ke sidang (semua orang akan melihatnya) atau <strong>“Buang”</strong>. Tidak ada yang dilakukan sampai kamu memutuskan.</p>
+</section>
+      <div class="caja pie"><strong>Tidak menemukan yang kamu cari?</strong> Tulis kepada kami di <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> dan ceritakan apa yang terjadi. Jika bisa, sebutkan perangkat apa yang kamu pakai (iPhone, iPad, atau Android) dan apa yang sedang kamu lakukan.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

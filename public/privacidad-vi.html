@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="vi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Chính sách quyền riêng tư của Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <b>Tiếng Việt</b></p>
+      <h1>Chính sách quyền riêng tư của Wkit</h1>
+      <p class="fecha">Cập nhật lần cuối: 9 tháng 11 năm 2026</p>
+      <h2>1. Chúng tôi là ai và Wkit là gì</h2>
+      <p>Wkit là ứng dụng của <strong>Titan Estudios</strong> giúp sắp xếp đời sống hội thánh: chương trình các buổi họp, khu vực, thông báo, danh sách anh em và báo cáo thánh chức cá nhân. Ứng dụng chạy trên iPhone, iPad và Android, và có bảng điều khiển web để quản lý khu vực.</p>
+      <div class="caja"><strong>Ai chịu trách nhiệm về điều gì.</strong> Đối với dữ liệu <em>tài khoản</em> (ví dụ email), chúng tôi chịu trách nhiệm. Đối với dữ liệu về <em>anh em trong hội thánh</em> (danh sách, chương trình, khu vực…), chính hội thánh chịu trách nhiệm thông qua các quản trị viên, là những người nhập dữ liệu và quyết định dùng vào việc gì; chúng tôi chỉ cung cấp công cụ và lưu trữ thay cho họ.</div>
+      <h2>2. Chúng tôi xử lý những dữ liệu nào</h2>
+      <table>
+        <tr><th>Tài khoản của bạn</th><td>Email, chỉ của người tạo hội thánh và của các quản trị viên liên kết email; những anh em khác không cần email, họ vào bằng lời mời. Cùng một mã định danh nội bộ của tài khoản.</td></tr>
+        <tr><th>Thẻ của bạn trong danh sách anh em</th><td>Tên, giới tính, vai trò (người công bố, tiên phong, tôi tớ thánh chức, trưởng lão), nhóm rao giảng, có hỗ trợ Âm thanh và Hình ảnh hoặc Khu vực hay không, và các quyền bạn có trong ứng dụng. Do quản trị viên của hội thánh nhập và chỉnh sửa.</td></tr>
+        <tr><th>Dữ liệu của hội thánh</th><td>Chương trình các buổi họp và ai nhận từng phần (theo tên), các bài giảng công cộng, Âm thanh và Hình ảnh, các nhóm rao giảng (cùng giám thị và người phụ tá), việc dọn dẹp (nhóm nào, ngày và giờ nào), thánh chức, thông báo, các chương trình khác, khu vực (hình dạng trên bản đồ, ai giữ và các ngày), chiến dịch và yêu cầu khu vực. Cả các sự kiện lịch (tiêu đề và ngày) và ghi chú khu vực (văn bản ngắn và ngày, không có tên người viết), mà các thành viên của hội thánh có thể xem.</td></tr>
+        <tr><th>Gói đăng ký</th><td>Khi một quản trị viên đăng ký gói cho hội thánh, việc thanh toán do Apple (và Google trên Android) xử lý: chúng tôi không xem và không lưu bất kỳ dữ liệu thanh toán nào. Chúng tôi chỉ lưu tình trạng gói của hội thánh: các ngày và một mã định danh giao dịch mua.</td></tr>
+        <tr><th>Dữ liệu kỹ thuật</th><td>Mã định danh thiết bị của bạn để chúng tôi gửi thông báo cho bạn (do Apple cấp trên iPhone và iPad, và do Google cấp trên Android) và dữ liệu kỹ thuật của kết nối mà máy chủ ghi lại, như địa chỉ IP.</td></tr>
+        <tr><th>Báo cáo thánh chức của bạn</th><td>Số giờ và các cuộc học hỏi bạn ghi trong Báo cáo được lưu trên thiết bị của bạn và, để bạn dùng được trên mọi thiết bị, cũng được lưu trên máy chủ của chúng tôi (Supabase), gắn với thẻ của bạn. <strong>Chỉ bạn xem được</strong>: trưởng lão và quản trị viên của hội thánh bạn đều không có quyền truy cập, và nó không được chia sẻ với ai.</td></tr>
+<tr><th>Chỉ trên thiết bị của bạn</th><td>Mục tiêu giờ, lời nhắc và cài đặt của bạn. <strong>Không có gì trong số đó được gửi đến máy chủ của chúng tôi.</strong> Nếu bạn bật sao lưu, bản sao được lưu trong iCloud của chính bạn, do bạn quản lý. Trên Android, bản sao được lưu ngay trên điện thoại và, nếu sao lưu của Android được bật, cũng nằm trong tài khoản Google của bạn, do bạn quản lý.</td></tr>
+      </table>
+      <h2>3. Những gì chúng tôi KHÔNG làm</h2>
+      <ul>
+        <li>Không quảng cáo, và không bán hay chuyển dữ liệu cho bên thứ ba vì mục đích thương mại.</li>
+        <li>Không có công cụ thống kê, theo dõi hay nhận dạng giữa các ứng dụng.</li>
+        <li>Ứng dụng <strong>không dùng vị trí của bạn</strong>, camera, ảnh, danh bạ hay micrô.</li>
+        <li>Chúng tôi không tạo hồ sơ và không đưa ra quyết định tự động về bạn.</li>
+      </ul>
+      <h2>4. Dữ liệu được dùng để làm gì</h2>
+      <ul>
+        <li>Để cung cấp dịch vụ bạn yêu cầu: đăng nhập vào tài khoản, hiển thị cho mỗi hội thánh dữ liệu của hội thánh đó và giữ dữ liệu luôn cập nhật trên mọi thiết bị của hội thánh.</li>
+        <li>Để gửi cho bạn thông báo về những gì diễn ra trong hội thánh (một thông báo, một khu vực được giao cho bạn…), với điều kiện bạn đã cho phép thông báo trên thiết bị, và bạn có thể thu hồi bất cứ lúc nào.</li>
+        <li>Để bảo đảm an toàn cho dịch vụ và trả lời các yêu cầu hỗ trợ của bạn.</li>
+      </ul>
+      <h2>5. Ai có thể xem dữ liệu của bạn</h2>
+      <ul>
+        <li><strong>Trong hội thánh của bạn:</strong> mọi thành viên xem được danh sách anh em, các chương trình và thông báo đã đăng. Chỉ quản trị viên mới tạo hoặc sửa được. Người công bố chỉ xem các khu vực được giao cho mình. Người phụ trách khu vực xem khu vực của cả hội thánh. Báo cáo thánh chức của bạn chỉ mình bạn xem. Thông báo gửi cho một nhóm chỉ các thành viên của nhóm đó thấy, và giám thị cùng người phụ tá của mỗi nhóm có thể tạo thông báo cho nhóm của mình.</li>
+        <li><strong>Các hội thánh khác: không ai.</strong> Mỗi hội thánh chỉ truy cập được dữ liệu của mình; điều này được bảo đảm bằng các quy tắc truy cập ngay trong cơ sở dữ liệu.</li>
+        <li><strong>Các nhà cung cấp giúp chúng tôi vận hành dịch vụ</strong> (họ chỉ xử lý dữ liệu cho mục đích đó):
+          <ul>
+            <li><strong>Supabase</strong>, nơi lưu trữ cơ sở dữ liệu và tài khoản, trên các máy chủ ở Liên minh châu Âu (Frankfurt).</li>
+            <li><strong>Apple</strong>, để phân phối ứng dụng, gửi thông báo, bản đồ trong ứng dụng (Apple Maps) và thu phí gói đăng ký.</li>
+            <li><strong>Google</strong>: trên Android, để phân phối ứng dụng (Google Play), gửi thông báo (Firebase Cloud Messaging), bản đồ trong ứng dụng (Google Maps) và thu phí gói đăng ký; và, trên mọi nền tảng, dịch vụ email của Google, dùng để gửi thư có liên kết đăng nhập. Khi bản đồ được hiển thị, Google có thể nhận dữ liệu kỹ thuật của kết nối, như địa chỉ IP.</li>
+            <li><strong>GitHub</strong>, nơi lưu trữ bảng điều khiển web, và <strong>OpenFreeMap</strong>, nơi cung cấp bản đồ cho bảng điều khiển web. Để hiển thị các trang đó, họ nhận dữ liệu kỹ thuật của kết nối, như địa chỉ IP.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Thông tin đặc biệt nhạy cảm</h2>
+      <p>Về bản chất, danh sách thành viên của một hội thánh có thể tiết lộ niềm tin tôn giáo, vốn là một loại dữ liệu cá nhân đặc biệt. Vì vậy Wkit được thiết kế cho nội bộ từng hội thánh dùng: dữ liệu do chính hội thánh nhập và quản lý cho mục đích của mình, chỉ các thành viên xem được, và được truyền qua internet ở dạng mã hóa. Chúng tôi khuyên chỉ nhập những gì cần thiết.</p>
+      <h2>7. Lưu trong bao lâu và cách xóa</h2>
+      <p>Dữ liệu được giữ chừng nào tài khoản hoặc hội thánh còn tồn tại. Bạn có thể xóa tài khoản bất cứ lúc nào ngay trong ứng dụng:</p>
+      <div class="caja"><strong>Cài đặt → Tài khoản của tôi → Xóa tài khoản của tôi.</strong></div>
+      <p><a href="eliminar-cuenta-vi.html">Trang có các bước để xóa tài khoản và dữ liệu của bạn</a>.</p>
+      <ul>
+        <li>Tài khoản đăng nhập và thẻ của bạn trong danh sách anh em bị xóa. Các khu vực bạn đang giữ sẽ trở thành trống.</li>
+        <li>Dữ liệu ứng dụng lưu trên thiết bị của bạn và Báo cáo của bạn lưu trên máy chủ của chúng tôi bị xóa.</li>
+        <li>Nếu bạn là người duy nhất trong hội thánh, hội thánh cũng bị xóa cùng toàn bộ dữ liệu (chúng tôi sẽ hỏi rõ trước khi làm).</li>
+        <li>Nếu bạn là quản trị viên duy nhất và còn anh em khác, trước tiên bạn cần chỉ định một quản trị viên khác, để hội thánh không bị bỏ trống khâu quản lý.</li>
+        <li>Dữ liệu đã bị xóa có thể còn tồn tại một thời gian giới hạn trong các bản sao lưu của nhà cung cấp trước khi biến mất hoàn toàn.</li>
+        <li>Xóa tài khoản không hủy gói đăng ký trả phí nếu có: việc đó thực hiện trong cài đặt Apple ID của bạn hoặc, trên Android, trong Google Play → Thanh toán và gói đăng ký.</li>
+      </ul>
+      <p>Quản trị viên cũng có thể xóa thẻ của một anh em khỏi danh sách khi cần.</p>
+      <h2>8. Quyền của bạn</h2>
+      <p>Bạn có thể yêu cầu truy cập, chỉnh sửa, xóa, chuyển dữ liệu của mình, hạn chế xử lý và phản đối việc xử lý. Nhiều quyền trong số này bạn tự thực hiện được trong ứng dụng; với những quyền còn lại, hãy viết cho chúng tôi. Dữ liệu thẻ và chương trình do hội thánh của bạn quản lý: nếu muốn chỉnh sửa, hãy yêu cầu cả các quản trị viên của hội thánh.</p>
+      <p>Nếu bạn cho rằng chúng tôi xử lý dữ liệu của bạn không đúng, bạn có thể khiếu nại với <a href="https://www.aepd.es">Cơ quan Bảo vệ Dữ liệu Tây Ban Nha (AEPD)</a> hoặc với cơ quan bảo vệ dữ liệu của nước bạn.</p>
+      <h2>9. Bảo mật</h2>
+      <ul>
+        <li>Mọi liên lạc đều được truyền ở dạng mã hóa (HTTPS).</li>
+        <li>Việc truy cập dữ liệu được kiểm soát bằng quyền ngay trong cơ sở dữ liệu, không chỉ ở màn hình ứng dụng.</li>
+        <li>Truy cập bảng điều khiển web của khu vực được thực hiện bằng một khóa riêng nằm trong liên kết. Hãy coi nó như mật khẩu và đừng chia sẻ.</li>
+      </ul>
+      <h2>10. Trẻ vị thành niên</h2>
+      <p>Wkit không dành cho trẻ dưới 14 tuổi. Nếu một hội thánh đưa người vị thành niên vào danh sách, việc đó do quản trị viên là người lớn thực hiện, tự chịu trách nhiệm và có sự cho phép của cha mẹ hoặc người giám hộ.</p>
+      <h2>11. Thay đổi chính sách này</h2>
+      <p>Nếu chúng tôi thay đổi điều gì quan trọng, chúng tôi sẽ nêu ở đây và cập nhật ngày ở trên.</p>
+      <h2>12. Liên hệ</h2>
+      <p>Nếu có bất kỳ thắc mắc nào hoặc để thực hiện quyền của bạn: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Bạn cũng có trang <a href="soporte-vi.html">trợ giúp</a>.</p>
+    </main>
+  </body>
+</html>

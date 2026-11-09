@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Kebijakan Privasi Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <b>Bahasa Indonesia</b> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>Kebijakan Privasi Wkit</h1>
+      <p class="fecha">Terakhir diperbarui: 9 November 2026</p>
+      <h2>1. Siapa kami dan apa itu Wkit</h2>
+      <p>Wkit adalah aplikasi dari <strong>Titan Estudios</strong> untuk membantu mengatur kehidupan sidang: program perhimpunan, daerah, pengumuman, daftar saudara, dan laporan dinas pribadi. Aplikasi ini berjalan di iPhone, iPad, dan Android, dan memiliki panel web untuk mengelola daerah.</p>
+      <div class="caja"><strong>Siapa bertanggung jawab atas apa.</strong> Atas data <em>akun</em> (misalnya email), kami yang bertanggung jawab. Atas data <em>saudara-saudara di sebuah sidang</em> (daftar, program, daerah …), sidang itu sendiri yang bertanggung jawab melalui para administratornya, yang memasukkan data tersebut dan memutuskan untuk apa data itu dipakai; kami hanya menyediakan alatnya dan menyimpannya atas permintaan mereka.</div>
+      <h2>2. Data apa yang diproses</h2>
+      <table>
+        <tr><th>Akunmu</th><td>Email, hanya dari orang yang membuat sidang dan dari para administrator yang menautkannya; saudara-saudara lain tidak memerlukan email, mereka masuk dengan undangan. Dan sebuah pengenal internal akun.</td></tr>
+        <tr><th>Kartumu di daftar saudara</th><td>Nama, jenis kelamin, tugas (penyiar, perintis, hamba pelayanan, penatua), kelompok dinas, apakah dia membantu di Audio dan Video atau Daerah, serta izin yang dia miliki di aplikasi. Data ini dimasukkan dan diubah oleh administrator sidang.</td></tr>
+        <tr><th>Data sidang</th><td>Program perhimpunan dan siapa yang mendapat setiap bagian (menurut nama), khotbah umum, Audio dan Video, kelompok dinas (dengan pengawas dan pembantunya), pembersihan (kelompok mana, serta hari dan jam berapa), dinas pelayanan, pengumuman, program lain, daerah (bentuknya di peta, siapa yang memegangnya, dan tanggalnya), kampanye, serta permintaan daerah. Juga acara kalender (judul dan hari). Juga catatan daerah (teks singkat dan tanggal, tanpa nama penulisnya), yang dapat dilihat anggota sidang.</td></tr>
+        <tr><th>Langganan</th><td>Saat seorang administrator berlangganan untuk sidang, pembayarannya diproses oleh Apple (dan Google di Android): kami tidak melihat maupun menyimpan data pembayaran apa pun. Kami hanya menyimpan status langganan yang terkait dengan sidang: tanggal dan pengenal pembelian.</td></tr>
+        <tr><th>Data teknis</th><td>Pengenal perangkatmu agar kami bisa mengirimimu notifikasi (diberikan oleh Apple di iPhone dan iPad, dan oleh Google di Android) serta data teknis koneksi yang dicatat server, seperti alamat IP.</td></tr>
+        <tr><th>Laporan dinasmu</th><td>Jam dan pelajaran yang kamu catat di Laporan disimpan di perangkatmu dan, agar bisa kamu pakai di semua perangkatmu, juga di server kami (Supabase), terkait dengan kartumu. <strong>Hanya kamu yang bisa melihatnya</strong>: para penatua maupun administrator sidangmu tidak punya akses, dan laporan itu tidak dibagikan kepada siapa pun.</td></tr>
+<tr><th>Hanya di perangkatmu</th><td>Target jam, pengingat, dan pengaturanmu. <strong>Semua itu tidak dikirim ke server kami.</strong> Jika kamu mengaktifkan cadangan, cadangan disimpan di iCloud milikmu sendiri, yang kamu kelola. Di Android, cadangan disimpan di ponsel itu sendiri dan, jika cadangan Android kamu aktifkan, juga di akun Google milikmu, yang kamu kelola.</td></tr>
+      </table>
+      <h2>3. Yang TIDAK kami lakukan</h2>
+      <ul>
+        <li>Tidak ada iklan, serta tidak ada penjualan atau pemberian data kepada pihak ketiga untuk tujuan komersial.</li>
+        <li>Tidak ada alat statistik, pelacakan, atau penelusuran antaraplikasi.</li>
+        <li>Aplikasi ini <strong>tidak menggunakan lokasimu</strong>, kameramu, fotomu, kontakmu, ataupun mikrofon.</li>
+        <li>Kami tidak membuat profil dan tidak mengambil keputusan otomatis tentang dirimu.</li>
+      </ul>
+      <h2>4. Untuk apa data digunakan</h2>
+      <ul>
+        <li>Untuk memberimu layanan yang kamu minta: masuk ke akunmu, menampilkan data kepada tiap sidang, dan menjaganya tetap terbarui di semua perangkat sidang itu.</li>
+        <li>Untuk mengirimimu pemberitahuan yang muncul di dalam sidangmu (sebuah pengumuman, daerah yang diberikan kepadamu …), selama kamu telah mengizinkan notifikasi di perangkatmu, yang bisa kamu cabut kapan saja.</li>
+        <li>Untuk keamanan layanan dan untuk menanggapi permintaan bantuanmu.</li>
+      </ul>
+      <h2>5. Siapa yang bisa melihat datamu</h2>
+      <ul>
+        <li><strong>Di dalam sidangmu:</strong> semua anggota melihat daftar saudara, program, dan pengumuman yang diterbitkan. Hanya administrator yang bisa membuat atau mengubahnya. Seorang penyiar hanya melihat daerah yang diberikan kepadanya. Yang mengelola daerah melihat daerah seluruh sidang. Laporan dinasmu hanya kamu yang melihat. Pengumuman yang ditujukan kepada suatu kelompok hanya dilihat anggota kelompok itu, dan pengawas serta pembantu tiap kelompok dapat membuatnya untuk kelompok mereka sendiri.</li>
+        <li><strong>Sidang lain: tidak ada.</strong> Setiap sidang hanya mengakses datanya sendiri; hal ini dijamin oleh kontrol akses pada basis data itu sendiri.</li>
+        <li><strong>Penyedia yang membantu kami memberikan layanan</strong> (mereka memproses data hanya untuk itu):
+          <ul>
+            <li><strong>Supabase</strong>, yang menjadi host basis data dan akun, di server Uni Eropa (Frankfurt).</li>
+            <li><strong>Apple</strong>, untuk distribusi aplikasi, notifikasi, peta aplikasi (Apple Maps), dan penagihan langganan.</li>
+            <li><strong>Google</strong>: di Android, untuk distribusi aplikasi (Google Play), notifikasi (Firebase Cloud Messaging), peta aplikasi (Google Maps), dan penagihan langganan; dan, di semua platform, layanan emailnya, yang dipakai untuk mengirim pesan berisi tautan masuk. Saat peta ditampilkan, Google bisa menerima data teknis koneksi, seperti alamat IP.</li>
+            <li><strong>GitHub</strong>, yang menjadi host panel web, dan <strong>OpenFreeMap</strong>, yang menyajikan peta panel web. Untuk menampilkan halaman-halaman itu, mereka menerima data teknis koneksi, seperti alamat IP.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Informasi yang sangat sensitif</h2>
+      <p>Karena sifatnya, daftar anggota sebuah sidang dapat mengungkapkan keyakinan agama, yang merupakan kategori khusus data pribadi. Karena itu Wkit dirancang untuk penggunaan internal tiap sidang: datanya dimasukkan dan dikelola oleh sidang itu sendiri untuk keperluannya, hanya anggotanya yang melihatnya, dan data dikirim terenkripsi lewat internet. Kami menyarankan agar hanya memasukkan yang diperlukan.</p>
+      <h2>7. Berapa lama disimpan dan cara menghapusnya</h2>
+      <p>Data disimpan selama akun atau sidang masih ada. Kamu bisa menghapus akunmu kapan saja langsung dari aplikasi:</p>
+      <div class="caja"><strong>Pengaturan → Akun saya → Hapus akun saya.</strong></div>
+      <p><a href="eliminar-cuenta-id.html">Halaman berisi langkah-langkah menghapus akun dan datamu</a>.</p>
+      <ul>
+        <li>Akun masukmu dan kartumu di daftar saudara dihapus. Daerah yang kamu pegang menjadi bebas.</li>
+        <li>Data yang tersimpan di perangkatmu oleh aplikasi dan Laporanmu yang tersimpan di server kami dihapus.</li>
+        <li>Jika kamu satu-satunya orang di sidangmu, sidang itu juga dihapus beserta semua datanya (kami menanyakannya secara tegas sebelum melakukannya).</li>
+        <li>Jika kamu satu-satunya administrator dan ada saudara lain, kamu harus lebih dulu menunjuk administrator lain, agar sidang tidak tanpa pengelola.</li>
+        <li>Data yang sudah tidak ada bisa tetap berada untuk waktu terbatas di cadangan penyedia kami sebelum benar-benar terhapus.</li>
+        <li>Menghapus akun tidak membatalkan langganan berbayar jika ada: itu dilakukan di pengaturan Apple ID-mu atau, di Android, di Google Play → Pembayaran dan langganan.</li>
+      </ul>
+      <p>Administrator juga dapat menghapus kartu seorang saudara dari daftar bila perlu.</p>
+      <h2>8. Hakmu</h2>
+      <p>Kamu bisa meminta akses ke datamu, perbaikannya, penghapusannya, portabilitasnya, pembatasan pemrosesannya, dan mengajukan keberatan atasnya. Banyak dari hak ini bisa kamu jalankan sendiri di aplikasi; untuk sisanya, tulis kepada kami. Data kartu dan program dikelola oleh sidangmu: jika kamu ingin memperbaikinya, mintalah juga kepada para administratornya.</p>
+      <p>Jika kamu merasa kami tidak menangani datamu dengan benar, kamu dapat mengajukan keluhan kepada <a href="https://www.aepd.es">Badan Perlindungan Data Spanyol (AEPD)</a> atau kepada otoritas perlindungan data di negaramu.</p>
+      <h2>9. Keamanan</h2>
+      <ul>
+        <li>Semua komunikasi dikirim terenkripsi (HTTPS).</li>
+        <li>Akses ke data dikendalikan oleh izin pada basis data itu sendiri, bukan hanya di layar aplikasi.</li>
+        <li>Akses ke panel web daerah dilakukan dengan kunci pribadi yang ada di dalam tautan. Perlakukan seperti kata sandi dan jangan dibagikan.</li>
+      </ul>
+      <h2>10. Anak di bawah umur</h2>
+      <p>Wkit tidak ditujukan untuk anak di bawah 14 tahun. Jika sebuah sidang memasukkan anak di bawah umur ke dalam daftarnya, hal itu dilakukan oleh administrator dewasa, dengan tanggung jawabnya sendiri dan atas izin orang tua atau walinya.</p>
+      <h2>11. Perubahan pada kebijakan ini</h2>
+      <p>Jika kami mengubah sesuatu yang penting, kami akan menyebutkannya di sini dan memperbarui tanggal di atas.</p>
+      <h2>12. Kontak</h2>
+      <p>Untuk pertanyaan apa pun atau untuk menjalankan hakmu: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Ada juga halaman <a href="soporte-id.html">bantuan</a>.</p>
+    </main>
+  </body>
+</html>

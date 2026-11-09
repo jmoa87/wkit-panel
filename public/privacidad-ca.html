@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Política de privadesa de Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <b>Català</b> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>Política de privadesa de Wkit</h1>
+      <p class="fecha">Última actualització: 9 de novembre de 2026</p>
+      <h2>1. Qui som i què és Wkit</h2>
+      <p>Wkit és una aplicació de <strong>Titan Estudios</strong> per ajudar a organitzar la vida d'una congregació: el programa de les reunions, els territoris, els anuncis, la llista de germans i l'informe personal de servei. Funciona a iPhone, iPad i Android, i té un tauler web per gestionar els territoris.</p>
+      <div class="caja"><strong>Qui és responsable de què.</strong> De les dades del <em>compte</em> (el correu, per exemple) som responsables nosaltres. De les dades dels <em>germans d'una congregació</em> (la llista, el programa, els territoris...) és responsable la mateixa congregació, a través dels seus administradors, que són qui les introdueixen i decideixen per a què s'usen; nosaltres només oferim l'eina i les desem per encàrrec seu.</div>
+      <h2>2. Quines dades es tracten</h2>
+      <table>
+        <tr><th>El teu compte</th><td>El correu electrònic, només de qui crea la congregació i dels administradors que el vinculen; la resta de germans no necessiten cap correu, entren amb una invitació. I un identificador intern del compte.</td></tr>
+        <tr><th>La teva fitxa a la llista de germans</th><td>Nom, gènere, càrrec (publicador, precursor, servent ministerial, ancià), grup de servei, si col·labora a Àudio i Vídeo o a Territoris, i els permisos que té a l'aplicació. La introdueixen i la modifiquen els administradors de la congregació.</td></tr>
+        <tr><th>Dades de la congregació</th><td>El programa de les reunions i qui té cada part (pel nom), les reunions públiques, Àudio i Vídeo, els grups de servei (amb el seu superintendent i el seu auxiliar), la neteja (quin grup, i quin dia i hora), les sortides, els anuncis, els altres programes, els territoris (la seva forma al mapa, qui els té i les dates), les campanyes i les sol·licituds de territori. També els esdeveniments del calendari (títol i dies). També les notes dels territoris (un text breu i la data, sense el nom de qui les escriu), que poden veure els membres de la congregació.</td></tr>
+        <tr><th>Subscripció</th><td>Quan un administrador subscriu la congregació, el pagament el gestiona Apple (i Google, a Android): nosaltres no veiem ni desem cap dada de pagament. Només desem l'estat de la subscripció, associat a la congregació: les dates i un identificador de la compra.</td></tr>
+        <tr><th>Dades tècniques</th><td>Un identificador del teu dispositiu per poder enviar-te notificacions (el dona Apple a iPhone i iPad, i Google a Android) i dades tècniques de connexió que els servidors registren, com l'adreça IP.</td></tr>
+        <tr><th>El teu informe de servei</th><td>Les hores i els estudis que apuntes al teu informe es desen al teu dispositiu i, perquè el puguis fer servir a tots els teus dispositius, també als nostres servidors (Supabase), associats a la teva fitxa. <strong>Només tu el pots veure</strong>: ni els ancians ni els administradors de la teva congregació hi tenen accés, i no es comparteix amb ningú més.</td></tr>
+<tr><th>Només al teu dispositiu</th><td>La teva meta d'hores, els recordatoris i els ajustos. <strong>No s'envien als nostres servidors.</strong> Si actives la còpia de seguretat, es desa al teu propi iCloud, que gestiones tu. A Android, la còpia es desa al mateix telèfon i, si tens activada la còpia de seguretat d'Android, també al teu compte de Google, que gestiones tu.</td></tr>
+      </table>
+      <h2>3. El que NO fem</h2>
+      <ul>
+        <li>No hi ha publicitat, ni venda o cessió de dades a tercers amb finalitats comercials.</li>
+        <li>No hi ha eines d'estadístiques, de seguiment ni de rastreig entre aplicacions.</li>
+        <li>L'aplicació <strong>no fa servir la teva ubicació</strong>, ni la teva càmera, ni les teves fotos, ni els teus contactes, ni el micròfon.</li>
+        <li>No creem perfils ni prenem decisions automatitzades sobre tu.</li>
+      </ul>
+      <h2>4. Per a què s'usen les dades</h2>
+      <ul>
+        <li>Per donar-te el servei que has demanat: entrar al teu compte, mostrar a cada congregació les seves dades i mantenir-les al dia a tots els seus dispositius.</li>
+        <li>Per enviar-te els avisos que es produeixin dins de la teva congregació (un anunci, un territori que se't assigna...), sempre que hagis donat permís a les notificacions al teu dispositiu, que pots retirar quan vulguis.</li>
+        <li>Per a la seguretat del servei i per atendre les teves sol·licituds d'ajuda.</li>
+      </ul>
+      <h2>5. Qui pot veure les teves dades</h2>
+      <ul>
+        <li><strong>Dins de la teva congregació:</strong> tots els membres veuen la llista de germans, el programa i els anuncis publicats. Només els administradors els poden crear o modificar. Un publicador veu únicament els territoris que té assignats. Qui gestiona els territoris veu els de tota la congregació. El teu informe de servei només el veus tu. Els anuncis dirigits a un grup només els veuen els membres d'aquest grup, i el superintendent i l'auxiliar de cada grup els poden crear per al seu propi grup.</li>
+        <li><strong>Altres congregacions: ningú.</strong> Cada congregació només accedeix a les seves pròpies dades; ho garanteix el control d'accés de la mateixa base de dades.</li>
+        <li><strong>Proveïdors que ens ajuden a prestar el servei</strong> (tracten les dades només per a això):
+          <ul>
+            <li><strong>Supabase</strong>, que allotja la base de dades i els comptes, en servidors de la Unió Europea (Frankfurt).</li>
+            <li><strong>Apple</strong>, per distribuir l'aplicació, les notificacions, els mapes de l'aplicació (Apple Maps) i el cobrament de la subscripció.</li>
+            <li><strong>Google</strong>: a Android, per distribuir l'aplicació (Google Play), les notificacions (Firebase Cloud Messaging), el mapa de l'aplicació (Google Maps) i el cobrament de la subscripció; i, a totes les plataformes, el seu servei de correu, amb què s'envien els missatges amb l'enllaç d'accés. Quan es mostra el mapa, Google pot rebre dades tècniques de connexió, com l'adreça IP.</li>
+            <li><strong>GitHub</strong>, que allotja el tauler web, i <strong>OpenFreeMap</strong>, que serveix els mapes del tauler web. Per mostrar aquestes pàgines reben dades tècniques de connexió, com l'adreça IP.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Informació especialment sensible</h2>
+      <p>Per la seva naturalesa, una llista de membres d'una congregació pot revelar conviccions religioses, que són una categoria especial de dades personals. Per això Wkit està pensada per a ús intern de cada congregació: les dades les introdueix i les gestiona la mateixa congregació per a les seves finalitats, només les veuen els seus membres, i viatgen xifrades per internet. Recomanem introduir únicament el que sigui necessari.</p>
+      <h2>7. Quant de temps es conserven i com eliminar-les</h2>
+      <p>Les dades es conserven mentre existeixi el compte o la congregació. Pots eliminar el teu compte quan vulguis des de la mateixa aplicació:</p>
+      <div class="caja"><strong>Ajustos → El meu compte → Elimina el meu compte.</strong></div>
+      <p><a href="eliminar-cuenta-ca.html">Pàgina amb els passos per eliminar el teu compte i les teves dades</a>.</p>
+      <ul>
+        <li>S'elimina el teu compte d'accés i la teva fitxa a la llista de germans. Els territoris que tinguessis queden lliures.</li>
+        <li>S'esborren les dades que l'aplicació tenia desades al teu dispositiu i el teu informe desat als nostres servidors.</li>
+        <li>Si ets l'única persona de la teva congregació, s'elimina també la congregació amb totes les seves dades (te'n demanem confirmació expressa abans de fer-ho).</li>
+        <li>Si ets l'únic administrador i hi ha més germans, abans has de nomenar un altre administrador, perquè la congregació no es quedi sense gestió.</li>
+        <li>Les dades que ja no existeixin poden romandre un temps limitat a les còpies de seguretat del nostre proveïdor abans d'esborrar-se del tot.</li>
+        <li>Eliminar el compte no cancel·la una subscripció de pagament si n'hi hagués: això es fa als ajustos del teu Apple ID o, a Android, a Google Play → Pagaments i subscripcions.</li>
+      </ul>
+      <p>Els administradors poden també eliminar la fitxa d'un germà de la llista quan calgui.</p>
+      <h2>8. Els teus drets</h2>
+      <p>Pots demanar l'accés a les teves dades, la seva rectificació, la seva supressió, la seva portabilitat, la limitació del seu tractament i oposar-t'hi. Molts d'aquests drets els pots exercir tu mateix a l'aplicació; per a la resta, escriu-nos. Les dades de la fitxa i del programa les gestiona la teva congregació: si vols corregir-les, demana-ho també als seus administradors.</p>
+      <p>Si creus que no hem tractat correctament les teves dades, pots reclamar davant l'<a href="https://www.aepd.es">Agencia Española de Protección de Datos</a> o davant l'autoritat de protecció de dades del teu país.</p>
+      <h2>9. Seguretat</h2>
+      <ul>
+        <li>Tota la comunicació viatja xifrada (HTTPS).</li>
+        <li>L'accés a les dades es controla per permisos a la mateixa base de dades, no només a la pantalla de l'aplicació.</li>
+        <li>L'accés al tauler web de territoris es fa amb una clau personal que va a l'enllaç. Tracta-la com una contrasenya i no la comparteixis.</li>
+      </ul>
+      <h2>10. Menors d'edat</h2>
+      <p>Wkit no està adreçada a menors de 14 anys. Si una congregació inclou un menor a la seva llista, ho fa un administrador adult, sota la seva responsabilitat i amb l'autorització dels seus pares o tutors.</p>
+      <h2>11. Canvis en aquesta política</h2>
+      <p>Si canviem alguna cosa important, ho indicarem aquí i actualitzarem la data de dalt.</p>
+      <h2>12. Contacte</h2>
+      <p>Per a qualsevol dubte o per exercir els teus drets: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. També tens una pàgina d'<a href="soporte-ca.html">ajuda</a>.</p>
+    </main>
+  </body>
+</html>

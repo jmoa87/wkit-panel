@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Οδηγός βήμα προς βήμα για το Wkit — Wkit</title>
+    <meta name="description" content="Οδηγός βήμα προς βήμα για το Wkit για ευαγγελιζόμενους και διαχειριστές: είσοδος, υπενθυμίσεις, αναφορά, αδελφοί, ομάδες, καθαριότητα, προγράμματα, ανακοινώσεις, περιοχές και συνδρομή." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-el.html">← Wkit</a> · <a href="privacidad-el.html">Πολιτική απορρήτου</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <b>Ελληνικά</b> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Οδηγός βήμα προς βήμα για το Wkit</h1>
+      <p class="sub">Όλα όσα μπορείς να κάνεις στην εφαρμογή, εξηγημένα με την ησυχία τους: για ευαγγελιζόμενους και για διαχειριστές. Λειτουργεί το ίδιο σε iPhone, iPad και Android· όταν υπάρχει κάποια διαφορά, θα τη δεις σημειωμένη με <span class="plat a">Android</span> ή <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Για όλους τους αδελφούς</h3><ol class="toc"><li><a href="#entrar">Πρώτη είσοδος στο Wkit</a></li><li><a href="#inicio">Η αρχική οθόνη</a></li><li><a href="#recordatorios">Υπενθυμίσεις: το καμπανάκι</a></li><li><a href="#notificaciones">Ειδοποιήσεις: για τι σε ενημερώνει το Wkit</a></li><li><a href="#informe">Η αναφορά διακονίας σου (ιδιωτική)</a></li><li><a href="#territorios-pub">Περιοχές: προβολή, παράδοση και αίτηση</a></li><li><a href="#cuenta">Ο λογαριασμός σου: αλλαγή κινητού, σύνδεση email, γλώσσα και διαγραφή</a></li><li><a href="#copia-seguridad">Αντίγραφο ασφαλείας</a></li></ol></div><div class="toc-g"><h3>Για τους διαχειριστές (πρεσβύτεροι)</h3><ol class="toc"><li><a href="#crear-congregacion">Δημιουργία της εκκλησίας</a></li><li><a href="#hermanos">Η λίστα αδελφών</a></li><li><a href="#grupos">Ομάδες διακονίας</a></li><li><a href="#salidas">Έξοδοι στη διακονία</a></li><li><a href="#limpieza">Καθαριότητα: ποια ομάδα έχει σειρά και ποια μέρα και ώρα</a></li><li><a href="#vida-ministerio">Πρόγραμμα Ζωή και Διακονία</a></li><li><a href="#reunion-publica">Δημόσια συνάντηση</a></li><li><a href="#audio-video">Ήχος και βίντεο / Ταξιθέτες</a></li><li><a href="#otros-programas">Άλλα προγράμματα</a></li><li><a href="#anuncios">Ανακοινώσεις</a></li><li><a href="#calendario">Ημερολόγιο της εκκλησίας</a></li><li><a href="#territorios-admin">Περιοχές: ανάθεση, εκστρατείες και web πίνακας</a></li><li><a href="#suscripcion">Συνδρομή της εκκλησίας</a></li><li><a href="#copias">Τα δεδομένα αποθηκεύονται μόνο σε αυτό το τηλέφωνο</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Για όλους τους αδελφούς</h2>
+<section id="entrar"><h2>1. Πρώτη είσοδος στο Wkit</h2>
+<p>Για να μπεις στο Wkit <strong>δεν χρειάζεσαι email ούτε κωδικό</strong>: ένας πρεσβύτερος της εκκλησίας σου σε προσκαλεί και μπαίνεις με έναν σύνδεσμο ή έναν κωδικό.</p>
+<ol class="pasos"><li>Ζήτησε από τον πρεσβύτερο που κρατά τη λίστα αδελφών να σε προσκαλέσει. Θα σου έρθουν <strong>δύο μηνύματα το ένα μετά το άλλο</strong>: πρώτα ένας σύνδεσμος και μετά, μόνος του, ο κωδικός (ώστε να αντιγράφεται εύκολα).</li><li>Εγκατέστησε το <strong>Wkit</strong> από το App Store (iPhone και iPad) ή από το Google Play (Android).</li><li>Πάτησε τον σύνδεσμο του πρώτου μηνύματος: η εφαρμογή ανοίγει και σε αναγνωρίζει.</li><li>Αν ο σύνδεσμος δεν ανοίξει την εφαρμογή, άνοιξέ την εσύ, πάτησε <strong>«Έχω σύνδεσμο ή κωδικό πρόσκλησης»</strong> και επικόλλησε ολόκληρο το μήνυμα ή μόνο τον κωδικό: η εφαρμογή παίρνει μόνη της ό,τι χρειάζεται.</li><li>Θα δεις μερικές οθόνες υποδοχής (<strong>«Πρώτα βήματα»</strong>) που εξηγούν τι κοινοποιείται και τι όχι. Όταν τελειώσεις, είσαι μέσα.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Αν ο κωδικός δεν λειτουργεί</strong> («δεν είναι έγκυρος ή έχει λήξει»), ζήτησε από τον πρεσβύτερο να σου δημιουργήσει νέο: γίνεται σε μια στιγμή από την καρτέλα σου.</div>
+<div class="nota"><strong>Τι κοινοποιείται και τι όχι:</strong> τη λίστα αδελφών, το πρόγραμμα, την καθαριότητα, τις περιοχές και τις ανακοινώσεις τα βλέπει όλη η εκκλησία και τα δημιουργεί ένας πρεσβύτερος. <strong>Η Αναφορά σου είναι μόνο δική σου</strong>: κανείς άλλος δεν τη βλέπει, ούτε καν ένας πρεσβύτερος, και συγχρονίζεται ανάμεσα στις συσκευές σου.</div>
+</section>
+<section id="inicio"><h2>2. Η αρχική οθόνη</h2>
+<p>Είναι το πρώτο που βλέπεις όταν ανοίγεις το Wkit. Σου δείχνει <strong>τα δικά σου</strong> με μια ματιά· αν δεν έχεις τίποτα ανατεθειμένο, θα δεις «Καμία επερχόμενη ανάθεση».</p>
+<ul><li><strong>Επόμενα μέρη</strong>: τα μέρη σου στη συνάθροιση Ζωή και Διακονία και στη Δημόσια Συνάντηση (πρόεδρος, αναγνώστης, ομιλητής…).</li><li><strong>Αρμοδιότητες</strong>: ό,τι έχεις στον Ήχο και Βίντεο / Ταξιθέτες.</li><li><strong>Εκκαθάριση</strong>: εμφανίζεται μόνο αν <em>αυτή την εβδομάδα</em> έχει σειρά η ομάδα σου. Αν ο επίσκοπος ή ο βοηθός της ομάδας έχουν ορίσει μέρα και ώρα, θα τις δεις από κάτω (π.χ. «Κυριακή 12:30»).</li><li><strong>Άλλα προγράμματα</strong>, <strong>Περιοχές</strong> (και η εκστρατεία, αν υπάρχει) και η υπενθύμιση του <strong>Αναφορά</strong>.</li><li><strong>Ημερολόγιο</strong>: τα γεγονότα της εκκλησίας (συνέλευση, επίσκεψη του επισκόπου περιοχής…), με το καμπανάκι τους για υπενθύμιση.</li></ul>
+<p>Από κάτω έχεις πέντε καρτέλες: <strong>Αρχική</strong>, <strong>Πρόγραμμα</strong>, <strong>Αναφορά</strong>, <strong>Περιοχές</strong> και <strong>Μενού</strong> (εκεί βρίσκονται η λίστα αδελφών, οι ομάδες, η καθαριότητα, οι ανακοινώσεις και οι ρυθμίσεις).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Υπενθυμίσεις: το καμπανάκι</h2>
+<p>Δίπλα σε κάθε ανάθεση, ευθύνη ή βάρδια καθαριότητας υπάρχει ένα <strong>καμπανάκι</strong>. Χρησιμεύει ώστε το τηλέφωνο να σε ειδοποιεί νωρίτερα, την ώρα που εσύ επιλέγεις.</p>
+<ol class="pasos"><li>Πάτησε το καμπανάκι της ανάθεσης.</li><li>Επίλεξε την ημέρα και την ώρα της υπενθύμισης.</li><li>Επιβεβαίωσε. Το καμπανάκι γίνεται πράσινο και χτυπά (κουνιέται) όταν έρθει η ώρα.</li><li>Για να την αφαιρέσεις, πάτησε ξανά το καμπανάκι και επίλεξε αφαίρεση της υπενθύμισης.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Αν ο πρεσβύτερος αλλάξει την ημέρα ή την ώρα της καθαριότητας, το καμπανάκι σου προτείνει ξανά να ορίσεις την υπενθύμιση με τη νέα ημερομηνία.</div>
+<div class="nota"><span class="plat a">Android</span> Αν δεν σου έρχονται οι υπενθυμίσεις, έλεγξε ότι το Wkit έχει άδεια ειδοποιήσεων στις ρυθμίσεις του τηλεφώνου και ότι δεν έχει περιορισμένη μπαταρία.</div>
+</section>
+<section id="notificaciones"><h2>4. Ειδοποιήσεις: για τι σε ενημερώνει το Wkit</h2>
+<p>Το Wkit σε ειδοποιεί όταν υπάρχει νέα ανακοίνωση, όταν σου αναθέτουν κάτι ή όταν υπάρχουν αλλαγές που σε αφορούν.</p>
+<ol class="pasos"><li>Την πρώτη φορά, <strong>επέτρεψε τις ειδοποιήσεις</strong> όταν σε ρωτήσει το τηλέφωνο.</li><li>Άνοιξε <strong>Μενού → Ρυθμίσεις → Ειδοποιήσεις</strong>.</li><li>Απενεργοποίησε τις κατηγορίες που δεν θέλεις (Ανακοινώσεις, Πρόγραμμα, Ήχος και Βίντεο, Καθαριότητα, Περιοχές…) και επίλεξε τις ημέρες και την ώρα που προτιμάς να λαμβάνεις τις ειδοποιήσεις.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Μια συσκευή λαμβάνει τις ειδοποιήσεις ενός μόνο ατόμου τη φορά</strong>: αυτού που έχει ανοιχτή τη συνεδρία. Αν δεν σου έρχονται, άνοιξε το Wkit με τον λογαριασμό σου τουλάχιστον μία φορά ώστε η συσκευή να καταχωριστεί.</div>
+</section>
+<section id="informe"><h2>5. Η αναφορά διακονίας σου (ιδιωτική)</h2>
+<p>Η Αναφορά είναι ένα <strong>προσωπικό</strong> εργαλείο: τη βλέπεις μόνο εσύ, ούτε καν ένας πρεσβύτερος. Αποθηκεύεται στο τηλέφωνό σου και συγχρονίζεται ανάμεσα στις συσκευές σου.</p>
+<ol class="pasos"><li>Άνοιξε την καρτέλα <strong>Αναφορά</strong>. Την πρώτη φορά, το Wkit σου κάνει μερικές ερωτήσεις: τον τύπο της διακονίας σου (ευαγγελιζόμενος, σκαπανέας…) και <strong>τον στόχο ωρών σου</strong> τον μήνα.</li><li>Για να σημειώσεις τη διακονία σου, πάτησε <strong>«Νέο»</strong> και συμπλήρωσε την ημερομηνία, τις ώρες και τα λεπτά και τις μελέτες.</li><li>Στο <strong>Ιστορικό</strong> βλέπεις όσα έχεις τον μήνα και τη διακονική χρονιά και μπορείς να επεξεργαστείς ή να διαγράψεις μια εγγραφή.</li><li>Την 1η κάθε μήνα το Wkit μπορεί να σε ειδοποιεί, την ώρα που επιλέγεις, να <strong>στείλεις την αναφορά</strong>. Το κουμπί <strong>«Αποστολή αναφοράς»</strong> ετοιμάζει το μήνυμα με τις ώρες και τις μελέτες σου.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Η Αναφορά σου συγχρονίζεται</strong> με τον λογαριασμό σου, οπότε αν αλλάξεις κινητό την ανακτάς όταν ξαναμπείς. Παρ' όλα αυτά, κάνε αντίγραφο ασφαλείας (Μενού → Ρυθμίσεις → Αντίγραφο ασφαλείας): είναι μια επιπλέον εγγύηση. Δες την ενότητα 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Περιοχές: προβολή, παράδοση και αίτηση</h2>
+<p>Στην καρτέλα <strong>Περιοχές</strong> βλέπεις τις περιοχές που σου έχουν ανατεθεί, με την ημερομηνία από την οποία τις έχεις.</p>
+<ol class="pasos"><li>Για να <strong>παραδώσεις</strong> μια περιοχή όταν την τελειώσεις, άνοιξέ την και πάτησε <strong>«Παράδοση»</strong> (ή <strong>«Ειδοποίηση ότι ολοκληρώθηκε»</strong>). Ειδοποιείται αυτός που διαχειρίζεται τις περιοχές.</li><li>Αν <strong>δεν έχεις καμία</strong> και θέλεις μία, πάτησε <strong>«Αίτηση περιοχής»</strong>. Μπορείς να προσθέσεις ένα προαιρετικό μήνυμα (π.χ. «Τη θέλω από την Carcabuey»).</li><li>Ειδοποιούνται όλοι οι διάκονοι περιοχών και ο πρώτος που μπορεί θα σου αναθέσει μία. Θα σου έρθει ειδοποίηση όταν την αποκτήσεις.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Ο λογαριασμός σου: αλλαγή κινητού, σύνδεση email, γλώσσα και διαγραφή</h2>
+<h3>Αλλαγή ή απώλεια κινητού</h3>
+<ul><li>Αν <strong>δεν έχεις συνδέσει κανένα email</strong> (οι αδελφοί δεν το χρειάζονται), ένας πρεσβύτερος σου στέλνει μια <strong>νέα πρόσκληση</strong> από την καρτέλα σου στη Λίστα αδελφών. Ανακτάς τη θέση σου με όλα όσα έχει η εκκλησία και με την Αναφορά σου.</li><li>Αν <strong>έχεις συνδέσει το email σου</strong>, άνοιξε το Wkit, πάτησε <strong>«Δημιουργία λογαριασμού ή είσοδος ως διαχειριστής»</strong>, γράψε το email και άνοιξε τον σύνδεσμο που σου έρχεται. Μπαίνεις με όλα όπως τα είχες.</li></ul>
+<h3>Χρήση του Wkit σε πολλές συσκευές</h3>
+<ul><li>Μπορείς να χρησιμοποιείς <strong>τον ίδιο λογαριασμό ταυτόχρονα</strong> σε iPhone, iPad και Android (π.χ. στο κινητό και στο τάμπλετ σου).</li><li>Για να προσθέσεις άλλη συσκευή, ένας πρεσβύτερος σου στέλνει μια πρόσκληση από την καρτέλα σου και την ανοίγεις σε αυτή τη συσκευή. <strong>Η συνεδρία της πρώτης δεν κλείνει.</strong></li><li>Η Αναφορά σου συγχρονίζεται ανάμεσα σε όλες τις συσκευές σου.</li></ul>
+<h3>Σύνδεση του email σου (προαιρετικό, συνιστάται για διαχειριστές)</h3>
+<ol class="pasos"><li>Άνοιξε <strong>Μενού → Ρυθμίσεις → Ο λογαριασμός μου → Σύνδεση του email μου</strong>.</li><li>Γράψε το email σου. Θα σου έρθει ένας σύνδεσμος επιβεβαίωσης.</li><li><strong>Άνοιξέ τον από το ίδιο τηλέφωνο</strong>, στην εφαρμογή email. Η οθόνη κλείνει μόνη της και ο λογαριασμός σου συνδέεται.</li></ol>
+<h3>Αλλαγή γλώσσας</h3>
+<p>Το Wkit χρησιμοποιεί τη γλώσσα του τηλεφώνου. Για να την αλλάξεις μόνο στο Wkit: ρυθμίσεις τηλεφώνου → Εφαρμογές → Wkit → Γλώσσα.</p>
+<h3>Διαγραφή του λογαριασμού σου</h3>
+<p><strong>Μενού → Ρυθμίσεις → Ο λογαριασμός μου → Διαγραφή του λογαριασμού μου.</strong> Διαγράφονται ο λογαριασμός σου, η καρτέλα σου στη λίστα και τα δεδομένα που είναι αποθηκευμένα στο τηλέφωνό σου (συμπεριλαμβανομένης της Αναφοράς)· οι περιοχές που είχες μένουν ελεύθερες. Δεν μπορεί να αναιρεθεί. Αν είσαι ο μοναδικός διαχειριστής και υπάρχουν κι άλλοι αδελφοί, πρέπει πρώτα να ορίσεις άλλον (στη Λίστα αδελφών, άνοιξε την καρτέλα του και ενεργοποίησε το «Διαχειριστής»). Αν είσαι το μοναδικό άτομο της εκκλησίας, διαγράφεται και ολόκληρη η εκκλησία.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Η διαγραφή του λογαριασμού <strong>δεν ακυρώνει</strong> τη συνδρομή της εκκλησίας, αν την πληρώνει αυτός ο λογαριασμός: ακυρώνεται στο App Store <span class="plat i">iPhone</span> ή στο Google Play → Πληρωμές και συνδρομές → Συνδρομές <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Αντίγραφο ασφαλείας</h2>
+<p>Χρησιμεύει κυρίως για να έχεις ένα <strong>επιπλέον αντίγραφο της Αναφοράς σου</strong>: αν και συγχρονίζεται ανάμεσα στις συσκευές σου, ένα αντίγραφο σε προστατεύει αν τη διαγράψεις κατά λάθος. Το βρίσκεις στο <strong>Μενού → Ρυθμίσεις → Αντίγραφο ασφαλείας</strong>.</p>
+<ul><li><strong>Αυτόματο αντίγραφο</strong>: κάνει ένα αντίγραφο μία φορά τον μήνα, μόνο του.</li><li><strong>«Δημιουργία αντιγράφου τώρα»</strong> y <strong>«Εξαγωγή αντιγράφου ασφαλείας»</strong>: μπορείς να αποθηκεύσεις το αρχείο όπου θέλεις ή να το στείλεις στον εαυτό σου.</li><li><strong>«Επαναφορά αντιγράφου ασφαλείας»</strong>: επίλεξε το αρχείο που εξήχθη από το Wkit. Τα δεδομένα του αντιγράφου <strong>προστίθενται</strong> σε αυτά που ήδη έχεις: δεν διαγράφεται τίποτα.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Το αυτόματο αντίγραφο αποθηκεύεται στο iCloud σου. <span class="plat a">Android</span> Αποθηκεύεται στο τηλέφωνο και, αν έχεις ενεργοποιημένο το αντίγραφο ασφαλείας του Android στον λογαριασμό σου Google (Ρυθμίσεις τηλεφώνου → Google → Αντίγραφο ασφαλείας), όταν συνδεθείς με αυτόν τον λογαριασμό σε νέο τηλέφωνο θα το ανακτήσεις μόνος σου.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Για τους διαχειριστές (πρεσβύτεροι)</h2>
+<section id="crear-congregacion"><h2>8. Δημιουργία της εκκλησίας</h2>
+<p>Το κάνει <strong>μία φορά</strong> ένας πρεσβύτερος· μετά προσκαλεί τους υπόλοιπους.</p>
+<ol class="pasos"><li>Άνοιξε το Wkit και πάτησε <strong>«Δημιουργία λογαριασμού ή είσοδος ως διαχειριστής»</strong>.</li><li>Γράψε το email σου και πάτησε <strong>«Αποστολή συνδέσμου πρόσβασης»</strong>. Δεν υπάρχουν κωδικοί: σου έρχεται ένας σύνδεσμος για να επιβεβαιώσεις ότι το email είναι δικό σου.</li><li><strong>Άνοιξε τον σύνδεσμο από το ίδιο τηλέφωνο.</strong> Το Wkit ανοίγει μόνο του.</li><li>Συμπλήρωσε <strong>το όνομά σου</strong>, το <strong>όνομα της εκκλησίας</strong>, τον <strong>αριθμό της εκκλησίας</strong> και τη <strong>χώρα</strong>, και πάτησε <strong>«Δημιουργία εκκλησίας»</strong>.</li><li>Θα δεις τα <strong>«Πρώτα βήματα ως πρεσβύτερος»</strong>: 1) πρόσθεσε τους αδελφούς στη Λίστα αδελφών και 2) προσκάλεσέ τους.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Δεν σου έρχεται το email; Έλεγξε τον φάκελο ανεπιθύμητων και πάτησε <strong>«Δεν μου ήρθε, στείλε ξανά»</strong>. Ένα email μπορεί να έχει μόνο έναν λογαριασμό στο Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. Η λίστα αδελφών</h2>
+<p>Είναι η βάση για όλα: τα προγράμματα, οι ομάδες και οι αναθέσεις χρησιμοποιούν τα ονόματα αυτής της λίστας. Βρίσκεται στο <strong>Μενού → Λίστα αδελφών</strong>.</p>
+<h3>Προσθήκη αδελφού</h3>
+<ol class="pasos"><li>Πάτησε το κουμπί <strong>+</strong> (<strong>«Νέος αδελφός»</strong>).</li><li>Γράψε το <strong>όνομα</strong> και επίλεξε αν είναι <strong>αδελφός</strong> ή <strong>αδελφή</strong>.</li><li>Επίλεξε την <strong>ευθύνη</strong> του: βαφτισμένος ή αβάφτιστος ευαγγελιζόμενος, σκαπανέας, διακονικός βοηθός ή πρεσβύτερος.</li><li>Αν χρειάζεται, επίλεξε την <strong>ομάδα διακονίας</strong> του και ενεργοποίησε <strong>Διάκονος Περιοχών</strong>, <strong>Ήχος και βίντεο / Ταξιθέτες</strong> ή <strong>Διαχειριστής</strong>.</li><li>Πάτησε <strong>«Δημιουργία»</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Δύο αδελφοί με το ίδιο όνομα:</strong> πρόσθεσε κάτι που να τους ξεχωρίζει (π.χ. «γιος») ώστε να μη μπερδεύονται οι αναθέσεις.</div>
+<h3>Πρόσκληση ενός αδελφού στο Wkit</h3>
+<ol class="pasos"><li>Άνοιξε την καρτέλα του αδελφού και πάτησε <strong>«Πρόσκληση»</strong> (ή <strong>«Δημιουργία συνδέσμου»</strong>).</li><li>Πάτησε <strong>«Κοινοποίηση πρόσκλησης»</strong> και επίλεξε WhatsApp, μηνύματα κ.λπ. Στέλνονται <strong>δύο μηνύματα το ένα μετά το άλλο</strong>: πρώτα ο σύνδεσμος και μετά ο κωδικός μόνος του, για να αντιγράφεται εύκολα.</li><li>Ο αδελφός ανοίγει τον σύνδεσμο (ή επικολλά τον κωδικό) και μπαίνει. Αν δεν έχει μπει ακόμα, μπορείς να κοινοποιήσεις ξανά την πρόσκληση· αν δημιουργήσεις νέα, η προηγούμενη παύει να ισχύει.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Επεξεργασία, διαγραφή και ορισμός διαχειριστών</h3>
+<ul><li>Πάτησε έναν αδελφό και επίλεξε <strong>«Επεξεργασία»</strong> για να αλλάξεις τα στοιχεία του.</li><li>Στο Android, για διαγραφή πάτησε το <strong>κόκκινο εικονίδιο</strong> στη γραμμή του· στο iPhone, σύρε τη γραμμή προς τα αριστερά. Διαγράφεται από τη λίστα σε όλες τις συσκευές και οι περιοχές που είχε μένουν ελεύθερες.</li><li>Ένας <strong>διαχειριστής</strong> μπορεί να διαχειρίζεται αδελφούς, περιοχές, ανακοινώσεις και το πρόγραμμα. <strong>Δεν μπορείς να διαγράψεις τη δική σου καρτέλα ούτε τον τελευταίο διαχειριστή</strong>: όρισε πρώτα άλλον.</li></ul>
+</section>
+<section id="grupos"><h2>10. Ομάδες διακονίας</h2>
+<p>Οι ομάδες χρησιμοποιούνται για τις εξόδους στη διακονία και για την καθαριότητα. Βρίσκονται στο <strong>Μενού → Ομάδες διακονίας → Λίστα</strong>.</p>
+<ol class="pasos"><li>Αν δεν υπάρχει καμία, πάτησε <strong>«Δημιουργία ομάδων διακονίας»</strong> και επίλεξε <strong>πόσες ομάδες</strong> θέλεις (μπορείς να προσθέσεις κι άλλες αργότερα με το κουμπί <strong>+</strong>).</li><li>Για να βάλεις τους αδελφούς στην ομάδα τους, πήγαινε στη <strong>Λίστα αδελφών</strong>, άνοιξε την καρτέλα του καθενός και επίλεξε την <strong>ομάδα διακονίας</strong> του.</li><li>Γύρνα στο <strong>Μενού → Ομάδες διακονίας → Λίστα</strong>. Θα δεις, σε κάθε ομάδα, τον <strong>επίσκοπο</strong>, τον <strong>βοηθό</strong> και τους αδελφούς <strong>με αλφαβητική σειρά</strong>.</li><li>Πάτησε το κουμπί με το <strong>μολύβι</strong> (Επεξεργασία). Πάτησε <strong>«Επίσκοπος»</strong> και επίλεξε έναν από τους αδελφούς της ομάδας· κάνε το ίδιο με τον <strong>«Βοηθό»</strong>. Δεν μπορεί να είναι το ίδιο άτομο.</li><li>Πάτησε το <strong>τικ</strong> για να τελειώσεις.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Ο επίσκοπος και ο βοηθός επιλέγονται <strong>αφού</strong> τοποθετήσεις τους αδελφούς, επειδή μπορείς να επιλέξεις μόνο ανάμεσα στους αδελφούς της ίδιας της ομάδας. Αν μετακινήσεις έναν αδελφό σε άλλη ομάδα, παύει να είναι επίσκοπος ή βοηθός της προηγούμενης.</div>
+<div class="nota">Ο επίσκοπος και ο βοηθός κάθε ομάδας <strong>μπορούν να ορίσουν την ημέρα και την ώρα της καθαριότητας</strong> της ομάδας τους (ενότητα 12), ακόμα κι αν δεν είναι διαχειριστές.</div>
+</section>
+<section id="salidas"><h2>11. Έξοδοι στη διακονία</h2>
+<p>Οι έξοδοι είναι τα ωράρια και τα μέρη συγκέντρωσης για τη διακονία. Υπάρχουν <strong>γενικές</strong> (για όλη την εκκλησία) και <strong>δικές κάθε ομάδας</strong>. Βρίσκονται στο <strong>Μενού → Ομάδες διακονίας → Έξοδοι στη διακονία</strong>. Πρώτα πρέπει να έχεις δημιουργήσει τις ομάδες.</p>
+<ol class="pasos"><li>Πάτησε την ενότητα <strong>«Εκκλησία»</strong> (γενικές έξοδοι) ή αυτή μιας <strong>ομάδας</strong>.</li><li>Πάτησε <strong>«Προσθήκη εξόδου»</strong> στην κατάλληλη μέρα και γράψε την <strong>ετικέτα</strong> (π.χ. «Πρωί» ή «Απόγευμα»), την <strong>ώρα</strong> και, αν θέλεις, την <strong>τοποθεσία</strong>.</li><li>Για να <strong>επεξεργαστείς</strong> μια έξοδο, άλλαξε απευθείας τα πεδία της. Για να τη <strong>διαγράψεις</strong>, πάτησε το κόκκινο εικονίδιο στη γραμμή της.</li><li>Οι αδελφοί μπορούν να πατήσουν την τοποθεσία για να την ανοίξουν στον χάρτη του τηλεφώνου τους.</li></ol>
+<div class="nota">Αν μια ομάδα δεν έχει δικές της εξόδους, χρησιμοποιούνται αυτές της εκκλησίας («Χωρίς δικές της εξόδους — χρησιμοποιεί της εκκλησίας»).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Καθαριότητα: ποια ομάδα έχει σειρά και ποια μέρα και ώρα</h2>
+<p>Η καθαριότητα <strong>εναλλάσσεται αυτόματα</strong> ανάμεσα στις ομάδες διακονίας: κάθε εβδομάδα έχει σειρά διαφορετική ομάδα, ξεκινώντας από την Ομάδα 1. Βρίσκεται στο <strong>Μενού → Καθαριότητα → Ομάδες</strong>.</p>
+<h3>Αλλαγή της ομάδας που καθαρίζει αυτή την εβδομάδα (διαχειριστές)</h3>
+<ol class="pasos"><li>Πάτησε το κουμπί με το <strong>μολύβι</strong> (Επεξεργασία).</li><li>Πάτησε την <strong>ομάδα</strong> που έχει σειρά αυτή την εβδομάδα. Την επόμενη εβδομάδα θα έχει σειρά η επόμενη ομάδα με τη σειρά.</li><li>Πάτησε το <strong>τικ</strong>. Την αλλαγή τη βλέπουν <strong>όλες οι συσκευές</strong> της εκκλησίας.</li></ol>
+<h3>Ορισμός της ακριβούς ημέρας και ώρας (διαχειριστές, επίσκοπος και βοηθός της ομάδας)</h3>
+<ol class="pasos"><li>Στο <strong>Μενού → Καθαριότητα → Ομάδες</strong>, βρες την ομάδα σου (ή αυτή που διαχειρίζεσαι) και πάτησε το <strong>μολύβι</strong> στη γραμμή της.</li><li>Επίλεξε την <strong>ημέρα</strong> και την <strong>ώρα</strong> (π.χ. Κυριακή στις 12:30) και πάτησε <strong>«Αποθήκευση»</strong>. Για να σβήσεις την ημερομηνία, πάτησε <strong>«Αφαίρεση ημερομηνίας»</strong>.</li><li>Οι αδελφοί αυτής της ομάδας θα το δουν στην αρχική τους οθόνη: <strong>«Ομάδα 1 · Αυτή την εβδομάδα»</strong> και από κάτω <strong>«Κυριακή 12:30»</strong>, με το <strong>καμπανάκι</strong> του για να ορίσουν υπενθύμιση.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Η ημερομηνία εμφανίζεται στην αρχική οθόνη μόνο αν πέφτει στην <strong>τρέχουσα εβδομάδα</strong> (από Δευτέρα έως Κυριακή). Μπορείς να την ορίσεις εκ των προτέρων: θα εμφανιστεί όταν έρθει εκείνη η εβδομάδα. Οι ημερομηνίες παλαιότερων εβδομάδων εξαφανίζονται μόνες τους.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Πρόγραμμα Ζωή και Διακονία</h2>
+<p>Στην καρτέλα <strong>Πρόγραμμα → Ζωή και Διακονία</strong> δημιουργείς το πρόγραμμα κάθε εβδομάδας και αναθέτεις τα μέρη. Το βλέπουν όλοι οι αδελφοί· το επεξεργάζονται μόνο οι διαχειριστές.</p>
+<ol class="pasos"><li>Πάτησε <strong>«Νέα εβδομάδα»</strong> και επίλεξε την <strong>ημερομηνία της συνάθροισης</strong> (οποιαδήποτε μέρα εκείνης της εβδομάδας, από Δευτέρα έως Κυριακή).</li><li>Το Wkit δημιουργεί την εβδομάδα με τη <strong>συνηθισμένη δομή</strong>: Θησαυροί από τον Λόγο του Θεού, Αποτελεσματικότητα στη Διακονία Αγρού και Πώς να Ζούμε ως Χριστιανοί.</li><li>Πάτησε οποιονδήποτε <strong>τίτλο</strong> για να τον αλλάξεις, και τη <strong>διάρκεια</strong> αν χρειάζεται. Με το <strong>«Προσθήκη ανάθεσης»</strong> μπορείς να προσθέσεις κι άλλα μέρη.</li><li>Σε κάθε μέρος, πάτησε <strong>«Επιλογή»</strong> και διάλεξε τον αδελφό ή τους αδελφούς (π.χ. μαθητής και βοηθός). Για το <strong>Βοηθητική Αίθουσα</strong>, χρησιμοποίησε το <strong>«Προσθήκη βοηθητικής αίθουσας»</strong>.</li><li>Επίλεξε επίσης τους <strong>ύμνους</strong> και τις <strong>προσευχές</strong> και πάτησε <strong>«Αποθήκευση προγράμματος»</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Για να δεις άλλη εβδομάδα, χρησιμοποίησε τον <strong>επιλογέα εβδομάδων</strong> (<strong>«Προηγούμενη εβδομάδα»</strong> / <strong>«Επόμενη εβδομάδα»</strong>)· από εκεί μπορείς επίσης να την <strong>επεξεργαστείς ή να τη διαγράψεις</strong>.</li><li>Οι αδελφοί λαμβάνουν <strong>ειδοποίηση</strong> όταν τους ανατίθεται ένα μέρος και το βλέπουν στην αρχική τους οθόνη.</li><li>Το πρόγραμμα της εβδομάδας εξαφανίζεται μόνο του όταν τελειώσει η Κυριακή.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Δημόσια Συνάντηση</h2>
+<p>Στο <strong>Πρόγραμμα → Δημόσια Συνάντηση</strong> ετοιμάζεται κάθε συνάθροιση του Σαββατοκύριακου.</p>
+<ol class="pasos"><li>Πάτησε <strong>«Νέα Δημόσια Συνάντηση»</strong> και επίλεξε την <strong>ημερομηνία</strong>. Αν υπάρχει ήδη συνάθροιση για εκείνη την ημερομηνία, το Wkit σε προειδοποιεί.</li><li>Επίλεξε τον <strong>πρόεδρο</strong>, τον <strong>ομιλητή</strong> και γράψε τον <strong>τίτλο της ομιλίας</strong>.</li><li>Επίλεξε τον <strong>αναγνώστη της Σκοπιάς</strong> («Αναγνώστης wS») και τους <strong>ύμνους</strong> και τις <strong>προσευχές</strong>.</li><li>Αποθήκευσε. Οι αδελφοί βλέπουν τα μέρη τους στην αρχική οθόνη.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Ήχος και Βίντεο / Ταξιθέτες</h2>
+<p>Στο <strong>Μενού → Ήχος και Βίντεο / Ταξιθέτες</strong> αναθέτεις τις ευθύνες κάθε εβδομάδας: ήχος, βίντεο, μικρόφωνα, ταξιθέτες, Zoom, χρονομέτρηση…</p>
+<ol class="pasos"><li>Πάτησε <strong>«Νέα εβδομάδα»</strong> και επίλεξε την <strong>ημερομηνία της συνάθροισης</strong>.</li><li>Πάτησε <strong>«Επιλογή»</strong> σε κάθε ευθύνη και διάλεξε τον αδελφό. Κάποιες, όπως τα μικρόφωνα, δέχονται <strong>περισσότερους αδελφούς</strong> (<strong>«Προσθήκη αδελφού»</strong>).</li><li>Για μια άλλη ευθύνη που δεν υπάρχει, πάτησε <strong>«Προσθήκη ευθύνης»</strong> και δώσε της όνομα.</li><li>Αποθήκευσε. Κάθε αδελφός τη βλέπει στις <strong>Ευθύνες</strong>, στην αρχική του οθόνη, με το καμπανάκι της.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Άλλα προγράμματα</h2>
+<p>Για <strong>οτιδήποτε άλλο</strong> οργανώνει η εκκλησία και δεν είναι συνάθροιση: π.χ. μεταφορά για αδελφούς που δεν μπορούν να έρθουν ή βοήθεια σε ευαγγελιζόμενους. Κάθε πρόγραμμα έχει τη δική του περιοδικότητα. Βρίσκεται στο <strong>Μενού → Άλλα προγράμματα</strong>.</p>
+<ol class="pasos"><li>Πάτησε <strong>«Νέο πρόγραμμα»</strong>. Γράψε το <strong>όνομα</strong> και επίλεξε <strong>κάθε πότε οργανώνεται</strong>: ανά ημέρα, ανά εβδομάδα, ανά μήνα ή ετησίως.</li><li>Πάτησε <strong>«Δημιουργία πρώτης εβδομάδας»</strong> (ή <strong>«Νέα περίοδος»</strong>) και επίλεξε την ημερομηνία: οποιαδήποτε μέρα εκείνης της εβδομάδας, του μήνα ή του έτους.</li><li>Πάτησε <strong>«Προσθήκη ευθύνης»</strong>: γράψε μια προαιρετική <strong>ετικέτα</strong> (π.χ. «Παραλαμβάνει νωρίτερα») και <strong>επίλεξε τον αδελφό ή την αδελφή</strong>.</li><li>Αποθήκευσε. Κάθε άτομο το βλέπει στην αρχική του οθόνη, στο <strong>«Άλλα προγράμματα»</strong>, και η περίοδος εξαφανίζεται μόνη της όταν τελειώσει.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Ανακοινώσεις</h2>
+<p>Τις ανακοινώσεις τις δημιουργούν οι διαχειριστές και, μόνο για την ομάδα τους, ο επίσκοπος και ο βοηθός κάθε ομάδας διακονίας. Τις βλέπουν οι αδελφοί στους οποίους απευθύνονται. Βρίσκονται στο <strong>Μενού → Ανακοινώσεις</strong>.</p>
+<ol class="pasos"><li>Πάτησε <strong>«Νέα ανακοίνωση»</strong> και γράψε το <strong>μήνυμα</strong>.</li><li>Από προεπιλογή, δημοσιεύεται <strong>αμέσως</strong>, μόλις την αποθηκεύσεις, και ειδοποιούνται όλοι.</li><li>Αν προτιμάς να βγει αργότερα, ενεργοποίησε το <strong>«Προγραμματισμός για αργότερα»</strong> και επίλεξε <strong>ημερομηνία και ώρα</strong>: κανείς δεν θα τη δει μέχρι τότε και εκείνη την ώρα θα ειδοποιηθούν όλοι.</li><li>Αποθήκευσε. Για να αφαιρέσεις μια ανακοίνωση, πάτησέ την και επίλεξε <strong>«Διαγραφή»</strong>: εξαφανίζεται για όλους.</li></ol>
+<h3>Ανακοινώσεις μόνο για μια ομάδα</h3>
+<ul><li>Ο <strong>επίσκοπος</strong> και ο <strong>βοηθός</strong> κάθε ομάδας διακονίας βλέπουν το κουμπί <strong>+</strong> ακόμα κι αν δεν είναι διαχειριστές, και οι ανακοινώσεις τους φτάνουν <strong>μόνο στα μέλη της ομάδας τους</strong>.</li><li>Ένας διαχειριστής που έχει επίσης ομάδα μπορεί να ενεργοποιήσει το <strong>«Αποστολή αυτής της ανακοίνωσης μόνο στα μέλη της ομάδας μου»</strong> όταν δημιουργεί την ανακοίνωση.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Ημερολόγιο της εκκλησίας</h2>
+<p>Χρησιμεύει ώστε να βλέπουν όλοι τα γεγονότα της εκκλησίας, όπως η <strong>συνέλευση περιοχής</strong> ή η <strong>επίσκεψη του επισκόπου περιοχής</strong>. Τα δημιουργούν μόνο οι διαχειριστές.</p>
+<ol class="pasos"><li>Άνοιξε <strong>Μενού → Ημερολόγιο</strong> και πάτησε <strong>«Προσθήκη γεγονότος»</strong>.</li><li>Γράψε τον <strong>τίτλο</strong> και πάτησε τις <strong>ημέρες</strong> του γεγονότος: αν διαρκεί πολλές ημέρες, πάτησε την καθεμία.</li><li>Αποθήκευσε. Όλοι θα το δουν στην <strong>Αρχική</strong>, κάτω από το «Ημερολόγιο», με ένα <strong>καμπανάκι</strong> για να ορίσουν υπενθύμιση.</li><li>Για να το αλλάξεις ή να το αφαιρέσεις, άνοιξέ το και επίλεξε <strong>«Επεξεργασία γεγονότος»</strong> ή <strong>«Διαγραφή γεγονότος»</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Περιοχές: ανάθεση, εκστρατείες και web πίνακας</h2>
+<p>Όποιος έχει την άδεια <strong>Διάκονος Περιοχών</strong> διαχειρίζεται τις περιοχές όλης της εκκλησίας από την καρτέλα <strong>Περιοχές</strong> (οι ευαγγελιζόμενοι βλέπουν μόνο τις δικές τους).</p>
+<h3>Ανάθεση και παραλαβή περιοχών</h3>
+<ul><li>Πάτησε μια περιοχή και επίλεξε <strong>«Ανάθεση»</strong> (ή «Ανάθεση σε ευαγγελιζόμενο») και τον αδελφό. Θα δεις ποιος την έχει και από πότε, και ποιες είναι <strong>εκπρόθεσμες</strong> ή <strong>δεν έχουν ανατεθεί ποτέ</strong>.</li><li>Όταν ένας ευαγγελιζόμενος <strong>ζητά</strong> μια περιοχή, ειδοποιούνται όλοι οι διάκονοι περιοχών (<strong>«Αιτήματα περιοχής»</strong>)· ο πρώτος που μπορεί του την αναθέτει.</li><li>Όταν ένας αδελφός <strong>παραδίδει</strong> μια περιοχή, μένει ελεύθερη και σημειώνεται η ημερομηνία.</li></ul>
+<h3>Εκστρατείες</h3>
+<ul><li><strong>«Νέα εκστρατεία»</strong> καταγράφει ξανά όλες τις περιοχές για μια συγκεκριμένη περίοδο. Γίνεται ένα <strong>αντίγραφο</strong> των τρεχουσών περιοχών για χωριστή διανομή· οι κανονικές περιοχές δεν αλλάζουν.</li><li>Μπορεί να υπάρχει μόνο <strong>μία ενεργή εκστρατεία</strong> κάθε φορά. Για να την τελειώσεις, επίλεξε <strong>«Διαγραφή εκστρατείας»</strong>: διαγράφονται οι αναθέσεις της και όλα επιστρέφουν στην κανονικότητα.</li></ul>
+<h3>Αρχείο S-13 και web πίνακας</h3>
+<ul><li>Στα <strong>Εργαλεία</strong> μπορείς να δημιουργήσεις το <strong>αρχείο S-13 σε PDF</strong> (ένα για κάθε τομέα) για να το μοιραστείς.</li><li>Ο <strong>web πίνακας περιοχών</strong> ανοίγει από το πρόγραμμα περιήγησης του υπολογιστή. Για να δώσεις πρόσβαση σε έναν διάκονο περιοχών: άνοιξε την καρτέλα του στη Λίστα αδελφών και πάτησε <strong>«Πρόσβαση στον πίνακα»</strong> → <strong>«Δημιουργία συνδέσμου»</strong>. Ο σύνδεσμος είναι προσωπικός· μπαίνει με τον <strong>6ψήφιο κωδικό</strong> που θα επιλέξεις και μπορείς να τον αλλάξεις όποτε θέλεις.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Ο σύνδεσμος του πίνακα είναι σαν κωδικός: μην τον μοιράζεσαι εκτός αυτών που πρέπει να έχουν πρόσβαση. Αν δημιουργήσεις νέο, ο προηγούμενος παύει να λειτουργεί.</div>
+</section>
+<section id="suscripcion"><h2>19. Συνδρομή της εκκλησίας</h2>
+<p>Για να έχουν όλοι οι αδελφοί πλήρη πρόσβαση χρειάζεται μια <strong>ετήσια συνδρομή της εκκλησίας</strong>. <strong>Την πληρώνει ένας διαχειριστής και καλύπτει όλους τους αδελφούς</strong>, τόσο σε iPhone όσο και σε Android. Οι υπόλοιποι αδελφοί δεν πληρώνουν τίποτα.</p>
+<ol class="pasos"><li>Άνοιξε <strong>Μενού → Ρυθμίσεις → Συνδρομή της εκκλησίας</strong>.</li><li>Πάτησε <strong>«Συνδρομή για την εκκλησία»</strong>. Θα δεις την ετήσια τιμή πριν επιβεβαιώσεις· αν υπάρχει <strong>δωρεάν δοκιμαστική περίοδος</strong>, δεν χρεώνεται τίποτα μέχρι να τελειώσει.</li><li>Επιβεβαίωσε με το App Store (iPhone) ή το Google Play (Android). Έτοιμο: όλη η εκκλησία έχει πρόσβαση.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li><strong>Ανανεώνεται αυτόματα</strong> κάθε χρόνο, εκτός αν την ακυρώσεις τουλάχιστον 24 ώρες πριν τελειώσει η περίοδος.</li><li>Για να τη <strong>διαχειριστείς ή να την ακυρώσεις</strong>: <span class="plat i">iPhone</span> Ρυθμίσεις του iPhone → το όνομά σου → Συνδρομές· <span class="plat a">Android</span> Google Play → το προφίλ σου → Πληρωμές και συνδρομές → Συνδρομές (ή το κουμπί «Διαχείριση ή ακύρωση στο Google Play» του Wkit).</li><li>Αν <strong>αλλάξεις κινητό</strong>, πάτησε <strong>«Επαναφορά αγορών»</strong> στην ίδια οθόνη.</li><li>Αν η συνδρομή <strong>λήξει</strong>, η εκκλησία περνά σε <strong>μόνο ανάγνωση</strong>: όλα εξακολουθούν να φαίνονται και <strong>δεν διαγράφεται τίποτα</strong>. Με την ανανέωση, μπορεί να επεξεργαστεί ξανά.</li></ul>
+<div class="nota">Το Wkit δεν βλέπει ποτέ ούτε αποθηκεύει τα στοιχεία πληρωμής σου: τα διαχειρίζεται η Apple ή η Google.</div>
+</section>
+<section id="copias"><h2>20. Δεδομένα αποθηκευμένα μόνο σε αυτό το τηλέφωνο</h2>
+<p>Αν χρησιμοποίησες το Wkit χωρίς σύνδεση ή πριν υπάρξει η εκκλησία σου, η εφαρμογή μπορεί να σε ρωτήσει τι να κάνει με τα <strong>δεδομένα που είναι αποθηκευμένα μόνο σε αυτό το τηλέφωνο</strong> (π.χ. αδελφοί ή ανακοινώσεις). Έχεις δύο επιλογές: <strong>«Μεταφόρτωση»</strong> στην εκκλησία (θα τα δουν όλοι) ή <strong>«Απόρριψη»</strong>. Δεν γίνεται τίποτα μέχρι να αποφασίσεις εσύ.</p>
+</section>
+      <div class="caja pie"><strong>Δεν βρίσκεις αυτό που ψάχνεις;</strong> Γράψε μας στο <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> και πες μας τι συμβαίνει. Αν μπορείς, δώσε μας ποια συσκευή χρησιμοποιείς (iPhone, iPad ή Android) και τι έκανες.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

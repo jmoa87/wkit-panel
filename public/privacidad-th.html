@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>นโยบายความเป็นส่วนตัวของ Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <b>ไทย</b> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>นโยบายความเป็นส่วนตัวของ Wkit</h1>
+      <p class="fecha">อัปเดตล่าสุด: 9 พฤศจิกายน 2026</p>
+      <h2>1. เราคือใครและ Wkit คืออะไร</h2>
+      <p>Wkit คือแอปจาก <strong>Titan Estudios</strong> ที่ช่วยจัดระเบียบชีวิตในประชาคม ได้แก่ โปรแกรมการประชุม เขตประกาศ ประกาศ รายชื่อพี่น้อง และรายงานงานรับใช้ส่วนตัว ใช้ได้บน iPhone, iPad และ Android และมีแผงควบคุมบนเว็บสำหรับจัดการเขตประกาศ</p>
+      <div class="caja"><strong>ใครรับผิดชอบอะไร</strong> สำหรับข้อมูล <em>บัญชี</em> (เช่น อีเมล) เราเป็นผู้รับผิดชอบ ส่วนข้อมูลของ <em>พี่น้องในประชาคม</em> (รายชื่อ โปรแกรม เขตประกาศ ฯลฯ) ประชาคมนั้นเองเป็นผู้รับผิดชอบผ่านผู้ดูแลระบบ ซึ่งเป็นผู้ป้อนข้อมูลและตัดสินใจว่าจะใช้เพื่ออะไร เราเพียงจัดหาเครื่องมือและเก็บข้อมูลไว้แทนพวกเขา</div>
+      <h2>2. ข้อมูลที่เราประมวลผล</h2>
+      <table>
+        <tr><th>บัญชีของคุณ</th><td>อีเมล เฉพาะของผู้ที่สร้างประชาคมและของผู้ดูแลระบบที่เชื่อมอีเมล พี่น้องคนอื่นไม่ต้องใช้อีเมล พวกเขาเข้าใช้ด้วยคำเชิญ และรหัสประจำตัวภายในของบัญชี</td></tr>
+        <tr><th>บัตรของคุณในรายชื่อพี่น้อง</th><td>ชื่อ เพศ หน้าที่ (ผู้ประกาศ ไพโอเนียร์ ผู้รับใช้งานปรนนิบัติ ผู้ปกครอง) กลุ่มรับใช้ ช่วยงานเสียงและภาพหรือเขตประกาศหรือไม่ และสิทธิ์ที่มีในแอป ข้อมูลนี้ป้อนและแก้ไขโดยผู้ดูแลระบบของประชาคม</td></tr>
+        <tr><th>ข้อมูลของประชาคม</th><td>โปรแกรมการประชุมและผู้ที่ได้รับแต่ละส่วน (ตามชื่อ) คำบรรยายสาธารณะ เสียงและภาพ กลุ่มรับใช้ (พร้อมผู้ดูแลและผู้ช่วย) การทำความสะอาด (กลุ่มใด วันและเวลาใด) งานประกาศ ประกาศ โปรแกรมอื่น ๆ เขตประกาศ (รูปร่างบนแผนที่ ผู้ถือ และวันที่) แคมเปญ และคำขอเขตประกาศ รวมถึงกิจกรรมในปฏิทิน (ชื่อและวัน) และบันทึกเขตประกาศ (ข้อความสั้น ๆ และวันที่ โดยไม่ระบุชื่อผู้เขียน) ซึ่งสมาชิกของประชาคมมองเห็นได้</td></tr>
+        <tr><th>การสมัครสมาชิก</th><td>เมื่อผู้ดูแลระบบสมัครสมาชิกให้ประชาคม การชำระเงินจัดการโดย Apple (และ Google บน Android) เราไม่เห็นและไม่เก็บข้อมูลการชำระเงินใด ๆ เราเก็บเพียงสถานะการสมัครสมาชิกของประชาคม ได้แก่ วันที่และรหัสการซื้อ</td></tr>
+        <tr><th>ข้อมูลทางเทคนิค</th><td>รหัสประจำอุปกรณ์ของคุณเพื่อให้เราส่งการแจ้งเตือนถึงคุณได้ (ออกโดย Apple บน iPhone และ iPad และโดย Google บน Android) และข้อมูลทางเทคนิคของการเชื่อมต่อที่เซิร์ฟเวอร์บันทึกไว้ เช่น ที่อยู่ IP</td></tr>
+        <tr><th>รายงานงานรับใช้ของคุณ</th><td>ชั่วโมงและการศึกษาที่คุณบันทึกในรายงานจะถูกเก็บไว้ในอุปกรณ์ของคุณ และเพื่อให้คุณใช้ได้บนทุกอุปกรณ์ จึงเก็บไว้ในเซิร์ฟเวอร์ของเรา (Supabase) ด้วย โดยผูกกับบัตรของคุณ <strong>มีเพียงคุณเท่านั้นที่เห็นได้</strong> ผู้ปกครองหรือผู้ดูแลระบบของประชาคมคุณไม่มีสิทธิ์เข้าถึง และไม่มีการแบ่งปันกับใคร</td></tr>
+<tr><th>เฉพาะในอุปกรณ์ของคุณ</th><td>เป้าหมายชั่วโมง การเตือน และการตั้งค่าของคุณ <strong>ข้อมูลทั้งหมดนี้ไม่ถูกส่งไปยังเซิร์ฟเวอร์ของเรา</strong> หากคุณเปิดการสำรองข้อมูล ข้อมูลจะถูกเก็บใน iCloud ของคุณเองซึ่งคุณเป็นผู้จัดการ บน Android สำเนาจะถูกเก็บไว้ในโทรศัพท์เอง และหากเปิดการสำรองข้อมูลของ Android ไว้ ก็จะอยู่ในบัญชี Google ของคุณด้วย ซึ่งคุณเป็นผู้จัดการ</td></tr>
+      </table>
+      <h2>3. สิ่งที่เรา "ไม่" ทำ</h2>
+      <ul>
+        <li>ไม่มีโฆษณา และไม่ขายหรือเปิดเผยข้อมูลให้บุคคลที่สามเพื่อวัตถุประสงค์ทางการค้า</li>
+        <li>ไม่มีเครื่องมือสถิติ การติดตาม หรือการระบุตัวตนข้ามแอป</li>
+        <li>แอปนี้<strong>ไม่ใช้ตำแหน่งที่ตั้งของคุณ</strong> กล้อง รูปภาพ รายชื่อติดต่อ หรือไมโครโฟน</li>
+        <li>เราไม่สร้างโปรไฟล์ และไม่ตัดสินใจอัตโนมัติเกี่ยวกับคุณ</li>
+      </ul>
+      <h2>4. ข้อมูลถูกใช้เพื่ออะไร</h2>
+      <ul>
+        <li>เพื่อให้บริการที่คุณร้องขอ ได้แก่ เข้าสู่บัญชีของคุณ แสดงข้อมูลของแต่ละประชาคมให้ตรงกับประชาคมนั้น และทำให้ข้อมูลเป็นปัจจุบันบนทุกอุปกรณ์ของประชาคม</li>
+        <li>เพื่อส่งการแจ้งเตือนเรื่องที่เกิดขึ้นในประชาคมของคุณ (ประกาศ เขตประกาศที่มอบหมายให้คุณ ฯลฯ) โดยต้องที่คุณอนุญาตการแจ้งเตือนบนอุปกรณ์ และคุณสามารถเพิกถอนได้ทุกเมื่อ</li>
+        <li>เพื่อความปลอดภัยของบริการและเพื่อตอบคำขอความช่วยเหลือของคุณ</li>
+      </ul>
+      <h2>5. ใครเห็นข้อมูลของคุณได้บ้าง</h2>
+      <ul>
+        <li><strong>ในประชาคมของคุณ:</strong> สมาชิกทุกคนเห็นรายชื่อพี่น้อง โปรแกรม และประกาศที่เผยแพร่แล้ว เฉพาะผู้ดูแลระบบเท่านั้นที่สร้างหรือแก้ไขได้ ผู้ประกาศเห็นเฉพาะเขตประกาศที่มอบหมายให้ตน ผู้ที่ดูแลเขตประกาศเห็นเขตประกาศของทั้งประชาคม รายงานงานรับใช้ของคุณมีเพียงคุณที่เห็น ประกาศที่ส่งถึงกลุ่มหนึ่งจะเห็นเฉพาะสมาชิกของกลุ่มนั้น และผู้ดูแลกับผู้ช่วยของแต่ละกลุ่มสร้างประกาศสำหรับกลุ่มของตนเองได้</li>
+        <li><strong>ประชาคมอื่น: ไม่มีใครเห็น</strong> แต่ละประชาคมเข้าถึงได้เฉพาะข้อมูลของตนเอง ซึ่งรับประกันด้วยการควบคุมสิทธิ์ในฐานข้อมูลเอง</li>
+        <li><strong>ผู้ให้บริการที่ช่วยเราให้บริการ</strong> (ประมวลผลข้อมูลเพื่อวัตถุประสงค์นั้นเท่านั้น):
+          <ul>
+            <li><strong>Supabase</strong>ซึ่งโฮสต์ฐานข้อมูลและบัญชี บนเซิร์ฟเวอร์ในสหภาพยุโรป (แฟรงก์เฟิร์ต)</li>
+            <li><strong>Apple</strong>สำหรับการแจกจ่ายแอป การแจ้งเตือน แผนที่ในแอป (Apple Maps) และการเก็บเงินค่าสมัครสมาชิก</li>
+            <li><strong>Google</strong>: บน Android สำหรับการแจกจ่ายแอป (Google Play) การแจ้งเตือน (Firebase Cloud Messaging) แผนที่ในแอป (Google Maps) และการเก็บเงินค่าสมัครสมาชิก และบนทุกแพลตฟอร์ม บริการอีเมลที่ใช้ส่งข้อความพร้อมลิงก์เข้าใช้ เมื่อแสดงแผนที่ Google อาจได้รับข้อมูลทางเทคนิคของการเชื่อมต่อ เช่น ที่อยู่ IP</li>
+            <li><strong>GitHub</strong>ซึ่งโฮสต์แผงควบคุมบนเว็บ และ <strong>OpenFreeMap</strong>ซึ่งให้บริการแผนที่ของแผงควบคุมบนเว็บ เพื่อแสดงหน้าเหล่านั้น พวกเขาได้รับข้อมูลทางเทคนิคของการเชื่อมต่อ เช่น ที่อยู่ IP</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. ข้อมูลอ่อนไหวมาก</h2>
+      <p>โดยธรรมชาติ รายชื่อสมาชิกของประชาคมอาจเปิดเผยความเชื่อทางศาสนา ซึ่งเป็นข้อมูลส่วนบุคคลประเภทพิเศษ ดังนั้น Wkit จึงออกแบบมาสำหรับใช้ภายในแต่ละประชาคม ข้อมูลถูกป้อนและจัดการโดยประชาคมเองเพื่อวัตถุประสงค์ของตน มีเพียงสมาชิกที่เห็นได้ และส่งผ่านอินเทอร์เน็ตแบบเข้ารหัส เราแนะนำให้ป้อนเฉพาะสิ่งที่จำเป็น</p>
+      <h2>7. ระยะเวลาเก็บข้อมูลและวิธีลบ</h2>
+      <p>ข้อมูลจะถูกเก็บไว้ตราบที่บัญชีหรือประชาคมยังมีอยู่ คุณลบบัญชีได้ทุกเมื่อจากในแอปโดยตรง:</p>
+      <div class="caja"><strong>การตั้งค่า → บัญชีของฉัน → ลบบัญชีของฉัน</strong></div>
+      <p><a href="eliminar-cuenta-th.html">หน้าที่มีขั้นตอนการลบบัญชีและข้อมูลของคุณ</a>.</p>
+      <ul>
+        <li>บัญชีเข้าใช้และบัตรของคุณในรายชื่อพี่น้องจะถูกลบ เขตประกาศที่คุณถืออยู่จะว่าง</li>
+        <li>ข้อมูลที่แอปเก็บในอุปกรณ์ของคุณและรายงานของคุณที่เก็บในเซิร์ฟเวอร์ของเราจะถูกลบ</li>
+        <li>หากคุณเป็นคนเดียวในประชาคม ประชาคมก็จะถูกลบพร้อมข้อมูลทั้งหมดด้วย (เราจะถามอย่างชัดเจนก่อนดำเนินการ)</li>
+        <li>หากคุณเป็นผู้ดูแลระบบคนเดียวและยังมีพี่น้องคนอื่น คุณต้องแต่งตั้งผู้ดูแลระบบอีกคนก่อน เพื่อไม่ให้ประชาคมไม่มีผู้จัดการ</li>
+        <li>ข้อมูลที่ไม่มีอยู่แล้วอาจยังอยู่ในสำเนาสำรองของผู้ให้บริการของเราในช่วงเวลาจำกัดก่อนจะถูกลบทั้งหมด</li>
+        <li>การลบบัญชีไม่ยกเลิกการสมัครสมาชิกแบบชำระเงิน (ถ้ามี) ต้องยกเลิกในการตั้งค่า Apple ID ของคุณ หรือบน Android ใน Google Play → การชำระเงินและการสมัครสมาชิก</li>
+      </ul>
+      <p>ผู้ดูแลระบบยังลบบัตรของพี่น้องคนหนึ่งออกจากรายชื่อได้เมื่อจำเป็น</p>
+      <h2>8. สิทธิ์ของคุณ</h2>
+      <p>คุณขอเข้าถึงข้อมูล แก้ไข ลบ โอนย้าย จำกัดการประมวลผล และคัดค้านได้ สิทธิ์เหล่านี้หลายอย่างคุณทำเองได้ในแอป ส่วนอย่างอื่นโปรดเขียนมาหาเรา ข้อมูลบัตรและโปรแกรมจัดการโดยประชาคมของคุณ หากต้องการแก้ไข โปรดขอจากผู้ดูแลระบบด้วย</p>
+      <p>หากคุณเห็นว่าเราจัดการข้อมูลของคุณไม่ถูกต้อง คุณสามารถร้องเรียนต่อ<a href="https://www.aepd.es">สำนักงานคุ้มครองข้อมูลแห่งสเปน (AEPD)</a> หรือต่อหน่วยงานคุ้มครองข้อมูลในประเทศของคุณ</p>
+      <h2>9. ความปลอดภัย</h2>
+      <ul>
+        <li>การสื่อสารทั้งหมดส่งแบบเข้ารหัส (HTTPS)</li>
+        <li>การเข้าถึงข้อมูลถูกควบคุมด้วยสิทธิ์ในฐานข้อมูลเอง ไม่ใช่เฉพาะที่หน้าจอของแอป</li>
+        <li>การเข้าใช้แผงควบคุมเขตประกาศบนเว็บทำด้วยคีย์ส่วนตัวที่อยู่ในลิงก์ โปรดถือเสมือนรหัสผ่านและอย่าแบ่งปัน</li>
+      </ul>
+      <h2>10. ผู้เยาว์</h2>
+      <p>Wkit ไม่ได้มีไว้สำหรับเด็กอายุต่ำกว่า 14 ปี หากประชาคมใส่ผู้เยาว์ไว้ในรายชื่อ เป็นการกระทำของผู้ดูแลระบบที่เป็นผู้ใหญ่ ด้วยความรับผิดชอบของตนเองและได้รับอนุญาตจากบิดามารดาหรือผู้ปกครองของเด็ก</p>
+      <h2>11. การเปลี่ยนแปลงนโยบายนี้</h2>
+      <p>หากเราเปลี่ยนแปลงสิ่งสำคัญ เราจะแจ้งไว้ที่นี่และอัปเดตวันที่ด้านบน</p>
+      <h2>12. ติดต่อ</h2>
+      <p>หากมีข้อสงสัยหรือต้องการใช้สิทธิ์ของคุณ: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> และยังมีหน้า<a href="soporte-th.html">ความช่วยเหลือ</a>ด้วย</p>
+    </main>
+  </body>
+</html>

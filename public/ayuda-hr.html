@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="hr">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Vodič kroz Wkit korak po korak — Wkit</title>
+    <meta name="description" content="Vodič kroz Wkit korak po korak za objavitelje i administratore: ulazak, podsjetnici, izvješće, braća, grupe, čišćenje, programi, objave, područja i pretplata." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-hr.html">← Wkit</a> · <a href="privacidad-hr.html">Pravila privatnosti</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <b>Hrvatski</b> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Vodič kroz Wkit korak po korak</h1>
+      <p class="sub">Sve što možeš raditi u aplikaciji, objašnjeno polako: za objavitelje i za administratore. Radi jednako na iPhoneu, iPadu i Androidu; kad postoji neka razlika, vidjet ćeš je označenu s <span class="plat a">Android</span> ili <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Za svu braću</h3><ol class="toc"><li><a href="#entrar">Prvi ulazak u Wkit</a></li><li><a href="#inicio">Početni zaslon</a></li><li><a href="#recordatorios">Podsjetnici: zvonce</a></li><li><a href="#notificaciones">Obavijesti: o čemu te Wkit obavještava</a></li><li><a href="#informe">Tvoje izvješće o službi (privatno)</a></li><li><a href="#territorios-pub">Područja: pregled, predaja i zahtjev</a></li><li><a href="#cuenta">Tvoj račun: promjena mobitela, povezivanje e-adrese, jezik i brisanje</a></li><li><a href="#copia-seguridad">Sigurnosna kopija</a></li></ol></div><div class="toc-g"><h3>Za administratore (starješine)</h3><ol class="toc"><li><a href="#crear-congregacion">Stvaranje skupštine</a></li><li><a href="#hermanos">Popis braće</a></li><li><a href="#grupos">Grupe za službu propovijedanja</a></li><li><a href="#salidas">Izlasci u službu</a></li><li><a href="#limpieza">Čišćenje: koja je grupa na redu te koji dan i sat</a></li><li><a href="#vida-ministerio">Program Život i služba</a></li><li><a href="#reunion-publica">Javni sastanak</a></li><li><a href="#audio-video">Zvuk i video / Redari</a></li><li><a href="#otros-programas">Ostali programi</a></li><li><a href="#anuncios">Objave</a></li><li><a href="#calendario">Kalendar skupštine</a></li><li><a href="#territorios-admin">Područja: dodjela, kampanje i web-ploča</a></li><li><a href="#suscripcion">Pretplata skupštine</a></li><li><a href="#copias">Podaci spremljeni samo na ovom telefonu</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Za svu braću</h2>
+<section id="entrar"><h2>1. Prvi ulazak u Wkit</h2>
+<p>Za ulazak u Wkit <strong>ne trebaš e-adresu ni lozinku</strong>: starješina tvoje skupštine te pozove, a ti uđeš poveznicom ili kodom.</p>
+<ol class="pasos"><li>Zamoli starješinu koji vodi popis braće da te pozove. Stići će ti <strong>dvije poruke zaredom</strong>: najprije poveznica, a zatim sam kod (da ga je lako kopirati).</li><li>Instaliraj <strong>Wkit</strong> iz App Storea (iPhone i iPad) ili iz Google Playa (Android).</li><li>Dodirni poveznicu iz prve poruke: aplikacija se otvori i prepozna te.</li><li>Ako se aplikacija ne otvori poveznicom, otvori je sam, dodirni <strong>„Imam poveznicu ili kod pozivnice“</strong> i zalijepi cijelu poruku ili samo kod: aplikacija sama uzme ono što joj treba.</li><li>Vidjet ćeš nekoliko uvodnih zaslona (<strong>„Prvi koraci“</strong>) koji objašnjavaju što se dijeli, a što ne. Kad završiš, već si unutra.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Ako kod ne radi</strong> („nije valjan ili je istekao“), zamoli starješinu da ti napravi novi: to se radi za tren iz tvoje kartice.</div>
+<div class="nota"><strong>Što se dijeli, a što ne:</strong> popis braće, program, čišćenje, područja i objave vidi cijela skupština, a stvara ih starješina. <strong>Tvoje Izvješće je samo tvoje</strong>: nitko drugi ga ne vidi, ni starješina, a sinkronizira se među tvojim uređajima.</div>
+</section>
+<section id="inicio"><h2>2. Početni zaslon</h2>
+<p>To je prvo što vidiš kad otvoriš Wkit. Pokazuje <strong>tvoje</strong> na prvi pogled; ako nemaš ništa dodijeljeno, vidjet ćeš „Nema nadolazećih zadataka“.</p>
+<ul><li><strong>Nadolazeći dijelovi</strong>: tvoji dijelovi na sastanku Život i služba i na Javnom sastanku (predsjedatelj, čitatelj, govornik…).</li><li><strong>Odgovornosti</strong>: ono što imaš u Zvuku i videu / Redarima.</li><li><strong>Čišćenje</strong>: pojavljuje se samo ako je <em>ovaj tjedan</em> na redu tvoja grupa. Ako su nadglednik ili pomoćnik grupe postavili dan i sat, vidjet ćeš ih ispod (na primjer „Nedjelja 12:30“).</li><li><strong>Ostali programi</strong>, <strong>Područja</strong> (i kampanja, ako je ima) i podsjetnik na <strong>Izvješće</strong>.</li><li><strong>Kalendar</strong>: događaji skupštine (kongres, posjet područnog nadglednika…) sa zvoncem za podsjetnik.</li></ul>
+<p>Dolje imaš pet kartica: <strong>Početna</strong>, <strong>Program</strong>, <strong>Izvješće</strong>, <strong>Područja</strong> i <strong>Izbornik</strong> (tamo su popis braće, grupe, čišćenje, objave i postavke).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Podsjetnici: zvonce</h2>
+<p>Uz svaki zadatak, odgovornost ili red za čišćenje nalazi se <strong>zvonce</strong>. Služi da te telefon upozori unaprijed, u vrijeme koje sam odabereš.</p>
+<ol class="pasos"><li>Dodirni zvonce zadatka.</li><li>Odaberi dan i sat podsjetnika.</li><li>Potvrdi. Zvonce pozeleni i zatrese se kad dođe vrijeme.</li><li>Da ga ukloniš, ponovno dodirni zvonce i odaberi uklanjanje podsjetnika.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Ako starješina promijeni dan ili sat čišćenja, zvonce ti ponovno nudi da postaviš podsjetnik s novim datumom.</div>
+<div class="nota"><span class="plat a">Android</span> Ako ti podsjetnici ne stižu, provjeri ima li Wkit dopuštenje za obavijesti u postavkama telefona i nije li mu ograničena baterija.</div>
+</section>
+<section id="notificaciones"><h2>4. Obavijesti: o čemu te Wkit obavještava</h2>
+<p>Wkit te obavještava kad ima nova objava, kad ti se nešto dodijeli ili kad ima promjena koje se tiču tebe.</p>
+<ol class="pasos"><li>Prvi put <strong>dopusti obavijesti</strong> kad te telefon upita.</li><li>Otvori <strong>Izbornik → Postavke → Obavijesti</strong>.</li><li>Isključi kategorije koje ne želiš (Objave, Program, Zvuk i video, Čišćenje, Područja…) i odaberi dane i sat kada želiš primati obavijesti.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Uređaj prima obavijesti samo jedne osobe istodobno</strong>: one koja ima otvorenu sesiju. Ako ti ne stižu, otvori Wkit sa svojim računom barem jednom da se uređaj registrira.</div>
+</section>
+<section id="informe"><h2>5. Tvoje izvješće o službi (privatno)</h2>
+<p>Izvješće je <strong>osobni</strong> alat: vidiš ga samo ti, ni starješina. Sprema se na tvom telefonu i sinkronizira među tvojim uređajima.</p>
+<ol class="pasos"><li>Otvori karticu <strong>Izvješće</strong>. Prvi put te Wkit pita nekoliko stvari: tvoju vrstu službe (objavitelj, pionir…) i <strong>tvoj mjesečni cilj sati</strong>.</li><li>Za upis službe dodirni <strong>„Novo“</strong> i ispuni datum, sate, minute i studije.</li><li>U <strong>Povijesti</strong> vidiš koliko imaš u mjesecu i u službenoj godini te možeš urediti ili izbrisati zapis.</li><li>Prvog dana svakog mjeseca Wkit te može upozoriti, u sat koji odabereš, da <strong>pošalješ izvješće</strong>. Gumb <strong>„Pošalji izvješće“</strong> priprema poruku s tvojim satima i studijima.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Tvoje Izvješće se sinkronizira</strong> s tvojim računom, pa ako promijeniš mobitel, vratit će ti se kad se ponovno prijaviš. Svejedno napravi sigurnosnu kopiju (Izbornik → Postavke → Sigurnosna kopija): to je dodatno jamstvo. Vidi odjeljak 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Područja: pregled, predaja i zahtjev</h2>
+<p>U kartici <strong>Područja</strong> vidiš područja koja ti je dodijeljeno, s datumom od kada ih imaš.</p>
+<ol class="pasos"><li>Da <strong>predaš</strong> područje kad ga završiš, otvori ga i dodirni <strong>„Predaj“</strong> (ili <strong>„Javi da je obrađeno“</strong>). Obavještava se onaj tko vodi područja.</li><li>Ako <strong>nemaš nijedno</strong> i želiš ga, dodirni <strong>„Zatraži područje“</strong>. Možeš dodati neobaveznu poruku (na primjer „Želim ono kod Carcabuea“).</li><li>Obavještavaju se svi služitelji za područja, a prvi koji može dodijelit će ti jedno. Stići će ti obavijest kad ga dobiješ.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Tvoj račun: promjena mobitela, povezivanje e-adrese, jezik i brisanje</h2>
+<h3>Promjena ili gubitak mobitela</h3>
+<ul><li>Ako <strong>nisi povezao nijednu e-adresu</strong> (braći ne treba), starješina ti šalje <strong>novu pozivnicu</strong> iz tvoje kartice u Popisu braće. Vraćaš svoje mjesto sa svime iz skupštine i sa svojim Izvješćem.</li><li>Ako si <strong>povezao e-adresu</strong>, otvori Wkit, dodirni <strong>„Stvori račun ili se prijavi kao administrator“</strong>, upiši e-adresu i otvori poveznicu koja ti stigne. Ulaziš sa svime kako si imao.</li></ul>
+<h3>Korištenje Wkita na više uređaja</h3>
+<ul><li>Možeš koristiti <strong>isti račun istodobno</strong> na iPhoneu, iPadu i Androidu (na primjer na mobitelu i tabletu).</li><li>Da dodaš još jedan uređaj, starješina ti šalje pozivnicu iz tvoje kartice, a ti je otvoriš na tom uređaju. <strong>Sesija na prvom se ne zatvara.</strong></li><li>Tvoje Izvješće se sinkronizira među svim tvojim uređajima.</li></ul>
+<h3>Povezivanje e-adrese (neobavezno, preporučeno za administratore)</h3>
+<ol class="pasos"><li>Otvori <strong>Izbornik → Postavke → Moj račun → Poveži moju e-adresu</strong>.</li><li>Upiši svoju e-adresu. Stići će ti poveznica za potvrdu.</li><li><strong>Otvori je na istom telefonu</strong>, u aplikaciji za e-poštu. Zaslon se sam zatvori i tvoj je račun povezan.</li></ol>
+<h3>Promjena jezika</h3>
+<p>Wkit koristi jezik telefona. Da ga promijeniš samo u Wkitu: postavke telefona → Aplikacije → Wkit → Jezik.</p>
+<h3>Brisanje računa</h3>
+<p><strong>Izbornik → Postavke → Moj račun → Izbriši moj račun.</strong> Brišu se tvoj račun, tvoja kartica u popisu i podaci spremljeni na tvom telefonu (uključujući Izvješće); područja koja si imao ostaju slobodna. Ne može se poništiti. Ako si jedini administrator, a ima još braće, prvo moraš imenovati drugoga (u Popisu braće otvori njegovu karticu i uključi „Administrator“). Ako si jedina osoba u skupštini, briše se i cijela skupština.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Brisanje računa <strong>ne otkazuje</strong> pretplatu skupštine, ako je plaća taj račun: otkazuje se u App Storeu <span class="plat i">iPhone</span> ili u Google Play → Plaćanja i pretplate → Pretplate <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Sigurnosna kopija</h2>
+<p>Služi ponajprije da imaš <strong>dodatnu kopiju svog Izvješća</strong>: iako se sinkronizira među uređajima, kopija te štiti ako ga slučajno izbrišeš. Nalazi se u <strong>Izbornik → Postavke → Sigurnosna kopija</strong>.</p>
+<ul><li><strong>Automatska kopija</strong>: sama pravi kopiju jednom mjesečno.</li><li><strong>„Napravi kopiju odmah“</strong> y <strong>„Izvezi sigurnosnu kopiju“</strong>: datoteku možeš spremiti gdje želiš ili je poslati sebi.</li><li><strong>„Vrati sigurnosnu kopiju“</strong>: odaberi datoteku izvezenu iz Wkita. Podaci iz kopije se <strong>dodaju</strong> onima koje već imaš: ništa se ne briše.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Automatska kopija sprema se u tvoj iCloud. <span class="plat a">Android</span> Sprema se na telefon i, ako imaš uključenu Androidovu sigurnosnu kopiju na svom Google računu (Postavke telefona → Google → Sigurnosna kopija), pri prijavi s tim računom na novom telefonu sama će se vratiti.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Za administratore (starješine)</h2>
+<section id="crear-congregacion"><h2>8. Stvaranje skupštine</h2>
+<p>To radi <strong>jednom</strong> starješina; zatim poziva ostale.</p>
+<ol class="pasos"><li>Otvori Wkit i dodirni <strong>„Stvori račun ili se prijavi kao administrator“</strong>.</li><li>Upiši svoju e-adresu i dodirni <strong>„Pošalji poveznicu za pristup“</strong>. Nema lozinki: stiže ti poveznica da potvrdiš da je e-adresa tvoja.</li><li><strong>Otvori poveznicu na istom telefonu.</strong> Wkit se otvori sam.</li><li>Ispuni <strong>svoje ime</strong>, <strong>naziv skupštine</strong>, <strong>broj skupštine</strong> i <strong>zemlju</strong> te dodirni <strong>„Stvori skupštinu“</strong>.</li><li>Vidjet ćeš <strong>„Prve korake kao starješina“</strong>: 1) dodaj braću u Popis braće i 2) pozovi ih.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Ne stiže ti e-pošta? Provjeri mapu neželjene pošte i dodirni <strong>„Nije stigla, pošalji ponovno“</strong>. Jedna e-adresa može imati samo jedan račun u Wkitu.</div>
+</section>
+<section id="hermanos"><h2>9. Popis braće</h2>
+<p>To je temelj svega: programi, grupe i dodjele koriste imena iz ovog popisa. Nalazi se u <strong>Izbornik → Popis braće</strong>.</p>
+<h3>Dodavanje brata</h3>
+<ol class="pasos"><li>Dodirni gumb <strong>+</strong> (<strong>„Novi brat“</strong>).</li><li>Upiši <strong>ime</strong> i odaberi je li <strong>brat</strong> ili <strong>sestra</strong>.</li><li>Odaberi njegovu <strong>odgovornost</strong>: kršteni ili nekršteni objavitelj, pionir/ka, ministarski pomoćnik ili starješina.</li><li>Ako je potrebno, odaberi njegovu <strong>grupu za službu propovijedanja</strong> i uključi <strong>Služitelj za područja</strong>, <strong>Zvuk i video / Redari</strong> ili <strong>Administrator</strong>.</li><li>Dodirni <strong>„Stvori“</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Dva brata istog imena:</strong> dodaj nešto po čemu se razlikuju (na primjer „sin“) da se dodjele ne pomiješaju.</div>
+<h3>Pozivanje brata u Wkit</h3>
+<ol class="pasos"><li>Otvori karticu brata i dodirni <strong>„Pozovi“</strong> (ili <strong>„Stvori poveznicu“</strong>).</li><li>Dodirni <strong>„Podijeli pozivnicu“</strong> i odaberi WhatsApp, poruke itd. Šalju se <strong>dvije poruke zaredom</strong>: najprije poveznica, a zatim sam kod, da ga je lako kopirati.</li><li>Brat otvori poveznicu (ili zalijepi kod) i uđe. Ako još nije ušao, možeš ponovno podijeliti pozivnicu; ako stvoriš novu, prethodna prestaje vrijediti.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Uređivanje, brisanje i imenovanje administratora</h3>
+<ul><li>Dodirni brata i odaberi <strong>„Uredi“</strong> da promijeniš njegove podatke.</li><li>Na Androidu za brisanje dodirni <strong>crvenu ikonu</strong> u njegovu retku; na iPhoneu povuci redak ulijevo. Briše se iz popisa na svim uređajima, a područja koja je imao ostaju slobodna.</li><li><strong>Administrator</strong> može upravljati braćom, područjima, objavama i programom. <strong>Ne možeš izbrisati vlastitu karticu ni posljednjeg administratora</strong>: prvo imenuj drugoga.</li></ul>
+</section>
+<section id="grupos"><h2>10. Grupe za službu propovijedanja</h2>
+<p>Grupe se koriste za izlaske u službu i za čišćenje. Nalaze se u <strong>Izbornik → Grupe za službu propovijedanja → Popis</strong>.</p>
+<ol class="pasos"><li>Ako nema nijedne, dodirni <strong>„Stvori grupe za propovijedanje“</strong> i odaberi <strong>koliko grupa</strong> želiš (kasnije možeš dodati još gumbom <strong>+</strong>).</li><li>Da rasporediš braću po grupama, idi u <strong>Popis braće</strong>, otvori karticu svakoga i odaberi njegovu <strong>grupu za službu propovijedanja</strong>.</li><li>Vrati se u <strong>Izbornik → Grupe za službu propovijedanja → Popis</strong>. U svakoj grupi vidjet ćeš <strong>nadglednika</strong>, <strong>pomoćnika</strong> i braću <strong>abecednim redom</strong>.</li><li>Dodirni gumb s <strong>olovkom</strong> (Uredi). Dodirni <strong>„Nadglednik“</strong> i odaberi jednog od braće te grupe; isto učini s <strong>„Pomoćnik“</strong>. Ne može biti ista osoba.</li><li>Dodirni <strong>kvačicu</strong> za završetak.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Nadglednik i pomoćnik biraju se <strong>nakon</strong> što rasporediš braću, jer se može birati samo među braćom iste grupe. Ako brata prebaciš u drugu grupu, prestaje biti nadglednik ili pomoćnik prethodne.</div>
+<div class="nota">Nadglednik i pomoćnik svake grupe <strong>mogu postaviti dan i sat čišćenja</strong> svoje grupe (odjeljak 12), čak i ako nisu administratori.</div>
+</section>
+<section id="salidas"><h2>11. Izlasci u službu</h2>
+<p>Izlasci u službu su vremena i mjesta okupljanja za službu. Postoje <strong>opći</strong> (za cijelu skupštinu) i <strong>vlastiti za svaku grupu</strong>. Nalaze se u <strong>Izbornik → Grupe za službu propovijedanja → Izlasci u službu</strong>. Prvo moraš imati stvorene grupe.</p>
+<ol class="pasos"><li>Dodirni odjeljak <strong>„Skupština“</strong> (opći izlasci) ili odjeljak neke <strong>grupe</strong>.</li><li>Dodirni <strong>„Dodaj izlazak“</strong> na odgovarajući dan i upiši <strong>oznaku</strong> (na primjer „Jutro“ ili „Poslijepodne“), <strong>sat</strong> i, ako želiš, <strong>mjesto</strong>.</li><li>Da <strong>urediš</strong> izlazak, izravno promijeni njegova polja. Da ga <strong>izbrišeš</strong>, dodirni crvenu ikonu u njegovu retku.</li><li>Braća mogu dodirnuti mjesto da ga otvore na karti svog telefona.</li></ol>
+<div class="nota">Ako grupa nema vlastitih izlazaka, koriste se izlasci skupštine („Nema vlastitih izlazaka — koristi izlaske skupštine“).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Čišćenje: koja je grupa na redu te koji dan i sat</h2>
+<p>Čišćenje se <strong>automatski izmjenjuje</strong> među grupama za službu: svaki tjedan je na redu druga grupa, počevši od Grupe 1. Nalazi se u <strong>Izbornik → Čišćenje → Grupe</strong>.</p>
+<h3>Promjena grupe koja čisti ovaj tjedan (administratori)</h3>
+<ol class="pasos"><li>Dodirni gumb s <strong>olovkom</strong> (Uredi).</li><li>Dodirni <strong>grupu</strong> koja je na redu ovaj tjedan. Sljedeći tjedan bit će na redu sljedeća grupa po redu.</li><li>Dodirni <strong>kvačicu</strong>. Promjenu vide <strong>svi uređaji</strong> skupštine.</li></ol>
+<h3>Postavljanje točnog dana i sata (administratori, nadglednik i pomoćnik grupe)</h3>
+<ol class="pasos"><li>U <strong>Izbornik → Čišćenje → Grupe</strong> pronađi svoju grupu (ili onu kojom upravljaš) i dodirni <strong>olovku</strong> u njezinu retku.</li><li>Odaberi <strong>dan</strong> i <strong>sat</strong> (na primjer nedjelja u 12:30) i dodirni <strong>„Spremi“</strong>. Da obrišeš datum, dodirni <strong>„Ukloni datum“</strong>.</li><li>Braća te grupe vidjet će to na početnom zaslonu: <strong>„Grupa 1 · Ovaj tjedan“</strong> i ispod <strong>„Nedjelja 12:30“</strong>, sa svojim <strong>zvoncem</strong> za postavljanje podsjetnika.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Datum se na početnom zaslonu prikazuje samo ako pada u <strong>tekući tjedan</strong> (od ponedjeljka do nedjelje). Možeš ga postaviti unaprijed: pojavit će se kad taj tjedan dođe. Datumi prošlih tjedana sami nestaju.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Program Život i služba</h2>
+<p>U kartici <strong>Program → Život i služba</strong> stvaraš program svakog tjedna i dodjeljuješ dijelove. Vide ga sva braća; uređuju ga samo administratori.</p>
+<ol class="pasos"><li>Dodirni <strong>„Novi tjedan“</strong> i odaberi <strong>datum sastanka</strong> (bilo koji dan tog tjedna, od ponedjeljka do nedjelje).</li><li>Wkit stvara tjedan s <strong>uobičajenom strukturom</strong>: Blago iz Božje Riječi, Poboljšajmo službu i Kršćanski život.</li><li>Dodirni bilo koji <strong>naslov</strong> da ga promijeniš, a po potrebi i <strong>trajanje</strong>. S <strong>„Dodaj zadatak“</strong> možeš dodati još dijelova.</li><li>Kod svakog dijela dodirni <strong>„Odaberi“</strong> i izaberi brata ili braću (na primjer učenika i pomoćnika). Za <strong>Pomoćnu dvoranu</strong> koristi <strong>„Dodaj Pomoćnu dvoranu“</strong>.</li><li>Odaberi i <strong>pjesme</strong> i <strong>molitve</strong> te dodirni <strong>„Spremi program“</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Za pregled drugog tjedna koristi <strong>birač tjedana</strong> (<strong>„Prethodni tjedan“</strong> / <strong>„Sljedeći tjedan“</strong>); odande ga možeš i <strong>urediti ili izbrisati</strong>.</li><li>Braća primaju <strong>obavijest</strong> kad im se dodijeli dio i vide ga na početnom zaslonu.</li><li>Program tjedna sam nestaje po završetku nedjelje.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Javni sastanak</h2>
+<p>U <strong>Program → Javni sastanak</strong> priprema se svaki sastanak vikendom.</p>
+<ol class="pasos"><li>Dodirni <strong>„Novi javni sastanak“</strong> i odaberi <strong>datum</strong>. Ako za taj datum već postoji sastanak, Wkit te upozori.</li><li>Odaberi <strong>predsjedatelja</strong>, <strong>govornika</strong> i upiši <strong>naslov govora</strong>.</li><li>Odaberi <strong>čitatelja Stražarske kule</strong> („Čitatelj wS“) te <strong>pjesme</strong> i <strong>molitve</strong>.</li><li>Spremi. Braća vide svoje dijelove na početnom zaslonu.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Zvuk i video / Redari</h2>
+<p>U <strong>Izbornik → Zvuk i video / Redari</strong> dodjeljuješ odgovornosti za svaki tjedan: zvuk, video, mikrofoni, redari, Zoom, mjerenje vremena…</p>
+<ol class="pasos"><li>Dodirni <strong>„Novi tjedan“</strong> i odaberi <strong>datum sastanka</strong>.</li><li>Dodirni <strong>„Odaberi“</strong> kod svake odgovornosti i izaberi brata. Neke, poput mikrofona, dopuštaju <strong>više braće</strong> (<strong>„Dodaj brata“</strong>).</li><li>Za drugu odgovornost koje nema, dodirni <strong>„Dodaj odgovornost“</strong> i daj joj ime.</li><li>Spremi. Svaki brat je vidi u <strong>Odgovornostima</strong>, na svom početnom zaslonu, sa svojim zvoncem.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Ostali programi</h2>
+<p>Za <strong>sve ostalo</strong> što skupština organizira, a nije sastanak: na primjer prijevoz za braću koja ne mogu doći ili pomoć objaviteljima. Svaki program ima vlastitu učestalost. Nalazi se u <strong>Izbornik → Ostali programi</strong>.</p>
+<ol class="pasos"><li>Dodirni <strong>„Novi program“</strong>. Upiši <strong>naziv</strong> i odaberi <strong>koliko se često organizira</strong>: dnevno, tjedno, mjesečno ili godišnje.</li><li>Dodirni <strong>„Stvori prvi tjedan“</strong> (ili <strong>„Novo razdoblje“</strong>) i odaberi datum: bilo koji dan tog tjedna, mjeseca ili godine.</li><li>Dodirni <strong>„Dodaj odgovornost“</strong>: upiši neobaveznu <strong>oznaku</strong> (na primjer „Pokupi ranije“) i <strong>odaberi brata ili sestru</strong>.</li><li>Spremi. Svatko to vidi na svom početnom zaslonu u <strong>„Ostali programi“</strong>, a razdoblje samo nestaje kad završi.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Objave</h2>
+<p>Objave stvaraju administratori i, samo za svoju grupu, nadglednik i pomoćnik svake grupe za službu. Vide ih braća kojima su namijenjene. Nalaze se u <strong>Izbornik → Objave</strong>.</p>
+<ol class="pasos"><li>Dodirni <strong>„Nova objava“</strong> i upiši <strong>poruku</strong>.</li><li>Prema zadanom objavljuje se <strong>odmah</strong>, čim je spremiš, a svi dobivaju obavijest.</li><li>Ako želiš da izađe kasnije, uključi <strong>„Zakaži za kasnije“</strong> i odaberi <strong>datum i sat</strong>: dotad je nitko neće vidjeti, a u to će vrijeme svi biti obaviješteni.</li><li>Spremi. Da ukloniš objavu, dodirni je i odaberi <strong>„Izbriši“</strong>: nestaje za sve.</li></ol>
+<h3>Objave samo za jednu grupu</h3>
+<ul><li><strong>Nadglednik</strong> i <strong>pomoćnik</strong> svake grupe za službu vide gumb <strong>+</strong> iako nisu administratori, a njihove objave stižu <strong>samo članovima njihove grupe</strong>.</li><li>Administrator koji također ima grupu može pri stvaranju objave uključiti <strong>„Pošalji ovu objavu samo članovima moje grupe“</strong>.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Kalendar skupštine</h2>
+<p>Služi da svi vide događaje skupštine, poput <strong>područnog kongresa</strong> ili <strong>posjeta područnog nadglednika</strong>. Stvaraju ih samo administratori.</p>
+<ol class="pasos"><li>Otvori <strong>Izbornik → Kalendar</strong> i dodirni <strong>„Dodaj događaj“</strong>.</li><li>Upiši <strong>naslov</strong> i dodirni <strong>dane</strong> događaja: ako traje više dana, dodirni svaki.</li><li>Spremi. Svi će ga vidjeti na <strong>Početnoj</strong>, ispod „Kalendar“, sa <strong>zvoncem</strong> za postavljanje podsjetnika.</li><li>Da ga promijeniš ili ukloniš, otvori ga i odaberi <strong>„Uredi događaj“</strong> ili <strong>„Izbriši događaj“</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Područja: dodjela, kampanje i web-ploča</h2>
+<p>Tko ima dopuštenje <strong>Služitelj za područja</strong>, upravlja područjima cijele skupštine iz kartice <strong>Područja</strong> (objavitelji vide samo svoja).</p>
+<h3>Dodjela i primanje područja</h3>
+<ul><li>Dodirni područje i odaberi <strong>„Dodijeli“</strong> (ili „Dodijeli objavitelju“) i brata. Vidjet ćeš tko ga ima i od kada te koja su <strong>istekla</strong> ili <strong>nikad dodijeljena</strong>.</li><li>Kad objavitelj <strong>zatraži</strong> područje, obavještavaju se svi služitelji za područja (<strong>„Zahtjevi za područje“</strong>); prvi koji može dodjeljuje mu ga.</li><li>Kad brat <strong>preda</strong> područje, ono postaje slobodno i bilježi se datum.</li></ul>
+<h3>Kampanje</h3>
+<ul><li><strong>„Nova kampanja“</strong> ponovno evidentira sva područja tijekom određenog razdoblja. Pravi se <strong>kopija</strong> trenutnih područja za zasebnu podjelu; uobičajena područja se ne dotiču.</li><li>Istodobno može biti samo <strong>jedna aktivna kampanja</strong>. Da je završiš, odaberi <strong>„Izbriši kampanju“</strong>: brišu se njezine dodjele i sve se vraća u normalu.</li></ul>
+<h3>Evidencija S-13 i web-ploča</h3>
+<ul><li>U <strong>Alatima</strong> možeš generirati <strong>evidenciju S-13 u PDF-u</strong> (po jednu za svaki sektor) i podijeliti je.</li><li><strong>Web-ploča područja</strong> otvara se u pregledniku na računalu. Da daš pristup služitelju za područja: otvori njegovu karticu u Popisu braće i dodirni <strong>„Pristup ploči“</strong> → <strong>„Stvori poveznicu“</strong>. Poveznica je osobna; ulazi se <strong>6-znamenkastom lozinkom</strong> koju sam odabereš i koju možeš promijeniti kad god želiš.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Poveznica ploče je kao lozinka: ne dijeli je izvan onih koji trebaju imati pristup. Ako stvoriš novu, prethodna prestaje raditi.</div>
+</section>
+<section id="suscripcion"><h2>19. Pretplata skupštine</h2>
+<p>Da bi sva braća imala potpun pristup, potrebna je <strong>godišnja pretplata skupštine</strong>. <strong>Plaća je jedan administrator i vrijedi za svu braću</strong>, i na iPhoneu i na Androidu. Ostala braća ne plaćaju ništa.</p>
+<ol class="pasos"><li>Otvori <strong>Izbornik → Postavke → Pretplata skupštine</strong>.</li><li>Dodirni <strong>„Pretplati skupštinu“</strong>. Prije potvrde vidjet ćeš godišnju cijenu; ako postoji <strong>besplatno probno razdoblje</strong>, ništa se ne naplaćuje dok ne završi.</li><li>Potvrdi preko App Storea (iPhone) ili Google Playa (Android). Gotovo: cijela skupština ima pristup.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li><strong>Obnavlja se automatski</strong> svake godine, osim ako je otkažeš najmanje 24 sata prije kraja razdoblja.</li><li>Za <strong>upravljanje ili otkazivanje</strong>: <span class="plat i">iPhone</span> Postavke iPhonea → tvoje ime → Pretplate; <span class="plat a">Android</span> Google Play → tvoj profil → Plaćanja i pretplate → Pretplate (ili gumb „Upravljaj ili otkaži u Google Playu“ u Wkitu).</li><li>Ako <strong>promijeniš mobitel</strong>, dodirni <strong>„Vrati kupnje“</strong> na istom zaslonu.</li><li>Ako pretplata <strong>istekne</strong>, skupština prelazi u <strong>samo čitanje</strong>: sve se i dalje vidi i <strong>ništa se ne briše</strong>. Nakon obnove opet se može uređivati.</li></ul>
+<div class="nota">Wkit nikada ne vidi niti sprema tvoje podatke o plaćanju: njima upravlja Apple ili Google.</div>
+</section>
+<section id="copias"><h2>20. Podaci spremljeni samo na ovom telefonu</h2>
+<p>Ako si koristio Wkit izvan mreže ili prije nego što je postojala tvoja skupština, aplikacija te može upitati što učiniti s <strong>podacima spremljenima samo na ovom telefonu</strong> (na primjer braća ili objave). Imaš dvije mogućnosti: <strong>„Prenesi ih“</strong> u skupštinu (vidjet će ih svi) ili <strong>„Odbaci ih“</strong>. Ništa se ne radi dok ti ne odlučiš.</p>
+</section>
+      <div class="caja pie"><strong>Ne možeš pronaći što tražiš?</strong> Piši nam na <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> i ispričaj što se događa. Ako možeš, navedi koji uređaj koristiš (iPhone, iPad ili Android) i što si radio.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

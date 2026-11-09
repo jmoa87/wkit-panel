@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>A Wkit adatvédelmi tájékoztatója — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <b>Magyar</b> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>A Wkit adatvédelmi tájékoztatója</h1>
+      <p class="fecha">Utolsó frissítés: 2026. november 9.</p>
+      <h2>1. Kik vagyunk és mi a Wkit</h2>
+      <p>A Wkit a <strong>Titan Estudios</strong> alkalmazása, amely egy gyülekezet életének szervezésében segít: az összejövetelek programja, a területek, a közlemények, a testvérek listája és a személyes szolgálati jelentés. iPhone-on, iPaden és Androidon működik, és van egy webes felülete a területek kezeléséhez.</p>
+      <div class="caja"><strong>Ki miért felelős.</strong> A <em>fiók</em> adataiért (például az e-mail-cím) mi felelünk. A <em>gyülekezet testvéreinek</em> adataiért (a lista, a program, a területek…) maga a gyülekezet felel az adminisztrátorain keresztül, akik megadják azokat és eldöntik, mire használják őket; mi csak az eszközt biztosítjuk, és az ő megbízásukból tároljuk az adatokat.</div>
+      <h2>2. Milyen adatokat kezelünk</h2>
+      <table>
+        <tr><th>A fiókod</th><td>Az e-mail-cím, csak azé, aki létrehozza a gyülekezetet, és az adminisztrátoroké, akik összekapcsolják; a többi testvérnek nem kell e-mail, meghívóval lépnek be. És a fiók belső azonosítója.</td></tr>
+        <tr><th>A kártyád a testvérek listájában</th><td>Név, nem, feladat (hírnök, úttörő, szolgálati segítő, vén), szolgálati csoport, hogy segít-e a Hang és videó vagy a Területek területén, és az alkalmazásbeli jogosultságai. Ezeket a gyülekezet adminisztrátorai adják meg és módosítják.</td></tr>
+        <tr><th>A gyülekezet adatai</th><td>Az összejövetelek programja és hogy kinek melyik részt osztották ki (név szerint), a nyilvános előadások, a Hang és videó, a szolgálati csoportok (a felvigyázóval és a segítővel), a takarítás (melyik csoport, és melyik napon és órában), a szolgálati kimenetelek, a közlemények, az egyéb programok, a területek (alakjuk a térképen, kinél vannak és a dátumok), a kampányok és a területkérések. Valamint a naptár eseményei (cím és napok). Valamint a területek jegyzetei (rövid szöveg és dátum, a szerző neve nélkül), amelyeket a gyülekezet tagjai láthatnak.</td></tr>
+        <tr><th>Előfizetés</th><td>Amikor egy adminisztrátor előfizet a gyülekezet nevében, a fizetést az Apple (Androidon a Google) kezeli: mi nem látunk és nem tárolunk semmilyen fizetési adatot. Csak az előfizetés állapotát tároljuk, a gyülekezethez kapcsolva: a dátumokat és a vásárlás azonosítóját.</td></tr>
+        <tr><th>Technikai adatok</th><td>Az eszközöd azonosítója, hogy értesítéseket küldhessünk neked (iPhone-on és iPaden az Apple, Androidon a Google adja), valamint a kapcsolat technikai adatai, amelyeket a szerverek rögzítenek, például az IP-cím.</td></tr>
+        <tr><th>A szolgálati jelentésed</th><td>Az órák és tanulmányok, amelyeket a Jelentésedbe beírsz, az eszközödön tárolódnak, és hogy minden eszközödön használhasd, a szervereinken is (Supabase), a kártyádhoz kapcsolva. <strong>Csak te láthatod</strong>: sem a vének, sem a gyülekezeted adminisztrátorai nem férnek hozzá, és senki mással nem osztjuk meg.</td></tr>
+<tr><th>Csak az eszközödön</th><td>Az óracélod, az emlékeztetők és a beállítások. <strong>Ezeket nem küldjük el a szervereinknek.</strong> Ha bekapcsolod a biztonsági mentést, a saját iCloudodba mentődik, amelyet te kezelsz. Androidon a másolat magán a telefonon tárolódik, és ha be van kapcsolva az Android biztonsági mentése, a Google-fiókodban is, amelyet te kezelsz.</td></tr>
+      </table>
+      <h2>3. Amit NEM csinálunk</h2>
+      <ul>
+        <li>Nincs reklám, és nem adunk el vagy adunk át adatokat harmadik feleknek kereskedelmi célra.</li>
+        <li>Nincsenek statisztikai, nyomkövető vagy alkalmazások közötti követő eszközök.</li>
+        <li>Az alkalmazás <strong>nem használja a tartózkodási helyedet</strong>, sem a kamerádat, sem a fényképeidet, sem a névjegyeidet, sem a mikrofont.</li>
+        <li>Nem készítünk profilokat, és nem hozunk automatizált döntéseket rólad.</li>
+      </ul>
+      <h2>4. Mire használjuk az adatokat</h2>
+      <ul>
+        <li>Hogy megadjuk neked a kért szolgáltatást: belépni a fiókodba, megmutatni minden gyülekezetnek a saját adatait, és naprakészen tartani őket az összes eszközén.</li>
+        <li>Hogy elküldjük neked a gyülekezetedben keletkező értesítéseket (egy közlemény, egy neked kiosztott terület…), feltéve hogy engedélyezted az értesítéseket az eszközödön, amit bármikor visszavonhatsz.</li>
+        <li>A szolgáltatás biztonságához és a segítségkéréseid megválaszolásához.</li>
+      </ul>
+      <h2>5. Ki láthatja az adataidat</h2>
+      <ul>
+        <li><strong>A gyülekezeteden belül:</strong> minden tag látja a testvérek listáját, a programot és a közzétett közleményeket. Csak az adminisztrátorok hozhatják létre vagy módosíthatják őket. A hírnök csak a neki kiosztott területeket látja. Aki a területeket kezeli, az egész gyülekezet területeit látja. A szolgálati jelentésedet csak te látod. Egy csoportnak szóló közleményeket csak az adott csoport tagjai látják, és minden csoport felvigyázója és segítője létrehozhatja őket a saját csoportjának.</li>
+        <li><strong>Más gyülekezetek: senki.</strong> Minden gyülekezet csak a saját adataihoz fér hozzá; ezt maga az adatbázis hozzáférés-vezérlése biztosítja.</li>
+        <li><strong>Szolgáltatók, akik segítenek a szolgáltatás nyújtásában</strong> (az adatokat csak erre használják):
+          <ul>
+            <li><strong>Supabase</strong>, amely az adatbázist és a fiókokat üzemelteti az Európai Unióban lévő szervereken (Frankfurt).</li>
+            <li><strong>Apple</strong>, az alkalmazás terjesztéséhez, az értesítésekhez, az alkalmazás térképeihez (Apple Maps) és az előfizetés beszedéséhez.</li>
+            <li><strong>Google</strong>: Androidon az alkalmazás terjesztéséhez (Google Play), az értesítésekhez (Firebase Cloud Messaging), az alkalmazás térképéhez (Google Maps) és az előfizetés beszedéséhez; és minden platformon az e-mail szolgáltatása, amellyel a belépési hivatkozást tartalmazó üzeneteket küldjük. A térkép megjelenítésekor a Google technikai kapcsolati adatokat kaphat, például az IP-címet.</li>
+            <li><strong>GitHub</strong>, amely a webes felületet üzemelteti, és <strong>OpenFreeMap</strong>, amely a webes felület térképeit szolgálja ki. Ezeknek az oldalaknak a megjelenítéséhez technikai kapcsolati adatokat kapnak, például az IP-címet.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Különösen érzékeny információk</h2>
+      <p>Természeténél fogva egy gyülekezeti tagok listája vallási meggyőződést tárhat fel, ami a személyes adatok különleges kategóriája. Ezért a Wkit minden gyülekezet belső használatára készült: az adatokat maga a gyülekezet adja meg és kezeli a saját céljaira, csak a tagjai látják őket, és titkosítva utaznak az interneten. Javasoljuk, hogy csak a szükségeset add meg.</p>
+      <h2>7. Meddig őrizzük meg, és hogyan lehet törölni</h2>
+      <p>Az adatokat addig őrizzük, amíg a fiók vagy a gyülekezet létezik. A fiókodat bármikor törölheted közvetlenül az alkalmazásban:</p>
+      <div class="caja"><strong>Beállítások → A fiókom → A fiókom törlése.</strong></div>
+      <p><a href="eliminar-cuenta-hu.html">Oldal a fiókod és az adataid törlésének lépéseivel</a>.</p>
+      <ul>
+        <li>A belépési fiókod és a kártyád a testvérek listájában törlődik. A területek, amelyek nálad voltak, szabadok lesznek.</li>
+        <li>Törlődnek az alkalmazás által az eszközödön tárolt adatok és a szervereinken tárolt Jelentésed.</li>
+        <li>Ha te vagy az egyetlen személy a gyülekezetedben, a gyülekezet is törlődik az összes adatával (ezt kifejezetten megkérdezzük, mielőtt megtörténne).</li>
+        <li>Ha te vagy az egyetlen adminisztrátor és vannak más testvérek, először ki kell jelölnöd egy másik adminisztrátort, hogy a gyülekezet ne maradjon kezelő nélkül.</li>
+        <li>A már nem létező adatok korlátozott ideig megmaradhatnak a szolgáltatónk biztonsági mentéseiben, mielőtt teljesen törlődnek.</li>
+        <li>A fiók törlése nem szünteti meg a fizetős előfizetést, ha van ilyen: ezt az Apple ID beállításaiban vagy Androidon a Google Play → Fizetések és előfizetések menüben lehet megtenni.</li>
+      </ul>
+      <p>Az adminisztrátorok ezenkívül törölhetik egy testvér kártyáját a listáról, ha szükséges.</p>
+      <h2>8. A jogaid</h2>
+      <p>Kérheted az adataidhoz való hozzáférést, helyesbítésüket, törlésüket, hordozhatóságukat, a kezelésük korlátozását, és tiltakozhatsz ellene. E jogok közül sokat magad is gyakorolhatsz az alkalmazásban; a többihez írj nekünk. A kártya és a program adatait a gyülekezeted kezeli: ha javítani szeretnéd őket, kérd ezt az adminisztrátoraitól is.</p>
+      <p>Ha úgy gondolod, hogy nem megfelelően kezeltük az adataidat, panaszt tehetsz a <a href="https://www.aepd.es">spanyol adatvédelmi hatóságnál (AEPD)</a> vagy a saját országod adatvédelmi hatóságánál.</p>
+      <h2>9. Biztonság</h2>
+      <ul>
+        <li>Minden kommunikáció titkosítva zajlik (HTTPS).</li>
+        <li>Az adatokhoz való hozzáférést magában az adatbázisban lévő jogosultságok szabályozzák, nem csak az alkalmazás képernyőjén.</li>
+        <li>A területek webes felületéhez való hozzáférés a hivatkozásban lévő személyes kulccsal történik. Kezeld jelszóként, és ne oszd meg.</li>
+      </ul>
+      <h2>10. Kiskorúak</h2>
+      <p>A Wkit nem a 14 év alatti gyermekeknek készült. Ha egy gyülekezet kiskorút vesz fel a listájára, azt egy felnőtt adminisztrátor teszi, saját felelősségére és a szülők vagy gondviselők engedélyével.</p>
+      <h2>11. A tájékoztató változásai</h2>
+      <p>Ha valami fontosat megváltoztatunk, itt jelezzük, és frissítjük a fenti dátumot.</p>
+      <h2>12. Kapcsolat</h2>
+      <p>Bármilyen kérdéssel vagy a jogaid gyakorlásához: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Van egy <a href="soporte-hu.html">súgó</a>oldal is.</p>
+    </main>
+  </body>
+</html>

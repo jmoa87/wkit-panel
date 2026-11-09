@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>คู่มือ Wkit ทีละขั้นตอน — Wkit</title>
+    <meta name="description" content="คู่มือ Wkit ทีละขั้นตอนสำหรับผู้ประกาศและผู้ดูแลระบบ: การเข้าใช้ การเตือน รายงาน พี่น้อง กลุ่ม การทำความสะอาด โปรแกรม ประกาศ เขตประกาศ และการสมัครสมาชิก" />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-th.html">← Wkit</a> · <a href="privacidad-th.html">นโยบายความเป็นส่วนตัว</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <b>ไทย</b> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>คู่มือ Wkit ทีละขั้นตอน</h1>
+      <p class="sub">ทุกสิ่งที่คุณทำได้ในแอป อธิบายอย่างละเอียด: สำหรับผู้ประกาศและสำหรับผู้ดูแลระบบ ใช้งานเหมือนกันบน iPhone, iPad และ Android เมื่อมีความแตกต่าง คุณจะเห็นเครื่องหมาย <span class="plat a">Android</span> หรือ <span class="plat i">iPhone</span></p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>สำหรับพี่น้องทุกคน</h3><ol class="toc"><li><a href="#entrar">เข้าใช้ Wkit ครั้งแรก</a></li><li><a href="#inicio">หน้าจอหลัก</a></li><li><a href="#recordatorios">การเตือน: ระฆัง</a></li><li><a href="#notificaciones">การแจ้งเตือน: สิ่งที่ Wkit บอกคุณ</a></li><li><a href="#informe">รายงานงานรับใช้ของคุณ (ส่วนตัว)</a></li><li><a href="#territorios-pub">เขตประกาศ: ดู คืน และขอ</a></li><li><a href="#cuenta">บัญชีของคุณ: เปลี่ยนโทรศัพท์ เชื่อมอีเมล ภาษา และลบ</a></li><li><a href="#copia-seguridad">การสำรองข้อมูล</a></li></ol></div><div class="toc-g"><h3>สำหรับผู้ดูแลระบบ (ผู้ปกครอง)</h3><ol class="toc"><li><a href="#crear-congregacion">สร้างประชาคม</a></li><li><a href="#hermanos">รายชื่อพี่น้อง</a></li><li><a href="#grupos">กลุ่มรับใช้</a></li><li><a href="#salidas">งานประกาศ</a></li><li><a href="#limpieza">การทำความสะอาด: กลุ่มใดหมุนเวียน และวันเวลาใด</a></li><li><a href="#vida-ministerio">โปรแกรมชีวิตและงานเผยแพร่</a></li><li><a href="#reunion-publica">การประชุมสาธารณะ</a></li><li><a href="#audio-video">เสียงและวิดีโอ / ผู้ต้อนรับ</a></li><li><a href="#otros-programas">โปรแกรมอื่น ๆ</a></li><li><a href="#anuncios">ประกาศ</a></li><li><a href="#calendario">ปฏิทินประชาคม</a></li><li><a href="#territorios-admin">เขตประกาศ: การมอบหมาย แคมเปญ และแผงควบคุมบนเว็บ</a></li><li><a href="#suscripcion">การสมัครสมาชิกของประชาคม</a></li><li><a href="#copias">ข้อมูลถูกบันทึกไว้ในโทรศัพท์เครื่องนี้เท่านั้น</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">สำหรับพี่น้องทุกคน</h2>
+<section id="entrar"><h2>1. เข้าใช้ Wkit ครั้งแรก</h2>
+<p>การเข้าใช้ Wkit <strong>ไม่ต้องใช้อีเมลหรือรหัสผ่าน</strong> ผู้ปกครองในประชาคมของคุณเชิญคุณ และคุณเข้าด้วยลิงก์หรือรหัส</p>
+<ol class="pasos"><li>ขอให้ผู้ปกครองที่ดูแลรายชื่อพี่น้องเชิญคุณ คุณจะได้รับ<strong>ข้อความสองข้อความติดกัน</strong> ข้อความแรกเป็นลิงก์ และข้อความที่สองเป็นรหัสล้วน ๆ (เพื่อให้คัดลอกง่าย)</li><li>ติดตั้ง <strong>Wkit</strong> จาก App Store (iPhone และ iPad) หรือจาก Google Play (Android)</li><li>แตะลิงก์ในข้อความแรก แอปจะเปิดและรู้จักคุณ</li><li>หากลิงก์ไม่เปิดแอป ให้เปิดแอปเอง แตะ <strong>“ฉันมีลิงก์หรือรหัสเชิญ”</strong> แล้ววางทั้งข้อความหรือเฉพาะรหัส แอปจะดึงสิ่งที่ต้องการเอง</li><li>คุณจะเห็นหน้าจอต้อนรับไม่กี่หน้า (<strong>“ขั้นตอนแรก”</strong>) ที่อธิบายว่าอะไรที่แบ่งปันและอะไรที่ไม่แบ่งปัน เมื่อเสร็จแล้ว คุณก็เข้าใช้ได้แล้ว</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>หากรหัสใช้ไม่ได้</strong> (“ไม่ถูกต้องหรือหมดอายุ”) ให้ขอผู้ปกครองสร้างรหัสใหม่ ทำได้ในไม่กี่วินาทีจากบัตรของคุณ</div>
+<div class="nota"><strong>สิ่งที่แบ่งปันและสิ่งที่ไม่แบ่งปัน:</strong> รายชื่อพี่น้อง โปรแกรม การทำความสะอาด เขตประกาศ และประกาศ ทั้งประชาคมเห็น และสร้างโดยผู้ปกครอง <strong>รายงานของคุณเป็นของคุณคนเดียว</strong>: ไม่มีใครเห็น รวมถึงผู้ปกครอง และซิงก์ระหว่างอุปกรณ์ของคุณ</div>
+</section>
+<section id="inicio"><h2>2. หน้าจอหลัก</h2>
+<p>นี่คือสิ่งแรกที่คุณเห็นเมื่อเปิด Wkit แสดง<strong>ส่วนของคุณ</strong>อย่างรวดเร็ว หากคุณไม่มีงานมอบหมาย จะเห็น “ไม่มีงานมอบหมายที่กำลังจะมาถึง”</p>
+<ul><li><strong>ส่วนที่กำลังจะมาถึง</strong>: ส่วนของคุณในการประชุมชีวิตและงานเผยแพร่ และในการประชุมสาธารณะ (ประธาน ผู้อ่าน ผู้บรรยาย ฯลฯ)</li><li><strong>หน้าที่รับผิดชอบ</strong>: สิ่งที่คุณได้รับในงานเสียงและภาพ / ผู้ช่วยงาน</li><li><strong>การล้างข้อมูล</strong>: จะปรากฏก็ต่อเมื่อ <em>สัปดาห์นี้</em> เป็นคิวของกลุ่มคุณ หากผู้ดูแลหรือผู้ช่วยของกลุ่มกำหนดวันและเวลาไว้ คุณจะเห็นอยู่ด้านล่าง (เช่น “วันอาทิตย์ 12:30”)</li><li><strong>โปรแกรมอื่น ๆ</strong>, <strong>เขตประกาศ</strong> (และแคมเปญ หากมี) และการเตือน <strong>รายงาน</strong>.</li><li><strong>ปฏิทิน</strong>: กิจกรรมของประชาคม (การประชุม การเยี่ยมของผู้ดูแลหมวด ฯลฯ) พร้อมระฆังของแต่ละรายการสำหรับตั้งการเตือน</li></ul>
+<p>ด้านล่างมีห้าแท็บ: <strong>หน้าหลัก</strong>, <strong>โปรแกรม</strong>, <strong>รายงาน</strong>, <strong>เขตประกาศ</strong> และ <strong>เมนู</strong> (ที่นั่นมีรายชื่อพี่น้อง กลุ่ม การทำความสะอาด ประกาศ และการตั้งค่า)</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. การเตือน: ระฆัง</h2>
+<p>ข้างงานมอบหมาย หน้าที่ หรือคิวทำความสะอาดแต่ละรายการมี<strong>ระฆัง</strong> ใช้ให้โทรศัพท์เตือนคุณล่วงหน้าในเวลาที่คุณเลือก</p>
+<ol class="pasos"><li>แตะระฆังของงานมอบหมายนั้น</li><li>เลือกวันและเวลาของการเตือน</li><li>ยืนยัน ระฆังจะเปลี่ยนเป็นสีเขียวและสั่นเมื่อถึงเวลา</li><li>หากต้องการเอาออก แตะระฆังอีกครั้งแล้วเลือกลบการเตือน</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">หากผู้ปกครองเปลี่ยนวันหรือเวลาทำความสะอาด ระฆังจะเสนอให้ตั้งการเตือนใหม่ด้วยวันที่ใหม่</div>
+<div class="nota"><span class="plat a">Android</span> หากการเตือนไม่มา ให้ตรวจว่า Wkit มีสิทธิ์แจ้งเตือนในการตั้งค่าโทรศัพท์ และแบตเตอรี่ไม่ถูกจำกัด</div>
+</section>
+<section id="notificaciones"><h2>4. การแจ้งเตือน: สิ่งที่ Wkit บอกคุณ</h2>
+<p>Wkit แจ้งคุณเมื่อมีประกาศใหม่ เมื่อมีการมอบหมายบางอย่างให้คุณ หรือเมื่อมีการเปลี่ยนแปลงที่เกี่ยวกับคุณ</p>
+<ol class="pasos"><li>ครั้งแรก ให้<strong>อนุญาตการแจ้งเตือน</strong>เมื่อโทรศัพท์ถาม</li><li>เปิด <strong>เมนู → การตั้งค่า → การแจ้งเตือน</strong></li><li>ปิดหมวดที่คุณไม่ต้องการ (ประกาศ โปรแกรม เสียงและภาพ การทำความสะอาด เขตประกาศ ฯลฯ) และเลือกวันและเวลาที่คุณต้องการรับการแจ้งเตือน</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>อุปกรณ์หนึ่งเครื่องรับการแจ้งเตือนของคนเพียงคนเดียวในแต่ละครั้ง</strong>: คือคนที่เปิดเซสชันไว้ หากไม่มา ให้เปิด Wkit ด้วยบัญชีของคุณอย่างน้อยหนึ่งครั้งเพื่อลงทะเบียนอุปกรณ์</div>
+</section>
+<section id="informe"><h2>5. รายงานงานรับใช้ของคุณ (ส่วนตัว)</h2>
+<p>รายงานเป็นเครื่องมือ<strong>ส่วนตัว</strong> มีเพียงคุณที่เห็น ผู้ปกครองก็ไม่เห็น เก็บไว้ในโทรศัพท์ของคุณและซิงก์ระหว่างอุปกรณ์ของคุณ</p>
+<ol class="pasos"><li>เปิดแท็บ <strong>รายงาน</strong> ครั้งแรก Wkit จะถามไม่กี่ข้อ ได้แก่ ประเภทงานรับใช้ของคุณ (ผู้ประกาศ ไพโอเนียร์ ฯลฯ) และ<strong>เป้าหมายชั่วโมงรายเดือน</strong>ของคุณ</li><li>หากต้องการบันทึกงานรับใช้ แตะ <strong>“ใหม่”</strong> แล้วกรอกวันที่ ชั่วโมง นาที และการศึกษา</li><li>ใน<strong>ประวัติ</strong> คุณเห็นสิ่งที่ทำได้ในเดือนนั้นและในปีบริการ และสามารถแก้ไขหรือลบรายการได้</li><li>ในวันแรกของแต่ละเดือน Wkit เตือนคุณในเวลาที่คุณเลือกให้<strong>ส่งรายงาน</strong> ปุ่ม <strong>“ส่งรายงาน”</strong> จะเตรียมข้อความพร้อมชั่วโมงและการศึกษาของคุณ</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>รายงานของคุณซิงก์</strong> กับบัญชีของคุณ ดังนั้นหากเปลี่ยนโทรศัพท์ คุณจะได้กลับมาเมื่อเข้าใช้ใหม่ แต่ก็ควรสำรองข้อมูลไว้ (เมนู → การตั้งค่า → การสำรองข้อมูล) เพื่อความมั่นใจอีกชั้น ดูหัวข้อที่ 21</div>
+</section>
+<section id="territorios-pub"><h2>6. เขตประกาศ: ดู คืน และขอ</h2>
+<p>ในแท็บ <strong>เขตประกาศ</strong> คุณเห็นเขตประกาศที่มอบหมายให้คุณ พร้อมวันที่คุณเริ่มถือ</p>
+<ol class="pasos"><li>หากต้อง<strong>คืน</strong>เขตประกาศเมื่อทำเสร็จ ให้เปิดแล้วแตะ <strong>“คืน”</strong> (หรือ <strong>“แจ้งว่าเสร็จแล้ว”</strong>) ผู้ที่ดูแลเขตประกาศจะได้รับแจ้ง</li><li>หาก<strong>ไม่มีเลย</strong>และต้องการ ให้แตะ <strong>“ขอเขตประกาศ”</strong> คุณเพิ่มข้อความได้ตามต้องการ (เช่น “อยากได้เขตที่ Carcabuey”)</li><li>ผู้ดูแลเขตประกาศทุกคนจะได้รับแจ้ง และคนแรกที่ว่างจะมอบให้คุณหนึ่งเขต คุณจะได้รับการแจ้งเตือนเมื่อได้รับแล้ว</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. บัญชีของคุณ: เปลี่ยนโทรศัพท์ เชื่อมอีเมล ภาษา และลบ</h2>
+<h3>เปลี่ยนหรือทำโทรศัพท์หาย</h3>
+<ul><li>หากคุณ<strong>ไม่ได้เชื่อมอีเมล</strong> (พี่น้องไม่จำเป็นต้องมี) ผู้ปกครองจะส่ง<strong>คำเชิญใหม่</strong>จากบัตรของคุณในรายชื่อพี่น้อง คุณจะได้ที่ของคุณกลับมาพร้อมทุกอย่างของประชาคมและรายงานของคุณ</li><li>หากคุณ<strong>เชื่อมอีเมลไว้</strong> ให้เปิด Wkit แตะ <strong>“สร้างบัญชีหรือเข้าสู่ระบบในฐานะผู้ดูแลระบบ”</strong> พิมพ์อีเมลของคุณ แล้วเปิดลิงก์ที่ได้รับ คุณจะเข้าใช้พร้อมทุกอย่างเหมือนเดิม</li></ul>
+<h3>ใช้ Wkit บนหลายอุปกรณ์</h3>
+<ul><li>คุณใช้<strong>บัญชีเดียวกันพร้อมกัน</strong>บน iPhone, iPad และ Android ได้ (เช่น บนโทรศัพท์และแท็บเล็ต)</li><li>หากต้องการเพิ่มอุปกรณ์อื่น ผู้ปกครองส่งคำเชิญจากบัตรของคุณ และคุณเปิดบนอุปกรณ์นั้น <strong>เซสชันบนเครื่องแรกจะไม่ถูกปิด</strong></li><li>รายงานของคุณซิงก์ระหว่างอุปกรณ์ทั้งหมดของคุณ</li></ul>
+<h3>เชื่อมอีเมลของคุณ (ไม่บังคับ แนะนำสำหรับผู้ดูแลระบบ)</h3>
+<ol class="pasos"><li>เปิด <strong>เมนู → การตั้งค่า → บัญชีของฉัน → เชื่อมอีเมลของฉัน</strong></li><li>พิมพ์อีเมลของคุณ ลิงก์ยืนยันจะส่งมาถึง</li><li><strong>เปิดจากโทรศัพท์เครื่องเดียวกัน</strong>ในแอปอีเมล หน้าจอจะปิดเองและบัญชีของคุณถูกเชื่อมแล้ว</li></ol>
+<h3>เปลี่ยนภาษา</h3>
+<p>Wkit ใช้ภาษาของโทรศัพท์ หากต้องการเปลี่ยนเฉพาะใน Wkit: การตั้งค่าโทรศัพท์ → แอป → Wkit → ภาษา</p>
+<h3>ลบบัญชีของคุณ</h3>
+<p><strong>เมนู → การตั้งค่า → บัญชีของฉัน → ลบบัญชีของฉัน</strong> บัญชีของคุณ บัตรของคุณในรายชื่อ และข้อมูลที่เก็บในโทรศัพท์ (รวมถึงรายงาน) จะถูกลบ เขตประกาศที่คุณถืออยู่จะว่าง ไม่สามารถย้อนกลับได้ หากคุณเป็นผู้ดูแลระบบคนเดียวและยังมีพี่น้องคนอื่น คุณต้องแต่งตั้งคนอื่นก่อน (ในรายชื่อพี่น้อง เปิดบัตรของเขาแล้วเปิด “ผู้ดูแลระบบ”) หากคุณเป็นคนเดียวในประชาคม ทั้งประชาคมก็จะถูกลบด้วย</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">การลบบัญชี<strong>ไม่ยกเลิก</strong>การสมัครสมาชิกของประชาคม หากบัญชีนั้นเป็นผู้ชำระเงิน ให้ยกเลิกใน App Store <span class="plat i">iPhone</span> หรือใน Google Play → การชำระเงินและการสมัครสมาชิก → การสมัครสมาชิก <span class="plat a">Android</span></div>
+</section>
+<section id="copia-seguridad"><h2>21. การสำรองข้อมูล</h2>
+<p>ส่วนใหญ่ใช้เพื่อมี<strong>สำเนาเพิ่มเติมของรายงานของคุณ</strong> แม้จะซิงก์ระหว่างอุปกรณ์ สำเนาช่วยคุณหากลบโดยไม่ตั้งใจ ดูได้ที่ <strong>เมนู → การตั้งค่า → การสำรองข้อมูล</strong></p>
+<ul><li><strong>สำรองข้อมูลอัตโนมัติ</strong>: ทำสำเนาเดือนละครั้งโดยอัตโนมัติ</li><li><strong>“ทำสำเนาตอนนี้”</strong> y <strong>“ส่งออกการสำรองข้อมูล”</strong>: คุณเก็บไฟล์ไว้ที่ใดก็ได้หรือส่งให้ตัวเอง</li><li><strong>“กู้คืนการสำรองข้อมูล”</strong>: เลือกไฟล์ที่ส่งออกจาก Wkit ข้อมูลในสำเนาจะ <strong>เพิ่มเข้า</strong> กับที่คุณมีอยู่แล้ว ไม่มีอะไรถูกลบ</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> สำเนาอัตโนมัติถูกเก็บใน iCloud ของคุณ <span class="plat a">Android</span> เก็บไว้ในโทรศัพท์ และหากเปิดการสำรองข้อมูลของ Android ในบัญชี Google ของคุณ (การตั้งค่าโทรศัพท์ → Google → การสำรองข้อมูล) เมื่อคุณเข้าสู่ระบบด้วยบัญชีนั้นบนโทรศัพท์เครื่องใหม่ คุณจะได้กลับมาโดยอัตโนมัติ</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">สำหรับผู้ดูแลระบบ (ผู้ปกครอง)</h2>
+<section id="crear-congregacion"><h2>8. สร้างประชาคม</h2>
+<p>ผู้ปกครองทำ<strong>เพียงครั้งเดียว</strong> หลังจากนั้นเขาเชิญคนอื่น</p>
+<ol class="pasos"><li>เปิด Wkit แล้วแตะ <strong>“สร้างบัญชีหรือเข้าสู่ระบบในฐานะผู้ดูแลระบบ”</strong></li><li>พิมพ์อีเมลของคุณแล้วแตะ <strong>“ส่งลิงก์เข้าใช้”</strong> ไม่มีรหัสผ่าน คุณจะได้รับลิงก์เพื่อยืนยันว่าอีเมลเป็นของคุณ</li><li><strong>เปิดลิงก์จากโทรศัพท์เครื่องเดียวกัน</strong> Wkit จะเปิดเอง</li><li>กรอก<strong>ชื่อของคุณ</strong> <strong>ชื่อประชาคม</strong> <strong>หมายเลขประชาคม</strong> และ<strong>ประเทศ</strong> แล้วแตะ <strong>“สร้างประชาคม”</strong></li><li>คุณจะเห็น <strong>“ขั้นตอนแรกในฐานะผู้ปกครอง”</strong>: 1) เพิ่มพี่น้องในรายชื่อพี่น้อง และ 2) เชิญพวกเขา</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">อีเมลไม่มา? ตรวจโฟลเดอร์สแปมแล้วแตะ <strong>“ยังไม่มา ส่งอีกครั้ง”</strong> อีเมลหนึ่งใช้ได้เพียงหนึ่งบัญชีใน Wkit</div>
+</section>
+<section id="hermanos"><h2>9. รายชื่อพี่น้อง</h2>
+<p>นี่คือพื้นฐานของทุกอย่าง โปรแกรม กลุ่ม และงานมอบหมายใช้ชื่อจากรายชื่อนี้ อยู่ที่ <strong>เมนู → รายชื่อพี่น้อง</strong></p>
+<h3>เพิ่มพี่น้อง</h3>
+<ol class="pasos"><li>แตะปุ่ม <strong>+</strong> (<strong>“พี่น้องใหม่”</strong>)</li><li>พิมพ์<strong>ชื่อ</strong>และเลือกว่าเป็น<strong>พี่น้องชาย</strong>หรือ<strong>พี่น้องหญิง</strong></li><li>เลือก<strong>หน้าที่</strong>: ผู้ประกาศที่รับบัพติสมาแล้วหรือยัง ไพโอเนียร์ ผู้รับใช้งานปรนนิบัติ หรือผู้ปกครอง</li><li>หากเหมาะสม ให้เลือก<strong>กลุ่มรับใช้</strong>ของเขา และเปิด <strong>ผู้ดูแลเขตประกาศ</strong> <strong>เสียงและภาพ / ผู้ช่วยงาน</strong> หรือ <strong>ผู้ดูแลระบบ</strong></li><li>แตะ <strong>“สร้าง”</strong></li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>พี่น้องสองคนชื่อเหมือนกัน:</strong> เพิ่มสิ่งที่แยกพวกเขาออกจากกัน (เช่น “ลูกชาย”) เพื่อไม่ให้งานมอบหมายสลับกัน</div>
+<h3>เชิญพี่น้องเข้า Wkit</h3>
+<ol class="pasos"><li>เปิดบัตรของพี่น้องแล้วแตะ <strong>“เชิญ”</strong> (หรือ <strong>“สร้างลิงก์”</strong>)</li><li>แตะ <strong>“แชร์คำเชิญ”</strong> แล้วเลือก WhatsApp ข้อความ ฯลฯ ระบบจะส่ง<strong>ข้อความสองข้อความติดกัน</strong> ข้อความแรกเป็นลิงก์ และข้อความที่สองเป็นรหัสล้วน ๆ เพื่อให้คัดลอกง่าย</li><li>พี่น้องเปิดลิงก์ (หรือวางรหัส) แล้วเข้าใช้ หากเขายังไม่ได้เข้า คุณแชร์คำเชิญอีกครั้งได้ หากสร้างใหม่ อันเก่าจะใช้ไม่ได้</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>แก้ไข ลบ และแต่งตั้งผู้ดูแลระบบ</h3>
+<ul><li>แตะพี่น้องคนหนึ่งแล้วเลือก <strong>“แก้ไข”</strong> เพื่อเปลี่ยนข้อมูลของเขา</li><li>บน Android หากต้องการลบ ให้แตะ<strong>ไอคอนสีแดง</strong>ที่แถวของเขา บน iPhone ปัดแถวไปทางซ้าย เขาจะถูกลบออกจากรายชื่อบนทุกอุปกรณ์ และเขตประกาศที่เขาถืออยู่จะว่าง</li><li><strong>ผู้ดูแลระบบ</strong>จัดการพี่น้อง เขตประกาศ ประกาศ และโปรแกรมได้ <strong>คุณลบบัตรของตัวเองหรือผู้ดูแลระบบคนสุดท้ายไม่ได้</strong> ต้องแต่งตั้งคนอื่นก่อน</li></ul>
+</section>
+<section id="grupos"><h2>10. กลุ่มรับใช้</h2>
+<p>กลุ่มใช้สำหรับงานประกาศและการทำความสะอาด อยู่ที่ <strong>เมนู → กลุ่มรับใช้ → รายการ</strong></p>
+<ol class="pasos"><li>หากยังไม่มี แตะ <strong>“สร้างกลุ่มรับใช้”</strong> แล้วเลือก<strong>จำนวนกลุ่ม</strong>ที่ต้องการ (ภายหลังเพิ่มได้ด้วยปุ่ม <strong>+</strong>)</li><li>หากต้องการจัดพี่น้องเข้ากลุ่ม ไปที่ <strong>รายชื่อพี่น้อง</strong> เปิดบัตรของแต่ละคนแล้วเลือก<strong>กลุ่มรับใช้</strong>ของเขา</li><li>กลับไปที่ <strong>เมนู → กลุ่มรับใช้ → รายการ</strong> คุณจะเห็นในแต่ละกลุ่ม <strong>ผู้ดูแล</strong> <strong>ผู้ช่วย</strong> และพี่น้อง<strong>เรียงตามตัวอักษร</strong></li><li>แตะปุ่ม<strong>ดินสอ</strong> (แก้ไข) แตะ <strong>“ผู้ดูแล”</strong> แล้วเลือกหนึ่งคนจากพี่น้องในกลุ่มนั้น ทำเช่นเดียวกันกับ <strong>“ผู้ช่วย”</strong> ห้ามเป็นคนเดียวกัน</li><li>แตะ<strong>เครื่องหมายถูก</strong>เพื่อเสร็จสิ้น</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">เลือกผู้ดูแลและผู้ช่วย<strong>หลังจาก</strong>จัดพี่น้องเข้ากลุ่มแล้ว เพราะเลือกได้เฉพาะจากพี่น้องในกลุ่มเอง หากย้ายพี่น้องไปกลุ่มอื่น เขาจะไม่เป็นผู้ดูแลหรือผู้ช่วยของกลุ่มเดิมอีก</div>
+<div class="nota">ผู้ดูแลและผู้ช่วยของแต่ละกลุ่ม<strong>กำหนดวันและเวลาทำความสะอาด</strong>ของกลุ่มตนได้ (หัวข้อที่ 12) แม้ไม่ใช่ผู้ดูแลระบบ</div>
+</section>
+<section id="salidas"><h2>11. งานประกาศ</h2>
+<p>งานประกาศคือตารางและจุดนัดพบสำหรับการประกาศ มีทั้งแบบ<strong>ทั่วไป</strong> (ของทั้งประชาคม) และแบบ<strong>เฉพาะของแต่ละกลุ่ม</strong> อยู่ที่ <strong>เมนู → กลุ่มรับใช้ → งานประกาศ</strong> ต้องสร้างกลุ่มไว้ก่อน</p>
+<ol class="pasos"><li>แตะส่วน <strong>“ประชาคม”</strong> (งานทั่วไป) หรือส่วนของ<strong>กลุ่ม</strong>ใดกลุ่มหนึ่ง</li><li>แตะ <strong>“เพิ่มงาน”</strong> ในวันที่เหมาะสม แล้วพิมพ์<strong>ป้ายชื่อ</strong> (เช่น “เช้า” หรือ “บ่าย”) <strong>เวลา</strong> และ<strong>สถานที่</strong>หากต้องการ</li><li>หากต้อง<strong>แก้ไข</strong>งาน ให้แก้ที่ช่องโดยตรง หากต้อง<strong>ลบ</strong> ให้แตะไอคอนสีแดงที่แถวของมัน</li><li>พี่น้องแตะสถานที่เพื่อเปิดในแผนที่ของโทรศัพท์ได้</li></ol>
+<div class="nota">หากกลุ่มไม่มีงานของตนเอง จะใช้งานของประชาคม (“ไม่มีงานของตนเอง — ใช้งานของประชาคม”)</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. การทำความสะอาด: กลุ่มใดหมุนเวียน และวันเวลาใด</h2>
+<p>การทำความสะอาด<strong>หมุนเวียนโดยอัตโนมัติ</strong>ระหว่างกลุ่มรับใช้ แต่ละสัปดาห์เป็นคิวของกลุ่มที่ต่างกัน เริ่มจากกลุ่ม 1 อยู่ที่ <strong>เมนู → การทำความสะอาด → กลุ่ม</strong></p>
+<h3>เปลี่ยนกลุ่มที่ทำความสะอาดสัปดาห์นี้ (ผู้ดูแลระบบ)</h3>
+<ol class="pasos"><li>แตะปุ่ม<strong>ดินสอ</strong> (แก้ไข)</li><li>แตะ<strong>กลุ่ม</strong>ที่เป็นคิวสัปดาห์นี้ สัปดาห์หน้าเป็นคิวของกลุ่มถัดไปตามลำดับ</li><li>แตะ<strong>เครื่องหมายถูก</strong> การเปลี่ยนแปลงนี้<strong>ทุกอุปกรณ์</strong>ของประชาคมเห็น</li></ol>
+<h3>กำหนดวันและเวลาที่แน่นอน (ผู้ดูแลระบบ ผู้ดูแลและผู้ช่วยของกลุ่ม)</h3>
+<ol class="pasos"><li>ใน <strong>เมนู → การทำความสะอาด → กลุ่ม</strong> หากลุ่มของคุณ (หรือที่คุณดูแล) แล้วแตะ<strong>ดินสอ</strong>ที่แถวของมัน</li><li>เลือก<strong>วัน</strong>และ<strong>เวลา</strong> (เช่น วันอาทิตย์ 12:30) แล้วแตะ <strong>“บันทึก”</strong> หากต้องการลบวันที่ แตะ <strong>“ลบวันที่”</strong></li><li>พี่น้องในกลุ่มจะเห็นบนหน้าจอหลัก: <strong>“กลุ่ม 1 · สัปดาห์นี้”</strong> และด้านล่าง <strong>“วันอาทิตย์ 12:30”</strong> พร้อม<strong>ระฆัง</strong>สำหรับตั้งการเตือน</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">วันที่จะปรากฏบนหน้าจอหลักก็ต่อเมื่อตรงกับ<strong>สัปดาห์ปัจจุบัน</strong> (จันทร์ถึงอาทิตย์) คุณกำหนดล่วงหน้าได้ และจะปรากฏเมื่อถึงสัปดาห์นั้น วันที่ของสัปดาห์ที่ผ่านไปแล้วจะหายไปเอง</div>
+</section>
+<section id="vida-ministerio"><h2>13. โปรแกรมชีวิตและงานเผยแพร่</h2>
+<p>ในแท็บ <strong>โปรแกรม → ชีวิตและงานเผยแพร่</strong> คุณสร้างโปรแกรมของแต่ละสัปดาห์และมอบหมายส่วนต่าง ๆ พี่น้องทุกคนเห็นได้ แต่เฉพาะผู้ดูแลระบบที่แก้ไขได้</p>
+<ol class="pasos"><li>แตะ <strong>“สัปดาห์ใหม่”</strong> แล้วเลือก<strong>วันที่ประชุม</strong> (วันใดก็ได้ในสัปดาห์นั้น จันทร์ถึงอาทิตย์)</li><li>Wkit สร้างสัปดาห์นั้นด้วย<strong>โครงสร้างปกติ</strong>: ขุมทรัพย์จากพระคำของพระเจ้า จงเป็นนักประกาศที่เก่งขึ้น และชีวิตคริสเตียนของเรา</li><li>แตะ<strong>หัวข้อ</strong>ใดก็ได้เพื่อแก้ไข และแก้<strong>ระยะเวลา</strong>หากจำเป็น ด้วย <strong>“เพิ่มงานมอบหมาย”</strong> คุณเพิ่มส่วนได้อีก</li><li>ในแต่ละส่วน แตะ <strong>“เลือก”</strong> แล้วเลือกพี่น้องหนึ่งคนหรือหลายคน (เช่น นักเรียนและผู้ช่วย) สำหรับ<strong>ห้องเรียนเสริม</strong> ใช้ <strong>“เพิ่มห้องเรียนเสริม”</strong></li><li>เลือก<strong>เพลง</strong>และ<strong>คำอธิษฐาน</strong>ด้วย แล้วแตะ <strong>“บันทึกโปรแกรม”</strong></li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>หากต้องการดูสัปดาห์อื่น ใช้<strong>ตัวเลือกสัปดาห์</strong> (<strong>“สัปดาห์ที่แล้ว”</strong> / <strong>“สัปดาห์หน้า”</strong>) จากที่นั่นคุณ<strong>แก้ไขหรือลบ</strong>ได้ด้วย</li><li>พี่น้องได้รับ<strong>การแจ้งเตือน</strong>เมื่อได้รับส่วนหนึ่ง และเห็นบนหน้าจอหลักของตน</li><li>โปรแกรมของสัปดาห์จะหายไปเองเมื่อวันอาทิตย์สิ้นสุด</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. การประชุมสาธารณะ</h2>
+<p>ใน <strong>โปรแกรม → การประชุมสาธารณะ</strong> เตรียมการประชุมวันสุดสัปดาห์แต่ละครั้ง</p>
+<ol class="pasos"><li>แตะ <strong>“การประชุมสาธารณะใหม่”</strong> แล้วเลือก<strong>วันที่</strong> หากมีการประชุมในวันนั้นอยู่แล้ว Wkit จะเตือนคุณ</li><li>เลือก<strong>ประธาน</strong> <strong>ผู้บรรยาย</strong> และพิมพ์<strong>หัวข้อคำบรรยาย</strong></li><li>เลือก<strong>ผู้อ่านหอสังเกตการณ์</strong> (“ผู้อ่าน wS”) รวมทั้ง<strong>เพลง</strong>และ<strong>คำอธิษฐาน</strong></li><li>บันทึก พี่น้องเห็นส่วนของตนบนหน้าจอหลัก</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. เสียงและภาพ / ผู้ช่วยงาน</h2>
+<p>ใน <strong>เมนู → เสียงและภาพ / ผู้ช่วยงาน</strong> คุณมอบหมายหน้าที่ของแต่ละสัปดาห์: เสียง ภาพ ไมโครโฟน ผู้ช่วยงาน Zoom จับเวลา ฯลฯ</p>
+<ol class="pasos"><li>แตะ <strong>“สัปดาห์ใหม่”</strong> แล้วเลือก<strong>วันที่ประชุม</strong></li><li>แตะ <strong>“เลือก”</strong> ที่แต่ละหน้าที่แล้วเลือกพี่น้อง บางหน้าที่ เช่น ไมโครโฟน ให้มี<strong>พี่น้องหลายคน</strong> (<strong>“เพิ่มพี่น้อง”</strong>)</li><li>สำหรับหน้าที่อื่นที่ไม่มี แตะ <strong>“เพิ่มหน้าที่”</strong> แล้วตั้งชื่อ</li><li>บันทึก พี่น้องแต่ละคนเห็นใน<strong>หน้าที่รับผิดชอบ</strong>บนหน้าจอหลักของตน พร้อมระฆัง</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. โปรแกรมอื่น ๆ</h2>
+<p>สำหรับ<strong>อะไรก็ตามที่เหลือ</strong>ที่ประชาคมจัดและไม่ใช่การประชุม เช่น การรับส่งพี่น้องที่มาประชุมไม่ได้ หรือการช่วยผู้ประกาศ แต่ละโปรแกรมมีความถี่ของตนเอง อยู่ที่ <strong>เมนู → โปรแกรมอื่น ๆ</strong></p>
+<ol class="pasos"><li>แตะ <strong>“โปรแกรมใหม่”</strong> พิมพ์<strong>ชื่อ</strong>และเลือก<strong>ความถี่ที่จัด</strong>: รายวัน รายสัปดาห์ รายเดือน หรือรายปี</li><li>แตะ <strong>“สร้างสัปดาห์แรก”</strong> (หรือ <strong>“ช่วงเวลาใหม่”</strong>) แล้วเลือกวันที่ วันใดก็ได้ในสัปดาห์ เดือน หรือปีนั้น</li><li>แตะ <strong>“เพิ่มหน้าที่”</strong>: พิมพ์<strong>ป้ายชื่อ</strong>ตามต้องการ (เช่น “รับล่วงหน้า”) และ<strong>เลือกพี่น้อง</strong></li><li>บันทึก ทุกคนเห็นบนหน้าจอหลักของตนใน <strong>“โปรแกรมอื่น ๆ”</strong> และช่วงเวลาจะหายไปเองเมื่อสิ้นสุด</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. ประกาศ</h2>
+<p>ประกาศสร้างโดยผู้ดูแลระบบ และโดยผู้ดูแลกับผู้ช่วยของแต่ละกลุ่มรับใช้ สำหรับกลุ่มของตนเท่านั้น พี่น้องที่เกี่ยวข้องเห็นได้ อยู่ที่ <strong>เมนู → ประกาศ</strong></p>
+<ol class="pasos"><li>แตะ <strong>“ประกาศใหม่”</strong> แล้วพิมพ์<strong>ข้อความ</strong></li><li>โดยค่าเริ่มต้น ประกาศจะเผยแพร่<strong>ทันที</strong>ที่บันทึก และทุกคนได้รับแจ้งทางการแจ้งเตือน</li><li>หากต้องการให้ออกภายหลัง เปิด <strong>“ตั้งเวลาไว้ภายหลัง”</strong> แล้วเลือก<strong>วันและเวลา</strong> จะไม่มีใครเห็นจนถึงเวลานั้น และเมื่อถึงเวลาทุกคนจะได้รับแจ้ง</li><li>บันทึก หากต้องการลบประกาศ แตะที่ประกาศแล้วเลือก <strong>“ลบ”</strong> ประกาศจะหายไปสำหรับทุกคน</li></ol>
+<h3>ประกาศสำหรับกลุ่มเดียว</h3>
+<ul><li><strong>ผู้ดูแล</strong>และ<strong>ผู้ช่วย</strong>ของแต่ละกลุ่มรับใช้เห็นปุ่ม <strong>+</strong> แม้ไม่ใช่ผู้ดูแลระบบ และประกาศของพวกเขาถึง<strong>เฉพาะสมาชิกในกลุ่มของตน</strong></li><li>ผู้ดูแลระบบที่มีกลุ่มด้วยสามารถเปิด <strong>“ส่งประกาศนี้ถึงสมาชิกในกลุ่มของฉันเท่านั้น”</strong> เมื่อสร้างประกาศ</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. ปฏิทินประชาคม</h2>
+<p>ใช้เพื่อให้ทุกคนเห็นกิจกรรมของประชาคม เช่น <strong>การประชุมหมวด</strong>หรือ<strong>การเยี่ยมของผู้ดูแลหมวด</strong> เฉพาะผู้ดูแลระบบที่สร้างกิจกรรมได้</p>
+<ol class="pasos"><li>เปิด <strong>เมนู → ปฏิทิน</strong> แล้วแตะ <strong>“เพิ่มกิจกรรม”</strong></li><li>พิมพ์<strong>ชื่อ</strong>และแตะ<strong>วัน</strong>ของกิจกรรม หากมีหลายวัน ให้แตะทีละวัน</li><li>บันทึก ทุกคนจะเห็นใน<strong>หน้าหลัก</strong> ใต้ “ปฏิทิน” พร้อม<strong>ระฆัง</strong>สำหรับตั้งการเตือน</li><li>หากต้องการแก้ไขหรือลบ ให้เปิดแล้วเลือก <strong>“แก้ไขกิจกรรม”</strong> หรือ <strong>“ลบกิจกรรม”</strong></li></ol>
+</section>
+<section id="territorios-admin"><h2>18. เขตประกาศ: การมอบหมาย แคมเปญ และแผงควบคุมบนเว็บ</h2>
+<p>ผู้ที่มีสิทธิ์<strong>ผู้ดูแลเขตประกาศ</strong>จัดการเขตประกาศของทั้งประชาคมจากแท็บ <strong>เขตประกาศ</strong> (ผู้ประกาศเห็นเฉพาะเขตของตน)</p>
+<h3>มอบและรับเขตประกาศ</h3>
+<ul><li>แตะเขตประกาศหนึ่งแล้วเลือก <strong>“มอบหมาย”</strong> (หรือ “มอบหมายให้ผู้ประกาศ”) และพี่น้อง คุณเห็นว่าใครถืออยู่และตั้งแต่เมื่อใด รวมทั้งเขตที่<strong>หมดเวลา</strong>หรือ<strong>ไม่เคยมอบหมาย</strong></li><li>เมื่อผู้ประกาศ<strong>ขอ</strong>เขตประกาศ ผู้ดูแลเขตประกาศทุกคนจะได้รับแจ้ง (<strong>“คำขอเขตประกาศ”</strong>) คนแรกที่ว่างจะมอบหมายให้</li><li>เมื่อพี่น้อง<strong>คืน</strong>เขตประกาศ เขตนั้นจะว่างและบันทึกวันที่ไว้</li></ul>
+<h3>แคมเปญ</h3>
+<ul><li><strong>“แคมเปญใหม่”</strong> บันทึกเขตประกาศทั้งหมดใหม่อีกครั้งในช่วงเวลาหนึ่ง จะมีการสร้าง <strong>สำเนา</strong> ของเขตประกาศปัจจุบันเพื่อแจกจ่ายแยกต่างหาก เขตประกาศปกติไม่ถูกแตะต้อง</li><li>มี<strong>แคมเปญที่ใช้งานอยู่ได้เพียงหนึ่งแคมเปญ</strong>ในแต่ละครั้ง หากต้องการสิ้นสุด เลือก <strong>“ลบแคมเปญ”</strong> การมอบหมายจะถูกลบและทุกอย่างกลับเป็นปกติ</li></ul>
+<h3>บันทึก S-13 และแผงควบคุมบนเว็บ</h3>
+<ul><li>ใน<strong>เครื่องมือ</strong> คุณสร้าง<strong>บันทึก S-13 เป็น PDF</strong> (หนึ่งไฟล์ต่อโซน) เพื่อแบ่งปันได้</li><li><strong>แผงควบคุมเขตประกาศบนเว็บ</strong>เปิดจากเบราว์เซอร์ของคอมพิวเตอร์ หากต้องการให้สิทธิ์เข้าถึงแก่ผู้ดูแลเขตประกาศ ให้เปิดบัตรของเขาในรายชื่อพี่น้อง แล้วแตะ <strong>“สิทธิ์เข้าใช้แผงควบคุม”</strong> → <strong>“สร้างลิงก์”</strong> ลิงก์เป็นส่วนตัว เข้าใช้ด้วย<strong>รหัสผ่าน 6 หลัก</strong>ที่คุณเลือก และเปลี่ยนได้ทุกเมื่อ</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">ลิงก์แผงควบคุมเหมือนรหัสผ่าน อย่าแบ่งปันให้ใครนอกจากผู้ที่ควรมีสิทธิ์ หากสร้างใหม่ อันเก่าจะใช้ไม่ได้</div>
+</section>
+<section id="suscripcion"><h2>19. การสมัครสมาชิกของประชาคม</h2>
+<p>เพื่อให้พี่น้องทุกคนใช้ได้เต็มที่ ต้องมี<strong>การสมัครสมาชิกรายปีของประชาคม</strong> <strong>ผู้ดูแลระบบคนหนึ่งเป็นผู้ชำระและครอบคลุมพี่น้องทุกคน</strong> บน iPhone และ Android พี่น้องคนอื่นไม่ต้องจ่ายอะไร</p>
+<ol class="pasos"><li>เปิด <strong>เมนู → การตั้งค่า → การสมัครสมาชิกของประชาคม</strong></li><li>แตะ <strong>“สมัครสมาชิกให้ประชาคม”</strong> คุณเห็นราคารายปีก่อนยืนยัน หากมี<strong>ช่วงทดลองใช้ฟรี</strong> จะไม่มีการเรียกเก็บเงินจนกว่าจะสิ้นสุด</li><li>ยืนยันผ่าน App Store (iPhone) หรือ Google Play (Android) เสร็จแล้ว ทั้งประชาคมมีสิทธิ์ใช้งาน</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>ต่ออายุ<strong>โดยอัตโนมัติ</strong>ทุกปี เว้นแต่คุณยกเลิกอย่างน้อย 24 ชั่วโมงก่อนสิ้นสุดช่วง</li><li>หากต้อง<strong>จัดการหรือยกเลิก</strong>: <span class="plat i">iPhone</span> การตั้งค่า iPhone → ชื่อของคุณ → การสมัครสมาชิก <span class="plat a">Android</span> Google Play → โปรไฟล์ของคุณ → การชำระเงินและการสมัครสมาชิก → การสมัครสมาชิก (หรือปุ่ม “จัดการหรือยกเลิกใน Google Play” ใน Wkit)</li><li>หากคุณ<strong>เปลี่ยนโทรศัพท์</strong> แตะ <strong>“กู้คืนการซื้อ”</strong> บนหน้าจอเดียวกัน</li><li>หากการสมัครสมาชิก<strong>หมดอายุ</strong> ประชาคมจะเปลี่ยนเป็น<strong>อ่านอย่างเดียว</strong> ทุกอย่างยังมองเห็นและ<strong>ไม่มีอะไรถูกลบ</strong> เมื่อต่ออายุแล้วแก้ไขได้อีกครั้ง</li></ul>
+<div class="nota">Wkit ไม่เคยเห็นหรือเก็บข้อมูลการชำระเงินของคุณ Apple หรือ Google เป็นผู้จัดการ</div>
+</section>
+<section id="copias"><h2>20. ข้อมูลที่เก็บในโทรศัพท์เครื่องนี้เท่านั้น</h2>
+<p>หากคุณใช้ Wkit แบบออฟไลน์หรือก่อนที่ประชาคมของคุณจะมีอยู่ แอปอาจถามว่าจะทำอย่างไรกับ<strong>ข้อมูลที่เก็บในโทรศัพท์เครื่องนี้เท่านั้น</strong> (เช่น พี่น้องหรือประกาศ) คุณมีสองทาง: <strong>“อัปโหลด”</strong> ไปยังประชาคม (ทุกคนจะเห็น) หรือ <strong>“ละทิ้ง”</strong> จะไม่มีอะไรเกิดขึ้นจนกว่าคุณจะตัดสินใจ</p>
+</section>
+      <div class="caja pie"><strong>ไม่พบสิ่งที่คุณกำลังมองหา?</strong> เขียนถึงเราที่ <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> แล้วเล่าให้เราฟังว่าเกิดอะไรขึ้น หากทำได้ โปรดบอกว่าคุณใช้อุปกรณ์อะไร (iPhone, iPad หรือ Android) และกำลังทำอะไรอยู่</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="ca">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Guia de Wkit pas a pas — Wkit</title>
+    <meta name="description" content="Guia de Wkit pas a pas per a publicadors i administradors: accés, recordatoris, informe, germans, grups, neteja, programes, anuncis, territoris i subscripció." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-ca.html">← Wkit</a> · <a href="privacidad-ca.html">Política de privacitat</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <b>Català</b> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Guia de Wkit pas a pas</h1>
+      <p class="sub">Tot el que pots fer a l'aplicació, explicat amb calma: per als publicadors i per als administradors. Funciona igual a iPhone, iPad i Android; quan hi ha diferències, les veuràs marcades amb <span class="plat a">Android</span> o <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Per a tots els germans</h3><ol class="toc"><li><a href="#entrar">Entrar a Wkit per primera vegada</a></li><li><a href="#inicio">La pantalla principal</a></li><li><a href="#recordatorios">Recordatoris: la campaneta</a></li><li><a href="#notificaciones">Notificacions: què t'avisa Wkit</a></li><li><a href="#informe">El teu informe de servei (personal)</a></li><li><a href="#territorios-pub">Territoris: veure, lliurar i demanar</a></li><li><a href="#cuenta">El teu compte: canviar de telèfon, vincular el correu, idioma i eliminar</a></li><li><a href="#copia-seguridad">Còpia de seguretat</a></li></ol></div><div class="toc-g"><h3>Per als administradors (ancians)</h3><ol class="toc"><li><a href="#crear-congregacion">Crear la congregació</a></li><li><a href="#hermanos">Llista de germans</a></li><li><a href="#grupos">Grups de servei</a></li><li><a href="#salidas">Servei del ministeri</a></li><li><a href="#limpieza">Neteja: quin grup toca, i quin dia i a quina hora</a></li><li><a href="#vida-ministerio">Programa de Vida i Ministeri</a></li><li><a href="#reunion-publica">Reunió pública</a></li><li><a href="#audio-video">Àudio i Vídeo / Acomodadors</a></li><li><a href="#otros-programas">Altres programes</a></li><li><a href="#anuncios">Anuncis</a></li><li><a href="#calendario">Calendari de la congregació</a></li><li><a href="#territorios-admin">Territoris: assignacions, campanyes i tauler web</a></li><li><a href="#suscripcion">Subscripció de la congregació</a></li><li><a href="#copias">Dades desades només en aquest telèfon</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Per a tots els germans</h2>
+<section id="entrar"><h2>1. Entrar a Wkit per primera vegada</h2>
+<p>Per entrar a Wkit <strong>no necessites correu ni contrasenya</strong>: un ancià de la teva congregació et convida i tu entres amb un enllaç o un codi.</p>
+<ol class="pasos"><li>Demana a l'ancià que porta la llista de germans que et convidi. Rebràs <strong>dos missatges seguits</strong>: primer un enllaç i després només el codi (perquè sigui fàcil de copiar).</li><li>Instal·la <strong>Wkit</strong> des de l'App Store (iPhone i iPad) o des de Google Play (Android).</li><li>Toca l'enllaç del primer missatge: l'aplicació s'obre i et reconeix.</li><li>Si l'enllaç no obre l'aplicació, obre-la tu mateix, toca <strong>«Tinc un enllaç o codi d'invitació»</strong> i enganxa tot el missatge o només el codi: l'aplicació s'encarrega de treure'n el que cal.</li><li>Veuràs unes pantalles de benvinguda (<strong>«Primers passos»</strong>) que expliquen què es comparteix i què no. En acabar, ja ets dins.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Si el codi no funciona</strong> («no vàlid o caducat»), demana a l'ancià que en generi un de nou: es fa en uns segons des de la teva fitxa.</div>
+<div class="nota"><strong>Què es comparteix i què no:</strong> la llista de germans, els programes, la neteja, els territoris i els anuncis els veu tota la congregació i els crea un ancià. <strong>El teu informe és només teu</strong>: no el veu ningú més, ni tan sols els ancians, i se sincronitza entre els teus dispositius.</div>
+</section>
+<section id="inicio"><h2>2. La pantalla principal</h2>
+<p>És el primer que veus en obrir Wkit. Et mostra <strong>les teves parts</strong> d'un cop d'ull; si no tens cap assignació, veuràs «Cap assignació propera».</p>
+<ul><li><strong>Properes parts</strong>: les teves parts a la reunió de Vida i Ministeri i a la reunió pública (president, lector, orador…).</li><li><strong>Responsabilitats</strong>: què tens a Àudio i Vídeo / Serveis.</li><li><strong>Neteja</strong>: només apareix si <em>aquesta setmana</em> toca al teu grup. Si el superintendent o l'ajudant del grup han posat dia i hora, ho veuràs a sota (per exemple, «Diumenge 12:30»).</li><li><strong>Altres programes</strong>, <strong>Territoris</strong> (i la campanya, si n'hi ha) i els recordatoris <strong>Informe</strong>.</li><li><strong>Calendari</strong>: els esdeveniments de la congregació (assemblees, visita del superintendent de circuit…), amb la seva campaneta per posar un recordatori.</li></ul>
+<p>A baix hi ha cinc pestanyes: <strong>Inici</strong>, <strong>Programa</strong>, <strong>Informe</strong>, <strong>Territoris</strong> i <strong>Menú</strong> (allà hi ha la llista de germans, els grups, la neteja, els anuncis i els ajustos).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Recordatoris: la campaneta</h2>
+<p>Al costat de cada assignació, responsabilitat o torn de neteja hi ha una <strong>campaneta</strong>. Serveix perquè el telèfon t'avisi abans, a l'hora que triïs.</p>
+<ol class="pasos"><li>Toca la campaneta de l'assignació.</li><li>Tria el dia i l'hora del recordatori.</li><li>Confirma. La campaneta es posa verda i vibrarà quan arribi el moment.</li><li>Per treure'l, toca la campaneta una altra vegada i tria eliminar el recordatori.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Si l'ancià canvia el dia o l'hora de la neteja, la campaneta et proposa tornar a posar el recordatori amb la nova data.</div>
+<div class="nota"><span class="plat a">Android</span> Si el recordatori no t'arriba, comprova que Wkit tingui permís de notificacions als ajustos del telèfon i que la bateria no estigui restringida.</div>
+</section>
+<section id="notificaciones"><h2>4. Notificacions: què t'avisa Wkit</h2>
+<p>Wkit t'avisa quan hi ha un anunci nou, quan t'assignen alguna cosa o quan hi ha canvis que et afecten.</p>
+<ol class="pasos"><li>La primera vegada, <strong>permet les notificacions</strong> quan el telèfon et ho demani.</li><li>Obre <strong>Menú → Ajustos → Notificacions</strong>.</li><li>Desactiva les categories que no vulguis (Anuncis, Programa, Àudio i Vídeo, Neteja, Territoris…) i tria els dies i les hores que prefereixes per rebre-les.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Un dispositiu només rep les notificacions d'una persona alhora</strong>: la que té la sessió oberta. Si no t'arriben, obre Wkit amb el teu compte almenys una vegada perquè el dispositiu quedi registrat.</div>
+</section>
+<section id="informe"><h2>5. El teu informe de servei (personal)</h2>
+<p>L'Informe és una eina <strong>personal</strong>: només la veus tu, ni tan sols els ancians. Es desa al teu telèfon i se sincronitza entre els teus dispositius.</p>
+<ol class="pasos"><li>Obre la pestanya <strong>Informe</strong>. La primera vegada, Wkit et fa unes preguntes: el teu tipus de servei (publicador, precursor…) i <strong>el teu objectiu d'hores mensuals</strong>.</li><li>Per anotar el teu servei, toca <strong>«Nou»</strong> i omple la data, les hores, els minuts i els estudis.</li><li>A l'<strong>Historial</strong> veus què has fet al mes i a l'any de servei, i pots modificar o eliminar una anotació.</li><li>El primer dia de cada mes, Wkit et pot recordar, a l'hora que triïs, <strong>lliurar l'informe</strong>. El botó <strong>«Enviar informe»</strong> et prepara el missatge amb les teves hores i estudis.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>El teu informe se sincronitza</strong> amb el teu compte, de manera que si canvies de telèfon el recuperes en tornar a entrar. Tot i així, fes una còpia de seguretat (Menú → Ajustos → Còpia de seguretat): és una garantia addicional. Mira l'apartat 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Territoris: veure, lliurar i demanar</h2>
+<p>A la pestanya <strong>Territoris</strong> veus els territoris que tens assignats, amb la data des de la qual els tens.</p>
+<ol class="pasos"><li>Per <strong>lliurar</strong> un territori quan l'acabes, obre'l i toca <strong>«Lliurar»</strong> (o <strong>«Avisar que està acabat»</strong>). S'avisa a qui s'encarrega dels territoris.</li><li>Si <strong>no en tens cap</strong> i en vols un, toca <strong>«Demanar territori»</strong>. Pots afegir un missatge opcional (per exemple, «M'agradaria el de Carcabuey»).</li><li>S'avisa tots els encarregats de territoris, i el primer que pugui te'n assignarà un. Rebràs una notificació quan t'hagin assignat.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. El teu compte: canviar de telèfon, vincular el correu, idioma i eliminar</h2>
+<h3>Canviar o perdre el telèfon</h3>
+<ul><li>Si <strong>no vas vincular el correu</strong> (els germans no ho necessiten), un ancià t'envia una <strong>invitació nova</strong> des de la teva fitxa a la Llista de germans. Recuperes el teu lloc amb tot el de la congregació i amb el teu Informe.</li><li>Si <strong>vas vincular el correu</strong>, obre Wkit, toca <strong>«Crear compte o entrar com a administrador»</strong>, escriu el teu correu i obre l'enllaç que rebis. Entres amb tot com abans.</li></ul>
+<h3>Utilitzar Wkit en diversos dispositius</h3>
+<ul><li>Pots utilitzar <strong>el mateix compte alhora</strong> a iPhone, iPad i Android (per exemple, al telèfon i a la tauleta).</li><li>Per afegir un altre dispositiu, un ancià t'envia una invitació des de la teva fitxa i tu l'obres en aquell dispositiu. <strong>La sessió del primer no es tanca.</strong></li><li>El teu Informe se sincronitza entre tots els teus dispositius.</li></ul>
+<h3>Vincular el teu correu (opcional, recomanat per als administradors)</h3>
+<ol class="pasos"><li>Obre <strong>Menú → Ajustos → El meu compte → Vincular el meu correu</strong>.</li><li>Escriu el teu correu. T'arribarà un enllaç de confirmació.</li><li><strong>Obre'l des del mateix telèfon</strong>, a l'aplicació de correu. La pantalla es tanca sola i el teu compte queda vinculat.</li></ol>
+<h3>Canviar l'idioma</h3>
+<p>Wkit utilitza l'idioma del telèfon. Per canviar-lo només a Wkit: ajustos del telèfon → Aplicacions → Wkit → Idioma.</p>
+<h3>Eliminar el teu compte</h3>
+<p><strong>Menú → Ajustos → El meu compte → Elimina el meu compte.</strong> S'eliminen el teu compte, la teva fitxa a la llista i les dades desades al telèfon (inclòs l'Informe); els territoris que tenies queden lliures. No es pot desfer. Si ets l'únic administrador i hi ha més germans, primer has de nomenar-ne un altre (a la Llista de germans, obre la seva fitxa i activa «Administrador»). Si ets l'única persona de la congregació, també s'elimina tota la congregació.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Eliminar el compte <strong>no cancel·la</strong> la subscripció de la congregació, si la paga aquest compte: es cancel·la a l'App Store <span class="plat i">iPhone</span> o a Google Play → Pagaments i subscripcions → Subscripcions <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Còpia de seguretat</h2>
+<p>Serveix sobretot per tenir <strong>una còpia addicional del teu Informe</strong>: encara que se sincronitza entre dispositius, la còpia et protegeix si l'esborres per error. La trobes a <strong>Menú → Ajustos → Còpia de seguretat</strong>.</p>
+<ul><li><strong>Còpia automàtica</strong>: fa una còpia un cop al mes, automàticament.</li><li><strong>«Fer còpia ara»</strong> y <strong>«Exportar còpia»</strong>: pots desar el fitxer on vulguis o enviar-te'l a tu mateix.</li><li><strong>«Restaurar còpia»</strong>: tria un fitxer exportat des de Wkit. Les dades de la còpia <strong>s'afegeixen</strong> a les que ja tens: no se n'esborra cap.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> La còpia automàtica es desa al teu iCloud. <span class="plat a">Android</span> Es desa al telèfon i, si tens activada la còpia de seguretat d'Android al teu compte de Google (ajustos del telèfon → Google → Còpia de seguretat), en entrar amb aquest compte a un telèfon nou la recuperes automàticament.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Per als administradors (ancians)</h2>
+<section id="crear-congregacion"><h2>8. Crear la congregació</h2>
+<p>Ho fa <strong>una sola vegada</strong> un ancià; després convida els altres.</p>
+<ol class="pasos"><li>Obre Wkit i toca <strong>«Crear compte o entrar com a administrador»</strong>.</li><li>Escriu el teu correu i toca <strong>«Enviar enllaç d'accés»</strong>. No hi ha contrasenya: reps un enllaç per confirmar que el correu és teu.</li><li><strong>Obre l'enllaç des del mateix telèfon.</strong> Wkit s'obre sol.</li><li>Omple <strong>el teu nom</strong>, <strong>el nom de la congregació</strong>, <strong>el número de la congregació</strong> i <strong>el país</strong>, i toca <strong>«Crear congregació»</strong>.</li><li>Veuràs <strong>«Primers passos com a ancià»</strong>: 1) afegeix els germans a la Llista de germans i 2) convida'ls.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">No arriba el correu? Mira la carpeta de correu brossa i toca <strong>«Encara no ha arribat, torna a enviar»</strong>. Un correu només pot tenir un compte a Wkit.</div>
+</section>
+<section id="hermanos"><h2>9. Llista de germans</h2>
+<p>És la base de tot: els programes, els grups i les assignacions utilitzen els noms d'aquesta llista. Està a <strong>Menú → Llista de germans</strong>.</p>
+<h3>Afegir un germà</h3>
+<ol class="pasos"><li>Toca el botó <strong>+</strong> (<strong>«Nou germà»</strong>).</li><li>Escriu el <strong>nom</strong> i tria si és <strong>germà</strong> o <strong>germana</strong>.</li><li>Tria el seu <strong>càrrec</strong>: publicador batejat o no batejat, precursor, servent ministerial o ancià.</li><li>Si escau, tria el seu <strong>grup de servei</strong> i activa <strong>Encarregat de territoris</strong>, <strong>Àudio i Vídeo / Serveis</strong> o <strong>Administrador</strong>.</li><li>Toca <strong>«Crear»</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Dos germans amb el mateix nom:</strong> afegeix alguna cosa que els distingeixi (per exemple, «fill») perquè les assignacions no es barregin.</div>
+<h3>Convidar un germà a Wkit</h3>
+<ol class="pasos"><li>Obre la fitxa del germà i toca <strong>«Convidar»</strong> (o <strong>«Generar enllaç»</strong>).</li><li>Toca <strong>«Compartir invitació»</strong> i tria WhatsApp, missatges, etc. S'envien <strong>dos missatges seguits</strong>: primer l'enllaç i després només el codi, perquè sigui fàcil de copiar.</li><li>El germà obre l'enllaç (o enganxa el codi) i entra. Si encara no ha entrat, pots tornar a compartir la invitació; si en generes una de nova, l'anterior deixa de valer.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Modificar, eliminar i nomenar administradors</h3>
+<ul><li>Toca un germà i tria <strong>«Modificar»</strong> per canviar les seves dades.</li><li>A Android, per eliminar, toca la <strong>icona vermella</strong> de la seva fila; a iPhone, llisca la fila cap a l'esquerra. S'elimina de la llista a tots els dispositius i els territoris que tenia queden lliures.</li><li>Un <strong>administrador</strong> pot gestionar germans, territoris, anuncis i programes. <strong>No pots eliminar la teva pròpia fitxa ni l'últim administrador</strong>: primer nomena'n un altre.</li></ul>
+</section>
+<section id="grupos"><h2>10. Grups de servei</h2>
+<p>Els grups serveixen per al servei del ministeri i per a la neteja. Són a <strong>Menú → Grups de servei → Llista</strong>.</p>
+<ol class="pasos"><li>Si encara no n'hi ha cap, toca <strong>«Crear grups de servei»</strong> i tria <strong>quants grups</strong> vols (després en pots afegir més amb el botó <strong>+</strong>).</li><li>Per col·locar els germans als seus grups, ves a la <strong>Llista de germans</strong>, obre la fitxa de cadascun i tria el seu <strong>grup de servei</strong>.</li><li>Torna a <strong>Menú → Grups de servei → Llista</strong>. Veuràs, a cada grup, el <strong>superintendent</strong>, l'<strong>ajudant</strong> i els germans <strong>per ordre alfabètic</strong>.</li><li>Toca el botó del <strong>llapis</strong> (Modificar). Toca <strong>«Superintendent»</strong> i tria un dels germans d'aquell grup; fes el mateix amb <strong>«Ajudant»</strong>. No poden ser la mateixa persona.</li><li>Toca la <strong>marca de verificació</strong> per acabar.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">El superintendent i l'ajudant es trien <strong>després</strong> de col·locar els germans, perquè només es pot triar entre els germans del mateix grup. Si passes un germà a un altre grup, deixa de ser superintendent o ajudant de l'anterior.</div>
+<div class="nota">El superintendent i l'ajudant de cada grup <strong>poden posar el dia i l'hora de la neteja</strong> del seu grup (apartat 12), encara que no siguin administradors.</div>
+</section>
+<section id="salidas"><h2>11. Servei del ministeri</h2>
+<p>El servei del ministeri són els horaris i els punts de trobada per a la predicació. N'hi ha de <strong>generals</strong> (per a tota la congregació) i <strong>propis de cada grup</strong>. Són a <strong>Menú → Grups de servei → Servei del ministeri</strong>. Abans has d'haver creat els grups.</p>
+<ol class="pasos"><li>Toca l'apartat <strong>«Congregació»</strong> (serveis generals) o l'apartat d'un <strong>grup</strong>.</li><li>Toca <strong>«Afegir servei»</strong> al dia que correspongui i escriu l'<strong>etiqueta</strong> (per exemple, «Matí» o «Tarda»), l'<strong>hora</strong> i, si vols, el <strong>lloc</strong>.</li><li>Per <strong>modificar</strong> un servei, canvia directament els seus camps. Per <strong>eliminar-lo</strong>, toca la icona vermella de la seva fila.</li><li>Els germans poden tocar el lloc per obrir-lo al mapa del telèfon.</li></ol>
+<div class="nota">Si un grup no té serveis propis, s'utilitzen els de la congregació («Sense serveis propis — s'utilitzen els de la congregació»).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Neteja: quin grup toca, i quin dia i a quina hora</h2>
+<p>La neteja <strong>rota automàticament</strong> entre els grups de servei: cada setmana toca un grup diferent, començant pel Grup 1. És a <strong>Menú → Neteja → Grups</strong>.</p>
+<h3>Canviar el grup que neteja aquesta setmana (administrador)</h3>
+<ol class="pasos"><li>Toca el botó del <strong>llapis</strong> (Modificar).</li><li>Toca el <strong>grup</strong> que toca aquesta setmana. La setmana vinent tocarà el següent per ordre.</li><li>Toca la <strong>marca de verificació</strong>. El canvi el veuen <strong>tots els dispositius</strong> de la congregació.</li></ol>
+<h3>Posar el dia i l'hora exactes (administrador, superintendent i ajudant del grup)</h3>
+<ol class="pasos"><li>A <strong>Menú → Neteja → Grups</strong>, busca el teu grup (o el que gestiones) i toca el <strong>llapis</strong> de la seva fila.</li><li>Tria el <strong>dia</strong> i l'<strong>hora</strong> (per exemple, diumenge a les 12:30) i toca <strong>«Desar»</strong>. Per esborrar la data, toca <strong>«Treure data»</strong>.</li><li>Els germans del grup ho veuran a la pantalla principal: <strong>«Grup 1 · Aquesta setmana»</strong> i a sota <strong>«Diumenge 12:30»</strong>, amb la seva <strong>campaneta</strong> per posar un recordatori.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">La data només apareix a la pantalla principal si cau a la <strong>setmana actual</strong> (de dilluns a diumenge). Pots posar-la amb antelació: apareixerà quan arribi aquella setmana. Les dates de setmanes passades desapareixen soles.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Programa de Vida i Ministeri</h2>
+<p>A la pestanya <strong>Programa → Vida i Ministeri</strong> crees el programa de cada setmana i assignes les parts. Tots els germans el veuen; només els administradors el modifiquen.</p>
+<ol class="pasos"><li>Toca <strong>«Nova setmana»</strong> i tria la <strong>data de la reunió</strong> (qualsevol dia d'aquella setmana, de dilluns a diumenge).</li><li>Wkit crea la setmana amb l'<strong>estructura habitual</strong>: Tresors de la Paraula de Déu, Seguim el model de Jesús al ministeri i Vida cristiana.</li><li>Toca qualsevol <strong>títol</strong> per canviar-lo, i la <strong>durada</strong> si cal. Amb <strong>«Afegir assignació»</strong> pots afegir més parts.</li><li>A cada part, toca <strong>«Triar»</strong> i tria el germà o els germans (per exemple, l'estudiant i l'ajudant). Per a les <strong>sales auxiliars</strong>, utilitza <strong>«Afegir sala auxiliar»</strong>.</li><li>Tria també el <strong>cantic</strong> i l'<strong>oració</strong>, i toca <strong>«Desar programa»</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Per veure una altra setmana, utilitza el <strong>selector de setmanes</strong> (<strong>«Setmana anterior»</strong> / <strong>«Setmana següent»</strong>); des d'allà també pots <strong>modificar-la o eliminar-la</strong>.</li><li>Els germans reben una <strong>notificació</strong> quan se'ls assigna una part i la veuen a la pantalla principal.</li><li>El programa de la setmana desapareix sol quan acaba el diumenge.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Reunió pública</h2>
+<p>A <strong>Programa → Reunió pública</strong> es prepara cada reunió del cap de setmana.</p>
+<ol class="pasos"><li>Toca <strong>«Nova reunió pública»</strong> i tria la <strong>data</strong>. Si ja hi ha una reunió aquell dia, Wkit t'avisa.</li><li>Tria el <strong>president</strong>, l'<strong>orador</strong> i escriu el <strong>títol del discurs</strong>.</li><li>Tria el <strong>lector de La Atalaya</strong> («Lector wS») i el <strong>cantic</strong> i l'<strong>oració</strong>.</li><li>Desa. Els germans veuen la seva part a la pantalla principal.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Àudio i Vídeo / Serveis</h2>
+<p>A <strong>Menú → Àudio i Vídeo / Serveis</strong> assignes les responsabilitats de cada setmana: àudio, vídeo, micròfons, serveis, Zoom, cronometratge…</p>
+<ol class="pasos"><li>Toca <strong>«Nova setmana»</strong> i tria la <strong>data de la reunió</strong>.</li><li>Toca <strong>«Triar»</strong> a cada responsabilitat i tria el germà. Algunes, com els micròfons, permeten <strong>diversos germans</strong> (<strong>«Afegir germà»</strong>).</li><li>Per a una altra responsabilitat que no hi sigui, toca <strong>«Afegir responsabilitat»</strong> i posa-li nom.</li><li>Desa. Cada germà ho veu a <strong>Responsabilitats</strong>, a la seva pantalla principal, amb la campaneta.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Altres programes</h2>
+<p>Per a <strong>qualsevol altra cosa</strong> que organitzi la congregació i no sigui una reunió: per exemple, el transport de germans que no hi poden arribar, o l'ajuda a publicadors. Cada programa té la seva pròpia periodicitat. És a <strong>Menú → Altres programes</strong>.</p>
+<ol class="pasos"><li>Toca <strong>«Nou programa»</strong>. Escriu el <strong>nom</strong> i tria <strong>cada quant s'organitza</strong>: diari, setmanal, mensual o anual.</li><li>Toca <strong>«Crear primera setmana»</strong> (o <strong>«Nou període»</strong>) i tria la data: qualsevol dia d'aquella setmana, mes o any.</li><li>Toca <strong>«Afegir responsabilitat»</strong>: escriu una <strong>etiqueta</strong> opcional (per exemple, «Recollir abans») i <strong>tria el germà o la germana</strong>.</li><li>Desa. Cadascú ho veu a la seva pantalla principal, a <strong>«Altres programes»</strong>, i el període desapareix sol quan acaba.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Anuncis</h2>
+<p>Els anuncis els creen els administradors i, només per al seu grup, el superintendent i l'ajudant de cada grup de servei. Els veuen els germans a qui van dirigits. Són a <strong>Menú → Anuncis</strong>.</p>
+<ol class="pasos"><li>Toca <strong>«Nou anunci»</strong> i escriu el <strong>missatge</strong>.</li><li>Per defecte es publica <strong>a l'instant</strong>, quan el deses, i s'avisa tothom amb una notificació.</li><li>Si vols que surti més tard, activa <strong>«Programar per més tard»</strong> i tria la <strong>data i l'hora</strong>: fins aleshores no el veurà ningú, i a aquella hora s'avisa tothom.</li><li>Desa. Per treure un anunci, toca'l i tria <strong>«Eliminar»</strong>: desapareix per a tothom.</li></ol>
+<h3>Anuncis per a un sol grup</h3>
+<ul><li>El <strong>superintendent</strong> i l'<strong>ajudant</strong> de cada grup de servei veuen el botó <strong>+</strong> encara que no siguin administradors, i els seus anuncis arriben <strong>només als membres del seu grup</strong>.</li><li>Un administrador que també tingui grup pot activar <strong>«Enviar aquest anunci només als membres del meu grup»</strong> en crear l'anunci.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Calendari de la congregació</h2>
+<p>Serveix perquè tothom vegi els esdeveniments de la congregació, com una <strong>assemblea de circuit</strong> o la <strong>visita del superintendent de circuit</strong>. Només els administradors creen esdeveniments.</p>
+<ol class="pasos"><li>Obre <strong>Menú → Calendari</strong> i toca <strong>«Afegir esdeveniment»</strong>.</li><li>Escriu el <strong>títol</strong> i toca els <strong>dies</strong> de l'esdeveniment: si dura diversos dies, toca'ls un per un.</li><li>Desa. Tothom ho veurà a l'<strong>Inici</strong>, sota «Calendari», amb la seva <strong>campaneta</strong> per posar un recordatori.</li><li>Per modificar-lo o treure'l, obre'l i tria <strong>«Modificar esdeveniment»</strong> o <strong>«Eliminar esdeveniment»</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Territoris: assignacions, campanyes i tauler web</h2>
+<p>Qui té el permís d'<strong>Encarregat de territoris</strong> gestiona els territoris de tota la congregació des de la pestanya <strong>Territoris</strong> (els publicadors només veuen els seus).</p>
+<h3>Donar i rebre territoris</h3>
+<ul><li>Toca un territori i tria <strong>«Assignar»</strong> (o «Assignar a un publicador») i el germà. Veus qui el té i des de quan, i els que estan <strong>caducats</strong> o <strong>mai assignats</strong>.</li><li>Quan un publicador <strong>en demana</strong> un, s'avisa tots els encarregats de territoris (<strong>«Sol·licitud de territori»</strong>); el primer que pugui l'assignarà.</li><li>Quan un germà <strong>lliura</strong> un territori, queda lliure i es registra la data.</li></ul>
+<h3>Campanyes</h3>
+<ul><li><strong>«Nova campanya»</strong> torna a registrar tots els territoris durant un període. Es crea una <strong>còpia</strong> dels territoris actuals per repartir-los a part; els territoris normals no es toquen.</li><li>Només pot haver-hi <strong>una campanya activa</strong> alhora. Per acabar-la, tria <strong>«Eliminar campanya»</strong>: s'esborren les seves assignacions i tot torna a la normalitat.</li></ul>
+<h3>Registres S-13 i tauler web</h3>
+<ul><li>A <strong>Eines</strong> pots generar els <strong>registres S-13 en PDF</strong> (un per sector) per compartir-los.</li><li>El <strong>tauler web de territoris</strong> s'obre des del navegador d'un ordinador. Per donar accés a un encarregat de territoris: obre la seva fitxa a la Llista de germans i toca <strong>«Accés al tauler»</strong> → <strong>«Generar enllaç»</strong>. L'enllaç és privat; s'entra amb una <strong>contrasenya de 6 xifres</strong> que triïs tu, i la pots canviar quan vulguis.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">L'enllaç del tauler és com una contrasenya: no el comparteixis amb ningú que no hagi de tenir accés. Si en generes un de nou, l'anterior deixa de funcionar.</div>
+</section>
+<section id="suscripcion"><h2>19. Subscripció de la congregació</h2>
+<p>Perquè tots els germans tinguin accés complet cal la <strong>subscripció anual de la congregació</strong>. <strong>La paga un administrador i cobreix tots els germans</strong>, a iPhone i Android. La resta de germans no paguen res.</p>
+<ol class="pasos"><li>Obre <strong>Menú → Ajustos → Subscripció de la congregació</strong>.</li><li>Toca <strong>«Subscriure per a la congregació»</strong>. Veus el preu anual abans de confirmar; si hi ha <strong>prova gratuïta</strong>, no es cobra res fins que s'acabi.</li><li>Confirma a través de l'App Store (iPhone) o Google Play (Android). Llest: tota la congregació té accés.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>Es <strong>renova automàticament</strong> cada any, tret que la cancel·lis almenys 24 hores abans que acabi el període.</li><li>Per <strong>gestionar-la o cancel·lar-la</strong>: <span class="plat i">iPhone</span> Ajustos de l'iPhone → el teu nom → Subscripcions; <span class="plat a">Android</span> Google Play → el teu perfil → Pagaments i subscripcions → Subscripcions (o el botó «Gestionar o cancel·lar a Google Play» a Wkit).</li><li>Si has <strong>canviat de telèfon</strong>, toca <strong>«Restaurar compres»</strong> a la mateixa pantalla.</li><li>Si la subscripció <strong>caduca</strong>, la congregació passa a <strong>només lectura</strong>: tot continua visible i <strong>no s'esborra res</strong>. En renovar-la, es pot tornar a modificar.</li></ul>
+<div class="nota">Wkit mai veu ni desa les teves dades de pagament: se n'encarrega Apple o Google.</div>
+</section>
+<section id="copias"><h2>20. Dades desades només en aquest telèfon</h2>
+<p>Si has utilitzat Wkit sense connexió o abans que existís la teva congregació, l'aplicació et pot preguntar què fer amb les <strong>dades desades només en aquest telèfon</strong> (per exemple, germans o anuncis). Tens dues opcions: <strong>«Pujar»</strong> a la congregació (tothom ho veurà) o <strong>«Descartar»</strong>. No es fa res fins que ho decideixis.</p>
+</section>
+      <div class="caja pie"><strong>No trobes el que busques?</strong> Escriu-nos a <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> i explica'ns què ha passat. Si pots, indica quin dispositiu fas servir (iPhone, iPad o Android) i què estaves fent.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

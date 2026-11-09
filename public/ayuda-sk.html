@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Podrobný sprievodca Wkit — Wkit</title>
+    <meta name="description" content="Podrobný sprievodca Wkit pre zvestovateľov a správcov: prihlásenie, pripomienky, správa, bratia, skupiny, upratovanie, programy, oznamy, územia a predplatné." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-sk.html">← Wkit</a> · <a href="privacidad-sk.html">Zásady ochrany osobných údajov</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <b>Slovenčina</b> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Podrobný sprievodca Wkit</h1>
+      <p class="sub">Všetko, čo v aplikácii môžeš robiť, pokojne vysvetlené: pre zvestovateľov aj pre správcov. Funguje rovnako na iPhone, iPade aj Androide; kde je nejaký rozdiel, uvidíš ho označený <span class="plat a">Android</span> alebo <span class="plat i">iPhone</span>.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Pre všetkých bratov</h3><ol class="toc"><li><a href="#entrar">Prvý vstup do Wkit</a></li><li><a href="#inicio">Úvodná obrazovka</a></li><li><a href="#recordatorios">Pripomienky: zvonček</a></li><li><a href="#notificaciones">Oznámenia: o čom ťa Wkit informuje</a></li><li><a href="#informe">Tvoja správa o službe (súkromná)</a></li><li><a href="#territorios-pub">Územia: prezerať, odovzdať a požiadať</a></li><li><a href="#cuenta">Tvoj účet: zmena telefónu, prepojenie e-mailu, jazyk a vymazanie</a></li><li><a href="#copia-seguridad">Záloha</a></li></ol></div><div class="toc-g"><h3>Pre správcov (starších)</h3><ol class="toc"><li><a href="#crear-congregacion">Vytvorenie zboru</a></li><li><a href="#hermanos">Zoznam bratov</a></li><li><a href="#grupos">Skupiny kazateľskej služby</a></li><li><a href="#salidas">Zhromaždenia na službu</a></li><li><a href="#limpieza">Upratovanie: ktorá skupina je na rade a kedy</a></li><li><a href="#vida-ministerio">Program Život a služba</a></li><li><a href="#reunion-publica">Verejné zhromaždenie</a></li><li><a href="#audio-video">Zvuk a video / Usporiadatelia</a></li><li><a href="#otros-programas">Ďalšie programy</a></li><li><a href="#anuncios">Oznamy</a></li><li><a href="#calendario">Kalendár zboru</a></li><li><a href="#territorios-admin">Územia: prideľovanie, kampane a webový panel</a></li><li><a href="#suscripcion">Predplatné zboru</a></li><li><a href="#copias">Údaje uložené iba v tomto telefóne</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Pre všetkých bratov</h2>
+<section id="entrar"><h2>1. Prvý vstup do Wkit</h2>
+<p>Do Wkit <strong>nepotrebuješ e-mail ani heslo</strong>: starší z tvojho zboru ťa pozve a ty vstúpiš cez odkaz alebo kód.</p>
+<ol class="pasos"><li>Požiadaj staršieho, ktorý vedie zoznam bratov, aby ťa pozval. Prídu ti <strong>dve správy za sebou</strong>: najprv odkaz a potom samotný kód (aby sa dal ľahko skopírovať).</li><li>Nainštaluj <strong>Wkit</strong> z App Store (iPhone a iPad) alebo z Google Play (Android).</li><li>Ťukni na odkaz v prvej správe: aplikácia sa otvorí a spozná ťa.</li><li>Ak sa aplikácia odkazom neotvorí, otvor ju sám, ťukni na <strong>„Mám odkaz alebo pozývací kód“</strong> a vlož celú správu alebo len kód: aplikácia si sama vyberie, čo potrebuje.</li><li>Uvidíš úvodné obrazovky (<strong>„Prvé kroky“</strong>), ktoré vysvetľujú, čo sa zdieľa a čo nie. Keď skončíš, si vnútri.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Ak kód nefunguje</strong> („nie je platný, alebo vypršal“), požiadaj staršieho, aby ti vytvoril nový: stačí chvíľka na tvojej karte.</div>
+<div class="nota"><strong>Čo sa zdieľa a čo nie:</strong> zoznam bratov, program, upratovanie, územia a oznamy vidí celý zbor a vytvára ich starší. <strong>Tvoja Správa je len tvoja</strong>: nikto iný ju nevidí, ani starší, a synchronizuje sa medzi tvojimi zariadeniami.</div>
+</section>
+<section id="inicio"><h2>2. Úvodná obrazovka</h2>
+<p>Je to prvé, čo uvidíš po otvorení Wkit. Ukazuje <strong>to tvoje</strong> na prvý pohľad; ak nemáš nič pridelené, uvidíš „Žiadne nadchádzajúce úlohy“.</p>
+<ul><li><strong>Nadchádzajúce časti</strong>: tvoje časti na stretnutí Život a služba a na Verejnom zhromaždení (predsedajúci, čitateľ, rečník…).</li><li><strong>Zodpovednosti</strong>: to, čo máš vo Zvuku a videu / Uvádzačoch.</li><li><strong>Vyčistenie</strong>: zobrazí sa len ak <em>tento týždeň</em> je na rade tvoja skupina. Ak dozorca alebo pomocník skupiny nastavili deň a hodinu, uvidíš ich pod tým (napríklad „Nedeľa 12:30“).</li><li><strong>Ďalšie programy</strong>, <strong>Územia</strong> (a kampaň, ak nejaká je) a pripomienka <strong>Správa</strong>.</li><li><strong>Kalendár</strong>: udalosti zboru (zjazd, návšteva krajského dozorcu…) so zvončekom na pripomenutie.</li></ul>
+<p>Dole máš päť záložiek: <strong>Domov</strong>, <strong>Program</strong>, <strong>Správa</strong>, <strong>Územia</strong> a <strong>Menu</strong> (tam je zoznam bratov, skupiny, upratovanie, oznamy a nastavenia).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Pripomienky: zvonček</h2>
+<p>Pri každej úlohe, zodpovednosti alebo službe upratovania je <strong>zvonček</strong>. Slúži na to, aby ti telefón dal vedieť vopred, v čase, ktorý si zvolíš.</p>
+<ol class="pasos"><li>Ťukni na zvonček pri úlohe.</li><li>Vyber deň a hodinu pripomienky.</li><li>Potvrď. Zvonček zozelenie a keď príde čas, zatrasie sa.</li><li>Ak ho chceš zrušiť, ťukni na zvonček znova a vyber zrušenie pripomienky.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Ak starší zmení deň alebo hodinu upratovania, zvonček ti znova ponúkne nastaviť pripomienku s novým dátumom.</div>
+<div class="nota"><span class="plat a">Android</span> Ak ti pripomienky neprichádzajú, skontroluj, či má Wkit v nastaveniach telefónu povolené oznámenia a nemá obmedzenú batériu.</div>
+</section>
+<section id="notificaciones"><h2>4. Oznámenia: o čom ťa Wkit informuje</h2>
+<p>Wkit ťa upozorní, keď je nový oznam, keď ti niečo pridelia alebo keď nastanú zmeny, ktoré sa ťa týkajú.</p>
+<ol class="pasos"><li>Prvýkrát <strong>povoľ oznámenia</strong>, keď sa na to telefón opýta.</li><li>Otvor <strong>Menu → Nastavenia → Oznámenia</strong>.</li><li>Vypni kategórie, ktoré nechceš (Oznamy, Program, Zvuk a video, Upratovanie, Územia…) a vyber dni a hodinu, kedy chceš upozornenia dostávať.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Zariadenie prijíma upozornenia vždy len jednej osoby</strong>: tej, ktorá má otvorenú reláciu. Ak ti neprichádzajú, otvor Wkit so svojím účtom aspoň raz, aby sa zariadenie zaregistrovalo.</div>
+</section>
+<section id="informe"><h2>5. Tvoja správa o službe (súkromná)</h2>
+<p>Správa je <strong>osobný</strong> nástroj: vidíš ju len ty, ani starší. Ukladá sa v telefóne a synchronizuje sa medzi tvojimi zariadeniami.</p>
+<ol class="pasos"><li>Otvor záložku <strong>Správa</strong>. Prvýkrát sa ťa Wkit opýta na pár vecí: tvoj druh služby (zvestovateľ, priekopník…) a <strong>tvoj mesačný cieľ hodín</strong>.</li><li>Ak chceš zapísať službu, ťukni na <strong>„Nový“</strong> a vyplň dátum, hodiny, minúty a štúdiá.</li><li>V <strong>Histórii</strong> vidíš, koľko máš za mesiac a za služobný rok, a môžeš záznam upraviť alebo vymazať.</li><li>Prvého dňa každého mesiaca ťa Wkit môže v zvolenú hodinu upozorniť, aby si <strong>odoslal správu</strong>. Tlačidlo <strong>„Odoslať správu“</strong> pripraví správu s tvojimi hodinami a štúdiami.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>Tvoja Správa sa synchronizuje</strong> s tvojím účtom, takže keď zmeníš telefón, získaš ju späť po prihlásení. Aj tak si rob zálohu (Menu → Nastavenia → Záloha): je to ďalšia istota. Pozri časť 21.</div>
+</section>
+<section id="territorios-pub"><h2>6. Územia: prezerať, odovzdať a požiadať</h2>
+<p>V záložke <strong>Územia</strong> vidíš územia, ktoré máš pridelené, s dátumom, odkedy ich máš.</p>
+<ol class="pasos"><li>Ak chceš územie, ktoré si dokončil, <strong>odovzdať</strong>, otvor ho a ťukni na <strong>„Odovzdať“</strong> (alebo <strong>„Oznámiť, že je dokončené“</strong>). Upozorní sa ten, kto územia spravuje.</li><li>Ak <strong>žiadne nemáš</strong> a chceš nejaké, ťukni na <strong>„Požiadať o územie“</strong>. Môžeš pridať voliteľnú správu (napríklad „Chcem to pri Carcabuey“).</li><li>Upozornia sa všetci služobníci území a prvý, kto môže, ti nejaké pridelí. Keď ho dostaneš, príde ti oznámenie.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. Tvoj účet: zmena telefónu, prepojenie e-mailu, jazyk a vymazanie</h2>
+<h3>Zmena alebo strata telefónu</h3>
+<ul><li>Ak si <strong>neprepojil žiadny e-mail</strong> (bratia ho nepotrebujú), pošle ti starší <strong>novú pozvánku</strong> z tvojej karty v Zozname bratov. Získaš späť svoje miesto so všetkým zo zboru aj so svojou Správou.</li><li>Ak si <strong>prepojil e-mail</strong>, otvor Wkit, ťukni na <strong>„Vytvoriť účet alebo sa prihlásiť ako správca“</strong>, napíš e-mail a otvor odkaz, ktorý ti príde. Vstúpiš so všetkým, ako si to mal.</li></ul>
+<h3>Používanie Wkit na viacerých zariadeniach</h3>
+<ul><li><strong>Rovnaký účet</strong> môžeš používať súčasne na iPhone, iPade aj Androide (napríklad v telefóne a v tablete).</li><li>Ak chceš pridať ďalšie zariadenie, pošle ti starší pozvánku z tvojej karty a ty ju otvoríš v tom zariadení. <strong>Relácia na prvom zariadení sa nezatvorí.</strong></li><li>Tvoja Správa sa synchronizuje medzi všetkými tvojimi zariadeniami.</li></ul>
+<h3>Prepojenie e-mailu (voliteľné, pre správcov odporúčané)</h3>
+<ol class="pasos"><li>Otvor <strong>Menu → Nastavenia → Môj účet → Prepojiť môj e-mail</strong>.</li><li>Napíš svoj e-mail. Príde ti potvrdzovací odkaz.</li><li><strong>Otvor ho z rovnakého telefónu</strong>, v e-mailovej aplikácii. Obrazovka sa sama zatvorí a tvoj účet je prepojený.</li></ol>
+<h3>Zmena jazyka</h3>
+<p>Wkit používa jazyk telefónu. Ak ho chceš zmeniť len vo Wkit: nastavenia telefónu → Aplikácie → Wkit → Jazyk.</p>
+<h3>Vymazanie účtu</h3>
+<p><strong>Menu → Nastavenia → Môj účet → Vymazať môj účet.</strong> Vymaže sa tvoj účet, tvoja karta v zozname a údaje uložené v telefóne (vrátane Správy); územia, ktoré si mal, sa uvoľnia. Nedá sa vrátiť späť. Ak si jediný správca a sú tu ďalší bratia, musíš najprv vymenovať ďalšieho (v Zozname bratov otvor jeho kartu a zapni „Správca“). Ak si jediný človek v zbore, vymaže sa aj celý zbor.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">Vymazanie účtu <strong>neruší</strong> predplatné zboru, ak ho platí tento účet: ruší sa v App Store <span class="plat i">iPhone</span> alebo v Google Play → Platby a predplatné → Predplatné <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Záloha</h2>
+<p>Slúži hlavne na to, aby si mal <strong>ďalšiu kópiu svojej Správy</strong>: aj keď sa synchronizuje medzi zariadeniami, kópia ťa ochráni, keby si ju omylom vymazal. Nájdeš ju v <strong>Menu → Nastavenia → Záloha</strong>.</p>
+<ul><li><strong>Automatická záloha</strong>: vytvorí kópiu raz mesačne, sama.</li><li><strong>„Zálohovať hneď“</strong> y <strong>„Exportovať zálohu“</strong>: súbor môžeš uložiť, kam chceš, alebo si ho poslať.</li><li><strong>„Obnoviť zálohu“</strong>: vyber súbor exportovaný z Wkit. Údaje zo zálohy sa <strong>pridajú</strong> k tým, ktoré už máš: nič sa nevymaže.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Automatická záloha sa ukladá do tvojho iCloudu. <span class="plat a">Android</span> Ukladá sa v telefóne a, ak máš zapnutú zálohu Androidu vo svojom účte Google (Nastavenia telefónu → Google → Záloha), po prihlásení s týmto účtom v novom telefóne sa obnoví sama.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Pre správcov (starších)</h2>
+<section id="crear-congregacion"><h2>8. Vytvorenie zboru</h2>
+<p>Robí to <strong>raz</strong> starší; potom pozve ostatných.</p>
+<ol class="pasos"><li>Otvor Wkit a ťukni na <strong>„Vytvoriť účet alebo sa prihlásiť ako správca“</strong>.</li><li>Napíš svoj e-mail a ťukni na <strong>„Poslať prihlasovací odkaz“</strong>. Nie sú tu heslá: príde ti odkaz na potvrdenie, že e-mail je tvoj.</li><li><strong>Otvor odkaz z rovnakého telefónu.</strong> Wkit sa otvorí sama.</li><li>Vyplň <strong>svoje meno</strong>, <strong>názov zboru</strong>, <strong>číslo zboru</strong> a <strong>krajinu</strong> a ťukni na <strong>„Vytvoriť zbor“</strong>.</li><li>Uvidíš <strong>„Prvé kroky ako starší“</strong>: 1) pridaj bratov do Zoznamu bratov a 2) pozvi ich.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Neprišiel ti e-mail? Skontroluj priečinok so spamom a ťukni na <strong>„Neprišiel, poslať znova“</strong>. Jeden e-mail môže mať vo Wkit len jeden účet.</div>
+</section>
+<section id="hermanos"><h2>9. Zoznam bratov</h2>
+<p>Je to základ všetkého: programy, skupiny a úlohy používajú mená z tohto zoznamu. Nájdeš ho v <strong>Menu → Zoznam bratov</strong>.</p>
+<h3>Pridanie brata</h3>
+<ol class="pasos"><li>Ťukni na tlačidlo <strong>+</strong> (<strong>„Nový brat“</strong>).</li><li>Napíš <strong>meno</strong> a vyber, či je to <strong>brat</strong> alebo <strong>sestra</strong>.</li><li>Vyber jeho <strong>zodpovednosť</strong>: pokrstený alebo nepokrstený zvestovateľ, priekopník/priekopníčka, služobný pomocník alebo starší.</li><li>Ak to prichádza do úvahy, vyber jeho <strong>skupinu kazateľskej služby</strong> a zapni <strong>Služobník území</strong>, <strong>Zvuk a video / Uvádzači</strong> alebo <strong>Správca</strong>.</li><li>Ťukni na <strong>„Vytvoriť“</strong>.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Dvaja bratia s rovnakým menom:</strong> pridaj niečo, čím sa odlíšia (napríklad „syn“), aby sa úlohy nepomiešali.</div>
+<h3>Pozvanie brata do Wkit</h3>
+<ol class="pasos"><li>Otvor kartu brata a ťukni na <strong>„Pozvať“</strong> (alebo <strong>„Vytvoriť odkaz“</strong>).</li><li>Ťukni na <strong>„Zdieľať pozvánku“</strong> a vyber WhatsApp, správy atď. Odošlú sa <strong>dve správy za sebou</strong>: najprv odkaz a potom samotný kód, aby sa dal ľahko skopírovať.</li><li>Brat otvorí odkaz (alebo vloží kód) a vstúpi. Ak ešte nevstúpil, môžeš pozvánku zdieľať znova; ak vytvoríš novú, tá predchádzajúca prestane platiť.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Úpravy, mazanie a vymenúvanie správcov</h3>
+<ul><li>Ťukni na brata a vyber <strong>„Upraviť“</strong>, aby si zmenil jeho údaje.</li><li>Na Androide vymažeš ťuknutím na <strong>červenú ikonu</strong> na jeho riadku; na iPhone potiahni riadok doľava. Vymaže sa zo zoznamu na všetkých zariadeniach a územia, ktoré mal, sa uvoľnia.</li><li><strong>Správca</strong> môže spravovať bratov, územia, oznamy a program. <strong>Nemôžeš vymazať vlastnú kartu ani posledného správcu</strong>: najprv vymenuj ďalšieho.</li></ul>
+</section>
+<section id="grupos"><h2>10. Skupiny kazateľskej služby</h2>
+<p>Skupiny sa používajú pre zhromaždenia na službu a pre upratovanie. Nájdeš ich v <strong>Menu → Skupiny kazateľskej služby → Zoznam</strong>.</p>
+<ol class="pasos"><li>Ak žiadne nie sú, ťukni na <strong>„Vytvoriť skupiny kazateľskej služby“</strong> a vyber, <strong>koľko skupín</strong> chceš (ďalšie môžeš neskôr pridať tlačidlom <strong>+</strong>).</li><li>Ak chceš bratov zaradiť do skupiny, prejdi do <strong>Zoznamu bratov</strong>, otvor kartu každého a vyber jeho <strong>skupinu kazateľskej služby</strong>.</li><li>Vráť sa do <strong>Menu → Skupiny kazateľskej služby → Zoznam</strong>. V každej skupine uvidíš <strong>dozorcu</strong>, <strong>pomocníka</strong> a bratov <strong>v abecednom poradí</strong>.</li><li>Ťukni na tlačidlo s <strong>ceruzkou</strong> (Upraviť). Ťukni na <strong>„Dozorca“</strong> a vyber jedného z bratov tejto skupiny; to isté urob pri <strong>„Pomocník“</strong>. Nemôže to byť tá istá osoba.</li><li>Ťukni na <strong>fajku</strong> na dokončenie.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">Dozorca a pomocník sa vyberajú <strong>až po</strong> zaradení bratov, pretože sa dá vyberať len z bratov danej skupiny. Ak brata presunieš do inej skupiny, prestane byť dozorcom alebo pomocníkom v predchádzajúcej.</div>
+<div class="nota">Dozorca a pomocník každej skupiny <strong>môžu nastaviť deň a hodinu upratovania</strong> svojej skupiny (časť 12), aj keď nie sú správcovia.</div>
+</section>
+<section id="salidas"><h2>11. Zhromaždenia na službu</h2>
+<p>Zhromaždenia na službu sú časy a miesta stretnutia na službu. Sú <strong>všeobecné</strong> (pre celý zbor) a <strong>vlastné pre každú skupinu</strong>. Nájdeš ich v <strong>Menu → Skupiny kazateľskej služby → Zhromaždenia na službu</strong>. Najprv musíš mať vytvorené skupiny.</p>
+<ol class="pasos"><li>Ťukni na sekciu <strong>„Zbor“</strong> (všeobecné zhromaždenia) alebo na sekciu <strong>skupiny</strong>.</li><li>Ťukni na <strong>„Pridať zhromaždenie“</strong> v príslušný deň a napíš <strong>štítok</strong> (napríklad „Ráno“ alebo „Popoludnie“), <strong>hodinu</strong> a prípadne <strong>miesto</strong>.</li><li>Ak chceš zhromaždenie <strong>upraviť</strong>, zmeň priamo jeho polia. Ak ho chceš <strong>vymazať</strong>, ťukni na červenú ikonu na jeho riadku.</li><li>Bratia môžu ťuknúť na miesto a otvoriť ho v mape telefónu.</li></ol>
+<div class="nota">Ak skupina nemá vlastné zhromaždenia, použijú sa zhromaždenia zboru („Bez vlastných zhromaždení — používa zhromaždenia zboru“).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Upratovanie: ktorá skupina je na rade a kedy</h2>
+<p>Upratovanie sa medzi skupinami kazateľskej služby <strong>strieda automaticky</strong>: každý týždeň je na rade iná skupina, počnúc Skupinou 1. Nájdeš ho v <strong>Menu → Upratovanie → Skupiny</strong>.</p>
+<h3>Zmena skupiny, ktorá upratuje tento týždeň (správcovia)</h3>
+<ol class="pasos"><li>Ťukni na tlačidlo s <strong>ceruzkou</strong> (Upraviť).</li><li>Ťukni na <strong>skupinu</strong>, ktorá je tento týždeň na rade. Budúci týždeň bude na rade ďalšia skupina v poradí.</li><li>Ťukni na <strong>fajku</strong>. Zmenu uvidia <strong>všetky zariadenia</strong> zboru.</li></ol>
+<h3>Nastavenie presného dňa a hodiny (správcovia, dozorca a pomocník skupiny)</h3>
+<ol class="pasos"><li>V <strong>Menu → Upratovanie → Skupiny</strong> nájdi svoju skupinu (alebo tú, ktorú spravuješ) a ťukni na <strong>ceruzku</strong> na jej riadku.</li><li>Vyber <strong>deň</strong> a <strong>hodinu</strong> (napríklad nedeľa o 12:30) a ťukni na <strong>„Uložiť“</strong>. Ak chceš dátum vymazať, ťukni na <strong>„Odstrániť dátum“</strong>.</li><li>Bratia tejto skupiny to uvidia na úvodnej obrazovke: <strong>„Skupina 1 · Tento týždeň“</strong> a pod tým <strong>„Nedeľa 12:30“</strong> so svojím <strong>zvončekom</strong> na nastavenie pripomienky.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">Dátum sa na úvodnej obrazovke zobrazí, len ak pripadá na <strong>aktuálny týždeň</strong> (od pondelka do nedele). Môžeš ho nastaviť vopred: objaví sa, keď ten týždeň nastane. Dátumy z minulých týždňov samy zmiznú.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Program Život a služba</h2>
+<p>V záložke <strong>Program → Život a služba</strong> vytváraš program každého týždňa a prideľuješ časti. Vidia ho všetci bratia; upravovať ho môžu len správcovia.</p>
+<ol class="pasos"><li>Ťukni na <strong>„Nový týždeň“</strong> a vyber <strong>dátum stretnutia</strong> (ľubovoľný deň toho týždňa, od pondelka do nedele).</li><li>Wkit vytvorí týždeň s <strong>obvyklou štruktúrou</strong>: Poklady z Božieho slova, Zlepšujme sa v službe a Život kresťana.</li><li>Ťukni na ľubovoľný <strong>názov</strong>, aby si ho zmenil, a podľa potreby aj na <strong>dĺžku</strong>. Tlačidlom <strong>„Pridať úlohu“</strong> môžeš pridať ďalšie časti.</li><li>Pri každej časti ťukni na <strong>„Vybrať“</strong> a vyber brata alebo bratov (napríklad žiaka a pomocníka). Pre <strong>Vedľajšiu sálu</strong> použi <strong>„Pridať vedľajšiu sálu“</strong>.</li><li>Vyber aj <strong>piesne</strong> a <strong>modlitby</strong> a ťukni na <strong>„Uložiť program“</strong>.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Ak chceš zobraziť iný týždeň, použi <strong>výber týždňa</strong> (<strong>„Predchádzajúci týždeň“</strong> / <strong>„Ďalší týždeň“</strong>); odtiaľ ho môžeš aj <strong>upraviť alebo vymazať</strong>.</li><li>Bratia dostanú <strong>oznámenie</strong>, keď im je pridelená časť, a vidia ju na úvodnej obrazovke.</li><li>Program týždňa zmizne sám po skončení nedele.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Verejné zhromaždenie</h2>
+<p>V <strong>Program → Verejné zhromaždenie</strong> sa pripravuje každé zhromaždenie cez víkend.</p>
+<ol class="pasos"><li>Ťukni na <strong>„Nové verejné zhromaždenie“</strong> a vyber <strong>dátum</strong>. Ak už na tento dátum zhromaždenie je, Wkit ťa upozorní.</li><li>Vyber <strong>predsedajúceho</strong>, <strong>rečníka</strong> a napíš <strong>názov prejavu</strong>.</li><li>Vyber <strong>čitateľa Strážnej veže</strong> („Čitateľ wS“) a <strong>piesne</strong> a <strong>modlitby</strong>.</li><li>Ulož. Bratia uvidia svoje časti na úvodnej obrazovke.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Zvuk a video / Uvádzači</h2>
+<p>V <strong>Menu → Zvuk a video / Uvádzači</strong> prideľuješ zodpovednosti na každý týždeň: zvuk, video, mikrofóny, uvádzači, Zoom, meranie času…</p>
+<ol class="pasos"><li>Ťukni na <strong>„Nový týždeň“</strong> a vyber <strong>dátum stretnutia</strong>.</li><li>Ťukni na <strong>„Vybrať“</strong> pri každej zodpovednosti a vyber brata. Niektoré, napríklad mikrofóny, umožňujú <strong>viac bratov</strong> (<strong>„Pridať brata“</strong>).</li><li>Pre inú zodpovednosť, ktorá v zozname nie je, ťukni na <strong>„Pridať zodpovednosť“</strong> a pomenuj ju.</li><li>Ulož. Každý brat ju vidí v <strong>Zodpovednostiach</strong> na svojej úvodnej obrazovke, so svojím zvončekom.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Ďalšie programy</h2>
+<p>Pre <strong>čokoľvek iné</strong>, čo zbor organizuje a nie je stretnutím: napríklad odvoz bratov, ktorí nemôžu prísť, alebo pomoc zvestovateľom. Každý program má svoju vlastnú periodicitu. Nájdeš ho v <strong>Menu → Ďalšie programy</strong>.</p>
+<ol class="pasos"><li>Ťukni na <strong>„Nový program“</strong>. Napíš <strong>názov</strong> a vyber, <strong>ako často sa organizuje</strong>: po dňoch, po týždňoch, po mesiacoch alebo ročne.</li><li>Ťukni na <strong>„Vytvoriť prvý týždeň“</strong> (alebo <strong>„Nové obdobie“</strong>) a vyber dátum: ľubovoľný deň toho týždňa, mesiaca alebo roka.</li><li>Ťukni na <strong>„Pridať zodpovednosť“</strong>: napíš voliteľný <strong>štítok</strong> (napríklad „Vyzdvihne skôr“) a <strong>vyber brata alebo sestru</strong>.</li><li>Ulož. Každý to vidí na svojej úvodnej obrazovke v <strong>„Ďalšie programy“</strong> a obdobie samo zmizne, keď skončí.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Oznamy</h2>
+<p>Oznamy vytvárajú správcovia a, len pre svoju skupinu, dozorca a pomocník každej skupiny kazateľskej služby. Vidia ich bratia, ktorým sú určené. Nájdeš ich v <strong>Menu → Oznamy</strong>.</p>
+<ol class="pasos"><li>Ťukni na <strong>„Nový oznam“</strong> a napíš <strong>správu</strong>.</li><li>Predvolene sa zverejní <strong>okamžite</strong>, hneď ako ho uložíš, a všetci dostanú oznámenie.</li><li>Ak chceš, aby vyšiel neskôr, zapni <strong>„Naplánovať na neskôr“</strong> a vyber <strong>dátum a hodinu</strong>: dovtedy ho nikto neuvidí a v ten čas sa všetci upozornia.</li><li>Ulož. Ak chceš oznam odstrániť, ťukni na neho a vyber <strong>„Vymazať“</strong>: zmizne pre všetkých.</li></ol>
+<h3>Oznamy len pre jednu skupinu</h3>
+<ul><li><strong>Dozorca</strong> a <strong>pomocník</strong> každej skupiny kazateľskej služby vidia tlačidlo <strong>+</strong>, aj keď nie sú správcovia, a ich oznamy dostanú <strong>len členovia ich skupiny</strong>.</li><li>Správca, ktorý má tiež skupinu, môže pri vytváraní oznamu zapnúť <strong>„Poslať tento oznam len členom mojej skupiny“</strong>.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. Kalendár zboru</h2>
+<p>Slúži na to, aby všetci videli udalosti zboru, napríklad <strong>krajský zjazd</strong> alebo <strong>návštevu krajského dozorcu</strong>. Vytvárajú ich len správcovia.</p>
+<ol class="pasos"><li>Otvor <strong>Menu → Kalendár</strong> a ťukni na <strong>„Pridať udalosť“</strong>.</li><li>Napíš <strong>názov</strong> a ťukni na <strong>dni</strong> udalosti: ak trvá niekoľko dní, ťukni na každý.</li><li>Ulož. Všetci ju uvidia na <strong>Domov</strong>, pod „Kalendár“, so <strong>zvončekom</strong> na nastavenie pripomienky.</li><li>Ak ju chceš zmeniť alebo odstrániť, otvor ju a vyber <strong>„Upraviť udalosť“</strong> alebo <strong>„Vymazať udalosť“</strong>.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Územia: prideľovanie, kampane a webový panel</h2>
+<p>Kto má oprávnenie <strong>Služobník území</strong>, spravuje územia celého zboru v záložke <strong>Územia</strong> (zvestovatelia vidia len svoje).</p>
+<h3>Prideľovanie a preberanie území</h3>
+<ul><li>Ťukni na územie a vyber <strong>„Prideliť“</strong> (alebo „Prideliť zvestovateľovi“) a brata. Uvidíš, kto ho má a odkedy, a ktoré sú <strong>po lehote</strong> alebo <strong>nikdy nepridelené</strong>.</li><li>Keď zvestovateľ <strong>požiada</strong> o územie, upozornia sa všetci služobníci území (<strong>„Žiadosti o územie“</strong>); prvý, kto môže, mu ho pridelí.</li><li>Keď brat územie <strong>odovzdá</strong>, uvoľní sa a zapíše sa dátum.</li></ul>
+<h3>Kampane</h3>
+<ul><li><strong>„Nová kampaň“</strong> znova zaeviduje všetky územia na určité obdobie. Vytvorí sa <strong>kópia</strong> súčasných území na samostatné rozdelenie; bežné územia sa nemenia.</li><li>Naraz môže byť len <strong>jedna aktívna kampaň</strong>. Ak ju chceš ukončiť, vyber <strong>„Vymazať kampaň“</strong>: jej pridelenia sa vymažú a všetko sa vráti do normálu.</li></ul>
+<h3>Záznam S-13 a webový panel</h3>
+<ul><li>V <strong>Nástrojoch</strong> môžeš vytvoriť <strong>záznam S-13 v PDF</strong> (jeden pre každý sektor) a zdieľať ho.</li><li><strong>Webový panel území</strong> sa otvára v prehliadači na počítači. Ak chceš dať prístup služobníkovi území: otvor jeho kartu v Zozname bratov a ťukni na <strong>„Prístup do panela“</strong> → <strong>„Vytvoriť odkaz“</strong>. Odkaz je osobný; vstupuje sa <strong>6-miestnym heslom</strong>, ktoré si zvolíš, a môžeš ho kedykoľvek zmeniť.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">Odkaz na panel je ako heslo: nezdieľaj ho mimo toho, kto má mať prístup. Ak vytvoríš nový, predchádzajúci prestane fungovať.</div>
+</section>
+<section id="suscripcion"><h2>19. Predplatné zboru</h2>
+<p>Aby mali všetci bratia plný prístup, je potrebné <strong>ročné predplatné zboru</strong>. <strong>Platí ho jeden správca a vzťahuje sa na všetkých bratov</strong>, na iPhone aj na Androide. Ostatní bratia neplatia nič.</p>
+<ol class="pasos"><li>Otvor <strong>Menu → Nastavenia → Predplatné zboru</strong>.</li><li>Ťukni na <strong>„Predplatiť zbor“</strong>. Pred potvrdením uvidíš ročnú cenu; ak je k dispozícii <strong>bezplatné skúšobné obdobie</strong>, nič sa neúčtuje, kým neskončí.</li><li>Potvrď cez App Store (iPhone) alebo Google Play (Android). Hotovo: celý zbor má prístup.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li><strong>Obnovuje sa automaticky</strong> každý rok, ak ho nezrušíš aspoň 24 hodín pred koncom obdobia.</li><li>Ak ho chceš <strong>spravovať alebo zrušiť</strong>: <span class="plat i">iPhone</span> Nastavenia iPhonu → tvoje meno → Predplatné; <span class="plat a">Android</span> Google Play → tvoj profil → Platby a predplatné → Predplatné (alebo tlačidlo „Spravovať alebo zrušiť v Google Play“ vo Wkit).</li><li>Ak <strong>zmeníš telefón</strong>, ťukni na <strong>„Obnoviť nákupy“</strong> na tej istej obrazovke.</li><li>Ak predplatné <strong>vyprší</strong>, zbor prejde do režimu <strong>len na čítanie</strong>: všetko sa naďalej vidí a <strong>nič sa nevymaže</strong>. Po obnovení sa dá znova upravovať.</li></ul>
+<div class="nota">Wkit nikdy nevidí ani neukladá tvoje platobné údaje: spracúva ich Apple alebo Google.</div>
+</section>
+<section id="copias"><h2>20. Údaje uložené len v tomto telefóne</h2>
+<p>Ak si používal Wkit offline alebo predtým, než existoval tvoj zbor, môže sa aplikácia opýtať, čo urobiť s <strong>údajmi uloženými len v tomto telefóne</strong> (napríklad bratia alebo oznamy). Máš dve možnosti: <strong>„Nahrať ich“</strong> do zboru (uvidia ich všetci) alebo <strong>„Zahodiť ich“</strong>. Nič sa neurobí, kým sa nerozhodneš.</p>
+</section>
+      <div class="caja pie"><strong>Nenašiel si, čo hľadáš?</strong> Napíš nám na <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> a povedz nám, čo sa deje. Ak môžeš, uveď, aké zariadenie používaš (iPhone, iPad alebo Android) a čo si robil.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

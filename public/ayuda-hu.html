@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="hu">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Lépésről lépésre útmutató a Wkithez — Wkit</title>
+    <meta name="description" content="Lépésről lépésre útmutató a Wkithez hírnököknek és adminisztrátoroknak: belépés, emlékeztetők, jelentés, testvérek, csoportok, takarítás, programok, közlemények, területek és előfizetés." />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-hu.html">← Wkit</a> · <a href="privacidad-hu.html">Adatvédelmi szabályzat</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <b>Magyar</b> <a href="ayuda-hi.html">हिन्दी</a> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Lépésről lépésre útmutató a Wkithez</h1>
+      <p class="sub">Minden, amit az alkalmazásban tehetsz, nyugodtan elmagyarázva: hírnököknek és adminisztrátoroknak. iPhone-on, iPaden és Androidon egyformán működik; ahol van különbség, ott <span class="plat a">Android</span> vagy <span class="plat i">iPhone</span> jelöli.</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>Minden testvérnek</h3><ol class="toc"><li><a href="#entrar">Az első belépés a Wkitbe</a></li><li><a href="#inicio">A kezdőképernyő</a></li><li><a href="#recordatorios">Emlékeztetők: a csengő</a></li><li><a href="#notificaciones">Értesítések: miről tájékoztat a Wkit</a></li><li><a href="#informe">A szolgálati jelentésed (privát)</a></li><li><a href="#territorios-pub">Területek: megtekintés, leadás és kérés</a></li><li><a href="#cuenta">A fiókod: telefoncsere, e-mail összekapcsolása, nyelv és törlés</a></li><li><a href="#copia-seguridad">Biztonsági mentés</a></li></ol></div><div class="toc-g"><h3>Adminisztrátoroknak (véneknek)</h3><ol class="toc"><li><a href="#crear-congregacion">A gyülekezet létrehozása</a></li><li><a href="#hermanos">A testvérek listája</a></li><li><a href="#grupos">Szolgálati csoportok</a></li><li><a href="#salidas">Szolgálati kimenetelek</a></li><li><a href="#limpieza">Takarítás: melyik csoport következik, és melyik napon és órában</a></li><li><a href="#vida-ministerio">Élet és szolgálat program</a></li><li><a href="#reunion-publica">Nyilvános összejövetel</a></li><li><a href="#audio-video">Hang és videó / Rendezők</a></li><li><a href="#otros-programas">További programok</a></li><li><a href="#anuncios">Közlemények</a></li><li><a href="#calendario">A gyülekezet naptára</a></li><li><a href="#territorios-admin">Területek: kiosztás, kampányok és webes felület</a></li><li><a href="#suscripcion">A gyülekezet előfizetése</a></li><li><a href="#copias">Az adatok csak ezen a telefonon vannak mentve</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">Minden testvérnek</h2>
+<section id="entrar"><h2>1. Az első belépés a Wkitbe</h2>
+<p>A Wkitbe való belépéshez <strong>nincs szükséged e-mailre vagy jelszóra</strong>: a gyülekezeted egyik véne meghív, te pedig egy hivatkozással vagy kóddal lépsz be.</p>
+<ol class="pasos"><li>Kérd meg a vént, aki a testvérek listáját vezeti, hogy hívjon meg. <strong>Két üzenet érkezik egymás után</strong>: először egy hivatkozás, majd egyedül a kód (hogy könnyű legyen másolni).</li><li>Telepítsd a <strong>Wkitet</strong> az App Store-ból (iPhone és iPad) vagy a Google Playről (Android).</li><li>Koppints az első üzenetben lévő hivatkozásra: az alkalmazás megnyílik és felismer.</li><li>Ha a hivatkozás nem nyitja meg az alkalmazást, nyisd meg te, koppints a <strong>„Van meghívó hivatkozásom vagy kódom“</strong> elemre, és illeszd be az egész üzenetet vagy csak a kódot: az alkalmazás magától kiveszi, ami kell.</li><li>Látni fogsz néhány üdvözlő képernyőt (<strong>„Első lépések“</strong>), amelyek elmagyarázzák, mi lesz megosztva és mi nem. Amikor végeztél, bent vagy.</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>Ha a kód nem működik</strong> („nem érvényes, vagy lejárt“), kérd meg a vént, hogy készítsen újat: ez egy pillanat alatt megvan a kártyádról.</div>
+<div class="nota"><strong>Mi lesz megosztva és mi nem:</strong> a testvérek listáját, a programot, a takarítást, a területeket és a közleményeket az egész gyülekezet látja, és egy vén hozza létre őket. <strong>A Jelentésed csak a tiéd</strong>: senki más nem látja, még egy vén sem, és szinkronizálódik az eszközeid között.</div>
+</section>
+<section id="inicio"><h2>2. A kezdőképernyő</h2>
+<p>Ez az első, amit látsz, amikor megnyitod a Wkitet. Egy pillantással megmutatja <strong>a saját dolgaidat</strong>; ha nincs semmi kiosztva, ezt látod: „Nincs közelgő feladat“.</p>
+<ul><li><strong>Következő részek</strong>: a részeid az Élet és szolgálat összejövetelen és a Nyilvános összejövetelen (elnök, felolvasó, előadó…).</li><li><strong>Felelősségek</strong>: amid a Hang és videó / Rendezők területén van.</li><li><strong>Tisztítás</strong>: csak akkor jelenik meg, ha <em>ezen a héten</em> a te csoportod következik. Ha a csoport felvigyázója vagy segítője megadta a napot és az órát, alatta látod őket (például „Vasárnap 12:30“).</li><li><strong>További programok</strong>, <strong>Területek</strong> (és a kampány, ha van) és az emlékeztető a <strong>Jelentés</strong>.</li><li><strong>Naptár</strong>: a gyülekezet eseményei (kongresszus, a körzetfelvigyázó látogatása…), a saját csengőjükkel az emlékeztetéshez.</li></ul>
+<p>Alul öt fület találsz: <strong>Kezdőlap</strong>, <strong>Program</strong>, <strong>Jelentés</strong>, <strong>Területek</strong> és <strong>Menü</strong> (itt van a testvérek listája, a csoportok, a takarítás, a közlemények és a beállítások).</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. Emlékeztetők: a csengő</h2>
+<p>Minden feladat, felelősség vagy takarítási turnus mellett van egy <strong>csengő</strong>. Arra szolgál, hogy a telefon előre szóljon neked, abban az időpontban, amelyet te választasz.</p>
+<ol class="pasos"><li>Koppints a feladat csengőjére.</li><li>Válaszd ki az emlékeztető napját és óráját.</li><li>Erősítsd meg. A csengő zöldre változik, és megrázkódik, amikor eljön az idő.</li><li>Az eltávolításhoz koppints újra a csengőre, és válaszd az emlékeztető eltávolítását.</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">Ha a vén megváltoztatja a takarítás napját vagy óráját, a csengő újra felajánlja, hogy az új dátummal állítsd be az emlékeztetőt.</div>
+<div class="nota"><span class="plat a">Android</span> Ha nem érkeznek meg az emlékeztetők, ellenőrizd, hogy a Wkitnek van-e engedélye értesítésekre a telefon beállításaiban, és hogy nincs-e korlátozva az akkumulátora.</div>
+</section>
+<section id="notificaciones"><h2>4. Értesítések: miről tájékoztat a Wkit</h2>
+<p>A Wkit szól neked, ha új közlemény van, ha kiosztanak neked valamit, vagy ha téged érintő változások történnek.</p>
+<ol class="pasos"><li>Az első alkalommal <strong>engedélyezd az értesítéseket</strong>, amikor a telefon rákérdez.</li><li>Nyisd meg a <strong>Menü → Beállítások → Értesítések</strong> menüt.</li><li>Kapcsold ki azokat a kategóriákat, amelyeket nem szeretnél (Közlemények, Program, Hang és videó, Takarítás, Területek…), és válaszd ki a napokat és az órát, amikor szívesebben kapod az értesítéseket.</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>Egy eszköz egyszerre csak egy személy értesítéseit kapja</strong>: azét, akinek nyitva van a munkamenete. Ha nem érkeznek meg, nyisd meg a Wkitet a fiókoddal legalább egyszer, hogy az eszköz regisztrálódjon.</div>
+</section>
+<section id="informe"><h2>5. A szolgálati jelentésed (privát)</h2>
+<p>A Jelentés egy <strong>személyes</strong> eszköz: csak te látod, még egy vén sem. A telefonodon tárolódik, és szinkronizálódik az eszközeid között.</p>
+<ol class="pasos"><li>Nyisd meg a <strong>Jelentés</strong> fület. Első alkalommal a Wkit feltesz néhány kérdést: a szolgálatod fajtáját (hírnök, úttörő…) és <strong>a havi óracélodat</strong>.</li><li>A szolgálat rögzítéséhez koppints az <strong>„Új“</strong> gombra, és töltsd ki a dátumot, az órákat, a perceket és a tanulmányokat.</li><li>Az <strong>Előzmények</strong> között látod, mennyi van meg a hónapban és a szolgálati évben, és szerkeszthetsz vagy törölhetsz egy bejegyzést.</li><li>Minden hónap 1. napján a Wkit emlékeztethet téged az általad választott órában, hogy <strong>add le a jelentést</strong>. A <strong>„Jelentés küldése“</strong> gomb előkészíti az üzenetet az óráiddal és tanulmányaiddal.</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>A Jelentésed szinkronizálódik</strong> a fiókoddal, így ha telefont cserélsz, visszakapod, amikor újra belépsz. Ennek ellenére készíts biztonsági mentést (Menü → Beállítások → Biztonsági mentés): ez egy plusz biztosíték. Lásd a 21. szakaszt.</div>
+</section>
+<section id="territorios-pub"><h2>6. Területek: megtekintés, leadás és kérés</h2>
+<p>A <strong>Területek</strong> fülön látod a neked kiosztott területeket, azzal a dátummal, amióta nálad vannak.</p>
+<ol class="pasos"><li>Ha egy területet, amikor befejezted, <strong>le akarsz adni</strong>, nyisd meg, és koppints a <strong>„Leadás“</strong> (vagy az <strong>„Jelentés, hogy elkészült“</strong>) gombra. A területeket kezelőt értesítjük.</li><li>Ha <strong>egy sincs nálad</strong>, és szeretnél egyet, koppints a <strong>„Terület kérése“</strong> gombra. Megadhatsz egy nem kötelező üzenetet (például „Carcabuey környékét szeretném“).</li><li>Az összes területszolgát értesítjük, és az első, aki tud, kioszt neked egyet. Értesítést kapsz, amikor megvan.</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. A fiókod: telefoncsere, e-mail összekapcsolása, nyelv és törlés</h2>
+<h3>Telefoncsere vagy elvesztés</h3>
+<ul><li>Ha <strong>nem kapcsoltál össze e-mailt</strong> (a testvéreknek nem kell), egy vén <strong>új meghívót</strong> küld neked a kártyádról a Testvérek listájában. Visszakapod a helyedet a gyülekezet minden adatával és a Jelentéseddel.</li><li>Ha <strong>összekapcsoltad az e-mailedet</strong>, nyisd meg a Wkitet, koppints a <strong>„Fiók létrehozása vagy belépés adminisztrátorként“</strong> gombra, írd be az e-mailedet, és nyisd meg a kapott hivatkozást. Mindennel úgy lépsz be, ahogy volt.</li></ul>
+<h3>A Wkit használata több eszközön</h3>
+<ul><li>Ugyanazt a fiókot használhatod <strong>egyszerre</strong> iPhone-on, iPaden és Androidon (például a telefonodon és a táblagépeden).</li><li>Újabb eszköz hozzáadásához egy vén meghívót küld neked a kártyádról, te pedig azon az eszközön nyitod meg. <strong>Az elsőn lévő munkamenet nem záródik be.</strong></li><li>A Jelentésed szinkronizálódik az összes eszközöd között.</li></ul>
+<h3>Az e-mailed összekapcsolása (nem kötelező, adminisztrátoroknak ajánlott)</h3>
+<ol class="pasos"><li>Nyisd meg a <strong>Menü → Beállítások → A fiókom → E-mailem összekapcsolása</strong> menüt.</li><li>Írd be az e-mail-címedet. Egy megerősítő hivatkozás érkezik.</li><li><strong>Nyisd meg ugyanarról a telefonról</strong>, az e-mail alkalmazásban. A képernyő magától bezárul, és a fiókod össze van kapcsolva.</li></ol>
+<h3>A nyelv megváltoztatása</h3>
+<p>A Wkit a telefon nyelvét használja. Hogy csak a Wkitben változtasd meg: a telefon beállításai → Alkalmazások → Wkit → Nyelv.</p>
+<h3>A fiókod törlése</h3>
+<p><strong>Menü → Beállítások → A fiókom → A fiókom törlése.</strong> Törlődik a fiókod, a kártyád a listán és a telefonodon tárolt adatok (a Jelentést is beleértve); a területek, amelyek nálad voltak, szabadok lesznek. Nem vonható vissza. Ha te vagy az egyetlen adminisztrátor és vannak más testvérek, először ki kell jelölnöd egy másikat (a Testvérek listájában nyisd meg a kártyáját, és kapcsold be az „Adminisztrátor“ lehetőséget). Ha te vagy az egyetlen személy a gyülekezetben, az egész gyülekezet is törlődik.</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">A fiók törlése <strong>nem szünteti meg</strong> a gyülekezet előfizetését, ha azt ez a fiók fizeti: az App Store-ban szüntethető meg <span class="plat i">iPhone</span> vagy a Google Play → Fizetések és előfizetések → Előfizetések menüben <span class="plat a">Android</span>.</div>
+</section>
+<section id="copia-seguridad"><h2>21. Biztonsági mentés</h2>
+<p>Főleg arra való, hogy legyen egy <strong>további másolatod a Jelentésedről</strong>: bár szinkronizálódik az eszközeid között, a másolat megvéd, ha véletlenül törlöd. A <strong>Menü → Beállítások → Biztonsági mentés</strong> alatt találod.</p>
+<ul><li><strong>Automatikus mentés</strong>: havonta egyszer másolatot készít, magától.</li><li><strong>„Másolat készítése most“</strong> y <strong>„Biztonsági mentés exportálása“</strong>: a fájlt elmentheted, ahova akarod, vagy elküldheted magadnak.</li><li><strong>„Biztonsági mentés visszaállítása“</strong>: válaszd ki a Wkitből exportált fájlt. A másolat adatai <strong>hozzáadódnak</strong> azokhoz, amelyek már megvannak: semmi sem törlődik.</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> Az automatikus másolat az iCloudodba mentődik. <span class="plat a">Android</span> A telefonon tárolódik, és ha be van kapcsolva az Android biztonsági mentése a Google-fiókodban (a telefon beállításai → Google → Biztonsági mentés), amikor ezzel a fiókkal belépsz egy új telefonon, magától visszakapod.</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">Adminisztrátoroknak (véneknek)</h2>
+<section id="crear-congregacion"><h2>8. A gyülekezet létrehozása</h2>
+<p>Ezt <strong>egyszer</strong> egy vén teszi meg; utána meghívja a többieket.</p>
+<ol class="pasos"><li>Nyisd meg a Wkitet, és koppints a <strong>„Fiók létrehozása vagy belépés adminisztrátorként“</strong> gombra.</li><li>Írd be az e-mail-címedet, és koppints a <strong>„Belépési hivatkozás küldése“</strong> gombra. Nincsenek jelszavak: kapsz egy hivatkozást, amellyel megerősíted, hogy az e-mail a tiéd.</li><li><strong>Nyisd meg a hivatkozást ugyanarról a telefonról.</strong> A Wkit magától megnyílik.</li><li>Töltsd ki a <strong>nevedet</strong>, a <strong>gyülekezet nevét</strong>, a <strong>gyülekezet számát</strong> és az <strong>országot</strong>, és koppints a <strong>„Gyülekezet létrehozása“</strong> gombra.</li><li>Látni fogod az <strong>„Első lépések vénként“</strong> részt: 1) add hozzá a testvéreket a Testvérek listájához, és 2) hívd meg őket.</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">Nem érkezik meg az e-mail? Nézd meg a spam mappát, és koppints a <strong>„Nem érkezett meg, küldd újra“</strong> gombra. Egy e-mail-címnek csak egy fiókja lehet a Wkitben.</div>
+</section>
+<section id="hermanos"><h2>9. A testvérek listája</h2>
+<p>Ez mindennek az alapja: a programok, a csoportok és a feladatok a lista neveit használják. A <strong>Menü → Testvérek listája</strong> alatt található.</p>
+<h3>Testvér hozzáadása</h3>
+<ol class="pasos"><li>Koppints a <strong>+</strong> gombra (<strong>„Új testvér“</strong>).</li><li>Írd be a <strong>nevet</strong>, és válaszd ki, hogy <strong>testvér</strong> vagy <strong>testvérnő</strong>.</li><li>Válaszd ki a <strong>felelősségét</strong>: megkeresztelt vagy meg nem keresztelt hírnök, úttörő, szolgálati segítő vagy vén.</li><li>Ha szükséges, válaszd ki a <strong>szolgálati csoportját</strong>, és kapcsold be a <strong>Területszolga</strong>, a <strong>Hang és videó / Rendezők</strong> vagy az <strong>Adminisztrátor</strong> lehetőséget.</li><li>Koppints a <strong>„Létrehozás“</strong> gombra.</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>Két azonos nevű testvér:</strong> adj hozzá valamit, ami megkülönbözteti őket (például „fia“), hogy a feladatok ne keveredjenek össze.</div>
+<h3>Testvér meghívása a Wkitbe</h3>
+<ol class="pasos"><li>Nyisd meg a testvér kártyáját, és koppints a <strong>„Meghívás“</strong> (vagy a <strong>„Hivatkozás létrehozása“</strong>) gombra.</li><li>Koppints a <strong>„Meghívó megosztása“</strong> gombra, és válaszd a WhatsAppot, az üzeneteket stb. <strong>Két üzenet megy egymás után</strong>: először a hivatkozás, majd egyedül a kód, hogy könnyű legyen másolni.</li><li>A testvér megnyitja a hivatkozást (vagy beilleszti a kódot), és belép. Ha még nem lépett be, újra megoszthatod a meghívót; ha újat hozol létre, az előző érvényét veszti.</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>Szerkesztés, törlés és adminisztrátorok kijelölése</h3>
+<ul><li>Koppints egy testvérre, és válaszd a <strong>„Szerkesztés“</strong> lehetőséget az adatai módosításához.</li><li>Androidon a törléshez koppints a sorában lévő <strong>piros ikonra</strong>; iPhone-on húzd balra a sort. Minden eszközön törlődik a listáról, és a területek, amelyek nála voltak, szabadok lesznek.</li><li>Az <strong>adminisztrátor</strong> kezelheti a testvéreket, a területeket, a közleményeket és a programot. <strong>Nem törölheted a saját kártyádat és az utolsó adminisztrátort sem</strong>: előbb jelölj ki egy másikat.</li></ul>
+</section>
+<section id="grupos"><h2>10. Szolgálati csoportok</h2>
+<p>A csoportokat a szolgálati kimenetelekhez és a takarításhoz használjuk. A <strong>Menü → Szolgálati csoportok → Lista</strong> alatt találhatók.</p>
+<ol class="pasos"><li>Ha egy sincs, koppints a <strong>„Szolgálati csoportok létrehozása“</strong> gombra, és válaszd ki, <strong>hány csoportot</strong> szeretnél (később a <strong>+</strong> gombbal többet is hozzáadhatsz).</li><li>A testvérek csoportba osztásához menj a <strong>Testvérek listájához</strong>, nyisd meg mindegyikük kártyáját, és válaszd ki a <strong>szolgálati csoportját</strong>.</li><li>Térj vissza a <strong>Menü → Szolgálati csoportok → Lista</strong> menübe. Minden csoportban látod a <strong>felvigyázót</strong>, a <strong>segítőt</strong> és a testvéreket <strong>ábécésorrendben</strong>.</li><li>Koppints a <strong>ceruza</strong> gombra (Szerkesztés). Koppints a <strong>„Felvigyázó“</strong> elemre, és válassz egyet az adott csoport testvérei közül; ugyanígy a <strong>„Segítő“</strong> elemnél. Nem lehet ugyanaz a személy.</li><li>Koppints a <strong>pipára</strong> a befejezéshez.</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">A felvigyázót és a segítőt <strong>azután</strong> választod ki, hogy beosztottad a testvéreket, mert csak a csoport saját testvérei közül lehet választani. Ha egy testvért másik csoportba teszel, megszűnik az előzőben felvigyázónak vagy segítőnek lenni.</div>
+<div class="nota">Minden csoport felvigyázója és segítője <strong>megadhatja a csoportja takarításának napját és óráját</strong> (12. szakasz), akkor is, ha nem adminisztrátorok.</div>
+</section>
+<section id="salidas"><h2>11. Szolgálati kimenetelek</h2>
+<p>A kimenetelek a szolgálathoz való találkozás időpontjai és helyei. Vannak <strong>általánosak</strong> (az egész gyülekezetnek) és <strong>az egyes csoportok saját</strong> kimenetelei. A <strong>Menü → Szolgálati csoportok → Szolgálati kimenetelek</strong> alatt találhatók. Előbb létre kell hoznod a csoportokat.</p>
+<ol class="pasos"><li>Koppints a <strong>„Gyülekezet“</strong> szakaszra (általános kimenetelek) vagy egy <strong>csoport</strong> szakaszára.</li><li>Koppints a <strong>„Kimenetel hozzáadása“</strong> gombra a megfelelő napon, és írd be a <strong>címkét</strong> (például „Délelőtt“ vagy „Délután“), az <strong>időpontot</strong>, és ha szeretnéd, a <strong>helyet</strong>.</li><li>Egy kimenetel <strong>szerkesztéséhez</strong> közvetlenül módosítsd a mezőit. A <strong>törléséhez</strong> koppints a sorában lévő piros ikonra.</li><li>A testvérek a helyre koppintva megnyithatják a telefonjuk térképén.</li></ol>
+<div class="nota">Ha egy csoportnak nincsenek saját kimenetelei, a gyülekezet kimeneteleit használjuk („Nincsenek saját kimenetelek — a gyülekezet kimeneteleit használja“).</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. Takarítás: melyik csoport következik, és melyik napon és órában</h2>
+<p>A takarítás <strong>automatikusan váltakozik</strong> a szolgálati csoportok között: minden héten másik csoport következik, az 1. csoporttal kezdve. A <strong>Menü → Takarítás → Csoportok</strong> alatt található.</p>
+<h3>Annak a csoportnak a megváltoztatása, amely ezen a héten takarít (adminisztrátorok)</h3>
+<ol class="pasos"><li>Koppints a <strong>ceruza</strong> gombra (Szerkesztés).</li><li>Koppints arra a <strong>csoportra</strong>, amelyik ezen a héten következik. Jövő héten a sorban következő csoport lesz soron.</li><li>Koppints a <strong>pipára</strong>. A változást a gyülekezet <strong>minden eszköze</strong> látja.</li></ol>
+<h3>A pontos nap és óra megadása (adminisztrátorok, a csoport felvigyázója és segítője)</h3>
+<ol class="pasos"><li>A <strong>Menü → Takarítás → Csoportok</strong> alatt keresd meg a saját csoportodat (vagy azt, amelyet kezelsz), és koppints a sorában lévő <strong>ceruzára</strong>.</li><li>Válaszd ki a <strong>napot</strong> és az <strong>órát</strong> (például vasárnap 12:30), és koppints a <strong>„Mentés“</strong> gombra. A dátum törléséhez koppints a <strong>„Dátum eltávolítása“</strong> gombra.</li><li>Az adott csoport testvérei ezt látni fogják a kezdőképernyőjükön: <strong>„1. csoport · Ezen a héten“</strong> és alatta <strong>„Vasárnap 12:30“</strong>, a saját <strong>csengőjével</strong> az emlékeztető beállításához.</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">A dátum csak akkor jelenik meg a kezdőképernyőn, ha az <strong>aktuális hétre</strong> esik (hétfőtől vasárnapig). Előre is megadhatod: akkor jelenik meg, amikor az a hét eljön. A múltbeli hetek dátumai maguktól eltűnnek.</div>
+</section>
+<section id="vida-ministerio"><h2>13. Az Élet és szolgálat program</h2>
+<p>A <strong>Program → Élet és szolgálat</strong> fülön hozod létre az egyes hetek programját, és osztod ki a részeket. Minden testvér látja; csak az adminisztrátorok szerkesztik.</p>
+<ol class="pasos"><li>Koppints az <strong>„Új hét“</strong> gombra, és válaszd ki az <strong>összejövetel dátumát</strong> (az adott hét bármelyik napja, hétfőtől vasárnapig).</li><li>A Wkit a hetet a <strong>szokásos szerkezettel</strong> hozza létre: Gyöngyszemek Isten szavából, Fejlődjünk a szolgálatban és Keresztényi életünk.</li><li>Koppints bármelyik <strong>címre</strong> a megváltoztatásához, és szükség esetén az <strong>időtartamra</strong>. Az <strong>„Feladat hozzáadása“</strong> gombbal további részeket adhatsz hozzá.</li><li>Minden résznél koppints a <strong>„Kiválasztás“</strong> gombra, és válaszd ki a testvért vagy testvéreket (például a diákot és a segítőt). A <strong>Mellékterem</strong> esetén használd a <strong>„Mellékterem hozzáadása“</strong> gombot.</li><li>Válaszd ki az <strong>énekeket</strong> és az <strong>imákat</strong> is, és koppints a <strong>„Program mentése“</strong> gombra.</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>Egy másik hét megtekintéséhez használd a <strong>hétválasztót</strong> (<strong>„Előző hét“</strong> / <strong>„Következő hét“</strong>); innen <strong>szerkesztheted vagy törölheted</strong> is.</li><li>A testvérek <strong>értesítést</strong> kapnak, amikor kiosztanak nekik egy részt, és látják a kezdőképernyőjükön.</li><li>A hét programja magától eltűnik vasárnap végén.</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. Nyilvános összejövetel</h2>
+<p>A <strong>Program → Nyilvános összejövetel</strong> alatt készítheted elő a hétvégi összejöveteleket.</p>
+<ol class="pasos"><li>Koppints az <strong>„Új nyilvános összejövetel“</strong> gombra, és válaszd ki a <strong>dátumot</strong>. Ha arra a dátumra már van összejövetel, a Wkit figyelmeztet.</li><li>Válaszd ki az <strong>elnököt</strong>, az <strong>előadót</strong>, és írd be az <strong>előadás címét</strong>.</li><li>Válaszd ki az <strong>Őrtorony felolvasóját</strong> („wS felolvasó“), valamint az <strong>énekeket</strong> és az <strong>imákat</strong>.</li><li>Mentsd el. A testvérek a kezdőképernyőjükön látják a részeiket.</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. Hang és videó / Rendezők</h2>
+<p>A <strong>Menü → Hang és videó / Rendezők</strong> alatt osztod ki az egyes hetek felelősségeit: hang, videó, mikrofonok, rendezők, Zoom, időmérés…</p>
+<ol class="pasos"><li>Koppints az <strong>„Új hét“</strong> gombra, és válaszd ki az <strong>összejövetel dátumát</strong>.</li><li>Koppints a <strong>„Kiválasztás“</strong> gombra minden felelősségnél, és válaszd ki a testvért. Néhánynál, például a mikrofonoknál, <strong>több testvér</strong> is lehet (<strong>„Testvér hozzáadása“</strong>).</li><li>Egy másik felelősséghez, amely nincs a listán, koppints a <strong>„Felelősség hozzáadása“</strong> gombra, és nevezd el.</li><li>Mentsd el. Minden testvér a <strong>Felelősségek</strong> között látja a kezdőképernyőjén, a saját csengőjével.</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. Egyéb programok</h2>
+<p><strong>Bármi másra</strong>, amit a gyülekezet szervez és nem összejövetel: például fuvar azoknak a testvéreknek, akik nem tudnak eljönni, vagy segítség a hírnököknek. Minden programnak megvan a maga gyakorisága. A <strong>Menü → Egyéb programok</strong> alatt található.</p>
+<ol class="pasos"><li>Koppints az <strong>„Új program“</strong> gombra. Írd be a <strong>nevet</strong>, és válaszd ki, <strong>milyen gyakran szervezik</strong>: naponta, hetente, havonta vagy évente.</li><li>Koppints az <strong>„Első hét létrehozása“</strong> (vagy az <strong>„Új időszak“</strong>) gombra, és válaszd ki a dátumot: az adott hét, hónap vagy év bármelyik napját.</li><li>Koppints a <strong>„Felelősség hozzáadása“</strong> gombra: írj be egy nem kötelező <strong>címkét</strong> (például „Korábban viszi“), és <strong>válaszd ki a testvért vagy testvérnőt</strong>.</li><li>Mentsd el. Mindenki a kezdőképernyőjén látja az <strong>„Egyéb programok“</strong> alatt, és az időszak magától eltűnik, amikor véget ér.</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. Közlemények</h2>
+<p>A közleményeket az adminisztrátorok hozzák létre, és csak a saját csoportjuknak az egyes szolgálati csoportok felvigyázója és segítője. Azok a testvérek látják, akiknek szólnak. A <strong>Menü → Közlemények</strong> alatt találhatók.</p>
+<ol class="pasos"><li>Koppints az <strong>„Új közlemény“</strong> gombra, és írd meg az <strong>üzenetet</strong>.</li><li>Alapértelmezés szerint <strong>azonnal</strong> megjelenik, amint elmented, és mindenki értesítést kap.</li><li>Ha azt szeretnéd, hogy később jelenjen meg, kapcsold be az <strong>„Ütemezés későbbre“</strong> lehetőséget, és válassz <strong>dátumot és időpontot</strong>: addig senki sem látja, és abban az órában mindenki értesítést kap.</li><li>Mentsd el. Egy közlemény eltávolításához koppints rá, és válaszd a <strong>„Törlés“</strong> lehetőséget: mindenki számára eltűnik.</li></ol>
+<h3>Csak egy csoportnak szóló közlemények</h3>
+<ul><li>Minden szolgálati csoport <strong>felvigyázója</strong> és <strong>segítője</strong> látja a <strong>+</strong> gombot akkor is, ha nem adminisztrátorok, és a közleményeik <strong>csak a csoportjuk tagjaihoz</strong> jutnak el.</li><li>Az az adminisztrátor, akinek van csoportja is, a közlemény létrehozásakor bekapcsolhatja a <strong>„Közlemény küldése csak a csoportom tagjainak“</strong> lehetőséget.</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. A gyülekezet naptára</h2>
+<p>Arra való, hogy mindenki lássa a gyülekezet eseményeit, például a <strong>körzeti kongresszust</strong> vagy a <strong>körzetfelvigyázó látogatását</strong>. Csak az adminisztrátorok hozhatják létre őket.</p>
+<ol class="pasos"><li>Nyisd meg a <strong>Menü → Naptár</strong> menüt, és koppints az <strong>„Esemény hozzáadása“</strong> gombra.</li><li>Írd be a <strong>címet</strong>, és koppints az esemény <strong>napjaira</strong>: ha több napig tart, koppints mindegyikre.</li><li>Mentsd el. Mindenki látni fogja a <strong>Kezdőlapon</strong>, a „Naptár“ alatt, egy <strong>csengővel</strong> az emlékeztető beállításához.</li><li>A módosításhoz vagy eltávolításhoz nyisd meg, és válaszd az <strong>„Esemény szerkesztése“</strong> vagy az <strong>„Esemény törlése“</strong> lehetőséget.</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. Területek: kiosztás, kampányok és webes felület</h2>
+<p>Aki rendelkezik a <strong>Területszolga</strong> jogosultsággal, az egész gyülekezet területeit kezeli a <strong>Területek</strong> fülről (a hírnökök csak a sajátjaikat látják).</p>
+<h3>Területek kiosztása és átvétele</h3>
+<ul><li>Koppints egy területre, és válaszd a <strong>„Kiosztás“</strong> (vagy „Kiosztás hírnöknek“) lehetőséget, majd a testvért. Látod, kinél van és mióta, és melyek <strong>lejártak</strong> vagy <strong>soha nem lettek kiosztva</strong>.</li><li>Amikor egy hírnök <strong>kér</strong> egy területet, az összes területszolgát értesítjük (<strong>„Területkérések“</strong>); az első, aki tud, kiosztja neki.</li><li>Amikor egy testvér <strong>leadja</strong> a területet, az szabaddá válik, és rögzítjük a dátumot.</li></ul>
+<h3>Kampányok</h3>
+<ul><li><strong>„Új kampány“</strong> egy adott időszakra újra felveszi az összes területet. Készül egy <strong>másolat</strong> a jelenlegi területekről a külön elosztáshoz; a normál területekhez nem nyúl.</li><li>Egyszerre csak <strong>egy aktív kampány</strong> lehet. A befejezéséhez válaszd a <strong>„Kampány törlése“</strong> lehetőséget: a kiosztásai törlődnek, és minden visszatér a megszokott állapotba.</li></ul>
+<h3>S-13 nyilvántartás és webes felület</h3>
+<ul><li>Az <strong>Eszközök</strong> alatt elkészítheted az <strong>S-13 nyilvántartást PDF-ben</strong> (szektoronként egyet), hogy megoszd.</li><li>A <strong>területek webes felülete</strong> a számítógép böngészőjéből nyílik meg. Hogy hozzáférést adj egy területszolgának: nyisd meg a kártyáját a Testvérek listájában, és koppints a <strong>„Hozzáférés a felülethez“</strong> → <strong>„Hivatkozás létrehozása“</strong> gombra. A hivatkozás személyes; az általad választott <strong>6 jegyű jelszóval</strong> lehet belépni, amelyet bármikor megváltoztathatsz.</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">A felület hivatkozása olyan, mint egy jelszó: ne oszd meg azon kívül, akinek hozzáférése kell legyen. Ha újat hozol létre, az előző megszűnik működni.</div>
+</section>
+<section id="suscripcion"><h2>19. A gyülekezet előfizetése</h2>
+<p>Ahhoz, hogy minden testvérnek teljes hozzáférése legyen, <strong>éves gyülekezeti előfizetésre</strong> van szükség. <strong>Egy adminisztrátor fizeti, és minden testvérre kiterjed</strong>, iPhone-on és Androidon is. A többi testvér semmit sem fizet.</p>
+<ol class="pasos"><li>Nyisd meg a <strong>Menü → Beállítások → A gyülekezet előfizetése</strong> menüt.</li><li>Koppints az <strong>„Előfizetés a gyülekezet nevében“</strong> gombra. A megerősítés előtt látod az éves árat; ha van <strong>ingyenes próbaidőszak</strong>, addig nem terhelnek meg semmivel, amíg le nem jár.</li><li>Erősítsd meg az App Store-on (iPhone) vagy a Google Playen (Android) keresztül. Kész: az egész gyülekezetnek van hozzáférése.</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li><strong>Automatikusan megújul</strong> minden évben, hacsak nem mondod le legalább 24 órával az időszak vége előtt.</li><li><strong>Kezeléséhez vagy lemondásához</strong>: <span class="plat i">iPhone</span> az iPhone beállításai → a neved → Előfizetések; <span class="plat a">Android</span> Google Play → a profilod → Fizetések és előfizetések → Előfizetések (vagy a „Kezelés vagy lemondás a Google Playen“ gomb a Wkitben).</li><li>Ha <strong>telefont cserélsz</strong>, koppints a <strong>„Vásárlások visszaállítása“</strong> gombra ugyanezen a képernyőn.</li><li>Ha az előfizetés <strong>lejár</strong>, a gyülekezet <strong>csak olvasható</strong> módba kerül: minden látható marad, és <strong>semmi sem törlődik</strong>. A megújításkor újra szerkeszthető.</li></ul>
+<div class="nota">A Wkit soha nem lát és nem tárol fizetési adatokat: az Apple vagy a Google kezeli őket.</div>
+</section>
+<section id="copias"><h2>20. Csak ezen a telefonon tárolt adatok</h2>
+<p>Ha a Wkitet offline használtad, vagy mielőtt a gyülekezeted létezett volna, az alkalmazás megkérdezheti, mit tegyen a <strong>csak ezen a telefonon tárolt adatokkal</strong> (például testvérekkel vagy közleményekkel). Két lehetőséged van: <strong>„Feltöltés“</strong> a gyülekezetbe (mindenki látni fogja) vagy <strong>„Elvetés“</strong>. Addig nem történik semmi, amíg te nem döntesz.</p>
+</section>
+      <div class="caja pie"><strong>Nem találod, amit keresel?</strong> Írj nekünk a következő címre: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> és mondd el, mi a gond. Ha tudod, add meg, melyik eszközt használod (iPhone, iPad vagy Android), és mit csináltál.</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>

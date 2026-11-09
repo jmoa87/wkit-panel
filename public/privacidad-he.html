@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="he" dir="rtl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>מדיניות הפרטיות של Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <b>עברית</b> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>מדיניות הפרטיות של Wkit</h1>
+      <p class="fecha">עודכן לאחרונה: 9 בנובמבר 2026</p>
+      <h2>1. מי אנחנו ומהו Wkit</h2>
+      <p>Wkit היא אפליקציה של <strong>Titan Estudios</strong> שעוזרת לארגן את חיי הקהילה: תוכנית האסיפות, השטחים, ההודעות, רשימת האחים והדוח האישי של השירות. היא פועלת באייפון, באייפד ובאנדרואיד, ויש לה לוח אינטרנטי לניהול השטחים.</p>
+      <div class="caja"><strong>מי אחראי על מה.</strong> על נתוני <em>החשבון</em> (למשל כתובת הדוא״ל) אחראים אנחנו. על נתוני <em>האחים בקהילה</em> (הרשימה, התוכנית, השטחים…) אחראית הקהילה עצמה, באמצעות המנהלים שלה, שהם מזינים אותם ומחליטים למה הם משמשים; אנחנו רק מספקים את הכלי ושומרים אותם מטעמם.</div>
+      <h2>2. אילו נתונים מעובדים</h2>
+      <table>
+        <tr><th>החשבון שלך</th><td>כתובת הדוא״ל, רק של מי שיוצר את הקהילה ושל המנהלים שמקשרים אותה; שאר האחים אינם זקוקים לדוא״ל, הם נכנסים עם הזמנה. ומזהה פנימי של החשבון.</td></tr>
+        <tr><th>הכרטיס שלך ברשימת האחים</th><td>שם, מין, תפקיד (מבשר, חלוץ, משרת מסייע, זקן), קבוצת שירות, אם הוא עוזר בשמע ווידאו או בשטחים, וההרשאות שיש לו באפליקציה. הם מוזנים ונערכים על ידי מנהלי הקהילה.</td></tr>
+        <tr><th>נתוני הקהילה</th><td>תוכנית האסיפות ומי מקבל כל חלק (לפי שם), הנאומים הציבוריים, שמע ווידאו, קבוצות השירות (עם המשגיח והעוזר), הניקיון (איזו קבוצה, ואיזה יום ושעה), היציאות לשירות, ההודעות, התוכניות האחרות, השטחים (צורתם במפה, מי מחזיק בהם והתאריכים), המסעות והבקשות לשטח. וגם אירועי לוח השנה (כותרת וימים). וגם הערות השטחים (טקסט קצר ותאריך, בלי שם מי שכתב אותן), שחברי הקהילה יכולים לראות.</td></tr>
+        <tr><th>מנוי</th><td>כאשר מנהל מנוי את הקהילה, התשלום מטופל על ידי Apple (ו־Google באנדרואיד): אנחנו לא רואים ולא שומרים שום פרט תשלום. אנחנו שומרים רק את מצב המנוי, המשויך לקהילה: התאריכים ומזהה של הרכישה.</td></tr>
+        <tr><th>נתונים טכניים</th><td>מזהה של המכשיר שלך כדי שנוכל לשלוח לך התראות (מסופק על ידי Apple באייפון ובאייפד, ועל ידי Google באנדרואיד) ונתוני חיבור טכניים שהשרתים רושמים, כמו כתובת ה־IP.</td></tr>
+        <tr><th>דוח השירות שלך</th><td>השעות והלימודים שאתה רושם בדוח שלך נשמרים במכשיר שלך, וכדי שתוכל להשתמש בו בכל המכשירים שלך, גם בשרתים שלנו (Supabase), משויכים לכרטיס שלך. <strong>רק אתה יכול לראות אותם</strong>: לא הזקנים ולא המנהלים של הקהילה שלך יכולים לגשת אליהם, והם לא משותפים עם אף אחד אחר.</td></tr>
+<tr><th>רק במכשיר שלך</th><td>יעד השעות שלך, התזכורות וההגדרות. <strong>הם לא נשלחים לשרתים שלנו.</strong> אם תפעיל גיבוי, הוא נשמר ב־iCloud שלך, שאתה מנהל. באנדרואיד, הגיבוי נשמר בטלפון עצמו, ואם הפעלת את הגיבוי של אנדרואיד, גם בחשבון Google שלך, שאתה מנהל.</td></tr>
+      </table>
+      <h2>3. מה אנחנו לא עושים</h2>
+      <ul>
+        <li>אין פרסומות, ואין מכירה או העברה של נתונים לצדדים שלישיים למטרות מסחריות.</li>
+        <li>אין כלי סטטיסטיקה, מעקב או איתור בין אפליקציות.</li>
+        <li>האפליקציה <strong>לא משתמשת במיקום שלך</strong>, במצלמה, בתמונות, באנשי הקשר או במיקרופון.</li>
+        <li>אנחנו לא יוצרים פרופילים ולא מקבלים החלטות אוטומטיות עליך.</li>
+      </ul>
+      <h2>4. למה משמשים הנתונים</h2>
+      <ul>
+        <li>כדי לתת לך את השירות שביקשת: להיכנס לחשבון שלך, להציג לכל קהילה את הנתונים שלה ולשמור אותם מעודכנים בכל המכשירים שלה.</li>
+        <li>כדי לשלוח לך את ההתראות שנוצרות בתוך הקהילה שלך (הודעה, שטח שהוקצה לך…), בתנאי שנתת הרשאה להתראות במכשיר שלך, ואותה אתה יכול לבטל בכל עת.</li>
+        <li>לאבטחת השירות ולמענה לבקשות העזרה שלך.</li>
+      </ul>
+      <h2>5. מי יכול לראות את הנתונים שלך</h2>
+      <ul>
+        <li><strong>בתוך הקהילה שלך:</strong> כל החברים רואים את רשימת האחים, את התוכנית ואת ההודעות שפורסמו. רק המנהלים יכולים ליצור אותם או לשנות אותם. מבשר רואה רק את השטחים שהוקצו לו. מי שמנהל את השטחים רואה את אלה של כל הקהילה. את דוח השירות שלך רואה רק אתה. הודעות המיועדות לקבוצה נראות רק לחברי אותה קבוצה, והמשגיח והעוזר של כל קבוצה יכולים ליצור אותן עבור הקבוצה שלהם.</li>
+        <li><strong>קהילות אחרות: אף אחד.</strong> כל קהילה ניגשת רק לנתונים שלה; זה מובטח על ידי בקרת הגישה של מסד הנתונים עצמו.</li>
+        <li><strong>ספקים שעוזרים לנו לספק את השירות</strong> (הם מעבדים את הנתונים רק לצורך זה):
+          <ul>
+            <li><strong>Supabase</strong>, שמארח את מסד הנתונים ואת החשבונות, בשרתים באיחוד האירופי (פרנקפורט).</li>
+            <li><strong>Apple</strong>, להפצת האפליקציה, להתראות, למפות האפליקציה (Apple Maps) ולגביית המנוי.</li>
+            <li><strong>Google</strong>: באנדרואיד, להפצת האפליקציה (Google Play), להתראות (Firebase Cloud Messaging), למפת האפליקציה (Google Maps) ולגביית המנוי; ובכל הפלטפורמות, שירות הדוא״ל שלה, שבאמצעותו נשלחות ההודעות עם קישור הגישה. בהצגת המפה, Google עשויה לקבל נתוני חיבור טכניים, כמו כתובת ה־IP.</li>
+            <li><strong>GitHub</strong>, שמארח את הלוח האינטרנטי, ו־ <strong>OpenFreeMap</strong>, שמספק את מפות הלוח האינטרנטי. כדי להציג את הדפים האלה הם מקבלים נתוני חיבור טכניים, כמו כתובת ה־IP.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. מידע רגיש במיוחד</h2>
+      <p>מטבעה, רשימת חברי קהילה עלולה לחשוף אמונות דתיות, שהן קטגוריה מיוחדת של נתונים אישיים. לכן Wkit נועדה לשימוש פנימי של כל קהילה: הנתונים מוזנים ומנוהלים על ידי הקהילה עצמה למטרותיה, רק חבריה רואים אותם, והם עוברים באינטרנט מוצפנים. אנו ממליצים להזין רק את הנדרש.</p>
+      <h2>7. כמה זמן הם נשמרים ואיך למחוק אותם</h2>
+      <p>הנתונים נשמרים כל עוד החשבון או הקהילה קיימים. אתה יכול למחוק את החשבון שלך בכל עת מתוך האפליקציה:</p>
+      <div class="caja"><strong>הגדרות ← החשבון שלי ← מחק את החשבון שלי.</strong></div>
+      <p><a href="eliminar-cuenta-he.html">דף עם השלבים למחיקת החשבון והנתונים שלך</a>.</p>
+      <ul>
+        <li>החשבון שלך והכרטיס שלך ברשימת האחים נמחקים. השטחים שהיו לך מתפנים.</li>
+        <li>הנתונים ששמרה האפליקציה במכשיר שלך והדוח שלך השמור בשרתים שלנו נמחקים.</li>
+        <li>אם אתה האדם היחיד בקהילה שלך, גם הקהילה נמחקת עם כל נתוניה (נבקש את אישורך המפורש לפני כן).</li>
+        <li>אם אתה המנהל היחיד ויש עוד אחים, עליך למנות קודם מנהל אחר, כדי שהקהילה לא תישאר בלי ניהול.</li>
+        <li>נתונים שכבר אינם קיימים עלולים להישאר זמן מוגבל בגיבויים של הספק שלנו לפני שיימחקו לגמרי.</li>
+        <li>מחיקת החשבון אינה מבטלת מנוי בתשלום, אם יש כזה: זה נעשה בהגדרות ה־Apple ID שלך, או באנדרואיד ב־Google Play ← תשלומים ומינויים.</li>
+      </ul>
+      <p>בנוסף, המנהלים יכולים למחוק מהרשימה את הכרטיס של אח כשצריך.</p>
+      <h2>8. הזכויות שלך</h2>
+      <p>אתה יכול לבקש גישה לנתונים שלך, תיקונם, מחיקתם, ניידותם, הגבלת העיבוד שלהם ולהתנגד לו. את רוב הזכויות האלה אתה יכול לממש בעצמך באפליקציה; לשאר, כתוב לנו. נתוני הכרטיס והתוכנית מנוהלים על ידי הקהילה שלך: אם אתה רוצה לתקן אותם, בקש זאת גם ממנהליה.</p>
+      <p>אם אתה סבור שלא טיפלנו נכון בנתונים שלך, אתה יכול להגיש תלונה ל<a href="https://www.aepd.es">הרשות הספרדית להגנת מידע (AEPD)</a> או לרשות להגנת מידע במדינתך.</p>
+      <h2>9. אבטחה</h2>
+      <ul>
+        <li>כל התקשורת עוברת מוצפנת (HTTPS).</li>
+        <li>הגישה לנתונים נשלטת על ידי הרשאות במסד הנתונים עצמו, ולא רק במסך האפליקציה.</li>
+        <li>הגישה ללוח האינטרנטי של השטחים נעשית עם מפתח אישי שנמצא בקישור. התייחס אליו כאל סיסמה ואל תשתף אותו.</li>
+      </ul>
+      <h2>10. קטינים</h2>
+      <p>Wkit אינה מיועדת לילדים מתחת לגיל 14. אם קהילה כוללת קטין ברשימה שלה, מנהל בוגר עושה זאת על אחריותו ובאישור הוריו או אפוטרופוסיו.</p>
+      <h2>11. שינויים במדיניות זו</h2>
+      <p>אם נשנה משהו חשוב, נציין זאת כאן ונעדכן את התאריך שלמעלה.</p>
+      <h2>12. יצירת קשר</h2>
+      <p>לכל שאלה או למימוש זכויותיך: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. יש גם דף <a href="soporte-he.html">עזרה</a>.</p>
+    </main>
+  </body>
+</html>

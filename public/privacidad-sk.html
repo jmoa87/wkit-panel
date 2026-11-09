@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="sk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Zásady ochrany osobných údajov Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <b>Slovenčina</b> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>Zásady ochrany osobných údajov Wkit</h1>
+      <p class="fecha">Posledná aktualizácia: 9. novembra 2026</p>
+      <h2>1. Kto sme a čo je Wkit</h2>
+      <p>Wkit je aplikácia od <strong>Titan Estudios</strong>, ktorá pomáha organizovať život zboru: program stretnutí, územia, oznamy, zoznam bratov a osobnú správu o službe. Funguje na iPhone, iPade a Androide a má webový panel na správu území.</p>
+      <div class="caja"><strong>Kto za čo zodpovedá.</strong> Za údaje o <em>účte</em> (napríklad e-mail) zodpovedáme my. Za údaje o <em>bratoch v zbore</em> (zoznam, program, územia…) zodpovedá samotný zbor prostredníctvom svojich správcov, ktorí ich zadávajú a rozhodujú, na čo sa použijú; my len ponúkame nástroj a údaje pre nich uchovávame.</div>
+      <h2>2. Aké údaje sa spracúvajú</h2>
+      <table>
+        <tr><th>Tvoj účet</th><td>E-mail, a to len toho, kto zbor vytvorí, a správcov, ktorí ho prepoja; ostatní bratia žiadny e-mail nepotrebujú, vstupujú s pozvánkou. A interný identifikátor účtu.</td></tr>
+        <tr><th>Tvoja karta v zozname bratov</th><td>Meno, pohlavie, úloha (zvestovateľ, priekopník, služobný pomocník, starší), skupina kazateľskej služby, či pomáha vo Zvuku a videu alebo v Územiach, a oprávnenia v aplikácii. Zadávajú a upravujú ju správcovia zboru.</td></tr>
+        <tr><th>Údaje zboru</th><td>Program stretnutí a kto má akú časť (menom), verejné zhromaždenia, Zvuk a video, skupiny kazateľskej služby (s dozorcom a pomocníkom), upratovanie (ktorá skupina a v ktorý deň a hodinu), zhromaždenia na službu, oznamy, ďalšie programy, územia (ich tvar na mape, kto ich má a dátumy), kampane a žiadosti o územie. Aj udalosti v kalendári (názov a dni). Aj poznámky k územiam (krátky text a dátum, bez mena autora), ktoré môžu vidieť členovia zboru.</td></tr>
+        <tr><th>Predplatné</th><td>Keď správca zbor predplatí, platbu spracúva Apple (a Google na Androide): my nevidíme ani neukladáme žiadne platobné údaje. Ukladáme len stav predplatného spojený so zborom: dátumy a identifikátor nákupu.</td></tr>
+        <tr><th>Technické údaje</th><td>Identifikátor tvojho zariadenia, aby sme ti mohli posielať oznámenia (poskytuje ho Apple na iPhone a iPade a Google na Androide), a technické údaje o pripojení, ktoré servery zaznamenávajú, napríklad IP adresu.</td></tr>
+        <tr><th>Tvoja správa o službe</th><td>Hodiny a štúdiá, ktoré si zapíšeš do Správy, sa ukladajú vo tvojom zariadení a, aby si ich mohol používať na všetkých svojich zariadeniach, aj na našich serveroch (Supabase), spojené s tvojou kartou. <strong>Vidíš ich len ty</strong>: ani starší, ani správcovia tvojho zboru k nim nemajú prístup a nezdieľajú sa s nikým iným.</td></tr>
+<tr><th>Len vo tvojom zariadení</th><td>Tvoj cieľ hodín, pripomienky a nastavenia. <strong>Neposielajú sa na naše servery.</strong> Ak zapneš zálohu, uloží sa do tvojho vlastného iCloudu, ktorý spravuješ ty. Na Androide sa záloha ukladá do telefónu a, ak máš zapnutú zálohu Androidu, aj do tvojho účtu Google, ktorý spravuješ ty.</td></tr>
+      </table>
+      <h2>3. Čo NEROBÍME</h2>
+      <ul>
+        <li>Žiadna reklama, žiadny predaj ani odovzdávanie údajov tretím stranám na komerčné účely.</li>
+        <li>Žiadne štatistické nástroje, sledovanie ani trasovanie medzi aplikáciami.</li>
+        <li>Aplikácia <strong>nepoužíva tvoju polohu</strong>, fotoaparát, fotografie, kontakty ani mikrofón.</li>
+        <li>Nevytvárame profily ani o tebe nerobíme automatizované rozhodnutia.</li>
+      </ul>
+      <h2>4. Na čo sa údaje používajú</h2>
+      <ul>
+        <li>Aby sme ti poskytli požadovanú službu: prihlásiť ťa do účtu, ukázať každému zboru jeho údaje a udržiavať ich aktuálne na všetkých zariadeniach.</li>
+        <li>Aby sme ti poslali upozornenia, ktoré vzniknú vo tvojom zbore (oznam, pridelené územie…), ak si v zariadení povolil oznámenia, čo môžeš kedykoľvek odvolať.</li>
+        <li>Na bezpečnosť služby a vybavenie tvojich žiadostí o pomoc.</li>
+      </ul>
+      <h2>5. Kto môže vidieť tvoje údaje</h2>
+      <ul>
+        <li><strong>Vo tvojom zbore:</strong> všetci členovia vidia zoznam bratov, program a zverejnené oznamy. Vytvárať alebo upravovať ich môžu len správcovia. Zvestovateľ vidí len územia, ktoré má pridelené. Kto spravuje územia, vidí územia celého zboru. Tvoju Správu o službe vidíš len ty. Oznamy pre skupinu vidia len členovia tejto skupiny a dozorca a pomocník každej skupiny ich môžu vytvárať pre svoju skupinu.</li>
+        <li><strong>Iné zbory: nikto.</strong> Každý zbor pristupuje len k svojim údajom; zaručuje to riadenie prístupu v samotnej databáze.</li>
+        <li><strong>Poskytovatelia, ktorí nám pomáhajú službu prevádzkovať</strong> (spracúvajú údaje len na tento účel):
+          <ul>
+            <li><strong>Supabase</strong>, ktorý hostuje databázu a účty na serveroch v Európskej únii (Frankfurt).</li>
+            <li><strong>Apple</strong>, na distribúciu aplikácie, oznámenia, mapy v aplikácii (Apple Maps) a platenie predplatného.</li>
+            <li><strong>Google</strong>: na Androide na distribúciu aplikácie (Google Play), oznámenia (Firebase Cloud Messaging), mapu v aplikácii (Google Maps) a platenie predplatného; a na všetkých platformách jeho e-mailovú službu, ktorou sa odosielajú správy s odkazom na prihlásenie. Pri zobrazení mapy môže Google dostať technické údaje o pripojení, napríklad IP adresu.</li>
+            <li><strong>GitHub</strong>, ktorý hostuje webový panel, a <strong>OpenFreeMap</strong>, ktorý poskytuje mapy webového panela. Na zobrazenie týchto stránok dostávajú technické údaje o pripojení, napríklad IP adresu.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Obzvlášť citlivé informácie</h2>
+      <p>Zoznam členov zboru môže svojou povahou odhaliť náboženské presvedčenie, čo je osobitná kategória osobných údajov. Preto je Wkit určený na vnútorné použitie každého zboru: údaje zadáva a spravuje sám zbor na svoje účely, vidia ich len jeho členovia a cez internet sa prenášajú šifrovane. Odporúčame zadávať len to, čo je nevyhnutné.</p>
+      <h2>7. Ako dlho sa uchovávajú a ako ich vymazať</h2>
+      <p>Údaje sa uchovávajú, kým existuje účet alebo zbor. Svoj účet môžeš kedykoľvek vymazať priamo v aplikácii:</p>
+      <div class="caja"><strong>Nastavenia → Môj účet → Vymazať môj účet.</strong></div>
+      <p><a href="eliminar-cuenta-sk.html">Stránka s postupom vymazania tvojho účtu a údajov</a>.</p>
+      <ul>
+        <li>Vymaže sa tvoj prístupový účet a tvoja karta v zozname bratov. Územia, ktoré si mal, sa uvoľnia.</li>
+        <li>Vymažú sa údaje uložené vo tvojom zariadení a tvoja Správa uložená na našich serveroch.</li>
+        <li>Ak si jediný človek v zbore, vymaže sa aj zbor so všetkými údajmi (výslovne sa ťa na to pred tým opýtame).</li>
+        <li>Ak si jediný správca a sú tu ďalší bratia, musíš najprv vymenovať ďalšieho správcu, aby zbor nezostal bez správy.</li>
+        <li>Údaje, ktoré už neexistujú, môžu zostať obmedzený čas v zálohách nášho poskytovateľa, kým sa úplne nevymažú.</li>
+        <li>Vymazanie účtu neruší platené predplatné, ak existuje: to sa robí v nastaveniach tvojho Apple ID alebo na Androide v Google Play → Platby a predplatné.</li>
+      </ul>
+      <p>Správcovia môžu navyše vymazať kartu brata zo zoznamu, keď je to potrebné.</p>
+      <h2>8. Tvoje práva</h2>
+      <p>Môžeš požiadať o prístup k svojim údajom, ich opravu, vymazanie, prenosnosť, obmedzenie spracúvania a vzniesť proti nemu námietku. Mnohé z týchto práv môžeš uplatniť sám v aplikácii; pre ostatné nám napíš. Údaje v karte a v programe spravuje tvoj zbor: ak ich chceš opraviť, požiadaj o to aj jeho správcov.</p>
+      <p>Ak sa domnievaš, že sme s tvojimi údajmi nenakladali správne, môžeš podať sťažnosť na <a href="https://www.aepd.es">španielskom Úrade na ochranu údajov (AEPD)</a> alebo na úrade na ochranu osobných údajov vo svojej krajine.</p>
+      <h2>9. Zabezpečenie</h2>
+      <ul>
+        <li>Všetka komunikácia prebieha šifrovane (HTTPS).</li>
+        <li>Prístup k údajom sa riadi oprávneniami priamo v databáze, nielen na obrazovke aplikácie.</li>
+        <li>Prístup do webového panela území sa uskutočňuje osobným kľúčom v odkaze. Zaobchádzaj s ním ako s heslom a nezdieľaj ho.</li>
+      </ul>
+      <h2>10. Neplnoletí</h2>
+      <p>Wkit nie je určený deťom do 14 rokov. Ak zbor zaradí do zoznamu neplnoletého, robí to dospelý správca na svoju zodpovednosť a so súhlasom rodičov alebo zákonných zástupcov.</p>
+      <h2>11. Zmeny týchto zásad</h2>
+      <p>Ak zmeníme niečo dôležité, uvedieme to tu a aktualizujeme dátum hore.</p>
+      <h2>12. Kontakt</h2>
+      <p>S akoukoľvek otázkou alebo na uplatnenie svojich práv: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Máš aj stránku s <a href="soporte-sk.html">pomocou</a>.</p>
+    </main>
+  </body>
+</html>

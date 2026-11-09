@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkit की गोपनीयता नीति — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <b>हिन्दी</b> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <a href="privacidad-uk.html">Українська</a> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>Wkit की गोपनीयता नीति</h1>
+      <p class="fecha">आखिरी अपडेट: 9 नवंबर 2026</p>
+      <h2>1. हम कौन हैं और Wkit क्या है</h2>
+      <p>Wkit <strong>Titan Estudios</strong> का एक ऐप है जो मंडली के कामों को व्यवस्थित करने में मदद करता है: सभाओं का कार्यक्रम, इलाके, घोषणाएँ, भाइयों की सूची और निजी सेवा रिपोर्ट। यह iPhone, iPad और Android पर चलता है, और इलाकों को सँभालने के लिए इसका एक वेब पैनल भी है।</p>
+      <div class="caja"><strong>कौन किस बात का ज़िम्मेदार है।</strong> हम <em>खाते</em> के डेटा (जैसे ईमेल) के लिए ज़िम्मेदार हैं। जबकि किसी <em>मंडली के भाइयों</em> के डेटा (सूची, कार्यक्रम, इलाके…) की ज़िम्मेदारी खुद मंडली की है, अपने एडमिन के ज़रिए, जो उसे दर्ज करते हैं और तय करते हैं कि उसका क्या इस्तेमाल होगा; हम सिर्फ़ टूल देते हैं और उनकी ओर से डेटा सँभालकर रखते हैं।</div>
+      <h2>2. कौन-सा डेटा प्रोसेस होता है</h2>
+      <table>
+        <tr><th>आपका खाता</th><td>ईमेल, सिर्फ़ उसका जो मंडली बनाता है और उन एडमिन का जो उसे जोड़ते हैं; बाकी भाइयों को ईमेल की ज़रूरत नहीं, वे न्योते से अंदर आते हैं। और खाते की एक आंतरिक पहचान संख्या।</td></tr>
+        <tr><th>भाइयों की सूची में आपका कार्ड</th><td>नाम, लिंग, ज़िम्मेदारी (प्रचारक, पायनियर, सहायक सेवक, प्राचीन), सेवा समूह, क्या वह ऑडियो-वीडियो या इलाकों में मदद करता है, और ऐप में उसकी अनुमतियाँ। इन्हें मंडली के एडमिन दर्ज करते और बदलते हैं।</td></tr>
+        <tr><th>मंडली का डेटा</th><td>सभाओं का कार्यक्रम और किसके पास कौन-सा भाग है (नाम के साथ), सार्वजनिक सभाएँ, ऑडियो-वीडियो, सेवा समूह (उनके निगरान और सहायक के साथ), सफ़ाई (कौन-सा समूह, और कौन-सा दिन और समय), प्रचार सभाएँ, घोषणाएँ, दूसरे कार्यक्रम, इलाके (नक्शे पर उनका आकार, किसके पास हैं और तारीखें), अभियान और इलाके के अनुरोध। साथ ही कैलेंडर के कार्यक्रम (शीर्षक और दिन)। साथ ही इलाकों के नोट (एक छोटा लेख और तारीख, लिखने वाले के नाम के बिना), जिन्हें मंडली के सदस्य देख सकते हैं।</td></tr>
+        <tr><th>सदस्यता</th><td>जब कोई एडमिन मंडली की सदस्यता लेता है, तो भुगतान Apple (और Android पर Google) सँभालता है: हम भुगतान की कोई जानकारी न देखते हैं, न सहेजते हैं। हम सिर्फ़ मंडली से जुड़ी सदस्यता की स्थिति सहेजते हैं: तारीखें और खरीदारी की एक पहचान।</td></tr>
+        <tr><th>तकनीकी डेटा</th><td>आपके डिवाइस की एक पहचान ताकि हम आपको सूचनाएँ भेज सकें (iPhone और iPad पर यह Apple देता है और Android पर Google) और कनेक्शन का तकनीकी डेटा जो सर्वर दर्ज करते हैं, जैसे IP पता।</td></tr>
+        <tr><th>आपकी सेवा रिपोर्ट</th><td>आप अपनी रिपोर्ट में जो घंटे और अध्ययन लिखते हैं, वे आपके डिवाइस में सहेजे जाते हैं और, ताकि आप उसे अपने सभी डिवाइस पर इस्तेमाल कर सकें, हमारे सर्वर (Supabase) पर भी, आपके कार्ड से जुड़े हुए। <strong>उसे सिर्फ़ आप देख सकते हैं</strong>: न प्राचीन, न आपकी मंडली के एडमिन उसे देख सकते हैं, और वह किसी और से साझा नहीं की जाती।</td></tr>
+<tr><th>सिर्फ़ आपके डिवाइस में</th><td>आपके घंटों का लक्ष्य, रिमाइंडर और सेटिंग्स। <strong>ये हमारे सर्वर पर नहीं भेजे जाते।</strong> अगर आप बैकअप चालू करते हैं, तो वह आपके अपने iCloud में सहेजा जाता है, जिसे आप खुद सँभालते हैं। Android पर बैकअप फ़ोन में ही सहेजा जाता है और, अगर आपने Android का बैकअप चालू किया है, तो आपके Google खाते में भी, जिसे आप खुद सँभालते हैं।</td></tr>
+      </table>
+      <h2>3. हम क्या नहीं करते</h2>
+      <ul>
+        <li>कोई विज्ञापन नहीं, और व्यावसायिक मकसद से तीसरे पक्ष को डेटा बेचा या दिया नहीं जाता।</li>
+        <li>आँकड़े, निगरानी या ऐप्स के बीच ट्रैकिंग के कोई टूल नहीं हैं।</li>
+        <li>ऐप <strong>आपकी लोकेशन</strong>, कैमरा, फ़ोटो, संपर्क या माइक्रोफ़ोन का इस्तेमाल नहीं करता।</li>
+        <li>हम प्रोफ़ाइल नहीं बनाते और आपके बारे में अपने-आप फ़ैसले नहीं लेते।</li>
+      </ul>
+      <h2>4. डेटा का इस्तेमाल किसलिए होता है</h2>
+      <ul>
+        <li>आपको वह सेवा देने के लिए जो आपने माँगी है: आपके खाते में प्रवेश, हर मंडली को उसका डेटा दिखाना और उसे सभी डिवाइस पर अपडेट रखना।</li>
+        <li>आपको वे सूचनाएँ भेजने के लिए जो आपकी मंडली में होती हैं (कोई घोषणा, आपको सौंपा गया इलाका…), बशर्ते आपने अपने डिवाइस पर सूचनाओं की अनुमति दी हो, जिसे आप कभी भी वापस ले सकते हैं।</li>
+        <li>सेवा की सुरक्षा के लिए और आपके मदद के अनुरोधों का जवाब देने के लिए।</li>
+      </ul>
+      <h2>5. आपका डेटा कौन देख सकता है</h2>
+      <ul>
+        <li><strong>आपकी मंडली के अंदर:</strong> सभी सदस्य भाइयों की सूची, कार्यक्रम और प्रकाशित घोषणाएँ देखते हैं। इन्हें सिर्फ़ एडमिन बना या बदल सकते हैं। एक प्रचारक सिर्फ़ वही इलाके देखता है जो उसे सौंपे गए हैं। जो इलाकों को सँभालता है, वह पूरी मंडली के इलाके देखता है। आपकी सेवा रिपोर्ट सिर्फ़ आप देखते हैं। किसी समूह के लिए बनी घोषणाएँ सिर्फ़ उसी समूह के सदस्य देखते हैं, और हर समूह के निगरान और सहायक उन्हें अपने समूह के लिए बना सकते हैं।</li>
+        <li><strong>दूसरी मंडलियाँ: कोई नहीं।</strong> हर मंडली सिर्फ़ अपने डेटा तक पहुँचती है; यह खुद डेटाबेस का एक्सेस कंट्रोल सुनिश्चित करता है।</li>
+        <li><strong>वे प्रदाता जो सेवा देने में हमारी मदद करते हैं</strong> (वे डेटा को सिर्फ़ इसी के लिए प्रोसेस करते हैं):
+          <ul>
+            <li><strong>Supabase</strong>, जो यूरोपीय संघ (फ़्रैंकफ़र्ट) के सर्वरों पर डेटाबेस और खाते होस्ट करता है।</li>
+            <li><strong>Apple</strong>, ऐप के वितरण, सूचनाओं, ऐप के नक्शों (Apple Maps) और सदस्यता के भुगतान के लिए।</li>
+            <li><strong>Google</strong>: Android पर ऐप के वितरण (Google Play), सूचनाओं (Firebase Cloud Messaging), ऐप के नक्शे (Google Maps) और सदस्यता के भुगतान के लिए; और सभी प्लैटफ़ॉर्म पर उसकी ईमेल सेवा, जिससे लॉग-इन लिंक वाले संदेश भेजे जाते हैं। नक्शा दिखाते समय Google को कनेक्शन का तकनीकी डेटा मिल सकता है, जैसे IP पता।</li>
+            <li><strong>GitHub</strong>, जो वेब पैनल होस्ट करता है, और <strong>OpenFreeMap</strong>, जो वेब पैनल के नक्शे उपलब्ध कराता है। ये पेज दिखाने के लिए उन्हें कनेक्शन का तकनीकी डेटा मिलता है, जैसे IP पता।</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. खास तौर पर संवेदनशील जानकारी</h2>
+      <p>अपनी प्रकृति से, मंडली के सदस्यों की सूची धार्मिक विश्वास ज़ाहिर कर सकती है, जो निजी डेटा की एक विशेष श्रेणी है। इसलिए Wkit हर मंडली के आंतरिक इस्तेमाल के लिए बना है: डेटा मंडली खुद अपने मकसद से दर्ज और प्रबंधित करती है, सिर्फ़ उसके सदस्य उसे देखते हैं, और वह इंटरनेट पर एन्क्रिप्ट होकर जाता है। हम सलाह देते हैं कि सिर्फ़ ज़रूरी जानकारी ही दर्ज करें।</p>
+      <h2>7. कितने समय तक सहेजा जाता है और उसे कैसे हटाएँ</h2>
+      <p>डेटा तब तक सहेजा जाता है जब तक खाता या मंडली मौजूद है। आप जब चाहें ऐप में ही अपना खाता हटा सकते हैं:</p>
+      <div class="caja"><strong>सेटिंग्स → मेरा खाता → मेरा खाता हटाएँ।</strong></div>
+      <p><a href="eliminar-cuenta-hi.html">आपका खाता और डेटा हटाने के चरणों वाला पेज</a>.</p>
+      <ul>
+        <li>आपका लॉग-इन खाता और भाइयों की सूची में आपका कार्ड हट जाता है। आपके पास जो इलाके थे, वे खाली हो जाते हैं।</li>
+        <li>ऐप ने आपके डिवाइस में जो डेटा सहेजा था और हमारे सर्वर पर सहेजी गई आपकी रिपोर्ट हट जाती है।</li>
+        <li>अगर आप अपनी मंडली में अकेले व्यक्ति हैं, तो मंडली भी अपने सारे डेटा के साथ हट जाती है (ऐसा करने से पहले हम साफ़ तौर पर आपसे पूछते हैं)।</li>
+        <li>अगर आप अकेले एडमिन हैं और और भी भाई हैं, तो पहले आपको दूसरा एडमिन नियुक्त करना होगा, ताकि मंडली बिना प्रबंधन के न रहे।</li>
+        <li>जो डेटा अब मौजूद नहीं है, वह पूरी तरह मिटने से पहले कुछ सीमित समय तक हमारे प्रदाता के बैकअप में रह सकता है।</li>
+        <li>खाता हटाने से भुगतान वाली सदस्यता रद्द नहीं होती, अगर कोई है: वह आपके Apple ID की सेटिंग्स में या Android पर Google Play → भुगतान और सदस्यताएँ में की जाती है।</li>
+      </ul>
+      <p>एडमिन इसके अलावा ज़रूरत पड़ने पर किसी भाई का कार्ड सूची से हटा सकते हैं।</p>
+      <h2>8. आपके अधिकार</h2>
+      <p>आप अपने डेटा तक पहुँच, उसमें सुधार, उसे मिटाने, एक जगह से दूसरी जगह ले जाने और उसकी प्रोसेसिंग को सीमित करने का अनुरोध कर सकते हैं, और उस पर आपत्ति भी कर सकते हैं। इनमें से कई अधिकार आप खुद ऐप में इस्तेमाल कर सकते हैं; बाकी के लिए हमें लिखें। कार्ड और कार्यक्रम का डेटा आपकी मंडली सँभालती है: अगर आप उसे सुधारना चाहते हैं, तो उसके एडमिन से भी कहें।</p>
+      <p>अगर आपको लगता है कि हमने आपके डेटा को सही तरह से नहीं सँभाला, तो आप <a href="https://www.aepd.es">स्पेन की डेटा सुरक्षा एजेंसी (AEPD)</a> या अपने देश के डेटा सुरक्षा प्राधिकरण में शिकायत कर सकते हैं।</p>
+      <h2>9. सुरक्षा</h2>
+      <ul>
+        <li>सारा संचार एन्क्रिप्ट होकर जाता है (HTTPS)।</li>
+        <li>डेटा तक पहुँच खुद डेटाबेस में अनुमतियों से नियंत्रित होती है, सिर्फ़ ऐप की स्क्रीन पर नहीं।</li>
+        <li>इलाकों के वेब पैनल तक पहुँच लिंक में मौजूद एक निजी कुंजी से होती है। इसे पासवर्ड की तरह सँभालें और साझा न करें।</li>
+      </ul>
+      <h2>10. नाबालिग</h2>
+      <p>Wkit 14 साल से कम उम्र के बच्चों के लिए नहीं है। अगर कोई मंडली अपनी सूची में किसी नाबालिग को शामिल करती है, तो यह एक वयस्क एडमिन अपनी ज़िम्मेदारी पर और उसके माता-पिता या अभिभावकों की अनुमति से करता है।</p>
+      <h2>11. इस नीति में बदलाव</h2>
+      <p>अगर हम कोई ज़रूरी बदलाव करेंगे, तो उसे यहाँ बताएँगे और ऊपर की तारीख अपडेट करेंगे।</p>
+      <h2>12. संपर्क</h2>
+      <p>किसी भी प्रश्न के लिए या अपने अधिकारों का प्रयोग करने के लिए: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>। आपके लिए एक <a href="soporte-hi.html">सहायता</a> पृष्ठ भी है।</p>
+    </main>
+  </body>
+</html>

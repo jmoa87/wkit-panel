@@ -4,6 +4,7 @@ import { TEXTOS } from './textos'
 export type Idioma =
   | 'es' | 'en' | 'fr' | 'de' | 'it' | 'pt-BR' | 'pt-PT'
   | 'ru' | 'pl' | 'ro' | 'tr' | 'zh' | 'ja' | 'ko' | 'ar' | 'nl' | 'sv' | 'fi' | 'nb'
+  | 'ca' | 'cs' | 'hr' | 'da' | 'sk' | 'sl' | 'el' | 'he' | 'hu' | 'hi' | 'id' | 'ms' | 'th' | 'uk' | 'vi'
 
 /** Cada idioma con su nombre propio (así lo reconoce quien lo habla). */
 export const IDIOMAS: { codigo: Idioma; nombre: string }[] = [
@@ -26,6 +27,21 @@ export const IDIOMAS: { codigo: Idioma; nombre: string }[] = [
   { codigo: 'sv', nombre: 'Svenska' },
   { codigo: 'fi', nombre: 'Suomi' },
   { codigo: 'nb', nombre: 'Norsk bokmål' },
+  { codigo: 'ca', nombre: 'Català' },
+  { codigo: 'cs', nombre: 'Čeština' },
+  { codigo: 'hr', nombre: 'Hrvatski' },
+  { codigo: 'da', nombre: 'Dansk' },
+  { codigo: 'sk', nombre: 'Slovenčina' },
+  { codigo: 'sl', nombre: 'Slovenščina' },
+  { codigo: 'el', nombre: 'Ελληνικά' },
+  { codigo: 'he', nombre: 'עברית' },
+  { codigo: 'hu', nombre: 'Magyar' },
+  { codigo: 'hi', nombre: 'हिन्दी' },
+  { codigo: 'id', nombre: 'Bahasa Indonesia' },
+  { codigo: 'ms', nombre: 'Bahasa Melayu' },
+  { codigo: 'th', nombre: 'ไทย' },
+  { codigo: 'uk', nombre: 'Українська' },
+  { codigo: 'vi', nombre: 'Tiếng Việt' },
 ]
 
 const CLAVE_GUARDADA = 'wkit_idioma'
@@ -41,7 +57,7 @@ function aIdioma(codigo: string | null | undefined): Idioma | null {
   }
   const base = c.split(/[-_]/)[0]
   if (base === 'no' || base === 'nn') return 'nb' // noruego (bokmål)
-  const propios: Idioma[] = ['es', 'en', 'fr', 'de', 'it', 'ru', 'pl', 'ro', 'tr', 'zh', 'ja', 'ko', 'ar', 'nl', 'sv', 'fi', 'nb']
+  const propios: Idioma[] = ['es', 'en', 'fr', 'de', 'it', 'ru', 'pl', 'ro', 'tr', 'zh', 'ja', 'ko', 'ar', 'nl', 'sv', 'fi', 'nb', 'ca', 'cs', 'hr', 'da', 'sk', 'sl', 'el', 'he', 'hu', 'hi', 'id', 'ms', 'th', 'uk', 'vi']
   return propios.find((i) => i === base) ?? null
 }
 
@@ -73,8 +89,8 @@ const oyentes = new Set<() => void>()
 
 function aplicarAlDocumento() {
   document.documentElement.lang = idiomaActual === 'zh' ? 'zh-Hans' : idiomaActual
-  // El árabe se lee de derecha a izquierda.
-  document.documentElement.dir = idiomaActual === 'ar' ? 'rtl' : 'ltr'
+  // El árabe y el hebreo se leen de derecha a izquierda.
+  document.documentElement.dir = idiomaActual === 'ar' || idiomaActual === 'he' ? 'rtl' : 'ltr'
   document.title = `Wkit — ${t('Territorios')}`
 }
 

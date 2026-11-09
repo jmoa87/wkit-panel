@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="uk">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Політика конфіденційності Wkit — Wkit</title>
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; }
+      }
+      * { box-sizing: border-box; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.55; }
+      main { max-width:720px; margin:0 auto; padding:32px 20px 64px; }
+      h1 { font-size:28px; margin:0 0 6px; }
+      h2 { font-size:19px; margin:32px 0 8px; }
+      p, li { font-size:16px; }
+      .fecha { color:var(--secundario); margin:0 0 24px; }
+      ul { padding-left:22px; } li { margin-bottom:6px; }
+      a { color:var(--acento); }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:14px 0; }
+      table { width:100%; border-collapse:collapse; margin:10px 0; font-size:15px; }
+      th, td { text-align:left; vertical-align:top; padding:9px 10px; border-bottom:1px solid var(--borde); }
+      th { color:var(--secundario); font-weight:600; width:34%; }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; }
+      .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    <script>
+      // Si el navegador está en otro idioma que tengamos, se abre la versión que toca
+      // (salvo que se haya pedido el español con ?idioma=es).
+      (function () {
+        var pedido = new URLSearchParams(location.search).get("idioma");
+        if (pedido === "es") return;
+        function a(c) { c = (c || "").toLowerCase();
+          if (c.indexOf("en") === 0) return "en"; if (c.indexOf("fr") === 0) return "fr";
+          if (c.indexOf("de") === 0) return "de"; if (c.indexOf("it") === 0) return "it";
+          if (c.indexOf("pt") === 0) return (c === "pt" || c === "pt-br") ? "pt-BR" : "pt-PT";
+          if (c.indexOf("es") === 0) return "es";
+          if (c.indexOf("ru") === 0) return "ru"; if (c.indexOf("pl") === 0) return "pl";
+          if (c.indexOf("ro") === 0) return "ro"; if (c.indexOf("tr") === 0) return "tr";
+          if (c.indexOf("zh") === 0) return "zh"; if (c.indexOf("ja") === 0) return "ja";
+          if (c.indexOf("ko") === 0) return "ko"; if (c.indexOf("ar") === 0) return "ar";
+          if (c.indexOf("nl") === 0) return "nl"; if (c.indexOf("sv") === 0) return "sv";
+          if (c.indexOf("fi") === 0) return "fi";
+          if (c.indexOf("nb") === 0 || c.indexOf("no") === 0 || c.indexOf("nn") === 0) return "nb";
+          return null; }
+        var l = pedido ? a(pedido) : null;
+        if (!pedido) { var ls = navigator.languages || [navigator.language];
+          for (var i = 0; i < ls.length && !l; i++) l = a(ls[i]); }
+        if (l && l !== "es") location.replace("privacidad-" + l + ".html");
+      })();
+    </script>
+  </head>
+  <body>
+    <main>
+      <p class="idiomas"><a href="privacidad.html?idioma=es">Español</a> <a href="privacidad-en.html">English</a> <a href="privacidad-fr.html">Français</a> <a href="privacidad-de.html">Deutsch</a> <a href="privacidad-it.html">Italiano</a> <a href="privacidad-pt-BR.html">Português (Brasil)</a> <a href="privacidad-pt-PT.html">Português (Portugal)</a> <a href="privacidad-ru.html">Русский</a> <a href="privacidad-pl.html">Polski</a> <a href="privacidad-ro.html">Română</a> <a href="privacidad-tr.html">Türkçe</a> <a href="privacidad-zh.html">简体中文</a> <a href="privacidad-ja.html">日本語</a> <a href="privacidad-ko.html">한국어</a> <a href="privacidad-ar.html">العربية</a> <a href="privacidad-nl.html">Nederlands</a> <a href="privacidad-sv.html">Svenska</a> <a href="privacidad-fi.html">Suomi</a> <a href="privacidad-nb.html">Norsk</a> <a href="privacidad-ca.html">Català</a> <a href="privacidad-cs.html">Čeština</a> <a href="privacidad-hr.html">Hrvatski</a> <a href="privacidad-da.html">Dansk</a> <a href="privacidad-sk.html">Slovenčina</a> <a href="privacidad-sl.html">Slovenščina</a> <a href="privacidad-el.html">Ελληνικά</a> <a href="privacidad-he.html">עברית</a> <a href="privacidad-hu.html">Magyar</a> <a href="privacidad-hi.html">हिन्दी</a> <a href="privacidad-id.html">Bahasa Indonesia</a> <a href="privacidad-ms.html">Bahasa Melayu</a> <a href="privacidad-th.html">ไทย</a> <b>Українська</b> <a href="privacidad-vi.html">Tiếng Việt</a></p>
+      <h1>Політика конфіденційності Wkit</h1>
+      <p class="fecha">Востаннє оновлено: 9 листопада 2026 р.</p>
+      <h2>1. Хто ми і що таке Wkit</h2>
+      <p>Wkit — це застосунок від <strong>Titan Estudios</strong>, який допомагає організовувати життя збору: програму зібрань, території, оголошення, список братів і особисті звіти про служіння. Він працює на iPhone, iPad і Android та має вебпанель для керування територіями.</p>
+      <div class="caja"><strong>Хто за що відповідає.</strong> За дані <em>облікового запису</em> (наприклад, електронну пошту) відповідаємо ми. За дані <em>братів збору</em> (список, програми, території тощо) відповідає сам збір через своїх адміністраторів, які вносять ці дані й вирішують, для чого їх використовувати; ми лише надаємо інструмент і зберігаємо дані від їхнього імені.</div>
+      <h2>2. Які дані ми обробляємо</h2>
+      <table>
+        <tr><th>Ваш обліковий запис</th><td>Електронна пошта — лише в того, хто створює збір, і в адміністраторів, які її прив’язують; решті братів вона не потрібна, вони входять за запрошенням. Та внутрішній ідентифікатор облікового запису.</td></tr>
+        <tr><th>Ваша картка в списку братів</th><td>Ім’я, стать, обов’язки (вісник, піонер, служитель, старійшина), група служіння, чи допомагає він з аудіо й відео або територією, і дозволи, які він має в застосунку. Їх вносить і змінює адміністратор збору.</td></tr>
+        <tr><th>Дані збору</th><td>Програма зібрань і те, кому доручена кожна частина (за іменем), публічні доповіді, аудіо й відео, групи служіння (з наглядачами та помічниками), прибирання (яка група, в який день і о котрій), служіння, оголошення, інші програми, території (їхня форма на карті, хто їх тримає і дати), кампанії та запити на території. А також події календаря (назва й дні) і нотатки про території (короткий текст і дата, без імені автора), які бачать члени збору.</td></tr>
+        <tr><th>Підписка</th><td>Коли адміністратор оформлює підписку для збору, платіж обробляє Apple (а на Android — Google): ми не бачимо й не зберігаємо жодних платіжних даних. Ми зберігаємо лише стан підписки збору: дати та ідентифікатор покупки.</td></tr>
+        <tr><th>Технічні дані</th><td>Ідентифікатор вашого пристрою, щоб ми могли надсилати вам сповіщення (його надає Apple на iPhone та iPad і Google на Android), і технічні дані підключення, які фіксує сервер, як-от IP-адреса.</td></tr>
+        <tr><th>Ваш звіт про служіння</th><td>Години й вивчення, які ви записуєте у Звіті, зберігаються на вашому пристрої, а щоб ви могли користуватися ними на всіх своїх пристроях, — також на наших серверах (Supabase), прив’язані до вашої картки. <strong>Бачите їх лише ви</strong>: ні старійшини, ні адміністратори вашого збору не мають до них доступу, і їх ні з ким не передають.</td></tr>
+<tr><th>Лише на вашому пристрої</th><td>Ваші цілі за годинами, нагадування та налаштування. <strong>Нічого з цього не надсилається на наші сервери.</strong> Якщо ви вмикаєте резервне копіювання, копія зберігається у вашому власному iCloud, яким керуєте ви. На Android копія зберігається на самому телефоні, а якщо ввімкнено резервне копіювання Android, то й у вашому обліковому записі Google, яким керуєте ви.</td></tr>
+      </table>
+      <h2>3. Чого ми НЕ робимо</h2>
+      <ul>
+        <li>Жодної реклами, жодного продажу чи передавання даних третім особам з комерційною метою.</li>
+        <li>Жодних інструментів статистики, стеження чи ідентифікації між застосунками.</li>
+        <li>Застосунок <strong>не використовує ваше місцеперебування</strong>, камеру, фото, контакти чи мікрофон.</li>
+        <li>Ми не створюємо профілів і не ухвалюємо щодо вас автоматизованих рішень.</li>
+      </ul>
+      <h2>4. Для чого використовуються дані</h2>
+      <ul>
+        <li>Щоб надавати вам послугу, про яку ви просите: входити у ваш обліковий запис, показувати кожному збору його дані та підтримувати їх актуальними на всіх пристроях цього збору.</li>
+        <li>Щоб надсилати вам сповіщення про те, що відбувається у вашому зборі (оголошення, територія, яку вам доручили тощо), за умови, що ви дозволили сповіщення на пристрої; цей дозвіл можна скасувати будь-коли.</li>
+        <li>Для безпеки сервісу та щоб відповідати на ваші запити про допомогу.</li>
+      </ul>
+      <h2>5. Хто може бачити ваші дані</h2>
+      <ul>
+        <li><strong>У вашому зборі:</strong> усі члени бачать список братів, програми та опубліковані оголошення. Створювати чи змінювати їх можуть лише адміністратори. Вісник бачить тільки території, які йому доручені. Той, хто відповідає за території, бачить території всього збору. Ваш звіт про служіння бачите лише ви. Оголошення, адресоване групі, бачать лише члени цієї групи, а наглядачі та помічники кожної групи можуть створювати оголошення для власної групи.</li>
+        <li><strong>Інші збори: ніхто.</strong> Кожен збір має доступ лише до своїх даних; це гарантовано правилами доступу в самій базі даних.</li>
+        <li><strong>Постачальники, які допомагають нам надавати сервіс</strong> (вони обробляють дані лише для цього):
+          <ul>
+            <li><strong>Supabase</strong>, що розміщує базу даних і облікові записи на серверах у Європейському Союзі (Франкфурт).</li>
+            <li><strong>Apple</strong>— для розповсюдження застосунку, сповіщень, карт у застосунку (Apple Maps) і стягнення плати за підписку.</li>
+            <li><strong>Google</strong>: на Android — для розповсюдження застосунку (Google Play), сповіщень (Firebase Cloud Messaging), карт у застосунку (Google Maps) і стягнення плати за підписку; а на всіх платформах — його поштова служба, якою надсилаються листи з посиланням для входу. Коли відображається карта, Google може отримувати технічні дані підключення, як-от IP-адресу.</li>
+            <li><strong>GitHub</strong>, що розміщує вебпанель, та <strong>OpenFreeMap</strong>, що надає карти для вебпанелі. Щоб показати ці сторінки, вони отримують технічні дані підключення, як-от IP-адресу.</li>
+          </ul>
+        </li>
+      </ul>
+      <h2>6. Особливо чутливі дані</h2>
+      <p>За своєю природою список членів збору може розкривати релігійні переконання, які є особливою категорією персональних даних. Тому Wkit розроблено для внутрішнього користування кожним збором: дані вносить і веде сам збір для своїх цілей, бачать їх лише його члени, а передаються вони через інтернет у зашифрованому вигляді. Радимо вносити лише необхідне.</p>
+      <h2>7. Скільки зберігаються дані і як їх видалити</h2>
+      <p>Дані зберігаються, доки існує обліковий запис або збір. Ви можете видалити свій обліковий запис будь-коли просто із застосунку:</p>
+      <div class="caja"><strong>Налаштування → Мій обліковий запис → Видалити мій обліковий запис.</strong></div>
+      <p><a href="eliminar-cuenta-uk.html">Сторінка з кроками для видалення вашого облікового запису та даних</a>.</p>
+      <ul>
+        <li>Ваш обліковий запис для входу та ваша картка в списку братів видаляються. Території, які ви тримали, стають вільними.</li>
+        <li>Дані, які застосунок зберігає на вашому пристрої, і ваш Звіт, збережений на наших серверах, видаляються.</li>
+        <li>Якщо ви єдина людина у вашому зборі, збір також видаляється разом з усіма даними (ми чітко запитуємо про це перед видаленням).</li>
+        <li>Якщо ви єдиний адміністратор і є інші брати, спершу потрібно призначити іншого адміністратора, щоб збір не залишився без керування.</li>
+        <li>Видалені дані можуть ще певний обмежений час залишатися в резервних копіях наших постачальників, перш ніж зникнуть повністю.</li>
+        <li>Видалення облікового запису не скасовує платну підписку, якщо вона є: це робиться в налаштуваннях вашого Apple ID або, на Android, у Google Play → Платежі та підписки.</li>
+      </ul>
+      <p>Адміністратор також може видалити картку брата зі списку, коли це потрібно.</p>
+      <h2>8. Ваші права</h2>
+      <p>Ви можете просити доступ до своїх даних, їх виправлення, видалення, перенесення, обмеження обробки та заперечувати проти неї. Багато з цих прав ви можете здійснити самі в застосунку; щодо решти пишіть нам. Дані карток і програм веде ваш збір: якщо хочете їх виправити, звертайтеся також до його адміністраторів.</p>
+      <p>Якщо ви вважаєте, що ми неправильно поводимося з вашими даними, ви можете подати скаргу до <a href="https://www.aepd.es">Іспанського агентства із захисту даних (AEPD)</a> або до органу із захисту даних у вашій країні.</p>
+      <h2>9. Безпека</h2>
+      <ul>
+        <li>Усі комунікації передаються в зашифрованому вигляді (HTTPS).</li>
+        <li>Доступ до даних контролюють дозволи в самій базі даних, а не лише на екранах застосунку.</li>
+        <li>Доступ до вебпанелі територій здійснюється за приватним ключем, що міститься в посиланні. Ставтеся до нього як до пароля і не діліться ним.</li>
+      </ul>
+      <h2>10. Неповнолітні</h2>
+      <p>Wkit не призначений для дітей віком до 14 років. Якщо збір вносить неповнолітнього до свого списку, це робить адміністратор-дорослий на власну відповідальність і з дозволу батьків або опікунів.</p>
+      <h2>11. Зміни в цій політиці</h2>
+      <p>Якщо ми змінимо щось важливе, ми повідомимо про це тут і оновимо дату вгорі.</p>
+      <h2>12. Контакти</h2>
+      <p>З будь-яким питанням або щоб скористатися своїми правами: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a>. Є також сторінка <a href="soporte-uk.html">допомоги</a>.</p>
+    </main>
+  </body>
+</html>

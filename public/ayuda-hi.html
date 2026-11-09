@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="hi">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <title>Wkit की चरण-दर-चरण गाइड — Wkit</title>
+    <meta name="description" content="प्रचारकों और एडमिन के लिए Wkit की चरण-दर-चरण गाइड: प्रवेश, रिमाइंडर, रिपोर्ट, भाई, समूह, सफ़ाई, कार्यक्रम, घोषणाएँ, इलाके और सदस्यता।" />
+    <style>
+      :root { --fondo:#faf9f5; --tarjeta:#ffffff; --texto:#1c1c1a; --secundario:#5f5e5a; --borde:#e3e1d8; --acento:#0f6e56; --acento-suave:#e1f5ee; --aviso:#fff4e0; --aviso-borde:#f0cf8f; }
+      @media (prefers-color-scheme: dark) {
+        :root { --fondo:#1c1c1a; --tarjeta:#2a2a27; --texto:#f1efe8; --secundario:#b4b2a9; --borde:#3d3d39; --acento:#2fa583; --acento-suave:#1d3a31; --aviso:#3a3020; --aviso-borde:#6b5a2e; }
+      }
+      * { box-sizing: border-box; }
+      html { scroll-behavior: smooth; }
+      body { margin:0; background:var(--fondo); color:var(--texto); font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif; line-height:1.6; }
+      main { max-width:780px; margin:0 auto; padding:32px 20px 80px; }
+      h1 { font-size:30px; margin:0 0 6px; line-height:1.2; }
+      h2 { font-size:22px; margin:0 0 10px; line-height:1.3; }
+      h2.grupo { font-size:15px; text-transform:uppercase; letter-spacing:.06em; color:var(--acento); margin:56px 0 0; padding-bottom:8px; border-bottom:2px solid var(--acento); }
+      h3 { font-size:17px; margin:22px 0 6px; }
+      p, li { font-size:16px; }
+      .sub { color:var(--secundario); margin:0 0 22px; font-size:17px; }
+      section { padding-top:34px; margin-top:0; scroll-margin-top:12px; border-bottom:1px solid var(--borde); padding-bottom:30px; }
+      section:last-of-type { border-bottom:0; }
+      a { color:var(--acento); }
+      ul, ol { padding-left:22px; } li { margin-bottom:8px; }
+      ol.pasos { list-style:none; counter-reset:paso; padding-left:0; }
+      ol.pasos > li { counter-increment:paso; position:relative; padding-left:42px; margin-bottom:12px; }
+      ol.pasos > li::before { content:counter(paso); position:absolute; left:0; top:1px; width:28px; height:28px; border-radius:50%; background:var(--acento); color:#fff; font-weight:600; font-size:14px; display:flex; align-items:center; justify-content:center; }
+      .nota, .aviso { border-radius:12px; padding:12px 16px; margin:16px 0; font-size:15px; }
+      .nota { background:var(--acento-suave); border:1px solid var(--borde); }
+      .aviso { background:var(--aviso); border:1px solid var(--aviso-borde); }
+      .plat { display:inline-block; font-size:12px; font-weight:600; border-radius:999px; padding:1px 9px; margin:0 2px; vertical-align:1px; border:1px solid var(--borde); background:var(--tarjeta); }
+      .plat.a { color:#2e7d32; border-color:#2e7d32; }
+      .plat.i { color:#1565c0; border-color:#1565c0; }
+      .toc-wrap { display:grid; grid-template-columns:1fr 1fr; gap:18px; background:var(--tarjeta); border:1px solid var(--borde); border-radius:14px; padding:6px 20px 14px; margin:8px 0 8px; }
+      @media (max-width:640px) { .toc-wrap { grid-template-columns:1fr; } }
+      .toc-g h3 { font-size:14px; text-transform:uppercase; letter-spacing:.05em; color:var(--secundario); margin:16px 0 8px; }
+      ol.toc { padding-left:0; list-style:none; margin:0; counter-reset:t; }
+      ol.toc li { font-size:15px; margin-bottom:5px; counter-increment:t; }
+      ol.toc a { text-decoration:none; }
+      ol.toc a:hover { text-decoration:underline; }
+      .caja { background:var(--tarjeta); border:1px solid var(--borde); border-radius:12px; padding:14px 16px; margin:18px 0; }
+      figure.medio { margin:18px 0; display:none; }
+      figure.medio.listo { display:block; }
+      figure.medio video, figure.medio img { width:100%; max-width:420px; display:block; margin:0 auto; border-radius:14px; border:1px solid var(--borde); background:#000; }
+      figure.medio img { background:var(--tarjeta); }
+      figure.medio.pendiente { display:block; border:2px dashed var(--borde); border-radius:14px; padding:16px; text-align:center; color:var(--secundario); font-size:14px; }
+      figure.medio figcaption { text-align:center; color:var(--secundario); font-size:13px; margin-top:6px; }
+      .pie { margin-top:44px; font-size:14px; color:var(--secundario); }
+      @media print { .toc-wrap, figure.medio { display:none !important; } }
+    
+      .idiomas { font-size:13px; margin:0 0 18px; color:var(--secundario); }
+      .idiomas a { margin-right:10px; white-space:nowrap; } .idiomas b { margin-right:10px; white-space:nowrap; color:var(--texto); }
+    </style>
+    </head>
+  <body>
+    <main>
+      <p style="font-size:13px;margin:0 0 10px;color:var(--secundario)"><a href="soporte-hi.html">← Wkit</a> · <a href="privacidad-hi.html">गोपनीयता नीति</a></p>
+      <p class="idiomas"><a href="ayuda.html?idioma=es">Español</a> <a href="ayuda-en.html">English</a> <a href="ayuda-fr.html">Français</a> <a href="ayuda-de.html">Deutsch</a> <a href="ayuda-it.html">Italiano</a> <a href="ayuda-pt-BR.html">Português (Brasil)</a> <a href="ayuda-pt-PT.html">Português (Portugal)</a> <a href="ayuda-ru.html">Русский</a> <a href="ayuda-pl.html">Polski</a> <a href="ayuda-ro.html">Română</a> <a href="ayuda-tr.html">Türkçe</a> <a href="ayuda-zh.html">简体中文</a> <a href="ayuda-ja.html">日本語</a> <a href="ayuda-ko.html">한국어</a> <a href="ayuda-ar.html">العربية</a> <a href="ayuda-nl.html">Nederlands</a> <a href="ayuda-sv.html">Svenska</a> <a href="ayuda-fi.html">Suomi</a> <a href="ayuda-nb.html">Norsk</a> <a href="ayuda-ca.html">Català</a> <a href="ayuda-cs.html">Čeština</a> <a href="ayuda-hr.html">Hrvatski</a> <a href="ayuda-da.html">Dansk</a> <a href="ayuda-sk.html">Slovenčina</a> <a href="ayuda-sl.html">Slovenščina</a> <a href="ayuda-el.html">Ελληνικά</a> <a href="ayuda-he.html">עברית</a> <a href="ayuda-hu.html">Magyar</a> <b>हिन्दी</b> <a href="ayuda-id.html">Bahasa Indonesia</a> <a href="ayuda-ms.html">Bahasa Melayu</a> <a href="ayuda-th.html">ไทย</a> <a href="ayuda-uk.html">Українська</a> <a href="ayuda-vi.html">Tiếng Việt</a></p>
+      <h1>Wkit की चरण-दर-चरण गाइड</h1>
+      <p class="sub">ऐप में आप जो कुछ कर सकते हैं, आराम से समझाया गया: प्रचारकों और एडमिन के लिए। यह iPhone, iPad और Android पर एक जैसा चलता है; जहाँ कोई फ़र्क है, वहाँ आपको <span class="plat a">Android</span> या <span class="plat i">iPhone</span> का निशान दिखेगा।</p>
+      <div class="toc-wrap"><div class="toc-wrap-inner" style="display:contents"><div class="toc-g"><h3>सभी भाइयों के लिए</h3><ol class="toc"><li><a href="#entrar">पहली बार Wkit में प्रवेश</a></li><li><a href="#inicio">होम स्क्रीन</a></li><li><a href="#recordatorios">रिमाइंडर: घंटी</a></li><li><a href="#notificaciones">सूचनाएँ: Wkit आपको किस बारे में बताता है</a></li><li><a href="#informe">आपकी सेवा रिपोर्ट (निजी)</a></li><li><a href="#territorios-pub">इलाके: देखना, सौंपना और माँगना</a></li><li><a href="#cuenta">आपका खाता: फ़ोन बदलना, ईमेल जोड़ना, भाषा और हटाना</a></li><li><a href="#copia-seguridad">बैकअप</a></li></ol></div><div class="toc-g"><h3>एडमिन के लिए (प्राचीन)</h3><ol class="toc"><li><a href="#crear-congregacion">मंडली बनाना</a></li><li><a href="#hermanos">भाइयों की सूची</a></li><li><a href="#grupos">सेवा समूह</a></li><li><a href="#salidas">प्रचार सभाएँ</a></li><li><a href="#limpieza">सफ़ाई: किस समूह की बारी है और कौन-सा दिन और समय</a></li><li><a href="#vida-ministerio">जीवन और सेवा कार्यक्रम</a></li><li><a href="#reunion-publica">सार्वजनिक सभा</a></li><li><a href="#audio-video">ऑडियो-वीडियो / अटेंडेंट</a></li><li><a href="#otros-programas">अन्य कार्यक्रम</a></li><li><a href="#anuncios">घोषणाएँ</a></li><li><a href="#calendario">मंडली का कैलेंडर</a></li><li><a href="#territorios-admin">इलाके: सौंपना, अभियान और वेब पैनल</a></li><li><a href="#suscripcion">मंडली की सदस्यता</a></li><li><a href="#copias">डेटा केवल इसी फ़ोन में सहेजा गया है</a></li></ol></div></div></div>
+      <h2 class="grupo" id="g-798">सभी भाइयों के लिए</h2>
+<section id="entrar"><h2>1. पहली बार Wkit में प्रवेश</h2>
+<p>Wkit में आने के लिए <strong>आपको ईमेल या पासवर्ड की ज़रूरत नहीं</strong>: आपकी मंडली का कोई प्राचीन आपको न्योता देता है और आप एक लिंक या कोड से अंदर आ जाते हैं।</p>
+<ol class="pasos"><li>भाइयों की सूची सँभालने वाले प्राचीन से कहें कि वे आपको न्योता भेजें। आपको <strong>लगातार दो संदेश</strong> मिलेंगे: पहले एक लिंक और फिर अकेला कोड (ताकि उसे कॉपी करना आसान हो)।</li><li>App Store (iPhone और iPad) या Google Play (Android) से <strong>Wkit</strong> इंस्टॉल करें।</li><li>पहले संदेश के लिंक पर टैप करें: ऐप खुल जाता है और आपको पहचान लेता है।</li><li>अगर लिंक से ऐप नहीं खुलता, तो उसे खुद खोलें, <strong>“मेरे पास न्योते का लिंक या कोड है”</strong> पर टैप करें और पूरा संदेश या सिर्फ़ कोड पेस्ट करें: ऐप अपने-आप वही ले लेता है जो उसे चाहिए।</li><li>आपको कुछ स्वागत स्क्रीन दिखेंगी (<strong>“पहले कदम”</strong>) जो समझाती हैं कि क्या साझा होता है और क्या नहीं। जब आप पूरा कर लेते हैं, तो आप अंदर होते हैं।</li></ol>
+<figure class="medio" data-src="media/01-entrar-con-invitacion.mp4" data-tipo="video" data-desc="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba." data-alt="Pantalla de bienvenida → «Tengo un enlace o un código de invitación» → pegar el código → entrar. Mejor con una invitación real de prueba."></figure>
+<div class="nota"><strong>अगर कोड काम नहीं करता</strong> (“मान्य नहीं है, या समाप्त हो गया है”), तो प्राचीन से नया कोड बनवाएँ: यह आपके कार्ड से एक पल में हो जाता है।</div>
+<div class="nota"><strong>क्या साझा होता है और क्या नहीं:</strong> भाइयों की सूची, कार्यक्रम, सफ़ाई, इलाके और घोषणाएँ पूरी मंडली देखती है और इन्हें कोई प्राचीन बनाता है। <strong>आपकी रिपोर्ट सिर्फ़ आपकी है</strong>: कोई और उसे नहीं देखता, प्राचीन भी नहीं, और वह आपके डिवाइसों के बीच सिंक होती है।</div>
+</section>
+<section id="inicio"><h2>2. होम स्क्रीन</h2>
+<p>Wkit खोलने पर यह सबसे पहले दिखती है। यह एक नज़र में <strong>आपका अपना</strong> दिखाती है; अगर आपको कुछ सौंपा नहीं गया है, तो आपको “कोई आने वाली ज़िम्मेदारी नहीं” दिखेगा।</p>
+<ul><li><strong>आगामी भाग</strong>: जीवन और सेवा सभा और सार्वजनिक सभा में आपके भाग (अध्यक्ष, पाठक, वक्ता…)।</li><li><strong>ज़िम्मेदारियाँ</strong>: ऑडियो-वीडियो / अटेंडेंट में आपके पास जो है।</li><li><strong>सफ़ाई</strong>: तभी दिखता है जब <em>इस हफ़्ते</em> आपके समूह की बारी हो। अगर समूह के निगरान या सहायक ने दिन और समय रखा है, तो वह नीचे दिखेगा (जैसे “रविवार 12:30”)।</li><li><strong>अन्य कार्यक्रम</strong>, <strong>इलाके</strong> (और अभियान, अगर कोई है) और <strong>रिपोर्ट</strong>.</li><li><strong>कैलेंडर</strong>की याद दिलाने वाला: मंडली के कार्यक्रम (सम्मेलन, सर्किट निगरान का दौरा…), याद दिलाने के लिए अपनी घंटी के साथ।</li></ul>
+<p>नीचे आपके पास पाँच टैब हैं: <strong>होम</strong>, <strong>कार्यक्रम</strong>, <strong>रिपोर्ट</strong>, <strong>इलाके</strong> और <strong>मेन्यू</strong> (वहीं भाइयों की सूची, समूह, सफ़ाई, घोषणाएँ और सेटिंग्स हैं)।</p>
+<figure class="medio" data-src="media/02-pantalla-inicio.png" data-tipo="imagen" data-desc="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora." data-alt="Captura de la pantalla de inicio de un publicador con alguna parte, una responsabilidad y la tarjeta de Limpieza con su día y hora."></figure>
+<figure class="medio" data-src="media/02-recorrido-pestanas.mp4" data-tipo="video" data-desc="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú." data-alt="Recorrido rápido por las cinco pestañas: Inicio, Programa, Informe, Territorios y Menú."></figure>
+</section>
+<section id="recordatorios"><h2>3. रिमाइंडर: घंटी</h2>
+<p>हर ज़िम्मेदारी, काम या सफ़ाई की बारी के पास एक <strong>घंटी</strong> होती है। इससे फ़ोन आपको पहले से बता देता है, उस समय पर जो आप चुनते हैं।</p>
+<ol class="pasos"><li>उस ज़िम्मेदारी की घंटी पर टैप करें।</li><li>रिमाइंडर का दिन और समय चुनें।</li><li>पुष्टि करें। घंटी हरी हो जाती है और समय आने पर हिलती है।</li><li>हटाने के लिए घंटी पर फिर टैप करें और रिमाइंडर हटाना चुनें।</li></ol>
+<figure class="medio" data-src="media/03-poner-recordatorio.mp4" data-tipo="video" data-desc="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo." data-alt="Tocar la campana de una parte → elegir fecha y hora → confirmar → ver la campana en verde. Después, quitarlo."></figure>
+<div class="nota">अगर प्राचीन सफ़ाई का दिन या समय बदलते हैं, तो घंटी आपको नई तारीख के साथ रिमाइंडर लगाने का विकल्प फिर से देती है।</div>
+<div class="nota"><span class="plat a">Android</span> अगर रिमाइंडर नहीं आ रहे, तो देखें कि फ़ोन की सेटिंग्स में Wkit को सूचनाओं की अनुमति है और उसकी बैटरी पर पाबंदी नहीं है।</div>
+</section>
+<section id="notificaciones"><h2>4. सूचनाएँ: Wkit आपको किस बारे में बताता है</h2>
+<p>Wkit आपको तब बताता है जब कोई नई घोषणा हो, जब आपको कुछ सौंपा जाए या जब ऐसे बदलाव हों जो आपसे जुड़े हैं।</p>
+<ol class="pasos"><li>पहली बार, जब फ़ोन पूछे तब <strong>सूचनाओं की अनुमति दें</strong>।</li><li><strong>मेन्यू → सेटिंग्स → सूचनाएँ</strong> खोलें।</li><li>जो श्रेणियाँ आप नहीं चाहते उन्हें बंद करें (घोषणाएँ, कार्यक्रम, ऑडियो-वीडियो, सफ़ाई, इलाके…) और वे दिन और समय चुनें जब आप सूचनाएँ पाना पसंद करते हैं।</li></ol>
+<figure class="medio" data-src="media/04-ajustes-notificaciones.mp4" data-tipo="video" data-desc="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora." data-alt="Menú → Ajustes → Notificaciones: activar/desactivar categorías y elegir días y hora."></figure>
+<div class="nota"><strong>एक डिवाइस एक समय में सिर्फ़ एक व्यक्ति की सूचनाएँ पाता है</strong>: जिसने सेशन खोल रखा है। अगर वे नहीं आतीं, तो अपने खाते से Wkit को कम-से-कम एक बार खोलें ताकि डिवाइस दर्ज हो जाए।</div>
+</section>
+<section id="informe"><h2>5. आपकी सेवा रिपोर्ट (निजी)</h2>
+<p>रिपोर्ट एक <strong>निजी</strong> टूल है: उसे सिर्फ़ आप देखते हैं, प्राचीन भी नहीं। वह आपके फ़ोन में सहेजी जाती है और आपके डिवाइसों के बीच सिंक होती है।</p>
+<ol class="pasos"><li><strong>रिपोर्ट</strong> टैब खोलें। पहली बार Wkit आपसे कुछ सवाल पूछता है: आपकी सेवा का प्रकार (प्रचारक, पायनियर…) और <strong>महीने के लिए आपके घंटों का लक्ष्य</strong>।</li><li>अपनी सेवा दर्ज करने के लिए <strong>“नया”</strong> पर टैप करें और तारीख, घंटे, मिनट और अध्ययन भरें।</li><li><strong>इतिहास</strong> में आप देखते हैं कि महीने में और सेवा वर्ष में आपके कितने हुए हैं, और किसी रिकॉर्ड को बदल या हटा सकते हैं।</li><li>हर महीने की 1 तारीख को Wkit आपके चुने हुए समय पर आपको <strong>रिपोर्ट भेजने</strong> की याद दिला सकता है। <strong>“रिपोर्ट भेजें”</strong> बटन आपके घंटों और अध्ययनों के साथ संदेश तैयार कर देता है।</li></ol>
+<figure class="medio" data-src="media/05-informe.mp4" data-tipo="video" data-desc="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»." data-alt="Pestaña Informe: ajustes iniciales (meta), añadir un registro, ver el historial y pulsar «Enviar informe»."></figure>
+<div class="aviso"><strong>आपकी रिपोर्ट सिंक होती है</strong> आपके खाते के साथ, इसलिए अगर आप फ़ोन बदलते हैं तो दोबारा लॉग-इन करने पर वह वापस मिल जाती है। फिर भी बैकअप बनाएँ (मेन्यू → सेटिंग्स → बैकअप): यह एक अतिरिक्त गारंटी है। खंड 21 देखें।</div>
+</section>
+<section id="territorios-pub"><h2>6. इलाके: देखना, सौंपना और माँगना</h2>
+<p><strong>इलाके</strong> टैब में आप अपने सौंपे हुए इलाके देखते हैं, उस तारीख के साथ जब से वे आपके पास हैं।</p>
+<ol class="pasos"><li>कोई इलाका पूरा करने पर उसे <strong>सौंपने</strong> के लिए उसे खोलें और <strong>“सौंपें”</strong> (या <strong>“पूरा हो गया बताएँ”</strong>) पर टैप करें। इलाकों को सँभालने वाले को सूचना जाती है।</li><li>अगर आपके पास <strong>कोई नहीं है</strong> और आप चाहते हैं, तो <strong>“क्षेत्र का अनुरोध करें”</strong> पर टैप करें। आप एक वैकल्पिक संदेश जोड़ सकते हैं (जैसे “मुझे Carcabuey वाला चाहिए”)।</li><li>सभी क्षेत्र सेवकों को सूचना जाती है और जो सबसे पहले कर सकता है, वह आपको एक सौंप देगा। मिलने पर आपको सूचना आएगी।</li></ol>
+<figure class="medio" data-src="media/06-territorios-publicador.mp4" data-tipo="video" data-desc="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje." data-alt="Pestaña Territorios de un publicador: ver un territorio asignado, entregarlo, y solicitar uno nuevo con mensaje."></figure>
+</section>
+<section id="cuenta"><h2>7. आपका खाता: फ़ोन बदलना, ईमेल जोड़ना, भाषा और हटाना</h2>
+<h3>फ़ोन बदलना या खो जाना</h3>
+<ul><li>अगर आपने <strong>कोई ईमेल नहीं जोड़ा</strong> (भाइयों को उसकी ज़रूरत नहीं), तो कोई प्राचीन आपके कार्ड से, भाइयों की सूची में, आपको <strong>नया न्योता</strong> भेजता है। आपको अपनी जगह मंडली की सारी चीज़ों और अपनी रिपोर्ट के साथ वापस मिल जाती है।</li><li>अगर आपने <strong>अपना ईमेल जोड़ा था</strong>, तो Wkit खोलें, <strong>“खाता बनाएँ या एडमिन के रूप में प्रवेश करें”</strong> पर टैप करें, ईमेल लिखें और जो लिंक आए उसे खोलें। आप सब कुछ वैसा ही पाकर अंदर आते हैं जैसा था।</li></ul>
+<h3>कई डिवाइस पर Wkit का इस्तेमाल</h3>
+<ul><li>आप <strong>एक ही खाते</strong> को एक साथ iPhone, iPad और Android पर इस्तेमाल कर सकते हैं (जैसे अपने फ़ोन और टैबलेट पर)।</li><li>दूसरा डिवाइस जोड़ने के लिए कोई प्राचीन आपके कार्ड से न्योता भेजता है और आप उसे उस डिवाइस पर खोलते हैं। <strong>पहले डिवाइस का सेशन बंद नहीं होता।</strong></li><li>आपकी रिपोर्ट आपके सभी डिवाइसों के बीच सिंक होती है।</li></ul>
+<h3>अपना ईमेल जोड़ना (वैकल्पिक, एडमिन के लिए सुझाया गया)</h3>
+<ol class="pasos"><li><strong>मेन्यू → सेटिंग्स → मेरा खाता → मेरा ईमेल जोड़ें</strong> खोलें।</li><li>अपना ईमेल लिखें। आपके पास पुष्टि का एक लिंक आएगा।</li><li><strong>उसे उसी फ़ोन से खोलें</strong>, ईमेल ऐप में। स्क्रीन अपने-आप बंद हो जाती है और आपका खाता जुड़ जाता है।</li></ol>
+<h3>भाषा बदलना</h3>
+<p>Wkit फ़ोन की भाषा इस्तेमाल करता है। सिर्फ़ Wkit में बदलने के लिए: फ़ोन की सेटिंग्स → ऐप्स → Wkit → भाषा।</p>
+<h3>अपना खाता हटाना</h3>
+<p><strong>मेन्यू → सेटिंग्स → मेरा खाता → मेरा खाता हटाएँ।</strong> आपका खाता, सूची में आपका कार्ड और आपके फ़ोन में सहेजा गया डेटा (रिपोर्ट सहित) हट जाता है; जो इलाके आपके पास थे, वे खाली हो जाते हैं। इसे वापस नहीं किया जा सकता। अगर आप अकेले एडमिन हैं और और भी भाई हैं, तो पहले आपको दूसरा नियुक्त करना होगा (भाइयों की सूची में उसका कार्ड खोलें और “एडमिन” चालू करें)। अगर आप मंडली में अकेले व्यक्ति हैं, तो पूरी मंडली भी हट जाती है।</p>
+<figure class="medio" data-src="media/07-vincular-correo.mp4" data-tipo="video" data-desc="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)." data-alt="Menú → Ajustes → Mi cuenta → Vincular mi correo, hasta ver la cuenta vinculada (se puede pixelar el correo)."></figure>
+<div class="nota">खाता हटाने से मंडली की सदस्यता <strong>रद्द नहीं होती</strong>, अगर उसका भुगतान यही खाता करता है: वह App Store में <span class="plat i">iPhone</span> या Google Play → भुगतान और सदस्यताएँ → सदस्यताएँ में <span class="plat a">Android</span> रद्द की जाती है।</div>
+</section>
+<section id="copia-seguridad"><h2>21. बैकअप</h2>
+<p>यह मुख्य रूप से आपकी <strong>रिपोर्ट की एक अतिरिक्त कॉपी</strong> रखने के लिए है: भले ही वह डिवाइसों के बीच सिंक होती है, कॉपी आपको तब बचाती है जब आप उसे गलती से हटा दें। आप उसे <strong>मेन्यू → सेटिंग्स → बैकअप</strong> में पाएँगे।</p>
+<ul><li><strong>स्वचालित बैकअप</strong>: महीने में एक बार अपने-आप कॉपी बनाता है।</li><li><strong>“अभी कॉपी बनाएँ”</strong> y <strong>“बैकअप निर्यात करें”</strong>: आप फ़ाइल जहाँ चाहें सहेज सकते हैं या खुद को भेज सकते हैं।</li><li><strong>“बैकअप बहाल करें”</strong>: Wkit से निर्यात की गई फ़ाइल चुनें। कॉपी का डेटा आपके मौजूदा डेटा में <strong>जुड़ जाता है</strong> : कुछ भी नहीं हटता।</li></ul>
+<div class="nota"><span class="plat i">iPhone</span> स्वचालित कॉपी आपके iCloud में सहेजी जाती है। <span class="plat a">Android</span> यह फ़ोन में सहेजी जाती है और, अगर आपके Google खाते में Android का बैकअप चालू है (फ़ोन की सेटिंग्स → Google → बैकअप), तो उसी खाते से नए फ़ोन में लॉग-इन करने पर वह अपने-आप वापस आ जाती है।</div>
+<figure class="medio" data-src="media/21-copia-de-seguridad.mp4" data-tipo="video" data-desc="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)." data-alt="Menú → Ajustes → Copia de seguridad → Hacer copia ahora mismo → Exportar → Restaurar (con un archivo de prueba)."></figure>
+</section>
+<h2 class="grupo" id="g-549">एडमिन के लिए (प्राचीन)</h2>
+<section id="crear-congregacion"><h2>8. मंडली बनाना</h2>
+<p>इसे <strong>एक बार</strong> कोई प्राचीन करता है; फिर वह बाकी को न्योता देता है।</p>
+<ol class="pasos"><li>Wkit खोलें और <strong>“खाता बनाएँ या एडमिन के रूप में प्रवेश करें”</strong> पर टैप करें।</li><li>अपना ईमेल लिखें और <strong>“प्रवेश लिंक भेजें”</strong> पर टैप करें। पासवर्ड नहीं होते: आपके पास एक लिंक आता है जो पुष्टि करता है कि ईमेल आपका है।</li><li><strong>लिंक को उसी फ़ोन से खोलें।</strong> Wkit अपने-आप खुल जाता है।</li><li><strong>अपना नाम</strong>, <strong>मंडली का नाम</strong>, <strong>मंडली की संख्या</strong> और <strong>देश</strong> भरें और <strong>“मंडली बनाएँ”</strong> पर टैप करें।</li><li>आपको <strong>“प्राचीन के रूप में पहले कदम”</strong> दिखेंगे: 1) भाइयों की सूची में भाइयों को जोड़ें और 2) उन्हें न्योता दें।</li></ol>
+<figure class="medio" data-src="media/08-crear-congregacion.mp4" data-tipo="video" data-desc="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»." data-alt="Crear cuenta de administrador → introducir correo → (cortar mientras llega el correo) → abrir enlace → rellenar los datos de la congregación → «Primeros pasos»."></figure>
+<div class="nota">ईमेल नहीं आया? स्पैम फ़ोल्डर देखें और <strong>“नहीं आया, फिर भेजें”</strong> पर टैप करें। एक ईमेल का Wkit में सिर्फ़ एक खाता हो सकता है।</div>
+</section>
+<section id="hermanos"><h2>9. भाइयों की सूची</h2>
+<p>यह हर चीज़ की बुनियाद है: कार्यक्रम, समूह और ज़िम्मेदारियाँ इसी सूची के नामों का इस्तेमाल करते हैं। यह <strong>मेन्यू → भाइयों की सूची</strong> में है।</p>
+<h3>भाई को जोड़ना</h3>
+<ol class="pasos"><li><strong>+</strong> बटन (<strong>“नया भाई”</strong>) पर टैप करें।</li><li><strong>नाम</strong> लिखें और चुनें कि वह <strong>भाई</strong> है या <strong>बहन</strong>।</li><li>उसकी <strong>ज़िम्मेदारी</strong> चुनें: बपतिस्मा-प्राप्त या बिना बपतिस्मा वाला प्रचारक, पायनियर, सहायक सेवक या प्राचीन।</li><li>ज़रूरत हो तो उसका <strong>सेवा समूह</strong> चुनें और <strong>क्षेत्र सेवक</strong>, <strong>ऑडियो-वीडियो / अटेंडेंट</strong> या <strong>एडमिन</strong> चालू करें।</li><li><strong>“बनाएँ”</strong> पर टैप करें।</li></ol>
+<figure class="medio" data-src="media/09-anadir-hermano.mp4" data-tipo="video" data-desc="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano." data-alt="Lista de hermanos → + → rellenar nombre, género, responsabilidad, grupo → Crear. Mostrar también buscar un hermano."></figure>
+<div class="nota"><strong>एक ही नाम वाले दो भाई:</strong> कुछ ऐसा जोड़ें जो उन्हें अलग करे (जैसे “बेटा”) ताकि ज़िम्मेदारियाँ आपस में न मिलें।</div>
+<h3>किसी भाई को Wkit में न्योता देना</h3>
+<ol class="pasos"><li>भाई का कार्ड खोलें और <strong>“न्योता दें”</strong> (या <strong>“लिंक बनाएँ”</strong>) पर टैप करें।</li><li><strong>“न्योता साझा करें”</strong> पर टैप करें और WhatsApp, संदेश आदि चुनें। <strong>लगातार दो संदेश</strong> जाते हैं: पहले लिंक और फिर अकेला कोड, ताकि उसे कॉपी करना आसान हो।</li><li>भाई लिंक खोलता है (या कोड पेस्ट करता है) और अंदर आ जाता है। अगर वह अभी अंदर नहीं आया है, तो आप न्योता फिर से साझा कर सकते हैं; अगर आप नया बनाते हैं, तो पिछला काम करना बंद कर देता है।</li></ol>
+<figure class="medio" data-src="media/09-invitar-hermano.mp4" data-tipo="video" data-desc="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp." data-alt="Ficha de un hermano → Invitar → Compartir invitación → ver los dos mensajes en WhatsApp."></figure>
+<h3>बदलना, हटाना और एडमिन नियुक्त करना</h3>
+<ul><li>किसी भाई पर टैप करें और उसकी जानकारी बदलने के लिए <strong>“बदलें”</strong> चुनें।</li><li>Android पर हटाने के लिए उसकी पंक्ति में <strong>लाल आइकन</strong> पर टैप करें; iPhone पर पंक्ति को बाईं ओर खिसकाएँ। वह सभी डिवाइस पर सूची से हट जाता है और जो इलाके उसके पास थे, वे खाली हो जाते हैं।</li><li>एक <strong>एडमिन</strong> भाइयों, इलाकों, घोषणाओं और कार्यक्रम को सँभाल सकता है। <strong>आप अपना खुद का कार्ड या आखिरी एडमिन नहीं हटा सकते</strong>: पहले किसी और को नियुक्त करें।</li></ul>
+</section>
+<section id="grupos"><h2>10. सेवा समूह</h2>
+<p>समूह प्रचार सभाओं और सफ़ाई के लिए इस्तेमाल होते हैं। वे <strong>मेन्यू → सेवा समूह → सूची</strong> में हैं।</p>
+<ol class="pasos"><li>अगर कोई नहीं है, तो <strong>“सेवा समूह बनाएँ”</strong> पर टैप करें और चुनें कि आप <strong>कितने समूह</strong> चाहते हैं (बाद में <strong>+</strong> बटन से और जोड़ सकते हैं)।</li><li>भाइयों को उनके समूह में रखने के लिए <strong>भाइयों की सूची</strong> में जाएँ, हर एक का कार्ड खोलें और उसका <strong>सेवा समूह</strong> चुनें।</li><li><strong>मेन्यू → सेवा समूह → सूची</strong> में वापस जाएँ। आपको हर समूह में <strong>निगरान</strong>, <strong>सहायक</strong> और भाई <strong>वर्णमाला के क्रम में</strong> दिखेंगे।</li><li><strong>पेंसिल</strong> वाले बटन (बदलें) पर टैप करें। <strong>“निगरान”</strong> पर टैप करें और उस समूह के भाइयों में से एक चुनें; <strong>“सहायक”</strong> के साथ भी यही करें। यह एक ही व्यक्ति नहीं हो सकता।</li><li>पूरा करने के लिए <strong>टिक</strong> पर टैप करें।</li></ol>
+<figure class="medio" data-src="media/10-grupos-de-servicio.mp4" data-tipo="video" data-desc="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar." data-alt="Crear grupos → asignar hermanos desde la lista → volver a Grupos → Editar → elegir superintendente y auxiliar."></figure>
+<div class="nota">निगरान और सहायक भाइयों को बाँटने के <strong>बाद</strong> चुने जाते हैं, क्योंकि चुनाव सिर्फ़ उसी समूह के भाइयों में से हो सकता है। अगर आप किसी भाई को दूसरे समूह में डालते हैं, तो वह पिछले समूह का निगरान या सहायक नहीं रहता।</div>
+<div class="nota">हर समूह के निगरान और सहायक अपने समूह की <strong>सफ़ाई का दिन और समय रख सकते हैं</strong> (खंड 12), भले ही वे एडमिन न हों।</div>
+</section>
+<section id="salidas"><h2>11. प्रचार सभाएँ</h2>
+<p>प्रचार सभाएँ सेवा के लिए मिलने के समय और जगहें हैं। कुछ <strong>आम</strong> होती हैं (पूरी मंडली के लिए) और कुछ <strong>हर समूह की अपनी</strong>। वे <strong>मेन्यू → सेवा समूह → प्रचार सभाएँ</strong> में हैं। पहले आपको समूह बनाए हुए होने चाहिए।</p>
+<ol class="pasos"><li><strong>“मंडली”</strong> खंड (आम सभाएँ) या किसी <strong>समूह</strong> के खंड पर टैप करें।</li><li>सही दिन पर <strong>“सभा जोड़ें”</strong> पर टैप करें और <strong>लेबल</strong> (जैसे “सुबह” या “दोपहर बाद”), <strong>समय</strong> और चाहें तो <strong>जगह</strong> लिखें।</li><li>किसी सभा को <strong>बदलने</strong> के लिए उसके खाने सीधे बदलें। उसे <strong>हटाने</strong> के लिए उसकी पंक्ति में लाल आइकन पर टैप करें।</li><li>भाई जगह पर टैप करके उसे अपने फ़ोन के नक्शे में खोल सकते हैं।</li></ol>
+<div class="nota">अगर किसी समूह की अपनी सभाएँ नहीं हैं, तो मंडली की सभाएँ इस्तेमाल होती हैं (“अपनी सभाएँ नहीं — मंडली की इस्तेमाल करता है”)।</div>
+<figure class="medio" data-src="media/11-salidas-ministerio.mp4" data-tipo="video" data-desc="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador." data-alt="Menú → Salidas al Ministerio → añadir una salida general y una de un grupo con ubicación; mostrar cómo la ve un publicador."></figure>
+</section>
+<section id="limpieza"><h2>12. सफ़ाई: किस समूह की बारी है और कौन-सा दिन और समय</h2>
+<p>सफ़ाई सेवा समूहों के बीच <strong>अपने-आप घूमती है</strong>: हर हफ़्ते अलग समूह की बारी आती है, समूह 1 से शुरू करके। यह <strong>मेन्यू → सफ़ाई → समूह</strong> में है।</p>
+<h3>इस हफ़्ते कौन-सा समूह सफ़ाई करे, यह बदलना (एडमिन)</h3>
+<ol class="pasos"><li><strong>पेंसिल</strong> वाले बटन (बदलें) पर टैप करें।</li><li>उस <strong>समूह</strong> पर टैप करें जिसकी इस हफ़्ते बारी है। अगले हफ़्ते क्रम में अगले समूह की बारी होगी।</li><li><strong>टिक</strong> पर टैप करें। बदलाव मंडली के <strong>सभी डिवाइस</strong> देखते हैं।</li></ol>
+<h3>सही दिन और समय रखना (एडमिन, समूह के निगरान और सहायक)</h3>
+<ol class="pasos"><li><strong>मेन्यू → सफ़ाई → समूह</strong> में अपना समूह (या वह जिसे आप सँभालते हैं) ढूँढ़ें और उसकी पंक्ति की <strong>पेंसिल</strong> पर टैप करें।</li><li><strong>दिन</strong> और <strong>समय</strong> चुनें (जैसे रविवार 12:30 बजे) और <strong>“सेव करें”</strong> पर टैप करें। तारीख मिटाने के लिए <strong>“तारीख हटाएँ”</strong> पर टैप करें।</li><li>उस समूह के भाई इसे अपनी होम स्क्रीन पर देखेंगे: <strong>“समूह 1 · इस हफ़्ते”</strong> और उसके नीचे <strong>“रविवार 12:30”</strong>, रिमाइंडर लगाने के लिए अपनी <strong>घंटी</strong> के साथ।</li></ol>
+<figure class="medio" data-src="media/12-limpieza-fecha.mp4" data-tipo="video" data-desc="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana." data-alt="Menú → Limpieza → lápiz de un grupo → elegir día y hora → Guardar. Después, mostrar la pantalla de inicio de un hermano de ese grupo con el día y la hora y la campana."></figure>
+<div class="nota">तारीख होम स्क्रीन पर तभी दिखती है जब वह <strong>चालू हफ़्ते</strong> (सोमवार से रविवार) में पड़े। आप उसे पहले से रख सकते हैं: वह उस हफ़्ते के आने पर दिखेगी। बीते हफ़्तों की तारीखें अपने-आप मिट जाती हैं।</div>
+</section>
+<section id="vida-ministerio"><h2>13. जीवन और सेवा कार्यक्रम</h2>
+<p><strong>कार्यक्रम → जीवन और सेवा</strong> टैब में आप हर हफ़्ते का कार्यक्रम बनाते हैं और भाग सौंपते हैं। सब भाई उसे देखते हैं; उसे सिर्फ़ एडमिन बदलते हैं।</p>
+<ol class="pasos"><li><strong>“नया हफ़्ता”</strong> पर टैप करें और <strong>सभा की तारीख</strong> चुनें (उस हफ़्ते का कोई भी दिन, सोमवार से रविवार)।</li><li>Wkit हफ़्ते को <strong>आम ढाँचे</strong> के साथ बनाता है: पाएँ बाइबल का खज़ाना, बढ़ाएँ प्रचार करने का हुनर और जीएँ मसीहियों की तरह।</li><li>किसी भी <strong>शीर्षक</strong> पर टैप करके उसे बदलें, और ज़रूरत हो तो <strong>अवधि</strong> भी। <strong>“ज़िम्मेदारी जोड़ें”</strong> से आप और भाग जोड़ सकते हैं।</li><li>हर भाग में <strong>“चुनें”</strong> पर टैप करें और भाई या भाइयों को चुनें (जैसे विद्यार्थी और सहायक)। <strong>सहायक कक्षा</strong> के लिए <strong>“सहायक कक्षा जोड़ें”</strong> इस्तेमाल करें।</li><li><strong>गीत</strong> और <strong>प्रार्थनाएँ</strong> भी चुनें और <strong>“कार्यक्रम सेव करें”</strong> पर टैप करें।</li></ol>
+<figure class="medio" data-src="media/13-programa-vida-ministerio.mp4" data-tipo="video" data-desc="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa." data-alt="Programa → Vida y Ministerio → Nueva semana → fecha → editar un título → elegir participantes → canciones y oraciones → Guardar programa."></figure>
+<ul><li>दूसरा हफ़्ता देखने के लिए <strong>हफ़्ता चुनने वाला</strong> इस्तेमाल करें (<strong>“पिछला हफ़्ता”</strong> / <strong>“अगला हफ़्ता”</strong>); वहीं से आप उसे <strong>बदल या हटा</strong> भी सकते हैं।</li><li>भाइयों को जब कोई भाग सौंपा जाता है तो उन्हें <strong>सूचना</strong> मिलती है, और वे उसे अपनी होम स्क्रीन पर देखते हैं।</li><li>हफ़्ते का कार्यक्रम रविवार खत्म होने पर अपने-आप हट जाता है।</li></ul>
+</section>
+<section id="reunion-publica"><h2>14. सार्वजनिक सभा</h2>
+<p><strong>कार्यक्रम → सार्वजनिक सभा</strong> में सप्ताहांत की हर सभा तैयार की जाती है।</p>
+<ol class="pasos"><li><strong>“नई सार्वजनिक सभा”</strong> पर टैप करें और <strong>तारीख</strong> चुनें। अगर उस तारीख की सभा पहले से है, तो Wkit आपको बता देता है।</li><li><strong>अध्यक्ष</strong>, <strong>वक्ता</strong> चुनें और <strong>भाषण का शीर्षक</strong> लिखें।</li><li><strong>प्रहरीदुर्ग का पाठक</strong> (“पाठक wS”) और <strong>गीत</strong> व <strong>प्रार्थनाएँ</strong> चुनें।</li><li>सेव करें। भाई अपने भाग होम स्क्रीन पर देखते हैं।</li></ol>
+<figure class="medio" data-src="media/14-reunion-publica.mp4" data-tipo="video" data-desc="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar." data-alt="Programa → Reunión Pública → Nueva Reunión Pública → rellenar presidente, discursante, título, lector wS → Guardar."></figure>
+</section>
+<section id="audio-video"><h2>15. ऑडियो-वीडियो / अटेंडेंट</h2>
+<p><strong>मेन्यू → ऑडियो-वीडियो / अटेंडेंट</strong> में आप हर हफ़्ते की ज़िम्मेदारियाँ सौंपते हैं: ऑडियो, वीडियो, माइक्रोफ़ोन, अटेंडेंट, Zoom, समय देखना…</p>
+<ol class="pasos"><li><strong>“नया हफ़्ता”</strong> पर टैप करें और <strong>सभा की तारीख</strong> चुनें।</li><li>हर ज़िम्मेदारी में <strong>“चुनें”</strong> पर टैप करें और भाई को चुनें। कुछ में, जैसे माइक्रोफ़ोन, <strong>कई भाई</strong> हो सकते हैं (<strong>“भाई जोड़ें”</strong>)।</li><li>किसी और ज़िम्मेदारी के लिए जो सूची में नहीं है, <strong>“ज़िम्मेदारी जोड़ें”</strong> पर टैप करें और उसे नाम दें।</li><li>सेव करें। हर भाई उसे अपनी होम स्क्रीन पर <strong>ज़िम्मेदारियाँ</strong> में अपनी घंटी के साथ देखता है।</li></ol>
+<figure class="medio" data-src="media/15-audio-video.mp4" data-tipo="video" data-desc="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar." data-alt="Menú → Audio y Vídeo / Acomodadores → Nueva semana → elegir hermanos → añadir una responsabilidad nueva → Guardar."></figure>
+</section>
+<section id="otros-programas"><h2>16. दूसरे कार्यक्रम</h2>
+<p><strong>किसी भी और चीज़</strong> के लिए जो मंडली आयोजित करती है और सभा नहीं है: जैसे जो भाई आ नहीं सकते उनके लिए गाड़ी का इंतज़ाम या प्रचारकों की मदद। हर कार्यक्रम की अपनी आवृत्ति होती है। यह <strong>मेन्यू → दूसरे कार्यक्रम</strong> में है।</p>
+<ol class="pasos"><li><strong>“नया कार्यक्रम”</strong> पर टैप करें। <strong>नाम</strong> लिखें और चुनें कि वह <strong>कितनी बार आयोजित होता है</strong>: रोज़, हफ़्ते में, महीने में या साल में।</li><li><strong>“पहला हफ़्ता बनाएँ”</strong> (या <strong>“नई अवधि”</strong>) पर टैप करें और तारीख चुनें: उस हफ़्ते, महीने या साल का कोई भी दिन।</li><li><strong>“ज़िम्मेदारी जोड़ें”</strong> पर टैप करें: एक वैकल्पिक <strong>लेबल</strong> लिखें (जैसे “जल्दी लेने जाता है”) और <strong>भाई या बहन को चुनें</strong>।</li><li>सेव करें। हर व्यक्ति इसे अपनी होम स्क्रीन पर <strong>“दूसरे कार्यक्रम”</strong> में देखता है, और अवधि खत्म होने पर अपने-आप हट जाती है।</li></ol>
+<figure class="medio" data-src="media/16-otros-programas.mp4" data-tipo="video" data-desc="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar." data-alt="Menú → Otros programas → Nuevo programa (p. ej. transporte, por semana) → primera semana → añadir responsabilidad con etiqueta → Guardar."></figure>
+</section>
+<section id="anuncios"><h2>17. घोषणाएँ</h2>
+<p>घोषणाएँ एडमिन बनाते हैं और, सिर्फ़ अपने समूह के लिए, हर सेवा समूह के निगरान और सहायक। उन्हें वे भाई देखते हैं जिनके लिए वे हैं। वे <strong>मेन्यू → घोषणाएँ</strong> में हैं।</p>
+<ol class="pasos"><li><strong>“नई घोषणा”</strong> पर टैप करें और <strong>संदेश</strong> लिखें।</li><li>डिफ़ॉल्ट रूप से वह <strong>तुरंत</strong> प्रकाशित होती है, जैसे ही आप सेव करते हैं, और सबको सूचना जाती है।</li><li>अगर आप चाहते हैं कि वह बाद में निकले, तो <strong>“बाद के लिए तय करें”</strong> चालू करें और <strong>तारीख और समय</strong> चुनें: तब तक उसे कोई नहीं देखेगा, और उस समय सबको सूचना जाएगी।</li><li>सेव करें। किसी घोषणा को हटाने के लिए उस पर टैप करें और <strong>“हटाएँ”</strong> चुनें: वह सबके लिए गायब हो जाती है।</li></ol>
+<h3>सिर्फ़ एक समूह के लिए घोषणाएँ</h3>
+<ul><li>हर सेवा समूह के <strong>निगरान</strong> और <strong>सहायक</strong> को <strong>+</strong> बटन दिखता है, भले ही वे एडमिन न हों, और उनकी घोषणाएँ <strong>सिर्फ़ उनके समूह के सदस्यों</strong> तक पहुँचती हैं।</li><li>जिस एडमिन का भी समूह है, वह घोषणा बनाते समय <strong>“यह घोषणा सिर्फ़ मेरे समूह के सदस्यों को भेजें”</strong> चालू कर सकता है।</li></ul>
+<figure class="medio" data-src="media/17-anuncios.mp4" data-tipo="video" data-desc="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil." data-alt="Menú → Anuncios → Nuevo anuncio → escribir mensaje → publicarlo; y después uno programado para más tarde. Mostrar la notificación en otro móvil."></figure>
+</section>
+<section id="calendario"><h2>22. मंडली का कैलेंडर</h2>
+<p>इससे सब लोग मंडली के कार्यक्रम देख पाते हैं, जैसे <strong>सर्किट सम्मेलन</strong> या <strong>सर्किट निगरान का दौरा</strong>। इन्हें सिर्फ़ एडमिन बनाते हैं।</p>
+<ol class="pasos"><li><strong>मेन्यू → कैलेंडर</strong> खोलें और <strong>“कार्यक्रम जोड़ें”</strong> पर टैप करें।</li><li><strong>शीर्षक</strong> लिखें और कार्यक्रम के <strong>दिनों</strong> पर टैप करें: अगर वह कई दिन चलता है, तो हर दिन पर टैप करें।</li><li>सेव करें। सब उसे <strong>होम</strong> पर, “कैलेंडर” के नीचे, रिमाइंडर लगाने के लिए <strong>घंटी</strong> के साथ देखेंगे।</li><li>उसे बदलने या हटाने के लिए उसे खोलें और <strong>“कार्यक्रम बदलें”</strong> या <strong>“कार्यक्रम हटाएँ”</strong> चुनें।</li></ol>
+</section>
+<section id="territorios-admin"><h2>18. इलाके: सौंपना, अभियान और वेब पैनल</h2>
+<p>जिसके पास <strong>क्षेत्र सेवक</strong> की अनुमति है, वह <strong>इलाके</strong> टैब से पूरी मंडली के इलाके सँभालता है (प्रचारक सिर्फ़ अपने देखते हैं)।</p>
+<h3>इलाके सौंपना और वापस लेना</h3>
+<ul><li>किसी इलाके पर टैप करें और <strong>“सौंपें”</strong> (या “प्रचारक को सौंपें”) और भाई को चुनें। आप देखेंगे कि वह किसके पास है और कब से, और कौन-से <strong>समय-सीमा पार</strong> कर चुके हैं या <strong>कभी नहीं सौंपे गए</strong>।</li><li>जब कोई प्रचारक इलाका <strong>माँगता</strong> है, तो सभी क्षेत्र सेवकों को सूचना जाती है (<strong>“इलाके के अनुरोध”</strong>); जो सबसे पहले कर सकता है, वह उसे सौंप देता है।</li><li>जब कोई भाई इलाका <strong>सौंप देता</strong> है, तो वह खाली हो जाता है और तारीख दर्ज होती है।</li></ul>
+<h3>अभियान</h3>
+<ul><li><strong>“नया अभियान”</strong> एक खास अवधि के लिए सभी इलाकों को फिर से दर्ज करता है। मौजूदा इलाकों की एक <strong>कॉपी</strong> अलग बाँटने के लिए बनती है; सामान्य इलाकों को छुआ नहीं जाता।</li><li>एक समय में सिर्फ़ <strong>एक चालू अभियान</strong> हो सकता है। उसे खत्म करने के लिए <strong>“अभियान हटाएँ”</strong> चुनें: उसकी ज़िम्मेदारियाँ मिट जाती हैं और सब कुछ सामान्य हो जाता है।</li></ul>
+<h3>S-13 रिकॉर्ड और वेब पैनल</h3>
+<ul><li><strong>टूल</strong> में आप <strong>PDF में S-13 रिकॉर्ड</strong> (हर सेक्टर का एक) बनाकर साझा कर सकते हैं।</li><li><strong>इलाकों का वेब पैनल</strong> कंप्यूटर के ब्राउज़र से खुलता है। किसी क्षेत्र सेवक को पहुँच देने के लिए: भाइयों की सूची में उसका कार्ड खोलें और <strong>“पैनल की पहुँच”</strong> → <strong>“लिंक बनाएँ”</strong> पर टैप करें। लिंक निजी होता है; <strong>6 अंकों का पासवर्ड</strong>, जो आप चुनते हैं, डालकर अंदर जाया जाता है, और आप उसे कभी भी बदल सकते हैं।</li></ul>
+<figure class="medio" data-src="media/18-territorios-asignar.mp4" data-tipo="video" data-desc="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13." data-alt="Pestaña Territorios de un siervo de territorios → asignar un territorio → atender una solicitud → crear una campaña → generar el S-13."></figure>
+<figure class="medio" data-src="media/18-panel-web.mp4" data-tipo="video" data-desc="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)." data-alt="Ficha de un hermano → Acceso al panel → Generar enlace/contraseña → abrir el panel en el ordenador (pixelar el enlace)."></figure>
+<div class="nota">पैनल का लिंक पासवर्ड जैसा है: उसे उनके सिवा किसी से साझा न करें जिन्हें पहुँच मिलनी चाहिए। अगर आप नया बनाते हैं, तो पिछला काम करना बंद कर देता है।</div>
+</section>
+<section id="suscripcion"><h2>19. मंडली की सदस्यता</h2>
+<p>सभी भाइयों को पूरी पहुँच देने के लिए <strong>मंडली की सालाना सदस्यता</strong> चाहिए। <strong>इसका भुगतान एक एडमिन करता है और यह सभी भाइयों के लिए है</strong>, iPhone और Android दोनों पर। बाकी भाई कुछ नहीं देते।</p>
+<ol class="pasos"><li><strong>मेन्यू → सेटिंग्स → मंडली की सदस्यता</strong> खोलें।</li><li><strong>“मंडली की सदस्यता लें”</strong> पर टैप करें। पुष्टि से पहले आपको सालाना कीमत दिखेगी; अगर <strong>मुफ़्त आज़माइश</strong> है, तो उसके खत्म होने तक कुछ नहीं कटता।</li><li>App Store (iPhone) या Google Play (Android) से पुष्टि करें। हो गया: पूरी मंडली को पहुँच मिल गई।</li></ol>
+<figure class="medio" data-src="media/19-suscripcion.mp4" data-tipo="video" data-desc="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo." data-alt="Menú → Ajustes → Suscripción de la congregación → Suscribir (sin llegar a pagar, o con una cuenta de pruebas) y ver el estado activo."></figure>
+<ul><li>यह हर साल <strong>अपने-आप नवीनीकृत होती है</strong>, जब तक आप अवधि खत्म होने से कम-से-कम 24 घंटे पहले उसे रद्द न कर दें।</li><li>उसे <strong>सँभालने या रद्द करने</strong> के लिए: <span class="plat i">iPhone</span> iPhone की सेटिंग्स → आपका नाम → सदस्यताएँ; <span class="plat a">Android</span> Google Play → आपकी प्रोफ़ाइल → भुगतान और सदस्यताएँ → सदस्यताएँ (या Wkit में “Google Play में सँभालें या रद्द करें” बटन)।</li><li>अगर आप <strong>फ़ोन बदलते हैं</strong>, तो उसी स्क्रीन पर <strong>“खरीदारियाँ बहाल करें”</strong> पर टैप करें।</li><li>अगर सदस्यता <strong>खत्म हो जाती है</strong>, तो मंडली <strong>सिर्फ़ पढ़ने</strong> की स्थिति में चली जाती है: सब कुछ दिखता रहता है और <strong>कुछ भी नहीं हटता</strong>। नवीनीकरण होने पर फिर बदलाव किए जा सकते हैं।</li></ul>
+<div class="nota">Wkit कभी आपके भुगतान का डेटा न देखता है, न सहेजता है: उसे Apple या Google सँभालते हैं।</div>
+</section>
+<section id="copias"><h2>20. डेटा जो सिर्फ़ इसी फ़ोन में सहेजा है</h2>
+<p>अगर आपने Wkit को ऑफ़लाइन इस्तेमाल किया या आपकी मंडली के बनने से पहले, तो ऐप आपसे पूछ सकता है कि <strong>सिर्फ़ इसी फ़ोन में सहेजे गए डेटा</strong> (जैसे भाई या घोषणाएँ) का क्या करना है। आपके पास दो विकल्प हैं: उन्हें मंडली में <strong>“अपलोड करें”</strong> (सब उन्हें देखेंगे) या <strong>“छोड़ दें”</strong>। जब तक आप तय नहीं करते, कुछ नहीं किया जाता।</p>
+</section>
+      <div class="caja pie"><strong>जो ढूँढ़ रहे हैं वह नहीं मिला?</strong> हमें यहाँ लिखें: <a href="mailto:titanestudiosorg@gmail.com">titanestudiosorg@gmail.com</a> और बताएँ कि क्या हो रहा है। हो सके तो बताएँ कि आप कौन-सा डिवाइस इस्तेमाल करते हैं (iPhone, iPad या Android) और आप क्या कर रहे थे।</div>
+    </main>
+    <script>
+      // Muestra los vídeos e imágenes que existen en la carpeta media/. Con ?borrador=1 se ven también
+      // los huecos de lo que todavía falta por grabar.
+      (function () {
+        var borrador = new URLSearchParams(location.search).get("borrador") === "1";
+        document.querySelectorAll("figure.medio").forEach(function (f) {
+          var src = f.getAttribute("data-src"), tipo = f.getAttribute("data-tipo");
+          var alt = f.getAttribute("data-alt") || "";
+          fetch(src, { method: "HEAD" }).then(function (r) {
+            if (!r.ok) throw new Error("no existe");
+            var el;
+            if (tipo === "video") {
+              el = document.createElement("video");
+              el.controls = true; el.playsInline = true; el.preload = "metadata"; el.setAttribute("aria-label", alt);
+              el.src = src;
+            } else {
+              el = document.createElement("img");
+              el.src = src; el.alt = alt; el.loading = "lazy";
+            }
+            f.appendChild(el); f.classList.add("listo");
+          }).catch(function () {
+            if (borrador) {
+              f.classList.add("pendiente");
+              f.textContent = (tipo === "video" ? "Falta el vídeo" : "Falta la imagen") + ": " + src + " — " + f.getAttribute("data-desc");
+            }
+          });
+        });
+      })();
+    
+    </script>
+  </body>
+</html>
